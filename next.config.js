@@ -1,38 +1,25 @@
 /** @type {import('next').NextConfig} */
-const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://tars-oauth-api.railway.app';
-
 const nextConfig = {
   reactStrictMode: true,
-  env: {
-    NEXT_PUBLIC_BACKEND_URL: backendUrl
-  },
   // Proxy backend requests through Vercel to bypass CORS issues
-  async rewrites() {
-    return {
-      beforeFiles: [
-        // Proxy health check and all backend API calls
-        {
-          source: '/health',
-          destination: `${backendUrl}/health`
-        },
-        {
-          source: '/api/:path*',
-          destination: `${backendUrl}/api/:path*`
-        },
-        {
-          source: '/auth/:path*',
-          destination: `${backendUrl}/auth/:path*`
-        },
-        {
-          source: '/accounts/:path*',
-          destination: `${backendUrl}/accounts/:path*`
-        },
-        {
-          source: '/tokens/:path*',
-          destination: `${backendUrl}/tokens/:path*`
-        }
-      ]
-    };
+  rewrites: {
+    beforeFiles: [
+      // Proxy health check to backend
+      {
+        source: '/health',
+        destination: 'https://tars-oauth-api.railway.app/health'
+      },
+      // Proxy auth endpoints
+      {
+        source: '/auth/:path*',
+        destination: 'https://tars-oauth-api.railway.app/auth/:path*'
+      },
+      // Proxy API endpoints
+      {
+        source: '/api/:path*',
+        destination: 'https://tars-oauth-api.railway.app/api/:path*'
+      }
+    ]
   }
 }
 
