@@ -1,3 +1,4 @@
+// Health check API route proxy
 export default async function handler(req, res) {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://tars-oauth-api.railway.app';
   
