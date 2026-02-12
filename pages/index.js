@@ -8,7 +8,8 @@ export default function Home() {
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/health`, {
+        // Use local proxy path (rewritten by next.config.js)
+        const res = await fetch('/health', {
           headers: {
             'Accept': 'text/plain'
           }
@@ -20,6 +21,7 @@ export default function Home() {
           setStatus('Backend connection failed')
         }
       } catch (error) {
+        console.error('Health check error:', error)
         setStatus('Backend unreachable')
       }
     }
@@ -27,18 +29,18 @@ export default function Home() {
   }, [])
 
   const handleGoogleLogin = () => {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
-    window.location.href = `${backendUrl}/auth/google`
+    // Use local proxy path (rewritten by next.config.js)
+    window.location.href = '/auth/google'
   }
 
   const handleGithubLogin = () => {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
-    window.location.href = `${backendUrl}/auth/github`
+    // Use local proxy path (rewritten by next.config.js)
+    window.location.href = '/auth/github'
   }
 
   const handleMicrosoftLogin = () => {
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
-    window.location.href = `${backendUrl}/auth/microsoft`
+    // Use local proxy path (rewritten by next.config.js)
+    window.location.href = '/auth/microsoft'
   }
 
   return (
@@ -84,7 +86,7 @@ export default function Home() {
 
           <div className={styles.footer}>
             <p>Secure authentication powered by TARS</p>
-            <p className={styles.version}>Frontend v1.0.0 | Backend: {process.env.NEXT_PUBLIC_BACKEND_URL}</p>
+            <p className={styles.version}>Frontend v1.0.0 | Backend: {process.env.NEXT_PUBLIC_BACKEND_URL} (proxied)</p>
           </div>
         </div>
       </main>
