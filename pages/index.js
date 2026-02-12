@@ -8,8 +8,8 @@ export default function Home() {
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        // Use local proxy path (rewritten by next.config.js)
-        const res = await fetch('/health', {
+        // Use API route proxy
+        const res = await fetch('/api/health', {
           headers: {
             'Accept': 'text/plain'
           }
@@ -29,18 +29,18 @@ export default function Home() {
   }, [])
 
   const handleGoogleLogin = () => {
-    // Use local proxy path (rewritten by next.config.js)
-    window.location.href = '/auth/google'
+    // Use API route proxy
+    window.location.href = '/api/auth/google'
   }
 
   const handleGithubLogin = () => {
-    // Use local proxy path (rewritten by next.config.js)
-    window.location.href = '/auth/github'
+    // Use API route proxy
+    window.location.href = '/api/auth/github'
   }
 
   const handleMicrosoftLogin = () => {
-    // Use local proxy path (rewritten by next.config.js)
-    window.location.href = '/auth/microsoft'
+    // Use API route proxy
+    window.location.href = '/api/auth/microsoft'
   }
 
   return (
