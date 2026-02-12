@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://tars-oauth-api.railway.app';
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || process.env.BACKEND_URL || 'https://tars-oauth-api.railway.app';
   const { path = [] } = req.query;
   const pathString = Array.isArray(path) ? path.join('/') : path;
   
@@ -9,33 +9,47 @@ export default async function handler(req, res) {
     // Forward query parameters
     Object.entries(req.query).forEach(([key, value]) => {
       if (key !== 'path') {
-        url.searchParams.append(key, value);
+        if (Array.isArray(value)) {
+          value.forEach(v => url.searchParams.append(key, v));
+        } else {
+          url.searchParams.append(key, value);
+        }
       }
     });
+    
+    console.log(`[OAuth] Proxying ${req.method} ${url.toString()}`);
     
     const response = await fetch(url.toString(), {
       method: req.method,
       headers: {
         'Content-Type': 'application/json',
-        // Forward important headers
         'User-Agent': req.headers['user-agent'] || '',
         'Accept': req.headers['accept'] || 'application/json',
         ...(req.headers['cookie'] && { 'Cookie': req.headers['cookie'] })
       },
-      body: req.method !== 'GET' && req.body ? JSON.stringify(req.body) : undefined,
+      body: req.method !== 'GET' && req.method !== 'HEAD' && req.body ? JSON.stringify(req.body) : undefined,
       redirect: 'manual'
     });
     
-    // Copy response headers
+    // Copy response headers (but exclude hop-by-hop headers)
+    const headersToSkip = [
+      'transfer-encoding', 
+      'content-encoding',
+      'connection',
+      'keep-alive',
+      'upgrade'
+    ];
+    
     response.headers.forEach((value, key) => {
-      if (!['transfer-encoding', 'content-encoding'].includes(key)) {
+      if (!headersToSkip.includes(key.toLowerCase())) {
         res.setHeader(key, value);
       }
     });
     
-    // Handle redirects (for OAuth redirects)
-    if (response.status === 301 || response.status === 302 || response.status === 303 || response.status === 307 || response.status === 308) {
+    // Handle redirects (3xx responses) - especially important for OAuth flows
+    if ([301, 302, 303, 307, 308].includes(response.status)) {
       const location = response.headers.get('location');
+      console.log(`[OAuth] Redirect to: ${location}`);
       if (location) {
         res.status(response.status).setHeader('Location', location).end();
         return;

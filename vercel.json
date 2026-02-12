@@ -1,7 +1,10 @@
 {
-  "env": {
-    "NEXT_PUBLIC_BACKEND_URL": "https://tars-oauth-api.railway.app"
-  },
   "buildCommand": "npm run build",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "env": [
+    {
+      "key": "NEXT_PUBLIC_BACKEND_URL",
+      "value": "https://tars-oauth-api.railway.app"
+    }
+  ]
 }
