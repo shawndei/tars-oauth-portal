@@ -30,17 +30,17 @@ export default function Home() {
 
   const handleGoogleLogin = () => {
     // Use API route proxy
-    window.location.href = '/api/auth/google'
+    window.location.href = '/api/oauth?provider=google'
   }
 
   const handleGithubLogin = () => {
     // Use API route proxy
-    window.location.href = '/api/auth/github'
+    window.location.href = '/api/oauth?provider=github'
   }
 
   const handleMicrosoftLogin = () => {
     // Use API route proxy
-    window.location.href = '/api/auth/microsoft'
+    window.location.href = '/api/oauth?provider=microsoft'
   }
 
   return (
