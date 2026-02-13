@@ -1,0 +1,47 @@
+{
+  "captcha": {
+    "enabled": true,
+    "service": "2captcha",
+    "timeout": 120000,
+    "autoSolve": true,
+    "retries": 3
+  },
+  "auth": {
+    "sessionDir": "~/.openclaw/browser-sessions",
+    "sessionTTL": 86400000,
+    "autoSaveSession": true
+  },
+  "forms": {
+    "validateFields": true,
+    "retryOnError": true,
+    "maxRetries": 3,
+    "typeDelay": 0,
+    "clearBeforeFill": true
+  },
+  "waits": {
+    "defaultTimeout": 30000,
+    "pollInterval": 500,
+    "networkIdleTimeout": 2000,
+    "networkIdleMaxInflight": 0
+  },
+  "visual": {
+    "screenshotDir": "./screenshots",
+    "diffThreshold": 0.02,
+    "saveBaselines": true,
+    "saveDiffs": true
+  },
+  "browser": {
+    "headless": false,
+    "slowMo": 0,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "userAgent": null
+  },
+  "recovery": {
+    "maxAttempts": 3,
+    "screenshotOnError": true,
+    "resetOnError": false
+  }
+}

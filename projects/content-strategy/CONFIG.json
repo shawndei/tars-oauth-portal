@@ -1,0 +1,25 @@
+{
+  "name": "content-strategy",
+  "archived": false,
+  "template": "writing",
+  "created": "2026-02-13T09:31:00Z",
+  "modified": "2026-02-13T09:31:00Z",
+  "description": "Blog content strategy and editorial calendar",
+  "tags": ["content", "writing", "blog", "seo"],
+  "settings": {
+    "contextIsolation": true,
+    "autoArchiveAfterDays": null,
+    "maxMemorySize": "50MB",
+    "collaborators": [
+      "Sarah Martinez (Content Lead)",
+      "James Kim (Technical Writer)",
+      "Alicia Brown (SEO Specialist)"
+    ]
+  },
+  "metadata": {
+    "tasksCount": 8,
+    "completedTasks": 2,
+    "filesCount": 4,
+    "lastActivity": "2026-02-13T09:31:00Z"
+  }
+}

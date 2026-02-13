@@ -1,0 +1,12 @@
+{
+  "name": "rate-limiter",
+  "version": "1.0.0",
+  "description": "Rate limiting and quota management with graceful degradation",
+  "main": "rate-limiter.js",
+  "scripts": {
+    "test": "echo \"Tests pending\" && exit 0"
+  },
+  "keywords": ["rate-limiting", "quota", "budget", "throttling"],
+  "author": "TARS",
+  "license": "MIT"
+}

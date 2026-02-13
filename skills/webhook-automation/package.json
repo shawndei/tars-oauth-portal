@@ -1,0 +1,13 @@
+{
+  "name": "webhook-automation",
+  "version": "1.0.0",
+  "description": "Webhook server for external service integration",
+  "main": "webhook-server.js",
+  "scripts": {
+    "start": "node webhook-server.js",
+    "test": "echo \"Tests pending\" && exit 0"
+  },
+  "keywords": ["webhook", "automation", "zapier", "make", "n8n"],
+  "author": "TARS",
+  "license": "MIT"
+}

@@ -1,0 +1,36 @@
+{
+  "messages": [
+    {
+      "messageId": "msg-1771001000624-b55bc8cd",
+      "from": "coordinator",
+      "to": "researcher",
+      "type": "task-assignment",
+      "payload": {
+        "taskId": "test-msg-task",
+        "instruction": "Test message passing",
+        "priority": "high"
+      },
+      "timestamp": 1771001000624,
+      "status": "sent"
+    },
+    {
+      "messageId": "msg-1771003650225-fe87fec5",
+      "from": "coordinator",
+      "to": "researcher",
+      "type": "task-assignment",
+      "payload": {
+        "taskId": "test-msg-task",
+        "instruction": "Test message passing",
+        "priority": "high"
+      },
+      "timestamp": 1771003650225,
+      "status": "sent"
+    }
+  ],
+  "inbox": {
+    "researcher": [
+      "msg-1771001000624-b55bc8cd",
+      "msg-1771003650225-fe87fec5"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "self-healing",
+  "version": "1.0.0",
+  "description": "Automatic error recovery with adaptive strategies",
+  "main": "self-healing.js",
+  "scripts": {
+    "test": "echo \"Tests pending\" && exit 0"
+  },
+  "keywords": ["error", "recovery", "self-healing", "resilience"],
+  "author": "TARS",
+  "license": "MIT"
+}

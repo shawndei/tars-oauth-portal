@@ -1,0 +1,889 @@
+{
+  "topic": "renewable energy technologies",
+  "depth": 3,
+  "maxSources": 30,
+  "startTime": "2026-02-13T19:27:31.813Z",
+  "sources": [
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-1",
+      "title": "renewable energy technologies research study - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies research study",
+      "searchQuery": "renewable energy technologies research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-2",
+      "title": "renewable energy technologies research study - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies research study",
+      "searchQuery": "renewable energy technologies research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-3",
+      "title": "renewable energy technologies research study - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies research study",
+      "searchQuery": "renewable energy technologies research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-4",
+      "title": "renewable energy technologies research study - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies research study",
+      "searchQuery": "renewable energy technologies research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-5",
+      "title": "renewable energy technologies research study - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies research study",
+      "searchQuery": "renewable energy technologies research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-1",
+      "title": "renewable energy technologies case study - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies case study",
+      "searchQuery": "renewable energy technologies case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-2",
+      "title": "renewable energy technologies case study - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies case study",
+      "searchQuery": "renewable energy technologies case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-3",
+      "title": "renewable energy technologies case study - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies case study",
+      "searchQuery": "renewable energy technologies case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-4",
+      "title": "renewable energy technologies case study - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies case study",
+      "searchQuery": "renewable energy technologies case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-5",
+      "title": "renewable energy technologies case study - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies case study",
+      "searchQuery": "renewable energy technologies case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-1",
+      "title": "renewable energy technologies - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies",
+      "searchQuery": "renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-2",
+      "title": "renewable energy technologies - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies",
+      "searchQuery": "renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-3",
+      "title": "renewable energy technologies - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies",
+      "searchQuery": "renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-4",
+      "title": "renewable energy technologies - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies",
+      "searchQuery": "renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-5",
+      "title": "renewable energy technologies - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies",
+      "searchQuery": "renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-1",
+      "title": "renewable energy technologies comprehensive guide - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies comprehensive guide",
+      "searchQuery": "renewable energy technologies comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-2",
+      "title": "renewable energy technologies comprehensive guide - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies comprehensive guide",
+      "searchQuery": "renewable energy technologies comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-3",
+      "title": "renewable energy technologies comprehensive guide - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies comprehensive guide",
+      "searchQuery": "renewable energy technologies comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-4",
+      "title": "renewable energy technologies comprehensive guide - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies comprehensive guide",
+      "searchQuery": "renewable energy technologies comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-5",
+      "title": "renewable energy technologies comprehensive guide - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies comprehensive guide",
+      "searchQuery": "renewable energy technologies comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comparison-analysis-1",
+      "title": "renewable energy technologies comparison analysis - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies comparison analysis",
+      "searchQuery": "renewable energy technologies comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comparison-analysis-2",
+      "title": "renewable energy technologies comparison analysis - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies comparison analysis",
+      "searchQuery": "renewable energy technologies comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comparison-analysis-3",
+      "title": "renewable energy technologies comparison analysis - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies comparison analysis",
+      "searchQuery": "renewable energy technologies comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comparison-analysis-4",
+      "title": "renewable energy technologies comparison analysis - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies comparison analysis",
+      "searchQuery": "renewable energy technologies comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-comparison-analysis-5",
+      "title": "renewable energy technologies comparison analysis - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies comparison analysis",
+      "searchQuery": "renewable energy technologies comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-renewable-energy-technologies-1",
+      "title": "best renewable energy technologies - Result 1",
+      "description": "Mock description for result 1 about best renewable energy technologies",
+      "searchQuery": "best renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-renewable-energy-technologies-2",
+      "title": "best renewable energy technologies - Result 2",
+      "description": "Mock description for result 2 about best renewable energy technologies",
+      "searchQuery": "best renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-renewable-energy-technologies-3",
+      "title": "best renewable energy technologies - Result 3",
+      "description": "Mock description for result 3 about best renewable energy technologies",
+      "searchQuery": "best renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-renewable-energy-technologies-4",
+      "title": "best renewable energy technologies - Result 4",
+      "description": "Mock description for result 4 about best renewable energy technologies",
+      "searchQuery": "best renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-renewable-energy-technologies-5",
+      "title": "best renewable energy technologies - Result 5",
+      "description": "Mock description for result 5 about best renewable energy technologies",
+      "searchQuery": "best renewable energy technologies",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-pros-and-cons-1",
+      "title": "renewable energy technologies pros and cons - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies pros and cons",
+      "searchQuery": "renewable energy technologies pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-pros-and-cons-2",
+      "title": "renewable energy technologies pros and cons - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies pros and cons",
+      "searchQuery": "renewable energy technologies pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-pros-and-cons-3",
+      "title": "renewable energy technologies pros and cons - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies pros and cons",
+      "searchQuery": "renewable energy technologies pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-pros-and-cons-4",
+      "title": "renewable energy technologies pros and cons - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies pros and cons",
+      "searchQuery": "renewable energy technologies pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-pros-and-cons-5",
+      "title": "renewable energy technologies pros and cons - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies pros and cons",
+      "searchQuery": "renewable energy technologies pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-expert-review-1",
+      "title": "renewable energy technologies expert review - Result 1",
+      "description": "Mock description for result 1 about renewable energy technologies expert review",
+      "searchQuery": "renewable energy technologies expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-expert-review-2",
+      "title": "renewable energy technologies expert review - Result 2",
+      "description": "Mock description for result 2 about renewable energy technologies expert review",
+      "searchQuery": "renewable energy technologies expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-expert-review-3",
+      "title": "renewable energy technologies expert review - Result 3",
+      "description": "Mock description for result 3 about renewable energy technologies expert review",
+      "searchQuery": "renewable energy technologies expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-expert-review-4",
+      "title": "renewable energy technologies expert review - Result 4",
+      "description": "Mock description for result 4 about renewable energy technologies expert review",
+      "searchQuery": "renewable energy technologies expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-expert-review-5",
+      "title": "renewable energy technologies expert review - Result 5",
+      "description": "Mock description for result 5 about renewable energy technologies expert review",
+      "searchQuery": "renewable energy technologies expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/related).",
+      "title": "Citation",
+      "description": "Discovered via citation following",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 4 - Citation Following (Depth 3)"
+    }
+  ],
+  "findings": [],
+  "citations": [
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-1",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-research-study-1"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/related).",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-research-study-1",
+        "https://example.com/renewable-energy-technologies-research-study-2",
+        "https://example.com/renewable-energy-technologies-research-study-3",
+        "https://example.com/renewable-energy-technologies-research-study-4",
+        "https://example.com/renewable-energy-technologies-research-study-5",
+        "https://example.com/renewable-energy-technologies-case-study-1",
+        "https://example.com/renewable-energy-technologies-case-study-2",
+        "https://example.com/renewable-energy-technologies-case-study-3",
+        "https://example.com/renewable-energy-technologies-case-study-4",
+        "https://example.com/renewable-energy-technologies-case-study-5",
+        "https://example.com/renewable-energy-technologies-1",
+        "https://example.com/renewable-energy-technologies-2",
+        "https://example.com/renewable-energy-technologies-3",
+        "https://example.com/renewable-energy-technologies-4",
+        "https://example.com/renewable-energy-technologies-5"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-2",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-research-study-2"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-3",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-research-study-3"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-4",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-research-study-4"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-research-study-5",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-research-study-5"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-1",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-case-study-1"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-2",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-case-study-2"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-3",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-case-study-3"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-4",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-case-study-4"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-case-study-5",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-case-study-5"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-1",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-1"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-2",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-2"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-3",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-3"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-4",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-4"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/renewable-energy-technologies-5",
+      "discoveredBy": [
+        "https://example.com/renewable-energy-technologies-5"
+      ],
+      "depth": 1
+    }
+  ],
+  "metadata": {
+    "searchQueries": [
+      "renewable energy technologies",
+      "renewable energy technologies comprehensive guide",
+      "renewable energy technologies research study",
+      "renewable energy technologies comparison analysis",
+      "best renewable energy technologies",
+      "renewable energy technologies pros and cons",
+      "renewable energy technologies expert review",
+      "renewable energy technologies case study"
+    ],
+    "sourcesVisited": 16,
+    "sourcesAnalyzed": 15,
+    "citationsFollowed": 1,
+    "crossReferences": 0,
+    "failedFetches": 0
+  },
+  "synthesis": {
+    "executiveSummary": "Research on \"renewable energy technologies\" completed with 16 sources visited (15 deeply analyzed). Found 0 key findings with average source authority of 5.2/10. 1 citations followed and 0 cross-references validated. Research depth: 3.",
+    "keyFindings": [],
+    "detailedAnalysis": {
+      "totalFindings": 0,
+      "highConfidenceFindings": 0,
+      "mediumConfidenceFindings": 0,
+      "lowConfidenceFindings": 0
+    },
+    "sourceBibliography": [
+      {
+        "rank": 1,
+        "title": "renewable energy technologies research study - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-research-study-1",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 2,
+        "title": "renewable energy technologies research study - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-research-study-2",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 3,
+        "title": "renewable energy technologies research study - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-research-study-3",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 4,
+        "title": "renewable energy technologies research study - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-research-study-4",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 5,
+        "title": "renewable energy technologies research study - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-research-study-5",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 6,
+        "title": "renewable energy technologies case study - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-case-study-1",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 7,
+        "title": "renewable energy technologies case study - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-case-study-2",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 8,
+        "title": "renewable energy technologies case study - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-case-study-3",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 9,
+        "title": "renewable energy technologies case study - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-case-study-4",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 10,
+        "title": "renewable energy technologies case study - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-case-study-5",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 11,
+        "title": "renewable energy technologies - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 12,
+        "title": "renewable energy technologies - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 13,
+        "title": "renewable energy technologies - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 14,
+        "title": "renewable energy technologies - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 15,
+        "title": "renewable energy technologies - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 16,
+        "title": "renewable energy technologies comprehensive guide - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 17,
+        "title": "renewable energy technologies comprehensive guide - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 18,
+        "title": "renewable energy technologies comprehensive guide - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 19,
+        "title": "renewable energy technologies comprehensive guide - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 20,
+        "title": "renewable energy technologies comprehensive guide - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-comprehensive-guide-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 21,
+        "title": "renewable energy technologies comparison analysis - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-comparison-analysis-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 22,
+        "title": "renewable energy technologies comparison analysis - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-comparison-analysis-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 23,
+        "title": "renewable energy technologies comparison analysis - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-comparison-analysis-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 24,
+        "title": "renewable energy technologies comparison analysis - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-comparison-analysis-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 25,
+        "title": "renewable energy technologies comparison analysis - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-comparison-analysis-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 26,
+        "title": "best renewable energy technologies - Result 1",
+        "url": "https://example.com/best-renewable-energy-technologies-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 27,
+        "title": "best renewable energy technologies - Result 2",
+        "url": "https://example.com/best-renewable-energy-technologies-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 28,
+        "title": "best renewable energy technologies - Result 3",
+        "url": "https://example.com/best-renewable-energy-technologies-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 29,
+        "title": "best renewable energy technologies - Result 4",
+        "url": "https://example.com/best-renewable-energy-technologies-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 30,
+        "title": "best renewable energy technologies - Result 5",
+        "url": "https://example.com/best-renewable-energy-technologies-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 31,
+        "title": "renewable energy technologies pros and cons - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-pros-and-cons-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 32,
+        "title": "renewable energy technologies pros and cons - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-pros-and-cons-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 33,
+        "title": "renewable energy technologies pros and cons - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-pros-and-cons-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 34,
+        "title": "renewable energy technologies pros and cons - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-pros-and-cons-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 35,
+        "title": "renewable energy technologies pros and cons - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-pros-and-cons-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 36,
+        "title": "renewable energy technologies expert review - Result 1",
+        "url": "https://example.com/renewable-energy-technologies-expert-review-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 37,
+        "title": "renewable energy technologies expert review - Result 2",
+        "url": "https://example.com/renewable-energy-technologies-expert-review-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 38,
+        "title": "renewable energy technologies expert review - Result 3",
+        "url": "https://example.com/renewable-energy-technologies-expert-review-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 39,
+        "title": "renewable energy technologies expert review - Result 4",
+        "url": "https://example.com/renewable-energy-technologies-expert-review-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 40,
+        "title": "renewable energy technologies expert review - Result 5",
+        "url": "https://example.com/renewable-energy-technologies-expert-review-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 41,
+        "title": "Citation",
+        "url": "https://example.com/related).",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 4 - Citation Following (Depth 3)"
+      }
+    ],
+    "confidenceBreakdown": {
+      "high": [],
+      "medium": [],
+      "low": []
+    },
+    "methodology": {
+      "searchQueries": [
+        "renewable energy technologies",
+        "renewable energy technologies comprehensive guide",
+        "renewable energy technologies research study",
+        "renewable energy technologies comparison analysis",
+        "best renewable energy technologies",
+        "renewable energy technologies pros and cons",
+        "renewable energy technologies expert review",
+        "renewable energy technologies case study"
+      ],
+      "sourcesVisited": 16,
+      "sourcesAnalyzed": 15,
+      "citationsFollowed": 1,
+      "crossReferences": 0,
+      "failedFetches": 0,
+      "depth": 3
+    }
+  },
+  "endTime": "2026-02-13T19:27:31.814Z",
+  "durationMs": 1,
+  "durationMinutes": 0,
+  "status": "completed"
+}

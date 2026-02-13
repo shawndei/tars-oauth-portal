@@ -1,0 +1,139 @@
+{
+  "version": "1.0.0",
+  "tags": {
+    "ai-systems": {
+      "count": 0,
+      "related_tags": ["automation", "agents", "memory", "optimization"],
+      "color": "#9b59b6",
+      "description": "AI system architecture and design patterns"
+    },
+    "automation": {
+      "count": 0,
+      "related_tags": ["ai-systems", "webhooks", "integrations"],
+      "color": "#1abc9c",
+      "description": "Automation workflows and execution"
+    },
+    "trading": {
+      "count": 0,
+      "related_tags": ["options", "market-mechanics", "hedging", "volatility"],
+      "color": "#3498db",
+      "description": "Trading strategies and market analysis"
+    },
+    "options": {
+      "count": 0,
+      "related_tags": ["trading", "hedging", "volatility", "greeks"],
+      "color": "#e74c3c",
+      "description": "Options pricing and strategies"
+    },
+    "health": {
+      "count": 0,
+      "related_tags": ["supplements", "fitness", "optimization"],
+      "color": "#2ecc71",
+      "description": "Health and wellness protocols"
+    },
+    "lifestyle": {
+      "count": 0,
+      "related_tags": ["travel", "wine", "dining"],
+      "color": "#f39c12",
+      "description": "Lifestyle and leisure preferences"
+    },
+    "investment": {
+      "count": 0,
+      "related_tags": ["financial", "portfolio", "valuation"],
+      "color": "#16a085",
+      "description": "Investment philosophy and analysis"
+    },
+    "psychology": {
+      "count": 0,
+      "related_tags": ["decision-making", "cognitive-models"],
+      "color": "#8e44ad",
+      "description": "Psychological insights and decision-making"
+    },
+    "shawn": {
+      "count": 0,
+      "related_tags": ["preferences", "investment", "psychology"],
+      "color": "#34495e",
+      "description": "Shawn-specific information"
+    },
+    "rachael": {
+      "count": 0,
+      "related_tags": ["health", "lifestyle", "family"],
+      "color": "#c0392b",
+      "description": "Rachael-specific information"
+    }
+  },
+  "relationships": [
+    {
+      "source": "dealer-gamma",
+      "target": "market-microstructure",
+      "type": "related",
+      "strength": "strong",
+      "description": "Dealer gamma is a key component of market microstructure",
+      "created": "2026-02-13T08:24:00Z"
+    },
+    {
+      "source": "portfolio-hedging",
+      "target": "options-strategies",
+      "type": "implements",
+      "strength": "strong",
+      "description": "Options are primary hedging instruments",
+      "created": "2026-02-13T08:24:00Z"
+    },
+    {
+      "source": "ai-systems",
+      "target": "autonomous-agents",
+      "type": "extends",
+      "strength": "medium",
+      "description": "AI systems often employ autonomous agents",
+      "created": "2026-02-13T08:24:00Z"
+    },
+    {
+      "source": "health-optimization",
+      "target": "supplement-protocols",
+      "type": "related",
+      "strength": "medium",
+      "description": "Supplements are part of health optimization",
+      "created": "2026-02-13T08:24:00Z"
+    },
+    {
+      "source": "decision-making-model",
+      "target": "investment-philosophy",
+      "type": "implements",
+      "strength": "strong",
+      "description": "Shawn's decision-making informs his investment approach",
+      "created": "2026-02-13T08:24:00Z"
+    }
+  ],
+  "relationship_types": [
+    {
+      "type": "related",
+      "description": "Generally related or similar topics"
+    },
+    {
+      "type": "implements",
+      "description": "One topic implements or applies another"
+    },
+    {
+      "type": "extends",
+      "description": "One topic extends or builds upon another"
+    },
+    {
+      "type": "contradicts",
+      "description": "Topics present opposing views"
+    },
+    {
+      "type": "depends_on",
+      "description": "One topic depends on understanding another"
+    },
+    {
+      "type": "references",
+      "description": "One topic references another"
+    }
+  ],
+  "metadata": {
+    "created": "2026-02-13T08:24:00Z",
+    "last_updated": "2026-02-13T08:24:00Z",
+    "total_tags": 10,
+    "total_relationships": 5
+  }
+}

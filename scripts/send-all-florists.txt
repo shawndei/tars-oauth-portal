@@ -1,0 +1,28 @@
+# FLORIST SMS AUTOMATION - 11 MESSAGES
+# Execute as soon as browser is available
+
+FLORISTS = [
+    {"name": "La Floristería", "phone": "526241220663"},
+    {"name": "Cabo Flowers & Cakes", "phone": "526241051451"},
+    {"name": "Emporio Arte Floral (CSL)", "phone": "526241435604"},
+    {"name": "Emporio Arte Floral (SJC)", "phone": "526241435604"},
+    {"name": "Areté Florals", "phone": "526241438593"},
+    {"name": "Areté Florals (alt)", "phone": "526241750364"},
+    {"name": "Baja Flowers", "phone": "526241434088"},
+    {"name": "Florería Patricia", "phone": "526241430718"},
+    {"name": "Florenta Flower Design", "phone": "526241721720"},
+    {"name": "Mrs. Flowers", "phone": "525518784901"},
+    {"name": "Floreria Alba's", "phone": "526241281166"}
+]
+
+MESSAGE = "Hola, necesito cotizar 2 docenas de rosas rosadas de tallo largo para entrega el 14 feb a Campestre SJD. Tienen disponibilidad y pueden entregar? Precio?"
+
+# Browser automation flow for each:
+# 1. Open afreesms.com
+# 2. Select Mexico
+# 3. Enter phone
+# 4. Enter message
+# 5. Solve captcha (wait for user)
+# 6. Click send
+# 7. Wait 3 seconds
+# 8. Refresh page for next

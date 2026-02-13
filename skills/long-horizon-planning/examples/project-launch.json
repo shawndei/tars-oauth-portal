@@ -1,0 +1,159 @@
+{
+  "name": "Product Launch Plan",
+  "description": "Multi-week plan for launching a new product",
+  "goal": {
+    "id": "product-launch",
+    "type": "sequential",
+    "steps": [
+      {
+        "description": "Phase 1: Market Research",
+        "estimatedDuration": 604800000,
+        "dependencies": [],
+        "metadata": {
+          "phase": 1,
+          "deliverable": "Market research report"
+        },
+        "substeps": [
+          {
+            "description": "Conduct user surveys",
+            "estimatedDuration": 259200000,
+            "dependencies": []
+          },
+          {
+            "description": "Analyze competitor landscape",
+            "estimatedDuration": 172800000,
+            "dependencies": []
+          },
+          {
+            "description": "Compile research findings",
+            "estimatedDuration": 172800000,
+            "dependencies": ["product-launch-step-0-substep-0", "product-launch-step-0-substep-1"]
+          }
+        ]
+      },
+      {
+        "description": "Phase 2: Product Development",
+        "estimatedDuration": 1209600000,
+        "dependencies": ["product-launch-step-0"],
+        "metadata": {
+          "phase": 2,
+          "deliverable": "MVP product"
+        },
+        "substeps": [
+          {
+            "description": "Design product architecture",
+            "estimatedDuration": 172800000,
+            "dependencies": []
+          },
+          {
+            "description": "Develop core features",
+            "estimatedDuration": 604800000,
+            "dependencies": ["product-launch-step-1-substep-0"]
+          },
+          {
+            "description": "Create user interface",
+            "estimatedDuration": 432000000,
+            "dependencies": ["product-launch-step-1-substep-0"]
+          },
+          {
+            "description": "Integration testing",
+            "estimatedDuration": 172800000,
+            "dependencies": ["product-launch-step-1-substep-1", "product-launch-step-1-substep-2"]
+          }
+        ]
+      },
+      {
+        "description": "Phase 3: Marketing Preparation",
+        "estimatedDuration": 604800000,
+        "dependencies": ["product-launch-step-0"],
+        "metadata": {
+          "phase": 3,
+          "deliverable": "Marketing campaign"
+        },
+        "substeps": [
+          {
+            "description": "Develop brand messaging",
+            "estimatedDuration": 172800000,
+            "dependencies": []
+          },
+          {
+            "description": "Create marketing materials",
+            "estimatedDuration": 259200000,
+            "dependencies": ["product-launch-step-2-substep-0"]
+          },
+          {
+            "description": "Set up social media campaigns",
+            "estimatedDuration": 172800000,
+            "dependencies": ["product-launch-step-2-substep-0"]
+          }
+        ]
+      },
+      {
+        "description": "Phase 4: Beta Testing",
+        "estimatedDuration": 604800000,
+        "dependencies": ["product-launch-step-1"],
+        "metadata": {
+          "phase": 4,
+          "deliverable": "Beta test report"
+        },
+        "substeps": [
+          {
+            "description": "Recruit beta testers",
+            "estimatedDuration": 86400000,
+            "dependencies": []
+          },
+          {
+            "description": "Run beta test program",
+            "estimatedDuration": 432000000,
+            "dependencies": ["product-launch-step-3-substep-0"]
+          },
+          {
+            "description": "Collect and analyze feedback",
+            "estimatedDuration": 86400000,
+            "dependencies": ["product-launch-step-3-substep-1"]
+          }
+        ]
+      },
+      {
+        "description": "Phase 5: Final Polish",
+        "estimatedDuration": 259200000,
+        "dependencies": ["product-launch-step-3"],
+        "metadata": {
+          "phase": 5,
+          "deliverable": "Production-ready product"
+        }
+      },
+      {
+        "description": "Phase 6: Launch Day",
+        "estimatedDuration": 86400000,
+        "dependencies": ["product-launch-step-2", "product-launch-step-4"],
+        "metadata": {
+          "phase": 6,
+          "deliverable": "Live product"
+        },
+        "constraints": {
+          "businessHoursOnly": true
+        }
+      },
+      {
+        "description": "Phase 7: Post-Launch Monitoring",
+        "estimatedDuration": 604800000,
+        "dependencies": ["product-launch-step-5"],
+        "metadata": {
+          "phase": 7,
+          "deliverable": "Launch performance report"
+        }
+      }
+    ]
+  },
+  "constraints": {
+    "startTime": "2026-03-01T09:00:00Z",
+    "deadline": "2026-05-01T17:00:00Z",
+    "businessHoursOnly": true
+  },
+  "resources": {
+    "developers": 3,
+    "designers": 2,
+    "marketers": 2
+  }
+}

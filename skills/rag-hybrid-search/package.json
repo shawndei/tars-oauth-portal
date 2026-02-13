@@ -1,0 +1,16 @@
+{
+  "name": "rag-hybrid-search",
+  "version": "1.0.0",
+  "description": "Hybrid search (vector + BM25) with reranking for RAG",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@lancedb/lancedb": "^0.5.0",
+    "apache-arrow": "^15.0.0",
+    "openai": "^4.20.0"
+  },
+  "author": "TARS",
+  "license": "MIT"
+}

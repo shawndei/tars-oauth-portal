@@ -1,0 +1,201 @@
+{
+  "version": "1.0.0",
+  "analytics": {
+    "enabled": true,
+    "dataSourcePath": "./data",
+    "outputPath": "./analytics/reports",
+    "logPath": "./analytics/logs"
+  },
+  "dataSources": {
+    "costs": {
+      "path": "./costs.json",
+      "type": "json",
+      "updateInterval": "1h",
+      "retentionDays": 90
+    },
+    "performance": {
+      "path": "./analytics/performance.json",
+      "type": "json",
+      "updateInterval": "4h",
+      "retentionDays": 180
+    },
+    "usage": {
+      "path": "./analytics/usage.json",
+      "type": "json",
+      "updateInterval": "2h",
+      "retentionDays": 180
+    }
+  },
+  "dataOperations": {
+    "parsing": {
+      "encoding": "utf-8",
+      "handleMissingValues": "skip",
+      "typeInference": true,
+      "maxFileSize": 104857600
+    },
+    "aggregation": {
+      "defaultTimeWindow": "daily",
+      "supportedIntervals": ["hourly", "daily", "weekly", "monthly", "yearly"],
+      "fillMissingValues": false
+    },
+    "statistics": {
+      "percentiles": [25, 50, 75, 90, 95, 99],
+      "calculateCorrelation": true,
+      "maxDatasetSize": 1000000
+    }
+  },
+  "trendDetection": {
+    "enabled": true,
+    "methods": ["sma", "ema", "wma"],
+    "defaultWindow": 7,
+    "minDataPoints": 5,
+    "changePointSensitivity": 0.1,
+    "seasonalityDetection": true
+  },
+  "anomalyDetection": {
+    "enabled": true,
+    "methods": ["zscore", "iqr", "moving_average"],
+    "defaultMethod": "zscore",
+    "zscoreThreshold": 2.0,
+    "iqrMultiplier": 1.5,
+    "maDeviation": 1.5,
+    "minDataPoints": 10,
+    "alertOnAnomaly": true
+  },
+  "visualization": {
+    "charts": {
+      "defaultWidth": 80,
+      "defaultHeight": 20,
+      "maxWidth": 200,
+      "maxHeight": 50,
+      "asciiBlockChars": "▁▂▃▄▅▆▇█",
+      "trendArrows": {
+        "upward": "↗",
+        "downward": "↘",
+        "stable": "→"
+      },
+      "colors": {
+        "positive": "green",
+        "negative": "red",
+        "neutral": "white",
+        "alert": "yellow"
+      }
+    },
+    "tables": {
+      "defaultFormat": "ascii",
+      "maxRows": 50,
+      "borders": true,
+      "headerHighlight": true,
+      "alignNumbers": "right",
+      "alignText": "left",
+      "columnPadding": 2
+    },
+    "indicators": {
+      "sparklineWidth": 20,
+      "showPercentChange": true,
+      "showTrendArrow": true,
+      "showStatusBadge": true,
+      "badgeColors": {
+        "healthy": "●",
+        "warning": "◐",
+        "critical": "○"
+      }
+    }
+  },
+  "businessMetrics": {
+    "costs": {
+      "enabled": true,
+      "currency": "USD",
+      "monthlyBudget": 200,
+      "costAlertThreshold": 150,
+      "dailyAnomalyThreshold": 2.0,
+      "trackBy": ["date", "session", "model", "hour"],
+      "projectionDays": 30
+    },
+    "performance": {
+      "enabled": true,
+      "trackTokenEfficiency": true,
+      "trackErrorRates": true,
+      "trackResponseTime": true,
+      "errorThreshold": 0.05,
+      "warningThreshold": 0.02
+    },
+    "usage": {
+      "enabled": true,
+      "trackByHour": true,
+      "trackBySession": true,
+      "trackByAgent": true,
+      "peakUsageThreshold": 0.8,
+      "aggregationLevels": ["hourly", "daily", "weekly", "monthly"]
+    }
+  },
+  "reports": {
+    "summary": {
+      "enabled": true,
+      "frequency": "daily",
+      "includeCharts": true,
+      "includeTables": true,
+      "includeForecasts": true,
+      "recipients": ["analytics@tars.local"]
+    },
+    "cost": {
+      "enabled": true,
+      "frequency": "daily",
+      "breakdownBy": ["session", "model", "hour"],
+      "includeProjections": true,
+      "compareWithBudget": true
+    },
+    "performance": {
+      "enabled": true,
+      "frequency": "weekly",
+      "includeMetrics": ["tokenEfficiency", "errorRate", "responseTime"],
+      "comparePeriods": 2
+    },
+    "anomalies": {
+      "enabled": true,
+      "frequency": "realtime",
+      "alertOnDetection": true,
+      "summaryFrequency": "daily"
+    }
+  },
+  "alerts": {
+    "enabled": true,
+    "channels": ["log", "console", "message"],
+    "thresholds": {
+      "costAlertDaily": 10,
+      "costAlertWeekly": 70,
+      "costAlertMonthly": 250,
+      "anomalyZScore": 2.5,
+      "usagePeakPercent": 85
+    },
+    "severityLevels": {
+      "info": "informational",
+      "warning": "elevated usage or approaching budget",
+      "critical": "cost overage or major anomaly"
+    }
+  },
+  "export": {
+    "formats": ["json", "csv", "markdown", "text"],
+    "defaultFormat": "json",
+    "timestampFormat": "ISO-8601",
+    "includeMetadata": true,
+    "compression": "gzip"
+  },
+  "caching": {
+    "enabled": true,
+    "ttl": 3600,
+    "maxCacheSize": 104857600
+  },
+  "performance": {
+    "batchSize": 10000,
+    "parallelProcessing": true,
+    "maxWorkers": 4,
+    "timeoutMs": 30000
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "includeStackTrace": false,
+    "retentionDays": 30
+  }
+}

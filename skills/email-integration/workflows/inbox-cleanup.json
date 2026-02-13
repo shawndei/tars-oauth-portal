@@ -1,0 +1,94 @@
+{
+  "name": "inbox-cleanup",
+  "description": "Organize and clean up inbox by categorizing, filtering, and archiving emails",
+  "version": "1.0",
+  "trigger": "manual_or_scheduled",
+  "timing": {
+    "frequency": "weekly",
+    "day": "sunday",
+    "time": "18:00"
+  },
+  "steps": [
+    {
+      "id": "fetch_all_inbox",
+      "action": "fetch_emails",
+      "params": {
+        "account": "primary",
+        "folder": "inbox",
+        "limit": 500
+      }
+    },
+    {
+      "id": "categorize_all",
+      "action": "categorize_emails",
+      "params": {
+        "emails": "${fetch_all_inbox.result}",
+        "auto_learn": true
+      }
+    },
+    {
+      "id": "filter_spam",
+      "action": "filter_spam",
+      "params": {
+        "emails": "${categorize_all.result}",
+        "move_to_spam": true
+      }
+    },
+    {
+      "id": "extract_newsletters",
+      "action": "extract_newsletters",
+      "params": {
+        "emails": "${filter_spam.result.remaining}",
+        "action": "archive"
+      }
+    },
+    {
+      "id": "tag_categories",
+      "action": "apply_labels",
+      "params": {
+        "emails": "${extract_newsletters.result.remaining}",
+        "mapping": {
+          "work": "Work",
+          "personal": "Personal",
+          "finance": "Finance",
+          "notifications": "Notifications"
+        }
+      }
+    },
+    {
+      "id": "flag_priority",
+      "action": "flag_priority_emails",
+      "params": {
+        "emails": "${tag_categories.result}",
+        "threshold": 0.7
+      }
+    },
+    {
+      "id": "generate_report",
+      "action": "generate_cleanup_report",
+      "params": {
+        "original_count": "${fetch_all_inbox.result.count}",
+        "spam_removed": "${filter_spam.result.count}",
+        "newsletters_archived": "${extract_newsletters.result.count}",
+        "categorized": "${tag_categories.result.count}",
+        "priority_flagged": "${flag_priority.result.count}"
+      }
+    }
+  ],
+  "output": {
+    "format": "summary",
+    "report_format": "markdown",
+    "show_stats": true
+  },
+  "notifications": {
+    "on_complete": {
+      "type": "summary",
+      "message": "Inbox cleanup complete: {categorized} organized, {spam_removed} spam removed, {newsletters_archived} newsletters archived"
+    }
+  },
+  "safeguards": {
+    "preview_changes": true,
+    "confirmation_required": false,
+    "undo_available": true
+  }
+}

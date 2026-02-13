@@ -1,0 +1,25 @@
+{
+  "name": "web-app-redesign",
+  "archived": false,
+  "template": "web-dev",
+  "created": "2026-02-13T08:25:00Z",
+  "modified": "2026-02-13T08:25:00Z",
+  "description": "E-commerce platform redesign with React",
+  "tags": ["web", "react", "ecommerce", "urgent"],
+  "settings": {
+    "contextIsolation": true,
+    "autoArchiveAfterDays": null,
+    "maxMemorySize": "50MB",
+    "collaborators": [
+      "Sarah Chen (Product Owner)",
+      "Mike Rodriguez (Design)",
+      "Jennifer Wu (QA)"
+    ]
+  },
+  "metadata": {
+    "tasksCount": 5,
+    "completedTasks": 2,
+    "filesCount": 8,
+    "lastActivity": "2026-02-13T08:25:00Z"
+  }
+}

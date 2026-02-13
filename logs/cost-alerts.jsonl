@@ -1,0 +1,1 @@
+{"timestamp":"2026-02-13T07:57:30Z","level":"warning","percentage":85,"cost":8.5,"limit":10.0,"remaining":1.5,"action":"switch_to_haiku","message":"Budget at 85% - switching non-critical tasks to haiku model"}

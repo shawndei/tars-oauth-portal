@@ -1,0 +1,19 @@
+{
+  "name": "agent-profiles",
+  "version": "2.0.0",
+  "description": "Specialized agent profiles for intelligent task routing",
+  "main": "router.js",
+  "scripts": {
+    "test": "node router.js",
+    "route": "node router.js"
+  },
+  "keywords": [
+    "agent",
+    "profiles",
+    "routing",
+    "specialization",
+    "orchestration"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT"
+}

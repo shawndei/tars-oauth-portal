@@ -1,0 +1,12 @@
+{
+  "name": "notification-router",
+  "version": "1.0.0",
+  "description": "Multi-channel notification routing with priority-based delivery",
+  "main": "notification-router.js",
+  "scripts": {
+    "test": "echo \"Tests pending\" && exit 0"
+  },
+  "keywords": ["notifications", "routing", "multi-channel", "alerts"],
+  "author": "TARS",
+  "license": "MIT"
+}

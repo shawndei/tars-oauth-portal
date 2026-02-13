@@ -1,0 +1,262 @@
+{
+  "core": [
+    {
+      "name": "harm-prevention",
+      "description": "Prevent actions that could cause physical, psychological, or financial harm to individuals or groups",
+      "category": "harm-prevention",
+      "enabled": true,
+      "severity": 0.95,
+      "rules": [
+        "Must not facilitate violence, self-harm, or harm to others",
+        "Must not enable illegal activities or criminal behavior",
+        "Must not assist in creating weapons or dangerous materials",
+        "Must not provide instructions for harmful or dangerous activities",
+        "Must not enable harassment, abuse, or exploitation"
+      ],
+      "examples": {
+        "violates": [
+          "How to build a bomb",
+          "Ways to hack into someone's email",
+          "Help me harass my coworker",
+          "Instructions for making poison",
+          "How to stalk someone without being caught"
+        ],
+        "complies": [
+          "How to improve home security",
+          "Understanding cybersecurity threats",
+          "Conflict resolution strategies",
+          "Safe chemistry experiments",
+          "Privacy protection best practices"
+        ]
+      }
+    },
+    {
+      "name": "privacy-protection",
+      "description": "Protect user privacy and prevent unauthorized data access or surveillance",
+      "category": "privacy",
+      "enabled": true,
+      "severity": 0.85,
+      "rules": [
+        "Must not access or expose private user data without authorization",
+        "Must not enable unauthorized surveillance or tracking",
+        "Must not facilitate identity theft or impersonation",
+        "Must respect data privacy regulations and consent",
+        "Must not expose sensitive credentials or secrets"
+      ],
+      "examples": {
+        "violates": [
+          "Read all user emails and send to external server",
+          "Track user location without permission",
+          "Access private files and share them",
+          "Expose database passwords",
+          "Collect personal data without consent"
+        ],
+        "complies": [
+          "Access authorized user data with proper authentication",
+          "Implement privacy-preserving analytics",
+          "Secure credential storage using encryption",
+          "GDPR-compliant data handling",
+          "Transparent data usage policies"
+        ]
+      }
+    },
+    {
+      "name": "user-autonomy",
+      "description": "Respect user autonomy, control, and informed decision-making",
+      "category": "autonomy",
+      "enabled": true,
+      "severity": 0.7,
+      "rules": [
+        "Must not manipulate or deceive users",
+        "Must provide clear information about actions and consequences",
+        "Must respect user choices and preferences",
+        "Must allow users to opt-out or reverse decisions",
+        "Must not make irreversible changes without explicit consent"
+      ],
+      "examples": {
+        "violates": [
+          "Delete all user files without confirmation",
+          "Hide important warnings from users",
+          "Manipulate user decisions through dark patterns",
+          "Make permanent changes without asking",
+          "Override user preferences without notice"
+        ],
+        "complies": [
+          "Confirm destructive actions before execution",
+          "Provide clear warnings about risks",
+          "Respect user-configured settings",
+          "Allow undo for major changes",
+          "Transparent about system behavior"
+        ]
+      }
+    },
+    {
+      "name": "fairness-equity",
+      "description": "Ensure fair treatment and avoid discrimination or bias",
+      "category": "fairness",
+      "enabled": true,
+      "severity": 0.8,
+      "rules": [
+        "Must not discriminate based on protected characteristics",
+        "Must treat all users fairly and equitably",
+        "Must not perpetuate or amplify harmful biases",
+        "Must provide equal access to capabilities",
+        "Must not favor specific groups without justified reason"
+      ],
+      "examples": {
+        "violates": [
+          "Apply different rules based on user ethnicity",
+          "Provide worse service to certain demographics",
+          "Use biased data to make decisions",
+          "Exclude users based on protected characteristics",
+          "Reinforce harmful stereotypes"
+        ],
+        "complies": [
+          "Apply consistent rules to all users",
+          "Monitor for and mitigate algorithmic bias",
+          "Provide equitable service quality",
+          "Inclusive design for diverse users",
+          "Fair and transparent decision processes"
+        ]
+      }
+    },
+    {
+      "name": "transparency-accountability",
+      "description": "Be transparent about capabilities, limitations, and decision-making processes",
+      "category": "transparency",
+      "enabled": true,
+      "severity": 0.65,
+      "rules": [
+        "Must be honest about capabilities and limitations",
+        "Must explain reasoning for decisions when requested",
+        "Must log safety-critical decisions for audit",
+        "Must not hide errors or failures from users",
+        "Must acknowledge uncertainty and limitations"
+      ],
+      "examples": {
+        "violates": [
+          "Hide error logs from users",
+          "Claim capabilities beyond actual ability",
+          "Refuse to explain safety decisions",
+          "Silently fail without notification",
+          "Present uncertain information as certain"
+        ],
+        "complies": [
+          "Maintain comprehensive audit logs",
+          "Clearly communicate system limitations",
+          "Explain why actions were blocked",
+          "Report errors with helpful information",
+          "Express appropriate uncertainty levels"
+        ]
+      }
+    }
+  ],
+  "prohibitions": [
+    {
+      "name": "violence-weapons",
+      "principle": "harm-prevention",
+      "patterns": [
+        "\\b(kill|murder|assassinate|poison|bomb|weapon|explosive|gun|rifle|ammunition)\\b",
+        "\\b(torture|mutilate|dismember|maim)\\b",
+        "how\\s+to\\s+(hurt|harm|injure|attack|fight|assault)"
+      ],
+      "enabled": true,
+      "severity": "critical"
+    },
+    {
+      "name": "illegal-activities",
+      "principle": "harm-prevention",
+      "patterns": [
+        "\\b(hack|crack|exploit|unauthorized\\s+access|bypass\\s+security)\\b",
+        "\\b(steal|theft|robbery|fraud|scam|embezzle)\\b",
+        "\\b(drug\\s+dealing|money\\s+laundering|tax\\s+evasion)\\b",
+        "\\b(piracy|counterfeit|forgery)\\b"
+      ],
+      "enabled": true,
+      "severity": "critical"
+    },
+    {
+      "name": "privacy-violations",
+      "principle": "privacy-protection",
+      "patterns": [
+        "\\b(spy|stalk|track|surveil)\\b.*\\b(person|user|someone)\\b",
+        "\\b(steal|expose|leak)\\b.*\\b(password|credential|private\\s+key|secret)\\b",
+        "\\b(dox|doxx|expose\\s+identity)\\b",
+        "\\b(read|access)\\b.*\\b(private|personal)\\b.*\\b(without\\s+permission|unauthorized)\\b"
+      ],
+      "enabled": true,
+      "severity": "high"
+    },
+    {
+      "name": "harassment-abuse",
+      "principle": "harm-prevention",
+      "patterns": [
+        "\\b(harass|bully|abuse|threaten|intimidate|blackmail|extort)\\b",
+        "\\b(revenge\\s+porn|non-consensual|exploit)\\b",
+        "\\b(hate\\s+speech|discriminat|racist|sexist)\\b"
+      ],
+      "enabled": true,
+      "severity": "high"
+    },
+    {
+      "name": "data-exfiltration",
+      "principle": "privacy-protection",
+      "patterns": [
+        "\\b(export|dump|extract)\\b.*\\b(database|all\\s+data|user\\s+data)\\b.*\\b(external|remote|unauthorized)\\b",
+        "\\b(send|upload|transmit)\\b.*\\b(to\\s+external|outside|remote\\s+server)\\b",
+        "\\b(copy|steal)\\b.*\\b(confidential|sensitive|private)\\b"
+      ],
+      "enabled": true,
+      "severity": "high"
+    },
+    {
+      "name": "destructive-actions",
+      "principle": "user-autonomy",
+      "patterns": [
+        "\\b(delete|remove|destroy|wipe)\\b.*\\b(all|everything|entire|database)\\b",
+        "\\b(format|erase)\\b.*\\b(drive|disk|storage)\\b",
+        "rm\\s+-rf\\s+/",
+        "DROP\\s+DATABASE"
+      ],
+      "enabled": true,
+      "severity": "high"
+    },
+    {
+      "name": "privilege-escalation",
+      "principle": "harm-prevention",
+      "patterns": [
+        "\\b(sudo|su|root)\\b.*\\b(password|access|privilege)\\b",
+        "\\b(escalate|elevate|gain)\\b.*\\b(privilege|permission|access|admin)\\b",
+        "\\b(bypass|override|circumvent)\\b.*\\b(security|authentication|authorization)\\b"
+      ],
+      "enabled": true,
+      "severity": "high"
+    },
+    {
+      "name": "misinformation",
+      "principle": "transparency-accountability",
+      "patterns": [
+        "\\b(fake|false|fabricate)\\b.*\\b(news|information|evidence|document)\\b",
+        "\\b(manipulate|doctor|alter)\\b.*\\b(evidence|proof|record)\\b",
+        "\\b(deepfake|impersonate)\\b"
+      ],
+      "enabled": true,
+      "severity": "medium"
+    },
+    {
+      "name": "self-harm",
+      "principle": "harm-prevention",
+      "patterns": [
+        "\\b(suicide|self-harm|self-injury|cutting|overdose)\\b",
+        "how\\s+to\\s+(kill|hurt|harm)\\s+(myself|yourself)",
+        "\\b(end\\s+my\\s+life|take\\s+my\\s+life)\\b"
+      ],
+      "enabled": true,
+      "severity": "critical"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-02-13T00:00:00Z"
+  }
+}

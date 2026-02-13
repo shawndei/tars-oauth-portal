@@ -1,0 +1,20 @@
+{
+  "name": "@openclaw/code-sandbox",
+  "version": "1.0.0",
+  "description": "Secure code execution sandbox for OpenClaw",
+  "main": "sandbox.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "sandbox",
+    "code-execution",
+    "security"
+  ],
+  "author": "OpenClaw",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

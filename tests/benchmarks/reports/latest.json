@@ -1,0 +1,699 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-02-13T16:56:05.413Z",
+  "metadata": {
+    "system": "OpenClaw",
+    "runtime": "Node.js v24.13.0",
+    "mode": "quick",
+    "suite": "all",
+    "duration": "42.4s"
+  },
+  "summary": {
+    "total_tests": 19,
+    "passed": 19,
+    "failed": 0,
+    "success_rate": 1,
+    "avg_latency_p50": 457.5263157894737,
+    "avg_latency_p95": 491.25263157894733,
+    "suite_count": 5,
+    "has_regressions": false,
+    "regression_count": 0,
+    "improvement_count": 0
+  },
+  "results": {
+    "tools_exec_simple": {
+      "latency": {
+        "count": 5,
+        "min": 94,
+        "max": 123,
+        "mean": 106.4,
+        "median": 109,
+        "p50": 109,
+        "p90": 117.8,
+        "p95": 120.4,
+        "p99": 122.48,
+        "stddev": 10.56
+      },
+      "throughput": {
+        "operations": 5,
+        "duration_ms": 981,
+        "duration_sec": 0.98,
+        "ops_per_sec": 5.1,
+        "requests_per_min": 305.81
+      },
+      "accuracy": {
+        "total_operations": 5,
+        "successes": 5,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:24.001Z"
+    },
+    "tools_exec_pwd": {
+      "latency": {
+        "count": 5,
+        "min": 63,
+        "max": 89,
+        "mean": 76.6,
+        "median": 77,
+        "p50": 77,
+        "p90": 85,
+        "p95": 87,
+        "p99": 88.6,
+        "stddev": 8.33
+      },
+      "throughput": {
+        "operations": 5,
+        "duration_ms": 824,
+        "duration_sec": 0.82,
+        "ops_per_sec": 6.07,
+        "requests_per_min": 364.08
+      },
+      "accuracy": {
+        "total_operations": 5,
+        "successes": 5,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:24.826Z"
+    },
+    "tools_file_read": {
+      "latency": {
+        "count": 5,
+        "min": 0,
+        "max": 2,
+        "mean": 0.8,
+        "median": 1,
+        "p50": 1,
+        "p90": 1.6,
+        "p95": 1.8,
+        "p99": 1.96,
+        "stddev": 0.75
+      },
+      "throughput": {
+        "operations": 5,
+        "duration_ms": 435,
+        "duration_sec": 0.43,
+        "ops_per_sec": 11.49,
+        "requests_per_min": 689.66
+      },
+      "accuracy": {
+        "total_operations": 5,
+        "successes": 5,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:25.262Z"
+    },
+    "tools_file_exists": {
+      "latency": {
+        "count": 10,
+        "min": 0,
+        "max": 1,
+        "mean": 0.5,
+        "median": 0.5,
+        "p50": 0.5,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "stddev": 0.5
+      },
+      "throughput": {
+        "operations": 10,
+        "duration_ms": 977,
+        "duration_sec": 0.98,
+        "ops_per_sec": 10.24,
+        "requests_per_min": 614.12
+      },
+      "accuracy": {
+        "total_operations": 10,
+        "successes": 10,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:26.239Z"
+    },
+    "model_haiku_simple": {
+      "latency": {
+        "count": 3,
+        "min": 665,
+        "max": 780,
+        "mean": 739.67,
+        "median": 774,
+        "p50": 774,
+        "p90": 778.8,
+        "p95": 779.4,
+        "p99": 779.88,
+        "stddev": 52.85
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 2437,
+        "duration_sec": 2.44,
+        "ops_per_sec": 1.23,
+        "requests_per_min": 73.86
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:28.677Z"
+    },
+    "model_haiku_medium": {
+      "latency": {
+        "count": 3,
+        "min": 620,
+        "max": 682,
+        "mean": 651.33,
+        "median": 652,
+        "p50": 652,
+        "p90": 676,
+        "p95": 679,
+        "p99": 681.4,
+        "stddev": 25.32
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 2170,
+        "duration_sec": 2.17,
+        "ops_per_sec": 1.38,
+        "requests_per_min": 82.95
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:30.847Z"
+    },
+    "model_sonnet_complex": {
+      "latency": {
+        "count": 3,
+        "min": 1755,
+        "max": 1981,
+        "mean": 1848.67,
+        "median": 1810,
+        "p50": 1810,
+        "p90": 1946.8,
+        "p95": 1963.9,
+        "p99": 1977.58,
+        "stddev": 96.23
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 5766,
+        "duration_sec": 5.77,
+        "ops_per_sec": 0.52,
+        "requests_per_min": 31.22
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:36.614Z"
+    },
+    "model_sonnet_code": {
+      "latency": {
+        "count": 3,
+        "min": 1600,
+        "max": 1840,
+        "mean": 1682.33,
+        "median": 1607,
+        "p50": 1607,
+        "p90": 1793.4,
+        "p95": 1816.7,
+        "p99": 1835.34,
+        "stddev": 111.52
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 5265,
+        "duration_sec": 5.26,
+        "ops_per_sec": 0.57,
+        "requests_per_min": 34.19
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:41.880Z"
+    },
+    "memory_search_simple": {
+      "latency": {
+        "count": 10,
+        "min": 31,
+        "max": 78,
+        "mean": 60.9,
+        "median": 62,
+        "p50": 62,
+        "p90": 78,
+        "p95": 78,
+        "p99": 78,
+        "stddev": 14.62
+      },
+      "throughput": {
+        "operations": 10,
+        "duration_ms": 1587,
+        "duration_sec": 1.59,
+        "ops_per_sec": 6.3,
+        "requests_per_min": 378.07
+      },
+      "accuracy": {
+        "total_operations": 10,
+        "successes": 10,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:43.468Z"
+    },
+    "memory_search_complex": {
+      "latency": {
+        "count": 10,
+        "min": 32,
+        "max": 78,
+        "mean": 52.7,
+        "median": 47.5,
+        "p50": 47.5,
+        "p90": 63.6,
+        "p95": 70.8,
+        "p99": 76.56,
+        "stddev": 11.95
+      },
+      "throughput": {
+        "operations": 10,
+        "duration_ms": 1503,
+        "duration_sec": 1.5,
+        "ops_per_sec": 6.65,
+        "requests_per_min": 399.2
+      },
+      "accuracy": {
+        "total_operations": 10,
+        "successes": 10,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:44.972Z"
+    },
+    "memory_retrieval_recent": {
+      "latency": {
+        "count": 10,
+        "min": 62,
+        "max": 107,
+        "mean": 80.9,
+        "median": 78,
+        "p50": 78,
+        "p90": 95.3,
+        "p95": 101.15,
+        "p99": 105.83,
+        "stddev": 14.94
+      },
+      "throughput": {
+        "operations": 10,
+        "duration_ms": 1787,
+        "duration_sec": 1.79,
+        "ops_per_sec": 5.6,
+        "requests_per_min": 335.76
+      },
+      "accuracy": {
+        "total_operations": 10,
+        "successes": 10,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:46.759Z"
+    },
+    "memory_embedding_generate": {
+      "latency": {
+        "count": 8,
+        "min": 140,
+        "max": 203,
+        "mean": 175.25,
+        "median": 180,
+        "p50": 180,
+        "p90": 191.8,
+        "p95": 197.4,
+        "p99": 201.88,
+        "stddev": 18.65
+      },
+      "throughput": {
+        "operations": 8,
+        "duration_ms": 2163,
+        "duration_sec": 2.16,
+        "ops_per_sec": 3.7,
+        "requests_per_min": 221.91
+      },
+      "accuracy": {
+        "total_operations": 8,
+        "successes": 8,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:48.922Z"
+    },
+    "agent_spawn_simple": {
+      "latency": {
+        "count": 5,
+        "min": 326,
+        "max": 406,
+        "mean": 376,
+        "median": 390,
+        "p50": 390,
+        "p90": 404.8,
+        "p95": 405.4,
+        "p99": 405.88,
+        "stddev": 30.87
+      },
+      "throughput": {
+        "operations": 5,
+        "duration_ms": 2314,
+        "duration_sec": 2.31,
+        "ops_per_sec": 2.16,
+        "requests_per_min": 129.65
+      },
+      "accuracy": {
+        "total_operations": 5,
+        "successes": 5,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:51.237Z"
+    },
+    "agent_spawn_complex": {
+      "latency": {
+        "count": 5,
+        "min": 465,
+        "max": 543,
+        "mean": 493.4,
+        "median": 480,
+        "p50": 480,
+        "p90": 531,
+        "p95": 537,
+        "p99": 541.8,
+        "stddev": 30.27
+      },
+      "throughput": {
+        "operations": 5,
+        "duration_ms": 2901,
+        "duration_sec": 2.9,
+        "ops_per_sec": 1.72,
+        "requests_per_min": 103.41
+      },
+      "accuracy": {
+        "total_operations": 5,
+        "successes": 5,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:54.138Z"
+    },
+    "agent_message_send": {
+      "latency": {
+        "count": 10,
+        "min": 77,
+        "max": 157,
+        "mean": 121.3,
+        "median": 109,
+        "p50": 109,
+        "p90": 156.1,
+        "p95": 156.55,
+        "p99": 156.91,
+        "stddev": 27.03
+      },
+      "throughput": {
+        "operations": 10,
+        "duration_ms": 2192,
+        "duration_sec": 2.19,
+        "ops_per_sec": 4.56,
+        "requests_per_min": 273.72
+      },
+      "accuracy": {
+        "total_operations": 10,
+        "successes": 10,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:56.330Z"
+    },
+    "agent_coordination_overhead": {
+      "latency": {
+        "count": 5,
+        "min": 465,
+        "max": 667,
+        "mean": 610.8,
+        "median": 648,
+        "p50": 648,
+        "p90": 661,
+        "p95": 664,
+        "p99": 666.4,
+        "stddev": 74.33
+      },
+      "throughput": {
+        "operations": 5,
+        "duration_ms": 3490,
+        "duration_sec": 3.49,
+        "ops_per_sec": 1.43,
+        "requests_per_min": 85.96
+      },
+      "accuracy": {
+        "total_operations": 5,
+        "successes": 5,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:55:59.820Z"
+    },
+    "e2e_simple_task": {
+      "latency": {
+        "count": 3,
+        "min": 154,
+        "max": 186,
+        "mean": 173,
+        "median": 179,
+        "p50": 179,
+        "p90": 184.6,
+        "p95": 185.3,
+        "p99": 185.86,
+        "stddev": 13.74
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 734,
+        "duration_sec": 0.73,
+        "ops_per_sec": 4.09,
+        "requests_per_min": 245.23
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:56:00.558Z"
+    },
+    "e2e_file_workflow": {
+      "latency": {
+        "count": 3,
+        "min": 1,
+        "max": 1,
+        "mean": 1,
+        "median": 1,
+        "p50": 1,
+        "p90": 1,
+        "p95": 1,
+        "p99": 1,
+        "stddev": 0
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 219,
+        "duration_sec": 0.22,
+        "ops_per_sec": 13.7,
+        "requests_per_min": 821.92
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:56:00.777Z"
+    },
+    "e2e_multi_step": {
+      "latency": {
+        "count": 3,
+        "min": 1441,
+        "max": 1488,
+        "mean": 1472.33,
+        "median": 1488,
+        "p50": 1488,
+        "p90": 1488,
+        "p95": 1488,
+        "p99": 1488,
+        "stddev": 22.16
+      },
+      "throughput": {
+        "operations": 3,
+        "duration_ms": 4634,
+        "duration_sec": 4.63,
+        "ops_per_sec": 0.65,
+        "requests_per_min": 38.84
+      },
+      "accuracy": {
+        "total_operations": 3,
+        "successes": 3,
+        "errors": 0,
+        "success_rate": 1,
+        "error_rate": 0
+      },
+      "cost": {
+        "total": 0,
+        "per_operation": 0,
+        "tokens_used": 0,
+        "tokens_per_op": 0
+      },
+      "timestamp": "2026-02-13T16:56:05.411Z"
+    }
+  },
+  "comparison": {
+    "hasBaseline": false,
+    "hasRegressions": false,
+    "improvements": [],
+    "regressions": [],
+    "summary": "No baseline available for comparison"
+  },
+  "regressions": [],
+  "improvements": []
+}

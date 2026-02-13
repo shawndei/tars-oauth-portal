@@ -1,0 +1,412 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-13T08:22:00Z",
+  "pipelines": [
+    {
+      "id": "tech-news-monitor",
+      "name": "🔴 Tech News Monitoring Pipeline",
+      "description": "Monitor tech news from RSS feeds with relevance scoring",
+      "enabled": true,
+      "heartbeatEnabled": true,
+      "pollInterval": "15m",
+      "sources": [
+        {
+          "id": "hackernews",
+          "name": "Hacker News",
+          "type": "rss",
+          "url": "https://news.ycombinator.com/rss",
+          "pollInterval": "15m",
+          "deduplication": "guid",
+          "timeout": "10s",
+          "retryPolicy": {
+            "maxRetries": 3,
+            "backoffMultiplier": 2,
+            "initialDelay": "1m"
+          }
+        },
+        {
+          "id": "dev-to",
+          "name": "Dev.to (JavaScript)",
+          "type": "rss",
+          "url": "https://dev.to/api/articles?tag=javascript&per_page=30",
+          "pollInterval": "30m",
+          "deduplication": "id",
+          "timeout": "10s"
+        },
+        {
+          "id": "github-trending",
+          "name": "GitHub Trending (JavaScript)",
+          "type": "scrape",
+          "url": "https://github.com/trending/javascript",
+          "schedule": "0 */6 * * *",
+          "selectors": {
+            "name": "h2 a",
+            "description": "p.col-9",
+            "url": "h2 a[href]",
+            "stars": "span.d-inline-block"
+          },
+          "deduplication": "url"
+        }
+      ],
+      "transformations": [
+        {
+          "step": 1,
+          "type": "extract",
+          "description": "Extract standard fields",
+          "fields": {
+            "id": "$.id || $.guid || $.url",
+            "title": "$.title",
+            "link": "$.link || $.url",
+            "source": "source",
+            "pubDate": "$.pubDate || $.published || $.updated",
+            "description": "$.description || $.summary || $.content",
+            "author": "$.author || $.creator"
+          }
+        },
+        {
+          "step": 2,
+          "type": "enrich",
+          "description": "Score by keyword relevance",
+          "enrichments": [
+            {
+              "name": "relevanceScore",
+              "type": "keyword_match",
+              "fields": ["title", "description"],
+              "keywords": [
+                "javascript",
+                "typescript",
+                "node.js",
+                "node",
+                "react",
+                "async",
+                "await",
+                "promise",
+                "performance",
+                "optimization"
+              ],
+              "weights": {
+                "title_match": 2.0,
+                "description_match": 1.0,
+                "multi_keyword": 1.5
+              },
+              "threshold": 0.3
+            },
+            {
+              "name": "category",
+              "type": "rule_based",
+              "field": "title",
+              "rules": [
+                { "pattern": "security|exploit|vulnerability", "value": "security", "weight": 1.0 },
+                { "pattern": "performance|optimization|speed", "value": "performance", "weight": 0.8 },
+                { "pattern": "framework|library|tool", "value": "tools", "weight": 0.6 },
+                { "pattern": "tutorial|guide|how-to", "value": "learning", "weight": 0.5 }
+              ]
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "type": "filter",
+          "description": "Keep items with relevance >= 0.5",
+          "condition": "relevanceScore >= 0.5 || source === 'github-trending'",
+          "dropLogged": true
+        },
+        {
+          "step": 4,
+          "type": "deduplicate",
+          "description": "Remove duplicates",
+          "strategy": "hash",
+          "fields": ["title", "link"]
+        }
+      ],
+      "storage": {
+        "path": "data/pipelines/tech-news",
+        "format": "jsonl",
+        "retention": "30d",
+        "maxSize": "100MB",
+        "archiveOldFiles": true
+      },
+      "triggers": [
+        {
+          "id": "high-relevance-alert",
+          "name": "High Relevance Alert (>0.85)",
+          "condition": "relevanceScore >= 0.85",
+          "action": "notify_immediately",
+          "target": ["whatsapp"],
+          "template": "🔥 High-relevance tech news: {{title}}\nScore: {{relevanceScore}}%\n🔗 {{link}}",
+          "cooldown": "5m",
+          "priority": "high",
+          "enabled": true
+        },
+        {
+          "id": "daily-digest",
+          "name": "Daily Tech News Digest",
+          "condition": "relevanceScore >= 0.6",
+          "action": "queue_daily_digest",
+          "deliveryTime": "09:00",
+          "maxItems": 10,
+          "sortBy": "relevanceScore",
+          "template": "📰 Daily Tech Digest\n\n{{items}}",
+          "priority": "medium",
+          "enabled": true
+        },
+        {
+          "id": "security-alert",
+          "name": "Security Alert",
+          "condition": "category === 'security' && relevanceScore >= 0.7",
+          "action": "send_notification",
+          "target": ["whatsapp", "email"],
+          "template": "🚨 Security Alert: {{title}}\n{{description}}\n🔗 {{link}}",
+          "cooldown": "10m",
+          "priority": "critical",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "weather-monitor",
+      "name": "☀️ Weather Monitoring Pipeline",
+      "description": "Monitor weather updates for configured location",
+      "enabled": true,
+      "heartbeatEnabled": true,
+      "pollInterval": "1h",
+      "sources": [
+        {
+          "id": "openweathermap",
+          "name": "OpenWeatherMap API",
+          "type": "api",
+          "url": "https://api.openweathermap.org/data/2.5/weather",
+          "method": "GET",
+          "auth": {
+            "type": "query_param",
+            "param": "appid",
+            "token": "env:OPENWEATHER_API_KEY"
+          },
+          "headers": {
+            "User-Agent": "TARS/1.0"
+          },
+          "params": {
+            "q": "London",
+            "units": "metric",
+            "appid": "env:OPENWEATHER_API_KEY"
+          },
+          "pollInterval": "1h",
+          "timeout": "10s",
+          "deduplication": "dt"
+        }
+      ],
+      "transformations": [
+        {
+          "step": 1,
+          "type": "extract",
+          "fields": {
+            "id": "$.dt",
+            "timestamp": "$.dt",
+            "temp": "$.main.temp",
+            "feelsLike": "$.main.feels_like",
+            "tempMin": "$.main.temp_min",
+            "tempMax": "$.main.temp_max",
+            "humidity": "$.main.humidity",
+            "pressure": "$.main.pressure",
+            "windSpeed": "$.wind.speed",
+            "condition": "$.weather[0].main",
+            "description": "$.weather[0].description",
+            "cloudiness": "$.clouds.all",
+            "sunrise": "$.sys.sunrise",
+            "sunset": "$.sys.sunset",
+            "location": "$.name"
+          }
+        },
+        {
+          "step": 2,
+          "type": "enrich",
+          "enrichments": [
+            {
+              "name": "weatherAlert",
+              "type": "rule_based",
+              "field": "condition",
+              "rules": [
+                { "pattern": "Thunderstorm|Tornado", "value": "severe", "weight": 1.0 },
+                { "pattern": "Rain|Snow|Sleet", "value": "warning", "weight": 0.8 },
+                { "pattern": "Cloudy|Overcast", "value": "normal", "weight": 0.0 },
+                { "pattern": "Clear|Sunny", "value": "clear", "weight": -0.5 }
+              ]
+            },
+            {
+              "name": "tempAlert",
+              "type": "threshold",
+              "field": "temp",
+              "rules": [
+                { "condition": "temp < 0", "alert": "freeze_warning" },
+                { "condition": "temp > 30", "alert": "heat_warning" },
+                { "condition": "temp between 10 and 20", "alert": "normal" }
+              ]
+            }
+          ]
+        }
+      ],
+      "storage": {
+        "path": "data/pipelines/weather",
+        "format": "jsonl",
+        "retention": "90d"
+      },
+      "triggers": [
+        {
+          "id": "severe-weather",
+          "name": "Severe Weather Alert",
+          "condition": "weatherAlert === 'severe'",
+          "action": "send_notification",
+          "target": ["whatsapp"],
+          "template": "⚠️ SEVERE WEATHER ALERT\n{{description}}\nLocation: {{location}}\nWindspeed: {{windSpeed}} m/s",
+          "cooldown": "15m",
+          "priority": "critical",
+          "enabled": true
+        },
+        {
+          "id": "freeze-warning",
+          "name": "Freeze Warning",
+          "condition": "tempAlert === 'freeze_warning'",
+          "action": "send_notification",
+          "target": ["whatsapp"],
+          "template": "❄️ Freeze Warning!\nTemp: {{temp}}°C\nFeels like: {{feelsLike}}°C",
+          "cooldown": "2h",
+          "priority": "high",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "file-monitor",
+      "name": "📁 File System Monitor Pipeline",
+      "description": "Monitor data directory for new JSON files",
+      "enabled": true,
+      "heartbeatEnabled": true,
+      "pollInterval": "5m",
+      "sources": [
+        {
+          "id": "data-folder",
+          "name": "Data Directory Watcher",
+          "type": "file",
+          "path": "data/incoming",
+          "pattern": "*.json",
+          "recursive": false,
+          "watchInterval": "5m",
+          "deduplication": "hash",
+          "timeout": "5s"
+        }
+      ],
+      "transformations": [
+        {
+          "step": 1,
+          "type": "extract",
+          "fields": {
+            "id": "$.id || filename",
+            "filename": "filename",
+            "timestamp": "$.timestamp || mtime",
+            "type": "$.type || 'generic'",
+            "data": "$"
+          }
+        },
+        {
+          "step": 2,
+          "type": "filter",
+          "condition": "type !== null && id !== null",
+          "dropLogged": false
+        }
+      ],
+      "storage": {
+        "path": "data/pipelines/files",
+        "format": "jsonl",
+        "retention": "60d"
+      },
+      "triggers": [
+        {
+          "id": "new-file-logged",
+          "name": "New File Detected",
+          "condition": "true",
+          "action": "log_event",
+          "template": "New file processed: {{filename}} ({{type}})",
+          "priority": "low",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "config": {
+    "globalPollInterval": "15m",
+    "maxConcurrentSources": 5,
+    "errorHandling": {
+      "retryPolicy": "exponential_backoff",
+      "maxRetries": 3,
+      "initialDelay": "1m",
+      "maxDelay": "1h"
+    },
+    "storageDefaults": {
+      "format": "jsonl",
+      "retention": "30d",
+      "archiveOldFiles": true,
+      "maxSize": "500MB"
+    },
+    "deduplicationDefaults": {
+      "strategy": "hash",
+      "ttl": "30d"
+    },
+    "triggers": {
+      "evaluationInterval": "15m",
+      "maxConcurrentActions": 3,
+      "defaultCooldown": "5m"
+    },
+    "logging": {
+      "enabled": true,
+      "level": "info",
+      "logFile": "logs/pipelines.log",
+      "metricsFile": "logs/pipelines-metrics.json"
+    },
+    "healthCheck": {
+      "enabled": true,
+      "interval": "1h",
+      "alertThreshold": {
+        "consecutiveFailures": 3,
+        "errorRate": 0.3
+      }
+    }
+  },
+  "status": {
+    "lastEvaluation": "2026-02-13T08:22:00Z",
+    "activePipelines": 3,
+    "totalSources": 7,
+    "totalTriggers": 8,
+    "healthStatus": "operational",
+    "pipelineHealth": {
+      "tech-news-monitor": {
+        "enabled": true,
+        "lastPoll": "2026-02-13T08:22:00Z",
+        "sources": {
+          "hackernews": "healthy",
+          "dev-to": "healthy",
+          "github-trending": "pending"
+        },
+        "itemsProcessed": 0,
+        "errors": 0
+      },
+      "weather-monitor": {
+        "enabled": true,
+        "lastPoll": null,
+        "sources": {
+          "openweathermap": "pending"
+        },
+        "itemsProcessed": 0,
+        "errors": 0
+      },
+      "file-monitor": {
+        "enabled": true,
+        "lastPoll": null,
+        "sources": {
+          "data-folder": "pending"
+        },
+        "itemsProcessed": 0,
+        "errors": 0
+      }
+    }
+  }
+}

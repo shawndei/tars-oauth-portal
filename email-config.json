@@ -1,0 +1,214 @@
+{
+  "version": "1.0",
+  "accounts": [
+    {
+      "name": "primary",
+      "provider": "gmail",
+      "enabled": true,
+      "email": "your-email@gmail.com",
+      "auth": {
+        "method": "oauth2",
+        "client_id": "${GMAIL_CLIENT_ID}",
+        "client_secret": "${GMAIL_CLIENT_SECRET}",
+        "refresh_token": "${GMAIL_REFRESH_TOKEN}",
+        "scopes": [
+          "https://www.googleapis.com/auth/gmail.readonly",
+          "https://www.googleapis.com/auth/gmail.modify"
+        ]
+      },
+      "folders": {
+        "inbox": "INBOX",
+        "important": "IMPORTANT",
+        "archive": "ALL_MAIL"
+      }
+    }
+  ],
+  "categories": {
+    "work": {
+      "keywords": ["project", "meeting", "deadline", "deliverable", "sprint"],
+      "senders": ["@company.com"],
+      "auto_label": "Work",
+      "priority_boost": 0.2
+    },
+    "personal": {
+      "keywords": ["plan", "weekend", "family", "friend"],
+      "senders": ["personal", "gmail.com"],
+      "auto_label": "Personal",
+      "priority_boost": 0
+    },
+    "finance": {
+      "keywords": ["invoice", "bill", "payment", "receipt", "subscription", "charge"],
+      "senders": ["@bank.com", "@paypal.com", "billing@", "accounting@"],
+      "auto_label": "Finance",
+      "priority_boost": 0.5
+    },
+    "notifications": {
+      "keywords": ["notification", "alert", "update", "confirmation"],
+      "senders": ["noreply@", "notification@", "alerts@"],
+      "auto_label": "Notifications",
+      "priority_boost": -0.3
+    },
+    "newsletter": {
+      "keywords": ["newsletter", "digest", "weekly", "monthly", "subscription"],
+      "senders": ["newsletter@", "digest@", "news@"],
+      "auto_label": "Newsletter",
+      "priority_boost": -0.5
+    },
+    "spam": {
+      "keywords": ["unsubscribe", "click here now", "limited time", "act now"],
+      "senders": [],
+      "auto_label": "Spam",
+      "priority_boost": -1.0
+    }
+  },
+  "vip_contacts": [
+    {
+      "email": "boss@company.com",
+      "name": "Boss",
+      "priority_boost": 1.0,
+      "auto_respond": false
+    },
+    {
+      "email": "key.client@external.com",
+      "name": "Key Client",
+      "priority_boost": 0.8,
+      "auto_respond": false
+    }
+  ],
+  "filters": [
+    {
+      "name": "Auto-archive newsletters",
+      "enabled": true,
+      "conditions": {
+        "from": ["newsletter@", "digest@"],
+        "subject": ["newsletter", "weekly digest"]
+      },
+      "actions": [
+        {
+          "type": "label",
+          "value": "Newsletter"
+        },
+        {
+          "type": "archive",
+          "value": true
+        }
+      ]
+    },
+    {
+      "name": "Flag bills",
+      "enabled": true,
+      "conditions": {
+        "subject": ["invoice", "bill", "payment due"]
+      },
+      "actions": [
+        {
+          "type": "label",
+          "value": "Finance"
+        },
+        {
+          "type": "flag",
+          "value": true
+        }
+      ]
+    },
+    {
+      "name": "Auto-organize notifications",
+      "enabled": true,
+      "conditions": {
+        "from": ["noreply@", "notification@", "alerts@"]
+      },
+      "actions": [
+        {
+          "type": "label",
+          "value": "Notifications"
+        },
+        {
+          "type": "skip_inbox",
+          "value": true
+        }
+      ]
+    }
+  ],
+  "templates": {
+    "location": "skills/email-integration/templates",
+    "default_tone": "professional",
+    "signature": {
+      "enabled": true,
+      "name": "Shawn",
+      "title": "Task Automation & Response System",
+      "footer": "Sent by TARS Assistant"
+    }
+  },
+  "automation": {
+    "morning_briefing": {
+      "enabled": true,
+      "trigger": "briefing:morning",
+      "time": "09:00",
+      "timezone": "America/Denver",
+      "max_emails": 20,
+      "detail_level": "brief",
+      "include_action_items": true,
+      "include_priority_only": false
+    },
+    "auto_draft": {
+      "enabled": true,
+      "threshold": 0.8,
+      "templates": ["acknowledge", "fyi"],
+      "require_approval": true
+    },
+    "spam_filtering": {
+      "enabled": true,
+      "auto_quarantine": false,
+      "learn_from_reports": true
+    },
+    "newsletter_digest": {
+      "enabled": false,
+      "frequency": "daily",
+      "time": "18:00",
+      "max_items": 10
+    }
+  },
+  "rate_limits": {
+    "gmail": {
+      "requests_per_day": 250,
+      "requests_per_minute": 10,
+      "batch_size": 50
+    }
+  },
+  "security": {
+    "encrypt_credentials": true,
+    "audit_log": true,
+    "audit_log_path": "logs/email-audit.log",
+    "approval_required_for_send": true,
+    "max_retries": 3,
+    "timeout_seconds": 30
+  },
+  "response_preferences": {
+    "include_context": true,
+    "include_original_message": true,
+    "quote_style": "plain_text",
+    "auto_line_breaks": true
+  },
+  "integrations": {
+    "task_system": {
+      "enabled": true,
+      "auto_create_tasks": true,
+      "task_prefix": "Email: "
+    },
+    "calendar": {
+      "enabled": false,
+      "auto_detect_meetings": true
+    },
+    "tars_briefing": {
+      "enabled": true,
+      "morning_briefing": true,
+      "evening_summary": false
+    }
+  },
+  "notification_preferences": {
+    "high_priority_alert": true,
+    "vip_alert": true,
+    "alert_delivery": "console",
+    "alert_sound": false
+  }
+}

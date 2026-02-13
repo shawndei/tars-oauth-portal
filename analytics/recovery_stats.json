@@ -1,0 +1,9 @@
+{
+  "total_errors": 0,
+  "auto_recovered": 0,
+  "manual_intervention": 0,
+  "recovery_rate": 0.0,
+  "target_rate": 0.95,
+  "by_tool": {},
+  "initialized": "2026-02-12T22:06:00Z"
+}

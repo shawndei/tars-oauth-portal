@@ -1,0 +1,21 @@
+{
+  "name": "default",
+  "archived": false,
+  "template": "default",
+  "created": "2026-02-12T00:00:00Z",
+  "modified": "2026-02-13T00:00:00Z",
+  "description": "Default project for ad-hoc tasks, experiments, and one-off requests",
+  "tags": ["general", "ad-hoc", "experiments"],
+  "settings": {
+    "contextIsolation": true,
+    "autoArchiveAfterDays": null,
+    "maxMemorySize": "50MB",
+    "collaborators": ["You"]
+  },
+  "metadata": {
+    "tasksCount": 4,
+    "completedTasks": 0,
+    "filesCount": 0,
+    "lastActivity": "2026-02-13T00:00:00Z"
+  }
+}

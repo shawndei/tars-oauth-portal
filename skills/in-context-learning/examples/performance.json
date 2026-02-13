@@ -1,0 +1,161 @@
+{
+  "updated": "2026-02-13T17:11:12.928Z",
+  "requests": [
+    {
+      "id": "321e48c6480dbeb1",
+      "useCase": "code-explanation",
+      "prompt": "Explain what Promise.race() does in JavaScript",
+      "timestamp": 1771002672914,
+      "status": "complete",
+      "examples": 2,
+      "strategy": "semantic",
+      "adaptedAt": 1771002672915,
+      "feedback": {
+        "success": true,
+        "quality": 0.9,
+        "notes": "Great examples provided"
+      },
+      "completedAt": 1771002672915
+    },
+    {
+      "id": "3e64a5e5bac07e26",
+      "useCase": "api-documentation",
+      "prompt": "Document this function: async deleteUser(userId)",
+      "timestamp": 1771002672917,
+      "status": "complete",
+      "examples": 2,
+      "strategy": "hybrid",
+      "adaptedAt": 1771002672918,
+      "feedback": {
+        "success": true,
+        "quality": 0.95
+      },
+      "completedAt": 1771002672918
+    },
+    {
+      "id": "b01d4b70219fa11a",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript arrow functions",
+      "timestamp": 1771002672920,
+      "status": "complete",
+      "examples": 2,
+      "strategy": "random",
+      "adaptedAt": 1771002672920,
+      "feedback": {
+        "success": false,
+        "quality": 0.7661001341954397
+      },
+      "completedAt": 1771002672920
+    },
+    {
+      "id": "5a5a171677e89e1f",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript arrow functions",
+      "timestamp": 1771002672921,
+      "status": "complete",
+      "examples": 2,
+      "strategy": "recent",
+      "adaptedAt": 1771002672921,
+      "feedback": {
+        "success": true,
+        "quality": 0.970207491459556
+      },
+      "completedAt": 1771002672921
+    },
+    {
+      "id": "de8426569d839b56",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript arrow functions",
+      "timestamp": 1771002672922,
+      "status": "complete",
+      "examples": 2,
+      "strategy": "semantic",
+      "adaptedAt": 1771002672923,
+      "feedback": {
+        "success": true,
+        "quality": 0.978719980102234
+      },
+      "completedAt": 1771002672923
+    },
+    {
+      "id": "540f461ed4a42d66",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript arrow functions",
+      "timestamp": 1771002672924,
+      "status": "complete",
+      "examples": 2,
+      "strategy": "keyword",
+      "adaptedAt": 1771002672924,
+      "feedback": {
+        "success": true,
+        "quality": 0.7260980471170261
+      },
+      "completedAt": 1771002672924
+    }
+  ],
+  "useCases": {
+    "code-explanation": {
+      "totalRequests": 5,
+      "successfulRequests": 4,
+      "successRate": 0.8,
+      "avgExamples": 2,
+      "avgResponseTime": 0.4,
+      "lastUpdated": 1771002672924,
+      "recent": {
+        "requests": 5,
+        "successRate": 0.8,
+        "avgExamples": 2
+      }
+    },
+    "api-documentation": {
+      "totalRequests": 1,
+      "successfulRequests": 1,
+      "successRate": 1,
+      "avgExamples": 2,
+      "avgResponseTime": 1,
+      "lastUpdated": 1771002672918
+    }
+  },
+  "strategies": {
+    "semantic": {
+      "totalRequests": 2,
+      "successfulRequests": 2,
+      "successRate": 1,
+      "avgExamples": 2,
+      "avgResponseTime": 1,
+      "lastUpdated": 1771002672923
+    },
+    "hybrid": {
+      "totalRequests": 1,
+      "successfulRequests": 1,
+      "successRate": 1,
+      "avgExamples": 2,
+      "avgResponseTime": 1,
+      "lastUpdated": 1771002672918
+    },
+    "random": {
+      "totalRequests": 1,
+      "successfulRequests": 0,
+      "successRate": 0,
+      "avgExamples": 2,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002672920
+    },
+    "recent": {
+      "totalRequests": 1,
+      "successfulRequests": 1,
+      "successRate": 1,
+      "avgExamples": 2,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002672921
+    },
+    "keyword": {
+      "totalRequests": 1,
+      "successfulRequests": 1,
+      "successRate": 1,
+      "avgExamples": 2,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002672924
+    }
+  }
+}

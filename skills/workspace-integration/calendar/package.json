@@ -1,0 +1,16 @@
+{
+  "name": "@tars/calendar-integration",
+  "version": "1.0.0",
+  "description": "Google Calendar API integration with OAuth2 for TARS agent system",
+  "main": "calendar-client.js",
+  "scripts": {
+    "test": "node test-calendar.js"
+  },
+  "keywords": ["calendar", "google-calendar", "oauth2", "tars", "agent"],
+  "author": "TARS Agent System",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^131.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}

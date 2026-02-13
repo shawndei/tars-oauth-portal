@@ -1,0 +1,69 @@
+{
+  "daily_budget": 30,
+  "weekly_budget": 210,
+  "monthly_budget": 900,
+  "current_month": "2026-02",
+  "sessions": [
+    {
+      "sessionKey": "main:test123",
+      "date": "2026-02-13",
+      "cost": 1.05,
+      "tokens": 150000,
+      "inputTokens": 100000,
+      "outputTokens": 50000,
+      "model": "claude-sonnet-4-5",
+      "timestamp": "2026-02-13T19:38:49.411Z"
+    },
+    {
+      "sessionKey": "analytics:test",
+      "date": "2026-02-13",
+      "cost": 0.014000000000000002,
+      "tokens": 75000,
+      "inputTokens": 50000,
+      "outputTokens": 25000,
+      "model": "claude-haiku-4-5",
+      "timestamp": "2026-02-13T19:38:49.434Z"
+    },
+    {
+      "sessionKey": "main:test123",
+      "date": "2026-02-13",
+      "cost": 1.05,
+      "tokens": 150000,
+      "inputTokens": 100000,
+      "outputTokens": 50000,
+      "model": "claude-sonnet-4-5",
+      "timestamp": "2026-02-13T19:39:02.393Z"
+    },
+    {
+      "sessionKey": "analytics:test",
+      "date": "2026-02-13",
+      "cost": 0.014000000000000002,
+      "tokens": 75000,
+      "inputTokens": 50000,
+      "outputTokens": 25000,
+      "model": "claude-haiku-4-5",
+      "timestamp": "2026-02-13T19:39:02.409Z"
+    },
+    {
+      "sessionKey": "test:breakdown",
+      "date": "2026-02-13",
+      "cost": 1.05,
+      "tokens": 150000,
+      "inputTokens": 100000,
+      "outputTokens": 50000,
+      "model": "claude-sonnet-4-5",
+      "timestamp": "2026-02-13T19:39:02.419Z"
+    },
+    {
+      "sessionKey": "test:hook:hook-test-1771011542445",
+      "date": "2026-02-13",
+      "cost": 0.016,
+      "tokens": 100000,
+      "inputTokens": 75000,
+      "outputTokens": 25000,
+      "model": "claude-haiku-4-5",
+      "timestamp": "2026-02-13T19:39:02.554Z"
+    }
+  ],
+  "last_updated": "2026-02-13T19:39:02.554Z"
+}

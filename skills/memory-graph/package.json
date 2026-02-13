@@ -1,0 +1,13 @@
+{
+  "name": "@openclaw/memory-graph",
+  "version": "1.0.0",
+  "description": "Graph-based memory networks with associative recall and temporal decay",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": ["memory", "graph", "neural", "associative", "recall"],
+  "author": "OpenClaw",
+  "license": "MIT"
+}

@@ -1,0 +1,246 @@
+{
+  "version": "1.0",
+  "profiles": {
+    "researcher": {
+      "id": "researcher",
+      "name": "Researcher Agent",
+      "model": "anthropic/claude-haiku-4-5",
+      "thinking": "medium",
+      "specialization": "Information gathering, fact-checking, data aggregation",
+      "capabilities": [
+        "web_search",
+        "web_fetch",
+        "browser",
+        "read",
+        "write"
+      ],
+      "strengths": [
+        "Multi-source research",
+        "Citation tracking",
+        "Fact verification",
+        "Data extraction",
+        "Source evaluation"
+      ],
+      "triggers": [
+        "research",
+        "find",
+        "gather",
+        "investigate",
+        "lookup",
+        "search",
+        "discover",
+        "explore"
+      ],
+      "costPerMToken": 1.0,
+      "maxConcurrent": 3,
+      "averageTaskDuration": "4-8 minutes",
+      "qualityScore": 0.94,
+      "useCases": [
+        "Market research",
+        "Competitive analysis",
+        "Literature reviews",
+        "Data collection",
+        "Fact-checking"
+      ]
+    },
+    "coder": {
+      "id": "coder",
+      "name": "Coder Agent",
+      "model": "anthropic/claude-sonnet-4-5",
+      "thinking": "high",
+      "specialization": "Code generation, debugging, architecture design",
+      "capabilities": [
+        "exec",
+        "read",
+        "write",
+        "web_search"
+      ],
+      "strengths": [
+        "Multi-language coding",
+        "Bug analysis",
+        "Architecture design",
+        "Code review",
+        "Technical documentation",
+        "Performance optimization",
+        "Security analysis"
+      ],
+      "triggers": [
+        "code",
+        "build",
+        "debug",
+        "implement",
+        "refactor",
+        "fix",
+        "develop",
+        "program",
+        "script"
+      ],
+      "costPerMToken": 15.0,
+      "maxConcurrent": 2,
+      "averageTaskDuration": "10-20 minutes",
+      "qualityScore": 0.97,
+      "useCases": [
+        "Feature implementation",
+        "Bug fixing",
+        "Code review",
+        "Architecture design",
+        "API development",
+        "Testing strategies"
+      ]
+    },
+    "analyst": {
+      "id": "analyst",
+      "name": "Analyst Agent",
+      "model": "anthropic/claude-haiku-4-5",
+      "thinking": "medium",
+      "specialization": "Data analysis, pattern recognition, trend identification",
+      "capabilities": [
+        "read",
+        "write",
+        "exec",
+        "web_search"
+      ],
+      "strengths": [
+        "Data parsing",
+        "Pattern analysis",
+        "Trend identification",
+        "Statistical analysis",
+        "Report generation",
+        "Insight synthesis",
+        "Comparative analysis"
+      ],
+      "triggers": [
+        "analyze",
+        "compare",
+        "evaluate",
+        "assess",
+        "trends",
+        "patterns",
+        "metrics",
+        "statistics",
+        "insights"
+      ],
+      "costPerMToken": 1.0,
+      "maxConcurrent": 3,
+      "averageTaskDuration": "5-10 minutes",
+      "qualityScore": 0.93,
+      "useCases": [
+        "Data analysis",
+        "Competitive comparison",
+        "Trend analysis",
+        "Performance metrics",
+        "Business intelligence"
+      ]
+    },
+    "writer": {
+      "id": "writer",
+      "name": "Writer Agent",
+      "model": "anthropic/claude-sonnet-4-5",
+      "thinking": "low",
+      "specialization": "Content creation, documentation, narrative synthesis",
+      "capabilities": [
+        "read",
+        "write",
+        "web_search"
+      ],
+      "strengths": [
+        "Long-form content",
+        "Technical writing",
+        "Narrative synthesis",
+        "Editing and polishing",
+        "Style adaptation",
+        "Documentation",
+        "Executive summaries"
+      ],
+      "triggers": [
+        "write",
+        "document",
+        "compose",
+        "create",
+        "draft",
+        "polish",
+        "summarize",
+        "report"
+      ],
+      "costPerMToken": 15.0,
+      "maxConcurrent": 2,
+      "averageTaskDuration": "8-15 minutes",
+      "qualityScore": 0.97,
+      "useCases": [
+        "Blog posts",
+        "Technical documentation",
+        "Reports",
+        "Proposals",
+        "Executive summaries",
+        "Marketing content"
+      ]
+    },
+    "coordinator": {
+      "id": "coordinator",
+      "name": "Coordinator Agent",
+      "model": "anthropic/claude-sonnet-4-5",
+      "thinking": "high",
+      "specialization": "Task decomposition, routing, orchestration, synthesis",
+      "capabilities": [
+        "all"
+      ],
+      "strengths": [
+        "Complex task decomposition",
+        "Agent delegation",
+        "Result synthesis",
+        "Quality validation",
+        "Error recovery",
+        "Workflow optimization",
+        "Project management"
+      ],
+      "triggers": [
+        "coordinate",
+        "orchestrate",
+        "manage",
+        "synthesize",
+        "complex",
+        "multi-step"
+      ],
+      "costPerMToken": 15.0,
+      "maxConcurrent": 1,
+      "averageTaskDuration": "30-60 minutes",
+      "qualityScore": 0.99,
+      "useCases": [
+        "Complex multi-step projects",
+        "Cross-functional coordination",
+        "Large-scale research",
+        "Product development",
+        "Strategic planning"
+      ]
+    }
+  },
+  "routing_rules": {
+    "simple_task": {
+      "description": "Single-specialty task",
+      "pattern": "One agent directly executes",
+      "decision": "Route to primary specialist based on triggers"
+    },
+    "parallel_task": {
+      "description": "Multiple independent subtasks",
+      "pattern": "Coordinator decomposes and routes in parallel",
+      "decision": "Use when subtasks have no dependencies"
+    },
+    "sequential_task": {
+      "description": "Tasks with strict dependencies",
+      "pattern": "Chain execution with result passing",
+      "decision": "Use when output of one task feeds into next"
+    },
+    "complex_task": {
+      "description": "Mix of parallel and sequential",
+      "pattern": "Hierarchical coordination",
+      "decision": "Use coordinator for orchestration"
+    }
+  },
+  "fallback_chains": {
+    "researcher": ["analyst", "coordinator"],
+    "coder": ["coordinator"],
+    "analyst": ["researcher", "coordinator"],
+    "writer": ["coordinator"],
+    "coordinator": []
+  }
+}

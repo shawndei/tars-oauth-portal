@@ -1,0 +1,408 @@
+{
+  "version": "1.0",
+  "name": "TARS Multi-Agent Orchestration",
+  "created": "2026-02-13",
+  "purpose": "Intelligent routing and load balancing for specialized agents",
+  
+  "agents": {
+    "primary": [
+      {
+        "id": "researcher-primary",
+        "name": "Researcher",
+        "model": "anthropic/claude-haiku-4-5",
+        "type": "specialist",
+        "costTier": "high",
+        "specializations": ["research", "information-gathering", "fact-checking", "data-aggregation"],
+        "maxConcurrent": 3,
+        "capabilities": {
+          "webSearch": true,
+          "contentFetching": true,
+          "documentAnalysis": true,
+          "factVerification": true,
+          "synthesis": true
+        },
+        "estimatedLatency": 3000,
+        "costPerKToken": 0.008,
+        "successRate": 0.96
+      },
+      {
+        "id": "coder-primary",
+        "name": "Coder",
+        "model": "anthropic/claude-sonnet-4-5",
+        "type": "specialist",
+        "costTier": "medium",
+        "specializations": ["code-generation", "debugging", "architecture", "refactoring"],
+        "maxConcurrent": 2,
+        "capabilities": {
+          "codeGeneration": true,
+          "bugFix": true,
+          "architectureDesign": true,
+          "codeReview": true,
+          "optimization": true,
+          "documentation": true
+        },
+        "estimatedLatency": 5000,
+        "costPerKToken": 0.18,
+        "successRate": 0.98
+      },
+      {
+        "id": "analyst-primary",
+        "name": "Analyst",
+        "model": "anthropic/claude-haiku-4-5",
+        "type": "specialist",
+        "costTier": "high",
+        "specializations": ["data-analysis", "pattern-recognition", "trend-analysis", "metrics"],
+        "maxConcurrent": 3,
+        "capabilities": {
+          "dataAnalysis": true,
+          "patternRecognition": true,
+          "trendIdentification": true,
+          "statisticalAnalysis": true,
+          "reportGeneration": true,
+          "visualization": true
+        },
+        "estimatedLatency": 2500,
+        "costPerKToken": 0.008,
+        "successRate": 0.95
+      },
+      {
+        "id": "writer-primary",
+        "name": "Writer",
+        "model": "anthropic/claude-sonnet-4-5",
+        "type": "specialist",
+        "costTier": "medium",
+        "specializations": ["content-creation", "documentation", "narrative-synthesis", "editing"],
+        "maxConcurrent": 2,
+        "capabilities": {
+          "contentCreation": true,
+          "technicalWriting": true,
+          "narrativeSynthesis": true,
+          "editing": true,
+          "styleAdaptation": true,
+          "summarization": true
+        },
+        "estimatedLatency": 4000,
+        "costPerKToken": 0.18,
+        "successRate": 0.97
+      },
+      {
+        "id": "coordinator-primary",
+        "name": "Coordinator",
+        "model": "anthropic/claude-sonnet-4-5",
+        "type": "orchestrator",
+        "costTier": "medium",
+        "specializations": ["task-decomposition", "routing", "orchestration", "synthesis"],
+        "maxConcurrent": 1,
+        "capabilities": {
+          "taskDecomposition": true,
+          "agentDelegation": true,
+          "resultSynthesis": true,
+          "qualityValidation": true,
+          "errorRecovery": true,
+          "coordination": true
+        },
+        "estimatedLatency": 6000,
+        "costPerKToken": 0.18,
+        "successRate": 0.99
+      }
+    ],
+    "subAgents": [
+      {
+        "id": "researcher-sub-1",
+        "parentId": "researcher-primary",
+        "type": "sub",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      {
+        "id": "researcher-sub-2",
+        "parentId": "researcher-primary",
+        "type": "sub",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      {
+        "id": "coder-sub-1",
+        "parentId": "coder-primary",
+        "type": "sub",
+        "specialization": "frontend",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      {
+        "id": "coder-sub-2",
+        "parentId": "coder-primary",
+        "type": "sub",
+        "specialization": "backend",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      {
+        "id": "analyst-sub-1",
+        "parentId": "analyst-primary",
+        "type": "sub",
+        "specialization": "financial-data",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      {
+        "id": "analyst-sub-2",
+        "parentId": "analyst-primary",
+        "type": "sub",
+        "specialization": "technical-data",
+        "model": "anthropic/claude-haiku-4-5"
+      },
+      {
+        "id": "writer-sub-1",
+        "parentId": "writer-primary",
+        "type": "sub",
+        "specialization": "technical-prose",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      {
+        "id": "writer-sub-2",
+        "parentId": "writer-primary",
+        "type": "sub",
+        "specialization": "narrative-style",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      {
+        "id": "coordinator-sub-1",
+        "parentId": "coordinator-primary",
+        "type": "sub",
+        "specialization": "backup",
+        "model": "anthropic/claude-sonnet-4-5"
+      },
+      {
+        "id": "validator",
+        "parentId": "analyst-primary",
+        "type": "validator",
+        "specialization": "quality-assurance",
+        "model": "anthropic/claude-sonnet-4-5"
+      }
+    ]
+  },
+
+  "routingRules": {
+    "taskClassification": {
+      "research": {
+        "keywords": ["research", "find", "gather", "investigate", "lookup", "search", "discover"],
+        "primaryAgent": "researcher-primary",
+        "supportingAgents": ["analyst-primary"],
+        "parallelizable": true,
+        "priority": "normal",
+        "estimatedCost": 0.05
+      },
+      "code": {
+        "keywords": ["code", "build", "debug", "implement", "refactor", "develop", "program"],
+        "primaryAgent": "coder-primary",
+        "supportingAgents": ["analyst-primary"],
+        "parallelizable": false,
+        "priority": "high",
+        "estimatedCost": 0.30
+      },
+      "analysis": {
+        "keywords": ["analyze", "trends", "patterns", "metrics", "statistics", "data", "report"],
+        "primaryAgent": "analyst-primary",
+        "supportingAgents": ["researcher-primary"],
+        "parallelizable": true,
+        "priority": "normal",
+        "estimatedCost": 0.04
+      },
+      "writing": {
+        "keywords": ["write", "document", "compose", "create", "polish", "edit", "draft"],
+        "primaryAgent": "writer-primary",
+        "supportingAgents": ["researcher-primary", "analyst-primary"],
+        "parallelizable": false,
+        "priority": "normal",
+        "estimatedCost": 0.25
+      },
+      "complex": {
+        "keywords": ["complex", "multi-step", "workflow", "pipeline", "end-to-end"],
+        "primaryAgent": "coordinator-primary",
+        "supportingAgents": ["researcher-primary", "coder-primary", "analyst-primary", "writer-primary"],
+        "parallelizable": true,
+        "priority": "high",
+        "estimatedCost": 0.50
+      },
+      "validation": {
+        "keywords": ["validate", "verify", "check", "review", "audit", "quality"],
+        "primaryAgent": "analyst-primary",
+        "supportingAgents": [],
+        "parallelizable": true,
+        "priority": "high",
+        "estimatedCost": 0.08
+      }
+    },
+
+    "fallbackChains": {
+      "research": ["researcher-primary", "researcher-sub-1", "researcher-sub-2", "analyst-primary"],
+      "code": ["coder-primary", "coder-sub-1", "coder-sub-2"],
+      "analysis": ["analyst-primary", "analyst-sub-1", "analyst-sub-2", "researcher-primary"],
+      "writing": ["writer-primary", "writer-sub-1", "writer-sub-2"],
+      "complex": ["coordinator-primary", "coordinator-sub-1"]
+    },
+
+    "costOptimization": {
+      "preferHaikuThreshold": 0.95,
+      "forceHaikuUnderLoad": true,
+      "maxCostPerTask": 1.00,
+      "budgetAlert": 0.80,
+      "haikuAgents": ["researcher-primary", "analyst-primary"],
+      "sonnetAgents": ["coder-primary", "writer-primary", "coordinator-primary"]
+    },
+
+    "parallelizationRules": {
+      "allowParallel": ["research", "analysis", "complex"],
+      "sequentialOnly": ["code", "writing"],
+      "maxParallelAgents": 4,
+      "parallelThreshold": 3000
+    },
+
+    "priorityMapping": {
+      "critical": 100,
+      "high": 75,
+      "normal": 50,
+      "low": 25,
+      "background": 10
+    }
+  },
+
+  "loadBalancing": {
+    "algorithm": "least-loaded-first",
+    "monitoringInterval": 1000,
+    "queues": {
+      "researcher-primary": {
+        "maxCapacity": 3,
+        "optimalLoad": 1.5,
+        "criticalLoad": 3,
+        "scalingFactor": 1.2
+      },
+      "coder-primary": {
+        "maxCapacity": 2,
+        "optimalLoad": 1,
+        "criticalLoad": 2,
+        "scalingFactor": 1.0
+      },
+      "analyst-primary": {
+        "maxCapacity": 3,
+        "optimalLoad": 1.5,
+        "criticalLoad": 3,
+        "scalingFactor": 1.2
+      },
+      "writer-primary": {
+        "maxCapacity": 2,
+        "optimalLoad": 1,
+        "criticalLoad": 2,
+        "scalingFactor": 1.0
+      },
+      "coordinator-primary": {
+        "maxCapacity": 1,
+        "optimalLoad": 0.5,
+        "criticalLoad": 1,
+        "scalingFactor": 1.0
+      }
+    },
+    "thresholds": {
+      "optimal": 2,
+      "acceptable": 4,
+      "high": 6,
+      "critical": 10
+    },
+    "scalingStrategy": {
+      "enableSubAgents": true,
+      "enableSubAgentsAt": 3,
+      "maxTotalAgents": 15,
+      "gracefulDegradation": true
+    }
+  },
+
+  "sharedMemory": {
+    "storageLocation": "workspace/memory/shared",
+    "files": {
+      "taskRegistry": "task-registry.json",
+      "resultsCache": "results-cache.json",
+      "loadState": "load-state.json",
+      "coordination": "coordination.json"
+    },
+    "syncInterval": 500,
+    "cacheExpiry": 3600000,
+    "agentMemoryPath": "workspace/memory/agent-memory",
+    "dailyLogsPath": "workspace/memory"
+  },
+
+  "workflowPatterns": {
+    "singleAgent": {
+      "name": "Simple Single-Agent Task",
+      "steps": ["classify", "route", "execute", "return"],
+      "expectedLatency": 5000,
+      "parallelism": 1
+    },
+    "parallelMultiAgent": {
+      "name": "Parallel Multi-Agent Task",
+      "steps": ["classify", "decompose", "routeToAll", "executeParallel", "synthesize", "return"],
+      "expectedLatency": 15000,
+      "parallelism": 4
+    },
+    "sequentialChain": {
+      "name": "Sequential Task Chain",
+      "steps": ["classify", "defineChain", "executeSequential", "synthesize", "return"],
+      "expectedLatency": 30000,
+      "parallelism": 1,
+      "maxChainLength": 5
+    },
+    "hierarchicalDelegation": {
+      "name": "Hierarchical Delegation",
+      "steps": ["classify", "coordinatorDecomposes", "routeToPrimary", "primaryDelegates", "executeParallel", "synthesize", "return"],
+      "expectedLatency": 20000,
+      "parallelism": 6
+    },
+    "errorRecovery": {
+      "name": "Error Recovery",
+      "steps": ["execute", "validateResult", "onError->analyzeError", "selectFallback", "retryWithFallback", "return"],
+      "maxRetries": 3,
+      "backoffMultiplier": 2
+    }
+  },
+
+  "performanceTargets": {
+    "latency": {
+      "simpleTask": 5000,
+      "parallelTask": 15000,
+      "chainTask": 30000,
+      "hierarchicalTask": 20000
+    },
+    "cost": {
+      "costPerTask": 0.50,
+      "costPerMillionTokens": 1.00,
+      "savingsVsAllSonnet": 0.50
+    },
+    "reliability": {
+      "firstPassSuccess": 0.95,
+      "errorRecoveryTime": 2000,
+      "taskCompletionSLA": 0.99
+    }
+  },
+
+  "monitoring": {
+    "metricsCollectionInterval": 5000,
+    "alertThresholds": {
+      "queueDepth": 5,
+      "errorRate": 0.10,
+      "latencyP95": 30000,
+      "costPerTask": 1.00
+    },
+    "loggingLevel": "info",
+    "metricsEndpoint": "workspace/memory/shared/metrics.json"
+  },
+
+  "deployment": {
+    "environment": "production",
+    "version": "1.0",
+    "deploymentDate": "2026-02-13",
+    "readinessChecks": [
+      "allAgentsInitialized",
+      "sharedMemoryAccessible",
+      "routingRulesLoaded",
+      "loadBalancerActive"
+    ],
+    "healthCheckInterval": 10000,
+    "gracefulShutdown": true,
+    "shutdownTimeoutMs": 30000
+  }
+}

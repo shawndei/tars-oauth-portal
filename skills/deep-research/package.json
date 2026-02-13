@@ -1,0 +1,26 @@
+{
+  "name": "@openclaw/deep-research",
+  "version": "2.0.0",
+  "description": "Comprehensive multi-source research engine with synthesis, citations, and quality scoring",
+  "main": "deep-researcher.js",
+  "scripts": {
+    "test": "node deep-researcher.js \"AI frameworks 2026\" --depth 2",
+    "test-quick": "node deep-researcher.js \"quantum computing\" --depth 1",
+    "test-deep": "node deep-researcher.js \"climate change solutions\" --depth 3"
+  },
+  "keywords": [
+    "research",
+    "citations",
+    "synthesis",
+    "deep-research",
+    "multi-source",
+    "openclaw",
+    "ai",
+    "automation"
+  ],
+  "author": "TARS / OpenClaw",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

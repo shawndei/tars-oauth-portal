@@ -1,0 +1,131 @@
+{
+  "tokens": {
+    "zapier-production": {
+      "key": "zapk_7K9mP3nQ2rX8vL4jB6hY5tF1cN0gZ9sA",
+      "type": "zapier",
+      "name": "Zapier Production",
+      "rateLimit": 1000,
+      "endpoints": ["task", "notify", "research"],
+      "active": true,
+      "createdAt": "2026-01-01T00:00:00Z",
+      "description": "Zapier automation platform integration"
+    },
+    "make-production": {
+      "key": "makk_9L5mK8bQ4tX2vN7wP3jR6hF1cZ0sA8E5",
+      "type": "make",
+      "name": "Make.com Production",
+      "rateLimit": 1000,
+      "endpoints": ["task", "notify", "research"],
+      "active": true,
+      "createdAt": "2026-01-01T00:00:00Z",
+      "description": "Make.com integration scenario execution"
+    },
+    "n8n-production": {
+      "key": "n8nk_2X6jR9vL3pM5nT8wA1hE4sC0fQ7gB2",
+      "type": "n8n",
+      "name": "n8n Production",
+      "rateLimit": 1500,
+      "endpoints": ["task", "notify", "research"],
+      "active": true,
+      "createdAt": "2026-01-01T00:00:00Z",
+      "description": "n8n workflow automation engine"
+    },
+    "ifttt-production": {
+      "key": "iftk_5D3nW7kM9bQ2tX6vL1pR8jF4cZ0sA3E9",
+      "type": "ifttt",
+      "name": "IFTTT Production",
+      "rateLimit": 500,
+      "endpoints": ["task", "notify"],
+      "active": true,
+      "createdAt": "2026-01-01T00:00:00Z",
+      "description": "IFTTT applet automation"
+    },
+    "custom-app-1": {
+      "key": "cstk_4P2jX8vL6nM1wQ9sR3tB5hF0cZ7eA4K2",
+      "type": "custom",
+      "name": "Custom Application 1",
+      "rateLimit": 2000,
+      "endpoints": ["task", "notify", "research"],
+      "active": true,
+      "createdAt": "2026-02-01T00:00:00Z",
+      "description": "Custom REST API client"
+    },
+    "github-actions": {
+      "key": "ghak_6T1nY7mZ3bQ5vX9sL2pR8wF4cA0jD6E3",
+      "type": "github",
+      "name": "GitHub Actions Workflow",
+      "rateLimit": 500,
+      "endpoints": ["task", "notify"],
+      "active": true,
+      "createdAt": "2026-02-01T00:00:00Z",
+      "description": "GitHub Actions CI/CD integration"
+    },
+    "slack-bot": {
+      "key": "slak_1H9tW4mN7jQ3pX8vL2sR6fE0cB5kA2J9",
+      "type": "slack",
+      "name": "Slack Bot",
+      "rateLimit": 800,
+      "endpoints": ["task", "notify"],
+      "active": true,
+      "createdAt": "2026-02-01T00:00:00Z",
+      "description": "Slack workspace bot integration"
+    },
+    "discord-bot": {
+      "key": "dcrk_8M2vP5nL9tQ1xW6sA3fR7jC0bE4kD1H",
+      "type": "discord",
+      "name": "Discord Bot",
+      "rateLimit": 800,
+      "endpoints": ["task", "notify"],
+      "active": true,
+      "createdAt": "2026-02-01T00:00:00Z",
+      "description": "Discord server bot integration"
+    },
+    "integration-testing": {
+      "key": "tstk_9Z5mP2jK6vL4nQ8sX1tR3wF0cA7eB9D",
+      "type": "testing",
+      "name": "Integration Testing",
+      "rateLimit": 10000,
+      "endpoints": ["task", "notify", "research"],
+      "active": true,
+      "createdAt": "2026-02-13T00:00:00Z",
+      "description": "Testing and development purposes"
+    }
+  },
+
+  "apiKeyFormats": {
+    "zapier": "zapk_*",
+    "make": "makk_*",
+    "n8n": "n8nk_*",
+    "ifttt": "iftk_*",
+    "custom": "cstk_*",
+    "github": "ghak_*",
+    "slack": "slak_*",
+    "discord": "dcrk_*",
+    "testing": "tstk_*"
+  },
+
+  "policies": {
+    "tokenRotation": {
+      "enabled": true,
+      "rotationIntervalDays": 90,
+      "requiresApproval": true
+    },
+    "rateLimit": {
+      "global": 10000,
+      "perToken": "configurable",
+      "perEndpoint": "configurable",
+      "algorithm": "sliding_window"
+    },
+    "security": {
+      "requireHttps": false,
+      "allowPlainHttp": true,
+      "ipWhitelist": false,
+      "corsEnabled": true
+    },
+    "audit": {
+      "logAllRequests": true,
+      "logPath": "logs/webhook-audit.jsonl",
+      "retentionDays": 90
+    }
+  }
+}

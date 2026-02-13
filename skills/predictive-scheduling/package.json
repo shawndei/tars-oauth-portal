@@ -1,0 +1,12 @@
+{
+  "name": "predictive-scheduler",
+  "version": "1.0.0",
+  "description": "Predictive task scheduling based on learned patterns",
+  "main": "predictive-scheduler.js",
+  "scripts": {
+    "test": "echo \"Tests pending\" && exit 0"
+  },
+  "keywords": ["scheduling", "prediction", "patterns", "automation"],
+  "author": "TARS",
+  "license": "MIT"
+}

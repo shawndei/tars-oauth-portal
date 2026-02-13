@@ -1,0 +1,81 @@
+{
+  "levels": [
+    {
+      "name": "permissive",
+      "description": "Minimal safety checks - only blocks critical threats. Suitable for trusted environments and development.",
+      "thresholds": {
+        "warning": 0.8,
+        "requiresApproval": 0.9,
+        "autoBlock": 0.95
+      },
+      "enabledChecks": {
+        "patternMatching": true,
+        "principlesEvaluation": false,
+        "riskAssessment": true,
+        "contextAware": false
+      },
+      "logging": {
+        "level": "minimal",
+        "includeContent": false
+      }
+    },
+    {
+      "name": "balanced",
+      "description": "Standard safety checks with reasonable balance between security and usability. Recommended for most use cases.",
+      "thresholds": {
+        "warning": 0.6,
+        "requiresApproval": 0.75,
+        "autoBlock": 0.85
+      },
+      "enabledChecks": {
+        "patternMatching": true,
+        "principlesEvaluation": true,
+        "riskAssessment": true,
+        "contextAware": true
+      },
+      "logging": {
+        "level": "standard",
+        "includeContent": true
+      }
+    },
+    {
+      "name": "strict",
+      "description": "Enhanced safety checks with low tolerance for risk. Suitable for production environments handling sensitive data.",
+      "thresholds": {
+        "warning": 0.4,
+        "requiresApproval": 0.6,
+        "autoBlock": 0.75
+      },
+      "enabledChecks": {
+        "patternMatching": true,
+        "principlesEvaluation": true,
+        "riskAssessment": true,
+        "contextAware": true
+      },
+      "logging": {
+        "level": "detailed",
+        "includeContent": true
+      }
+    },
+    {
+      "name": "paranoid",
+      "description": "Maximum safety checks with minimal tolerance for risk. Blocks most potentially risky actions. Use for high-security environments.",
+      "thresholds": {
+        "warning": 0.2,
+        "requiresApproval": 0.4,
+        "autoBlock": 0.6
+      },
+      "enabledChecks": {
+        "patternMatching": true,
+        "principlesEvaluation": true,
+        "riskAssessment": true,
+        "contextAware": true
+      },
+      "logging": {
+        "level": "detailed",
+        "includeContent": true
+      }
+    }
+  ],
+  "default": "balanced"
+}

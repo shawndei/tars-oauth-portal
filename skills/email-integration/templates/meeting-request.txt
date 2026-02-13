@@ -1,0 +1,17 @@
+Subject: Re: {subject} - Let's Schedule Time
+
+Hi {sender_name},
+
+I'd be happy to meet and discuss {context}.
+
+I'm available on the following times:
+- [TIME_OPTION_1]
+- [TIME_OPTION_2]
+- [TIME_OPTION_3]
+
+Does any of these work for you? We can meet via [MEETING_PLATFORM] or in person.
+
+Looking forward to connecting.
+
+Best regards,
+{name}

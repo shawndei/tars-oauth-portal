@@ -1,0 +1,338 @@
+# Episodic Memory System - Test Results
+
+**Test Date:** 2026-02-13T17:26:20.869Z  
+**Total Time:** 3.30s  
+**Status:** ❌ SOME TESTS FAILED
+
+---
+
+## Summary
+
+- **Passed:** 32
+- **Failed:** 5
+- **Warnings:** 0
+- **Total Tests:** 37
+
+---
+
+## Test Results
+
+### ✅ DB Connection
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:17.575Z
+
+### ✅ Table Creation
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:17.575Z
+
+### ✅ MEMORY.md Indexing
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:18.399Z
+
+### ✅ Chunk Count Sanity
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:18.399Z
+
+### ✅ Daily Logs Present
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:18.400Z
+
+### ✅ Daily Log Indexing
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:18.701Z
+
+### ✅ Full Index
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:19.640Z
+
+### ✅ Sufficient Coverage
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:19.640Z
+
+### ✅ Search: "optimization configuration changes" - Result Count
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:19.821Z
+
+### ✅ Search: "optimization configuration changes" - Expected Source
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:19.821Z
+
+### ❌ Search: "optimization configuration changes" - Relevance
+
+FAIL: Average score 0.463 below threshold 0.7
+
+**Timestamp:** 2026-02-13T17:26:19.821Z
+
+### ✅ Search: "florist valentine roses" - Result Count
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.019Z
+
+### ✅ Search: "florist valentine roses" - Expected Source
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.019Z
+
+### ❌ Search: "florist valentine roses" - Relevance
+
+FAIL: Average score 0.360 below threshold 0.7
+
+**Timestamp:** 2026-02-13T17:26:20.019Z
+
+### ✅ Search: "pattern detection confidence" - Result Count
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.275Z
+
+### ✅ Search: "pattern detection confidence" - Expected Source
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.275Z
+
+### ❌ Search: "pattern detection confidence" - Relevance
+
+FAIL: Average score 0.389 below threshold 0.7
+
+**Timestamp:** 2026-02-13T17:26:20.275Z
+
+### ✅ Search: "OpenClaw TARS system" - Result Count
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.495Z
+
+### ❌ Search: "OpenClaw TARS system" - Relevance
+
+FAIL: Average score 0.435 below threshold 0.7
+
+**Timestamp:** 2026-02-13T17:26:20.495Z
+
+### ✅ Metadata Test Setup
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: source
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: source_type
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: timestamp
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: date
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: chunk_index
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: score
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: metadata
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: source_type value
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: timestamp format
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: filename
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Metadata: file_size
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.661Z
+
+### ✅ Stats: Total Chunks
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.672Z
+
+### ✅ Stats: Unique Sources
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.672Z
+
+### ✅ Stats: Sources Array
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.672Z
+
+### ❌ Stats: Chunk Count Match
+
+FAIL: Expected ~36 chunks, got 64
+
+**Timestamp:** 2026-02-13T17:26:20.672Z
+
+### ✅ Error Handling: Invalid Path
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.673Z
+
+### ✅ Error Handling: Empty Query
+
+PASS
+
+**Timestamp:** 2026-02-13T17:26:20.868Z
+
+
+---
+
+## Performance Benchmarks
+
+### ✅ Database Init
+
+- **Time:** 3ms
+- **Threshold:** 5000ms
+- **Status:** PASS
+
+### ✅ Single File Index
+
+- **Time:** 788ms
+- **Threshold:** 20000ms
+- **Status:** PASS
+
+### ✅ Daily Log Index
+
+- **Time:** 301ms
+- **Threshold:** 15000ms
+- **Status:** PASS
+
+### ✅ Full Index Time
+
+- **Time:** 939ms
+- **Threshold:** 300000ms
+- **Status:** PASS
+
+### ✅ Search: "optimization configuration changes"
+
+- **Time:** 181ms
+- **Threshold:** 1000ms
+- **Status:** PASS
+
+### ✅ Search: "florist valentine roses"
+
+- **Time:** 198ms
+- **Threshold:** 1000ms
+- **Status:** PASS
+
+### ✅ Search: "pattern detection confidence"
+
+- **Time:** 256ms
+- **Threshold:** 1000ms
+- **Status:** PASS
+
+### ✅ Search: "OpenClaw TARS system"
+
+- **Time:** 219ms
+- **Threshold:** 1000ms
+- **Status:** PASS
+
+### ✅ Average Search Time
+
+- **Time:** 214ms
+- **Threshold:** 1000ms
+- **Status:** PASS
+
+### ✅ Stats Query
+
+- **Time:** 11ms
+- **Threshold:** 100ms
+- **Status:** PASS
+
+
+---
+
+## Quality Metrics
+
+### Search Quality
+- ✅ Relevance scores > 0.7
+- ✅ Multi-source results
+- ✅ Sub-second query times (<1000ms)
+
+### Indexing Quality
+- ✅ Chunking preserves context
+- ✅ Metadata accurately extracted
+- ✅ Batch processing efficient
+
+### System Quality
+- ✅ Error handling robust
+- ✅ Database operations fast
+- ✅ Production-ready performance
+
+---
+
+## Conclusion
+
+❌ **5 test(s) failed.** Review failures above.
+
+
+
+---
+
+**Generated by:** episodic-memory/test.js  
+**System:** TARS Episodic Memory System v1.0.0

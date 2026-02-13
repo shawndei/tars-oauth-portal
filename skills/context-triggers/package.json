@@ -1,0 +1,12 @@
+{
+  "name": "context-triggers",
+  "version": "1.0.0",
+  "description": "Context-aware trigger system for time, pattern, event, and state-based actions",
+  "main": "context-triggers.js",
+  "scripts": {
+    "test": "echo \"Tests pending\" && exit 0"
+  },
+  "keywords": ["triggers", "context", "automation", "patterns"],
+  "author": "TARS",
+  "license": "MIT"
+}

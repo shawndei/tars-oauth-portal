@@ -1,0 +1,469 @@
+{
+    "version":  "1.0.0",
+    "activeProject":  "default",
+    "lastModified":  "2026-02-13T10:00:31.4862080-07:00",
+    "projects":  {
+                     "default":  {
+                                     "name":  "default",
+                                     "created":  "2026-02-13T08:00:00Z",
+                                     "modified":  "2026-02-13T08:23:00Z",
+                                     "template":  "generic",
+                                     "description":  "Default workspace",
+                                     "status":  "active",
+                                     "tags":  [
+
+                                              ],
+                                     "settings":  {
+                                                      "contextIsolation":  true,
+                                                      "autoArchiveAfterDays":  null,
+                                                      "maxMemorySize":  "50MB"
+                                                  }
+                                 },
+                     "web-app-redesign":  {
+                                              "name":  "web-app-redesign",
+                                              "created":  "2026-02-13T08:25:00Z",
+                                              "modified":  "2026-02-13T08:25:00Z",
+                                              "template":  "web-dev",
+                                              "description":  "E-commerce platform redesign with React",
+                                              "status":  "active",
+                                              "tags":  [
+                                                           "web",
+                                                           "react",
+                                                           "ecommerce",
+                                                           "urgent"
+                                                       ],
+                                              "settings":  {
+                                                               "contextIsolation":  true,
+                                                               "autoArchiveAfterDays":  null,
+                                                               "maxMemorySize":  "50MB"
+                                                           }
+                                          },
+                     "data-pipeline":  {
+                                           "name":  "data-pipeline",
+                                           "created":  "2026-02-13T08:25:00Z",
+                                           "modified":  "2026-02-13T08:25:00Z",
+                                           "template":  "data-science",
+                                           "description":  "Customer analytics data pipeline - ETL system",
+                                           "status":  "active",
+                                           "tags":  [
+                                                        "data",
+                                                        "analytics",
+                                                        "etl",
+                                                        "aws",
+                                                        "airflow"
+                                                    ],
+                                           "settings":  {
+                                                            "contextIsolation":  true,
+                                                            "autoArchiveAfterDays":  null,
+                                                            "maxMemorySize":  "50MB"
+                                                        }
+                                       },
+                     "content-strategy":  {
+                                              "name":  "content-strategy",
+                                              "created":  "2026-02-13T09:31:00Z",
+                                              "modified":  "2026-02-13T09:31:00Z",
+                                              "template":  "writing",
+                                              "description":  "Blog content strategy and editorial calendar",
+                                              "status":  "active",
+                                              "tags":  [
+                                                           "content",
+                                                           "writing",
+                                                           "blog",
+                                                           "seo"
+                                                       ],
+                                              "settings":  {
+                                                               "contextIsolation":  true,
+                                                               "autoArchiveAfterDays":  null,
+                                                               "maxMemorySize":  "50MB"
+                                                           }
+                                          },
+                     "test-project-20260213095944":  {
+                                                         "modified":  "2026-02-13T09:59:44.4314786-07:00",
+                                                         "tags":  [
+
+                                                                  ],
+                                                         "name":  "test-project-20260213095944",
+                                                         "description":  "",
+                                                         "status":  "active",
+                                                         "created":  "2026-02-13T09:59:44.4304828-07:00",
+                                                         "settings":  {
+                                                                          "autoArchiveAfterDays":  null,
+                                                                          "contextIsolation":  true,
+                                                                          "maxMemorySize":  "50MB"
+                                                                      },
+                                                         "template":  "generic"
+                                                     },
+                     "test-template-generic-20260213095944":  {
+                                                                  "modified":  "2026-02-13T09:59:44.6273753-07:00",
+                                                                  "tags":  [
+
+                                                                           ],
+                                                                  "name":  "test-template-generic-20260213095944",
+                                                                  "description":  "",
+                                                                  "status":  "active",
+                                                                  "created":  "2026-02-13T09:59:44.6273753-07:00",
+                                                                  "settings":  {
+                                                                                   "autoArchiveAfterDays":  null,
+                                                                                   "contextIsolation":  true,
+                                                                                   "maxMemorySize":  "50MB"
+                                                                               },
+                                                                  "template":  "generic"
+                                                              },
+                     "test-template-web-dev-20260213095944":  {
+                                                                  "modified":  "2026-02-13T09:59:44.6994363-07:00",
+                                                                  "tags":  [
+
+                                                                           ],
+                                                                  "name":  "test-template-web-dev-20260213095944",
+                                                                  "description":  "",
+                                                                  "status":  "active",
+                                                                  "created":  "2026-02-13T09:59:44.6994363-07:00",
+                                                                  "settings":  {
+                                                                                   "autoArchiveAfterDays":  null,
+                                                                                   "contextIsolation":  true,
+                                                                                   "maxMemorySize":  "50MB"
+                                                                               },
+                                                                  "template":  "web-dev"
+                                                              },
+                     "test-template-data-science-20260213095944":  {
+                                                                       "modified":  "2026-02-13T09:59:44.7739545-07:00",
+                                                                       "tags":  [
+
+                                                                                ],
+                                                                       "name":  "test-template-data-science-20260213095944",
+                                                                       "description":  "",
+                                                                       "status":  "active",
+                                                                       "created":  "2026-02-13T09:59:44.7739545-07:00",
+                                                                       "settings":  {
+                                                                                        "autoArchiveAfterDays":  null,
+                                                                                        "contextIsolation":  true,
+                                                                                        "maxMemorySize":  "50MB"
+                                                                                    },
+                                                                       "template":  "data-science"
+                                                                   },
+                     "test-template-writing-20260213095944":  {
+                                                                  "modified":  "2026-02-13T09:59:44.8522930-07:00",
+                                                                  "tags":  [
+
+                                                                           ],
+                                                                  "name":  "test-template-writing-20260213095944",
+                                                                  "description":  "",
+                                                                  "status":  "active",
+                                                                  "created":  "2026-02-13T09:59:44.8522930-07:00",
+                                                                  "settings":  {
+                                                                                   "autoArchiveAfterDays":  null,
+                                                                                   "contextIsolation":  true,
+                                                                                   "maxMemorySize":  "50MB"
+                                                                               },
+                                                                  "template":  "writing"
+                                                              },
+                     "test-template-research-20260213095944":  {
+                                                                   "modified":  "2026-02-13T09:59:44.9325195-07:00",
+                                                                   "tags":  [
+
+                                                                            ],
+                                                                   "name":  "test-template-research-20260213095944",
+                                                                   "description":  "",
+                                                                   "status":  "active",
+                                                                   "created":  "2026-02-13T09:59:44.9325195-07:00",
+                                                                   "settings":  {
+                                                                                    "autoArchiveAfterDays":  null,
+                                                                                    "contextIsolation":  true,
+                                                                                    "maxMemorySize":  "50MB"
+                                                                                },
+                                                                   "template":  "research"
+                                                               },
+                     "test-template-code-20260213095944":  {
+                                                               "modified":  "2026-02-13T09:59:45.0165445-07:00",
+                                                               "tags":  [
+
+                                                                        ],
+                                                               "name":  "test-template-code-20260213095944",
+                                                               "description":  "",
+                                                               "status":  "active",
+                                                               "created":  "2026-02-13T09:59:45.0165445-07:00",
+                                                               "settings":  {
+                                                                                "autoArchiveAfterDays":  null,
+                                                                                "contextIsolation":  true,
+                                                                                "maxMemorySize":  "50MB"
+                                                                            },
+                                                               "template":  "code"
+                                                           },
+                     "test-archive-20260213095945":  {
+                                                         "modified":  "2026-02-13T09:59:45.0930611-07:00",
+                                                         "tags":  [
+
+                                                                  ],
+                                                         "name":  "test-archive-20260213095945",
+                                                         "description":  "",
+                                                         "status":  "archived",
+                                                         "created":  "2026-02-13T09:59:45.0930611-07:00",
+                                                         "settings":  {
+                                                                          "autoArchiveAfterDays":  null,
+                                                                          "contextIsolation":  true,
+                                                                          "maxMemorySize":  "50MB"
+                                                                      },
+                                                         "template":  "generic"
+                                                     },
+                     "test-restore-20260213095945":  {
+                                                         "modified":  "2026-02-13T09:59:45.2119918-07:00",
+                                                         "tags":  [
+
+                                                                  ],
+                                                         "name":  "test-restore-20260213095945",
+                                                         "description":  "",
+                                                         "status":  "active",
+                                                         "created":  "2026-02-13T09:59:45.2119918-07:00",
+                                                         "settings":  {
+                                                                          "autoArchiveAfterDays":  null,
+                                                                          "contextIsolation":  true,
+                                                                          "maxMemorySize":  "50MB"
+                                                                      },
+                                                         "template":  "generic"
+                                                     },
+                     "test-project-20260213100030":  {
+                                                         "modified":  "2026-02-13T10:00:30.5744114-07:00",
+                                                         "tags":  [
+
+                                                                  ],
+                                                         "name":  "test-project-20260213100030",
+                                                         "description":  "",
+                                                         "status":  "active",
+                                                         "created":  "2026-02-13T10:00:30.5738699-07:00",
+                                                         "settings":  {
+                                                                          "autoArchiveAfterDays":  null,
+                                                                          "contextIsolation":  true,
+                                                                          "maxMemorySize":  "50MB"
+                                                                      },
+                                                         "template":  "generic"
+                                                     },
+                     "test-template-generic-20260213100030":  {
+                                                                  "modified":  "2026-02-13T10:00:30.7907917-07:00",
+                                                                  "tags":  [
+
+                                                                           ],
+                                                                  "name":  "test-template-generic-20260213100030",
+                                                                  "description":  "",
+                                                                  "status":  "active",
+                                                                  "created":  "2026-02-13T10:00:30.7897963-07:00",
+                                                                  "settings":  {
+                                                                                   "autoArchiveAfterDays":  null,
+                                                                                   "contextIsolation":  true,
+                                                                                   "maxMemorySize":  "50MB"
+                                                                               },
+                                                                  "template":  "generic"
+                                                              },
+                     "test-template-web-dev-20260213100030":  {
+                                                                  "modified":  "2026-02-13T10:00:30.8684024-07:00",
+                                                                  "tags":  [
+
+                                                                           ],
+                                                                  "name":  "test-template-web-dev-20260213100030",
+                                                                  "description":  "",
+                                                                  "status":  "active",
+                                                                  "created":  "2026-02-13T10:00:30.8684024-07:00",
+                                                                  "settings":  {
+                                                                                   "autoArchiveAfterDays":  null,
+                                                                                   "contextIsolation":  true,
+                                                                                   "maxMemorySize":  "50MB"
+                                                                               },
+                                                                  "template":  "web-dev"
+                                                              },
+                     "test-template-data-science-20260213100030":  {
+                                                                       "modified":  "2026-02-13T10:00:30.9514300-07:00",
+                                                                       "tags":  [
+
+                                                                                ],
+                                                                       "name":  "test-template-data-science-20260213100030",
+                                                                       "description":  "",
+                                                                       "status":  "active",
+                                                                       "created":  "2026-02-13T10:00:30.9514300-07:00",
+                                                                       "settings":  {
+                                                                                        "autoArchiveAfterDays":  null,
+                                                                                        "contextIsolation":  true,
+                                                                                        "maxMemorySize":  "50MB"
+                                                                                    },
+                                                                       "template":  "data-science"
+                                                                   },
+                     "test-template-writing-20260213100030":  {
+                                                                  "modified":  "2026-02-13T10:00:31.0321441-07:00",
+                                                                  "tags":  [
+
+                                                                           ],
+                                                                  "name":  "test-template-writing-20260213100030",
+                                                                  "description":  "",
+                                                                  "status":  "active",
+                                                                  "created":  "2026-02-13T10:00:31.0321441-07:00",
+                                                                  "settings":  {
+                                                                                   "autoArchiveAfterDays":  null,
+                                                                                   "contextIsolation":  true,
+                                                                                   "maxMemorySize":  "50MB"
+                                                                               },
+                                                                  "template":  "writing"
+                                                              },
+                     "test-template-research-20260213100031":  {
+                                                                   "modified":  "2026-02-13T10:00:31.1121007-07:00",
+                                                                   "tags":  [
+
+                                                                            ],
+                                                                   "name":  "test-template-research-20260213100031",
+                                                                   "description":  "",
+                                                                   "status":  "active",
+                                                                   "created":  "2026-02-13T10:00:31.1121007-07:00",
+                                                                   "settings":  {
+                                                                                    "autoArchiveAfterDays":  null,
+                                                                                    "contextIsolation":  true,
+                                                                                    "maxMemorySize":  "50MB"
+                                                                                },
+                                                                   "template":  "research"
+                                                               },
+                     "test-template-code-20260213100031":  {
+                                                               "modified":  "2026-02-13T10:00:31.2016255-07:00",
+                                                               "tags":  [
+
+                                                                        ],
+                                                               "name":  "test-template-code-20260213100031",
+                                                               "description":  "",
+                                                               "status":  "active",
+                                                               "created":  "2026-02-13T10:00:31.2016255-07:00",
+                                                               "settings":  {
+                                                                                "autoArchiveAfterDays":  null,
+                                                                                "contextIsolation":  true,
+                                                                                "maxMemorySize":  "50MB"
+                                                                            },
+                                                               "template":  "code"
+                                                           },
+                     "test-archive-20260213100031":  {
+                                                         "modified":  "2026-02-13T10:00:31.2810635-07:00",
+                                                         "tags":  [
+
+                                                                  ],
+                                                         "name":  "test-archive-20260213100031",
+                                                         "description":  "",
+                                                         "status":  "archived",
+                                                         "created":  "2026-02-13T10:00:31.2810635-07:00",
+                                                         "settings":  {
+                                                                          "autoArchiveAfterDays":  null,
+                                                                          "contextIsolation":  true,
+                                                                          "maxMemorySize":  "50MB"
+                                                                      },
+                                                         "template":  "generic"
+                                                     },
+                     "test-restore-20260213100031":  {
+                                                         "modified":  "2026-02-13T10:00:31.4080994-07:00",
+                                                         "tags":  [
+
+                                                                  ],
+                                                         "name":  "test-restore-20260213100031",
+                                                         "description":  "",
+                                                         "status":  "active",
+                                                         "created":  "2026-02-13T10:00:31.4080994-07:00",
+                                                         "settings":  {
+                                                                          "autoArchiveAfterDays":  null,
+                                                                          "contextIsolation":  true,
+                                                                          "maxMemorySize":  "50MB"
+                                                                      },
+                                                         "template":  "generic"
+                                                     }
+                 },
+    "templates":  {
+                      "generic":  {
+                                      "name":  "Generic Project",
+                                      "description":  "Basic project structure",
+                                      "folders":  [
+                                                      "files"
+                                                  ],
+                                      "files":  [
+                                                    "MEMORY.md",
+                                                    "CONTEXT.md",
+                                                    "CONFIG.json",
+                                                    "tasks.md",
+                                                    "README.md"
+                                                ]
+                                  },
+                      "web-dev":  {
+                                      "name":  "Web Development",
+                                      "description":  "Web development project with standard structure",
+                                      "folders":  [
+                                                      "files/html",
+                                                      "files/css",
+                                                      "files/js",
+                                                      "files/assets"
+                                                  ],
+                                      "files":  [
+                                                    "MEMORY.md",
+                                                    "CONTEXT.md",
+                                                    "CONFIG.json",
+                                                    "tasks.md",
+                                                    "README.md"
+                                                ]
+                                  },
+                      "data-science":  {
+                                           "name":  "Data Science",
+                                           "description":  "Data science and ML project structure",
+                                           "folders":  [
+                                                           "files/data/raw",
+                                                           "files/data/processed",
+                                                           "files/notebooks",
+                                                           "files/analysis"
+                                                       ],
+                                           "files":  [
+                                                         "MEMORY.md",
+                                                         "CONTEXT.md",
+                                                         "CONFIG.json",
+                                                         "tasks.md",
+                                                         "README.md"
+                                                     ]
+                                       },
+                      "writing":  {
+                                      "name":  "Writing Project",
+                                      "description":  "Content and documentation project",
+                                      "folders":  [
+                                                      "files/drafts",
+                                                      "files/research",
+                                                      "files/published"
+                                                  ],
+                                      "files":  [
+                                                    "MEMORY.md",
+                                                    "CONTEXT.md",
+                                                    "CONFIG.json",
+                                                    "tasks.md",
+                                                    "README.md"
+                                                ]
+                                  },
+                      "research":  {
+                                       "name":  "Research Project",
+                                       "description":  "Research and investigation project",
+                                       "folders":  [
+                                                       "files/sources",
+                                                       "files/notes",
+                                                       "files/findings",
+                                                       "files/references"
+                                                   ],
+                                       "files":  [
+                                                     "MEMORY.md",
+                                                     "CONTEXT.md",
+                                                     "CONFIG.json",
+                                                     "tasks.md",
+                                                     "README.md"
+                                                 ]
+                                   },
+                      "code":  {
+                                   "name":  "Software Development",
+                                   "description":  "Software development project with standard structure",
+                                   "folders":  [
+                                                   "files/src",
+                                                   "files/tests",
+                                                   "files/docs",
+                                                   "files/config"
+                                               ],
+                                   "files":  [
+                                                 "MEMORY.md",
+                                                 "CONTEXT.md",
+                                                 "CONFIG.json",
+                                                 "tasks.md",
+                                                 "README.md"
+                                             ]
+                               }
+                  }
+}

@@ -1,0 +1,849 @@
+{
+  "topic": "machine learning frameworks",
+  "depth": 2,
+  "maxSources": 50,
+  "startTime": "2026-02-13T19:27:31.806Z",
+  "sources": [
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-1",
+      "title": "machine learning frameworks research study - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks research study",
+      "searchQuery": "machine learning frameworks research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-2",
+      "title": "machine learning frameworks research study - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks research study",
+      "searchQuery": "machine learning frameworks research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-3",
+      "title": "machine learning frameworks research study - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks research study",
+      "searchQuery": "machine learning frameworks research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-4",
+      "title": "machine learning frameworks research study - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks research study",
+      "searchQuery": "machine learning frameworks research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-5",
+      "title": "machine learning frameworks research study - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks research study",
+      "searchQuery": "machine learning frameworks research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-1",
+      "title": "machine learning frameworks case study - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks case study",
+      "searchQuery": "machine learning frameworks case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-2",
+      "title": "machine learning frameworks case study - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks case study",
+      "searchQuery": "machine learning frameworks case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-3",
+      "title": "machine learning frameworks case study - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks case study",
+      "searchQuery": "machine learning frameworks case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-4",
+      "title": "machine learning frameworks case study - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks case study",
+      "searchQuery": "machine learning frameworks case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-5",
+      "title": "machine learning frameworks case study - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks case study",
+      "searchQuery": "machine learning frameworks case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-1",
+      "title": "machine learning frameworks - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks",
+      "searchQuery": "machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-2",
+      "title": "machine learning frameworks - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks",
+      "searchQuery": "machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-3",
+      "title": "machine learning frameworks - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks",
+      "searchQuery": "machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-4",
+      "title": "machine learning frameworks - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks",
+      "searchQuery": "machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-5",
+      "title": "machine learning frameworks - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks",
+      "searchQuery": "machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-1",
+      "title": "machine learning frameworks comprehensive guide - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks comprehensive guide",
+      "searchQuery": "machine learning frameworks comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-2",
+      "title": "machine learning frameworks comprehensive guide - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks comprehensive guide",
+      "searchQuery": "machine learning frameworks comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-3",
+      "title": "machine learning frameworks comprehensive guide - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks comprehensive guide",
+      "searchQuery": "machine learning frameworks comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-4",
+      "title": "machine learning frameworks comprehensive guide - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks comprehensive guide",
+      "searchQuery": "machine learning frameworks comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-5",
+      "title": "machine learning frameworks comprehensive guide - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks comprehensive guide",
+      "searchQuery": "machine learning frameworks comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comparison-analysis-1",
+      "title": "machine learning frameworks comparison analysis - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks comparison analysis",
+      "searchQuery": "machine learning frameworks comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comparison-analysis-2",
+      "title": "machine learning frameworks comparison analysis - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks comparison analysis",
+      "searchQuery": "machine learning frameworks comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comparison-analysis-3",
+      "title": "machine learning frameworks comparison analysis - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks comparison analysis",
+      "searchQuery": "machine learning frameworks comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comparison-analysis-4",
+      "title": "machine learning frameworks comparison analysis - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks comparison analysis",
+      "searchQuery": "machine learning frameworks comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-comparison-analysis-5",
+      "title": "machine learning frameworks comparison analysis - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks comparison analysis",
+      "searchQuery": "machine learning frameworks comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-machine-learning-frameworks-1",
+      "title": "best machine learning frameworks - Result 1",
+      "description": "Mock description for result 1 about best machine learning frameworks",
+      "searchQuery": "best machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-machine-learning-frameworks-2",
+      "title": "best machine learning frameworks - Result 2",
+      "description": "Mock description for result 2 about best machine learning frameworks",
+      "searchQuery": "best machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-machine-learning-frameworks-3",
+      "title": "best machine learning frameworks - Result 3",
+      "description": "Mock description for result 3 about best machine learning frameworks",
+      "searchQuery": "best machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-machine-learning-frameworks-4",
+      "title": "best machine learning frameworks - Result 4",
+      "description": "Mock description for result 4 about best machine learning frameworks",
+      "searchQuery": "best machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-machine-learning-frameworks-5",
+      "title": "best machine learning frameworks - Result 5",
+      "description": "Mock description for result 5 about best machine learning frameworks",
+      "searchQuery": "best machine learning frameworks",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-pros-and-cons-1",
+      "title": "machine learning frameworks pros and cons - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks pros and cons",
+      "searchQuery": "machine learning frameworks pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-pros-and-cons-2",
+      "title": "machine learning frameworks pros and cons - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks pros and cons",
+      "searchQuery": "machine learning frameworks pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-pros-and-cons-3",
+      "title": "machine learning frameworks pros and cons - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks pros and cons",
+      "searchQuery": "machine learning frameworks pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-pros-and-cons-4",
+      "title": "machine learning frameworks pros and cons - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks pros and cons",
+      "searchQuery": "machine learning frameworks pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-pros-and-cons-5",
+      "title": "machine learning frameworks pros and cons - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks pros and cons",
+      "searchQuery": "machine learning frameworks pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-expert-review-1",
+      "title": "machine learning frameworks expert review - Result 1",
+      "description": "Mock description for result 1 about machine learning frameworks expert review",
+      "searchQuery": "machine learning frameworks expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-expert-review-2",
+      "title": "machine learning frameworks expert review - Result 2",
+      "description": "Mock description for result 2 about machine learning frameworks expert review",
+      "searchQuery": "machine learning frameworks expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-expert-review-3",
+      "title": "machine learning frameworks expert review - Result 3",
+      "description": "Mock description for result 3 about machine learning frameworks expert review",
+      "searchQuery": "machine learning frameworks expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-expert-review-4",
+      "title": "machine learning frameworks expert review - Result 4",
+      "description": "Mock description for result 4 about machine learning frameworks expert review",
+      "searchQuery": "machine learning frameworks expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-expert-review-5",
+      "title": "machine learning frameworks expert review - Result 5",
+      "description": "Mock description for result 5 about machine learning frameworks expert review",
+      "searchQuery": "machine learning frameworks expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/related).",
+      "title": "Citation",
+      "description": "Discovered via citation following",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 4 - Citation Following (Depth 2)"
+    }
+  ],
+  "findings": [],
+  "citations": [
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-1",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-research-study-1"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/related).",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-research-study-1",
+        "https://example.com/machine-learning-frameworks-research-study-2",
+        "https://example.com/machine-learning-frameworks-research-study-3",
+        "https://example.com/machine-learning-frameworks-research-study-4",
+        "https://example.com/machine-learning-frameworks-research-study-5",
+        "https://example.com/machine-learning-frameworks-case-study-1",
+        "https://example.com/machine-learning-frameworks-case-study-2",
+        "https://example.com/machine-learning-frameworks-case-study-3",
+        "https://example.com/machine-learning-frameworks-case-study-4",
+        "https://example.com/machine-learning-frameworks-case-study-5"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-2",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-research-study-2"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-3",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-research-study-3"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-4",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-research-study-4"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-research-study-5",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-research-study-5"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-1",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-case-study-1"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-2",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-case-study-2"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-3",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-case-study-3"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-4",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-case-study-4"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/machine-learning-frameworks-case-study-5",
+      "discoveredBy": [
+        "https://example.com/machine-learning-frameworks-case-study-5"
+      ],
+      "depth": 1
+    }
+  ],
+  "metadata": {
+    "searchQueries": [
+      "machine learning frameworks",
+      "machine learning frameworks comprehensive guide",
+      "machine learning frameworks research study",
+      "machine learning frameworks comparison analysis",
+      "best machine learning frameworks",
+      "machine learning frameworks pros and cons",
+      "machine learning frameworks expert review",
+      "machine learning frameworks case study"
+    ],
+    "sourcesVisited": 11,
+    "sourcesAnalyzed": 10,
+    "citationsFollowed": 1,
+    "crossReferences": 0,
+    "failedFetches": 0
+  },
+  "synthesis": {
+    "executiveSummary": "Research on \"machine learning frameworks\" completed with 11 sources visited (10 deeply analyzed). Found 0 key findings with average source authority of 5.2/10. 1 citations followed and 0 cross-references validated. Research depth: 2.",
+    "keyFindings": [],
+    "detailedAnalysis": {
+      "totalFindings": 0,
+      "highConfidenceFindings": 0,
+      "mediumConfidenceFindings": 0,
+      "lowConfidenceFindings": 0
+    },
+    "sourceBibliography": [
+      {
+        "rank": 1,
+        "title": "machine learning frameworks research study - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-research-study-1",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 2,
+        "title": "machine learning frameworks research study - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-research-study-2",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 3,
+        "title": "machine learning frameworks research study - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-research-study-3",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 4,
+        "title": "machine learning frameworks research study - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-research-study-4",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 5,
+        "title": "machine learning frameworks research study - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-research-study-5",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 6,
+        "title": "machine learning frameworks case study - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-case-study-1",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 7,
+        "title": "machine learning frameworks case study - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-case-study-2",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 8,
+        "title": "machine learning frameworks case study - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-case-study-3",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 9,
+        "title": "machine learning frameworks case study - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-case-study-4",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 10,
+        "title": "machine learning frameworks case study - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-case-study-5",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 11,
+        "title": "machine learning frameworks - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 12,
+        "title": "machine learning frameworks - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 13,
+        "title": "machine learning frameworks - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 14,
+        "title": "machine learning frameworks - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 15,
+        "title": "machine learning frameworks - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 16,
+        "title": "machine learning frameworks comprehensive guide - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 17,
+        "title": "machine learning frameworks comprehensive guide - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 18,
+        "title": "machine learning frameworks comprehensive guide - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 19,
+        "title": "machine learning frameworks comprehensive guide - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 20,
+        "title": "machine learning frameworks comprehensive guide - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-comprehensive-guide-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 21,
+        "title": "machine learning frameworks comparison analysis - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-comparison-analysis-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 22,
+        "title": "machine learning frameworks comparison analysis - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-comparison-analysis-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 23,
+        "title": "machine learning frameworks comparison analysis - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-comparison-analysis-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 24,
+        "title": "machine learning frameworks comparison analysis - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-comparison-analysis-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 25,
+        "title": "machine learning frameworks comparison analysis - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-comparison-analysis-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 26,
+        "title": "best machine learning frameworks - Result 1",
+        "url": "https://example.com/best-machine-learning-frameworks-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 27,
+        "title": "best machine learning frameworks - Result 2",
+        "url": "https://example.com/best-machine-learning-frameworks-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 28,
+        "title": "best machine learning frameworks - Result 3",
+        "url": "https://example.com/best-machine-learning-frameworks-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 29,
+        "title": "best machine learning frameworks - Result 4",
+        "url": "https://example.com/best-machine-learning-frameworks-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 30,
+        "title": "best machine learning frameworks - Result 5",
+        "url": "https://example.com/best-machine-learning-frameworks-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 31,
+        "title": "machine learning frameworks pros and cons - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-pros-and-cons-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 32,
+        "title": "machine learning frameworks pros and cons - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-pros-and-cons-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 33,
+        "title": "machine learning frameworks pros and cons - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-pros-and-cons-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 34,
+        "title": "machine learning frameworks pros and cons - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-pros-and-cons-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 35,
+        "title": "machine learning frameworks pros and cons - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-pros-and-cons-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 36,
+        "title": "machine learning frameworks expert review - Result 1",
+        "url": "https://example.com/machine-learning-frameworks-expert-review-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 37,
+        "title": "machine learning frameworks expert review - Result 2",
+        "url": "https://example.com/machine-learning-frameworks-expert-review-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 38,
+        "title": "machine learning frameworks expert review - Result 3",
+        "url": "https://example.com/machine-learning-frameworks-expert-review-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 39,
+        "title": "machine learning frameworks expert review - Result 4",
+        "url": "https://example.com/machine-learning-frameworks-expert-review-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 40,
+        "title": "machine learning frameworks expert review - Result 5",
+        "url": "https://example.com/machine-learning-frameworks-expert-review-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 41,
+        "title": "Citation",
+        "url": "https://example.com/related).",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 4 - Citation Following (Depth 2)"
+      }
+    ],
+    "confidenceBreakdown": {
+      "high": [],
+      "medium": [],
+      "low": []
+    },
+    "methodology": {
+      "searchQueries": [
+        "machine learning frameworks",
+        "machine learning frameworks comprehensive guide",
+        "machine learning frameworks research study",
+        "machine learning frameworks comparison analysis",
+        "best machine learning frameworks",
+        "machine learning frameworks pros and cons",
+        "machine learning frameworks expert review",
+        "machine learning frameworks case study"
+      ],
+      "sourcesVisited": 11,
+      "sourcesAnalyzed": 10,
+      "citationsFollowed": 1,
+      "crossReferences": 0,
+      "failedFetches": 0,
+      "depth": 2
+    }
+  },
+  "endTime": "2026-02-13T19:27:31.810Z",
+  "durationMs": 4,
+  "durationMinutes": 0,
+  "status": "completed"
+}

@@ -1,0 +1,6 @@
+[build]
+nixpacks.pkgs = ["nodejs", "sqlite"]
+
+[build.nixpacks.env]
+NODE_ENV = "production"
+NPM_CONFIG_PRODUCTION = "false"

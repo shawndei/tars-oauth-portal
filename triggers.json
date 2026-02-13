@@ -1,0 +1,301 @@
+{
+  "triggers": [
+    {
+      "id": "test-trigger-now",
+      "name": "🧪 TEST TRIGGER - Current Time Check",
+      "enabled": true,
+      "type": "time",
+      "schedule": "08:15",
+      "days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+      "action": "test_trigger_fired",
+      "priority": "high",
+      "cooldown": "0",
+      "description": "TEST ONLY - Fires at 08:15 every day to verify trigger system works"
+    },
+    {
+      "id": "morning-check",
+      "name": "Morning Proactive Briefing",
+      "enabled": true,
+      "type": "time",
+      "schedule": "08:45",
+      "days": ["mon", "tue", "wed", "thu", "fri"],
+      "action": "morning_intelligence_briefing",
+      "priority": "high",
+      "cooldown": "24h",
+      "description": "Weekday mornings at 8:45 - fetch emails, calendar events, important updates"
+    },
+    {
+      "id": "cost-alert-80",
+      "name": "Cost Budget Alert - 80%",
+      "enabled": true,
+      "type": "state",
+      "condition": "cost >= 0.8 * budget",
+      "threshold": 80,
+      "action": "send_cost_alert",
+      "priority": "high",
+      "cooldown": "6h",
+      "description": "Alert when daily cost reaches 80% of budget"
+    },
+    {
+      "id": "meeting-prep-30min",
+      "name": "Meeting Preparation (30 min before)",
+      "enabled": true,
+      "type": "event",
+      "event": "calendar_event_upcoming",
+      "leadTime": "30m",
+      "eventType": "meeting",
+      "action": "prepare_meeting_briefing",
+      "priority": "high",
+      "cooldown": "0",
+      "description": "30 minutes before any meeting - prepare talking points and research attendees"
+    },
+    {
+      "id": "afternoon-standup",
+      "name": "Afternoon Standup Check",
+      "enabled": true,
+      "type": "time",
+      "schedule": "14:30",
+      "days": ["mon", "tue", "wed", "thu", "fri"],
+      "action": "afternoon_progress_check",
+      "priority": "medium",
+      "cooldown": "24h",
+      "description": "Weekday afternoons at 14:30 - summarize progress and outstanding tasks"
+    },
+    {
+      "id": "cost-alert-90",
+      "name": "Cost Budget Critical Alert - 90%",
+      "enabled": true,
+      "type": "state",
+      "condition": "cost >= 0.9 * budget",
+      "threshold": 90,
+      "action": "switch_to_haiku_model",
+      "priority": "critical",
+      "cooldown": "2h",
+      "description": "When cost reaches 90% - switch to haiku model for efficiency"
+    },
+    {
+      "id": "eod-summary",
+      "name": "End-of-Day Summary",
+      "enabled": true,
+      "type": "time",
+      "schedule": "18:00",
+      "days": ["mon", "tue", "wed", "thu", "fri"],
+      "action": "generate_eod_summary",
+      "priority": "medium",
+      "cooldown": "24h",
+      "description": "Weekday evenings at 18:00 - generate daily summary and queue next-day tasks"
+    },
+    {
+      "id": "pipeline-poll-schedule",
+      "name": "⚙️ Pipeline Data Poll (HEARTBEAT)",
+      "enabled": true,
+      "type": "heartbeat",
+      "action": "poll_all_pipelines",
+      "priority": "high",
+      "description": "Periodic pipeline polling via HEARTBEAT - checks RSS feeds, API endpoints, file watchers every 15m"
+    },
+    {
+      "id": "tech-news-high-relevance",
+      "name": "🔥 High-Relevance Tech News Alert",
+      "enabled": true,
+      "type": "pipeline",
+      "pipeline": "tech-news-monitor",
+      "condition": "relevanceScore >= 0.85",
+      "action": "send_tech_news_alert",
+      "priority": "high",
+      "cooldown": "5m",
+      "description": "Alert on high-relevance tech news (score >= 0.85)"
+    },
+    {
+      "id": "tech-news-security",
+      "name": "🚨 Security Alert from Tech News",
+      "enabled": true,
+      "type": "pipeline",
+      "pipeline": "tech-news-monitor",
+      "condition": "category === 'security' && relevanceScore >= 0.7",
+      "action": "send_security_alert",
+      "priority": "critical",
+      "cooldown": "10m",
+      "description": "Critical alert for security-related tech news"
+    },
+    {
+      "id": "severe-weather-alert",
+      "name": "⚠️ Severe Weather Alert",
+      "enabled": true,
+      "type": "pipeline",
+      "pipeline": "weather-monitor",
+      "condition": "weatherAlert === 'severe'",
+      "action": "send_severe_weather_alert",
+      "priority": "critical",
+      "cooldown": "15m",
+      "description": "Alert on severe weather conditions"
+    }
+  ],
+  "pipelineTriggers": [
+    {
+      "id": "pipeline-health-check",
+      "name": "Pipeline Health Monitor",
+      "enabled": true,
+      "type": "heartbeat",
+      "interval": "1h",
+      "action": "check_pipeline_health",
+      "description": "Check health status of all pipelines",
+      "alertThresholds": {
+        "consecutiveFailures": 3,
+        "errorRate": 0.3,
+        "lastPollAge": "2h"
+      }
+    }
+  ],
+  "pipelines": {
+    "enabled": true,
+    "heartbeatIntegration": true,
+    "evaluationInterval": "15m",
+    "maxConcurrentPipelines": 3,
+    "storageDefaults": {
+      "format": "jsonl",
+      "retention": "30d"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "research-interest",
+      "name": "Deep Research Interest Pattern",
+      "pattern": "research|analyze|investigate|study|deep-dive",
+      "threshold": 3,
+      "window": "7d",
+      "action": "suggest_deep_research",
+      "priority": "medium",
+      "description": "When user shows 3+ research-related queries in a week - suggest comprehensive research",
+      "enabled": true
+    },
+    {
+      "id": "market-interest",
+      "name": "Market/Financial Interest Pattern",
+      "pattern": "stocks|market|trading|portfolio|crypto|investment|finance",
+      "threshold": 2,
+      "window": "7d",
+      "action": "proactive_market_update",
+      "priority": "medium",
+      "description": "When user shows 2+ market-related queries in a week - fetch latest market data",
+      "enabled": true
+    },
+    {
+      "id": "project-momentum",
+      "name": "Project Work Pattern Detection",
+      "pattern": "project|coding|implementation|development|build",
+      "threshold": 5,
+      "window": "7d",
+      "action": "prepare_project_context",
+      "priority": "low",
+      "description": "Detect when user is in project mode - preload relevant context",
+      "enabled": true
+    }
+  ],
+  "actions": {
+    "test_trigger_fired": {
+      "description": "TEST ACTION - Proves trigger system is working",
+      "executor": "builtin",
+      "method": "test_action",
+      "timeout": "5s"
+    },
+    "morning_intelligence_briefing": {
+      "description": "Fetch and summarize unread emails, upcoming calendar events, and priority notifications",
+      "executor": "builtin",
+      "method": "proactive_briefing",
+      "timeout": "30s"
+    },
+    "send_cost_alert": {
+      "description": "Send notification about budget usage and current cost breakdown",
+      "executor": "builtin",
+      "method": "cost_alert",
+      "timeout": "5s"
+    },
+    "prepare_meeting_briefing": {
+      "description": "Research attendees, prepare talking points, load relevant context",
+      "executor": "skill",
+      "skill": "deep-researcher",
+      "timeout": "60s"
+    },
+    "afternoon_progress_check": {
+      "description": "Summarize work completed and outstanding items for end of day",
+      "executor": "builtin",
+      "method": "progress_summary",
+      "timeout": "20s"
+    },
+    "switch_to_haiku_model": {
+      "description": "Switch OpenAI model to haiku for cost efficiency",
+      "executor": "builtin",
+      "method": "model_switch",
+      "parameter": "haiku",
+      "timeout": "2s"
+    },
+    "generate_eod_summary": {
+      "description": "Create end-of-day summary and prepare tasks for next day",
+      "executor": "builtin",
+      "method": "eod_summary",
+      "timeout": "30s"
+    },
+    "suggest_deep_research": {
+      "description": "Suggest comprehensive research based on detected interest pattern",
+      "executor": "skill",
+      "skill": "deep-researcher",
+      "timeout": "60s"
+    },
+    "proactive_market_update": {
+      "description": "Fetch latest market data and trends proactively",
+      "executor": "builtin",
+      "method": "market_fetch",
+      "timeout": "30s"
+    },
+    "prepare_project_context": {
+      "description": "Load project context and relevant files",
+      "executor": "builtin",
+      "method": "load_project_context",
+      "timeout": "10s"
+    },
+    "poll_all_pipelines": {
+      "description": "Poll all enabled data pipelines for new items",
+      "executor": "skill",
+      "skill": "realtime-pipelines",
+      "method": "pollAllPipelines",
+      "timeout": "60s"
+    },
+    "send_tech_news_alert": {
+      "description": "Send alert for high-relevance tech news",
+      "executor": "skill",
+      "skill": "realtime-pipelines",
+      "method": "notifyPipelineData",
+      "timeout": "10s"
+    },
+    "send_security_alert": {
+      "description": "Send critical alert for security news",
+      "executor": "skill",
+      "skill": "realtime-pipelines",
+      "method": "notifyPipelineData",
+      "timeout": "10s"
+    },
+    "send_severe_weather_alert": {
+      "description": "Send critical alert for severe weather",
+      "executor": "skill",
+      "skill": "realtime-pipelines",
+      "method": "notifyPipelineData",
+      "timeout": "10s"
+    },
+    "check_pipeline_health": {
+      "description": "Check health status of all data pipelines",
+      "executor": "skill",
+      "skill": "realtime-pipelines",
+      "method": "checkPipelineHealth",
+      "timeout": "30s"
+    }
+  },
+  "config": {
+    "evaluationInterval": "15m",
+    "logExecutions": true,
+    "executionLogFile": "trigger-executions.json",
+    "defaultPriority": "medium",
+    "maxConcurrentActions": 2,
+    "enableMetrics": true
+  }
+}

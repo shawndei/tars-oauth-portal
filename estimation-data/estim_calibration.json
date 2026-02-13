@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-02-13T20:27:36.416Z",
+  "tasks_processed": 0,
+  "safety_multiplier": 1.2,
+  "min_adjustment_minutes": 15,
+  "convergence_threshold": 0.85,
+  "factors": {
+    "configuration": {
+      "factor": 0.1,
+      "mean": 0.1,
+      "count": 0,
+      "std": 0.02,
+      "confidence": 0.95,
+      "adjustment_minutes": 20,
+      "samples": []
+    },
+    "research": {
+      "factor": 0.4,
+      "mean": 0.4,
+      "count": 0,
+      "std": 0.05,
+      "confidence": 0.75,
+      "adjustment_minutes": 10,
+      "samples": []
+    },
+    "implementation": {
+      "factor": 0.45,
+      "mean": 0.375,
+      "count": 2,
+      "std": 0.07071067811865477,
+      "confidence": 0.6707106781186547,
+      "adjustment_minutes": 30,
+      "samples": [
+        0.375,
+        0.375
+      ]
+    },
+    "debugging": {
+      "factor": 0.55,
+      "mean": 0.55,
+      "count": 0,
+      "std": 0.08,
+      "confidence": 0.7,
+      "adjustment_minutes": 25,
+      "samples": []
+    },
+    "documentation": {
+      "factor": 0.2,
+      "mean": 0.2,
+      "count": 0,
+      "std": 0.05,
+      "confidence": 0.7,
+      "adjustment_minutes": 5,
+      "samples": []
+    },
+    "mixed": {
+      "factor": 0.424,
+      "mean": 0.424,
+      "count": 0,
+      "std": 0.167,
+      "confidence": 0.7,
+      "adjustment_minutes": 15,
+      "samples": []
+    }
+  },
+  "overall_stats": {
+    "mae": 0,
+    "mape": 0
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "name": "TARS UI/UX Enhancement Configuration",
+    "description": "Configuration for rich formatting, progress indicators, and visual feedback across multiple messaging platforms",
+    "author": "TARS Development",
+    "created": "2026-02-13"
+  },
+  "colors": {
+    "discord": {
+      "success": 3066993,
+      "error": 15158332,
+      "warning": 16776960,
+      "info": 3447003,
+      "neutral": 9807270,
+      "progress": 7419530
+    },
+    "slack": {
+      "success": "#36a64f",
+      "error": "#d62728",
+      "warning": "#ff7f0e",
+      "info": "#1f77b4",
+      "neutral": "#7f7f7f",
+      "progress": "#17a2b8"
+    }
+  },
+  "emojis": {
+    "success": "✅",
+    "error": "❌",
+    "warning": "⚠️",
+    "info": "ℹ️",
+    "pending": "⏳",
+    "paused": "⏸️",
+    "running": "▶️",
+    "complete": "✔️",
+    "failed": "✗",
+    "arrow": "→",
+    "separator": "│",
+    "branch": "├─",
+    "end": "└─"
+  },
+  "progress": {
+    "styles": {
+      "bar_filled": "█",
+      "bar_empty": "░",
+      "block_full": "🟩",
+      "block_empty": "⬜",
+      "circle_full": "●",
+      "circle_empty": "○"
+    },
+    "format": {
+      "simple": "[{filled}{empty}] {percent}%",
+      "detailed": "[{filled}{empty}] {percent}% ({completed}/{total})",
+      "with_time": "[{filled}{empty}] {percent}% - ETA: {eta}"
+    }
+  },
+  "templates": {
+    "discord": {
+      "success": {
+        "embed": {
+          "title": "✅ Success",
+          "description": "{message}",
+          "color": 3066993,
+          "footer": {
+            "text": "Completed at {timestamp}"
+          }
+        }
+      },
+      "error": {
+        "embed": {
+          "title": "❌ Error",
+          "description": "{message}",
+          "color": 15158332,
+          "fields": [
+            {
+              "name": "Reason",
+              "value": "{reason}",
+              "inline": false
+            },
+            {
+              "name": "Error Code",
+              "value": "{error_code}",
+              "inline": true
+            }
+          ],
+          "footer": {
+            "text": "Failed at {timestamp}"
+          }
+        }
+      },
+      "warning": {
+        "embed": {
+          "title": "⚠️ Warning",
+          "description": "{message}",
+          "color": 16776960,
+          "fields": [
+            {
+              "name": "Action Required",
+              "value": "{action}",
+              "inline": false
+            }
+          ]
+        }
+      },
+      "progress": {
+        "embed": {
+          "title": "⏳ Progress Update",
+          "description": "{task_name}",
+          "color": 7419530,
+          "fields": [
+            {
+              "name": "Progress",
+              "value": "{progress_bar}\n{percent}% ({completed}/{total})",
+              "inline": false
+            },
+            {
+              "name": "Status",
+              "value": "{status}",
+              "inline": true
+            },
+            {
+              "name": "ETA",
+              "value": "{eta}",
+              "inline": true
+            }
+          ]
+        }
+      },
+      "status_dashboard": {
+        "embed": {
+          "title": "📊 Status Dashboard",
+          "description": "System and task status overview",
+          "color": 3447003,
+          "fields": []
+        }
+      }
+    },
+    "whatsapp": {
+      "success": "✅ {message}\n└─ Completed at {timestamp}",
+      "error": "❌ Error\n├─ {message}\n├─ Reason: {reason}\n└─ Code: {error_code}",
+      "warning": "⚠️ Warning\n├─ {message}\n└─ Action: {action}",
+      "progress": "⏳ {task_name}\n{progress_bar} {percent}%\n• Status: {status}\n• ETA: {eta}\n\nReply with /status for details",
+      "status_dashboard": "📊 STATUS UPDATE\n\n{metrics}\n\nReply /menu for options"
+    },
+    "telegram": {
+      "success": {
+        "text": "*✅ Success*\n\n{message}\n\n_Completed at {timestamp}_",
+        "parse_mode": "MarkdownV2"
+      },
+      "error": {
+        "text": "*❌ Error*\n\n{message}\n\n*Reason:* `{reason}`\n*Code:* `{error_code}`",
+        "parse_mode": "MarkdownV2"
+      },
+      "warning": {
+        "text": "*⚠️ Warning*\n\n{message}\n\n*Action Required:* {action}",
+        "parse_mode": "MarkdownV2"
+      },
+      "progress": {
+        "text": "*⏳ {task_name}*\n\n`{progress_bar}`\n*Progress:* {percent}% \\({completed}\\/{total}\\)\n*Status:* {status}\n*ETA:* {eta}",
+        "parse_mode": "MarkdownV2"
+      },
+      "status_dashboard": {
+        "text": "*📊 Status Dashboard*\n\n{metrics}",
+        "parse_mode": "MarkdownV2"
+      }
+    },
+    "slack": {
+      "success": {
+        "blocks": [
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "*✅ Success*\n{message}"
+            }
+          },
+          {
+            "type": "context",
+            "elements": [
+              {
+                "type": "mrkdwn",
+                "text": "Completed at {timestamp}"
+              }
+            ]
+          }
+        ]
+      },
+      "error": {
+        "blocks": [
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "*❌ Error*\n{message}"
+            }
+          },
+          {
+            "type": "section",
+            "fields": [
+              {
+                "type": "mrkdwn",
+                "text": "*Reason:*\n{reason}"
+              },
+              {
+                "type": "mrkdwn",
+                "text": "*Code:*\n{error_code}"
+              }
+            ]
+          }
+        ]
+      },
+      "progress": {
+        "blocks": [
+          {
+            "type": "header",
+            "text": {
+              "type": "plain_text",
+              "text": "⏳ {task_name}"
+            }
+          },
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "`{progress_bar}`\n*Progress:* {percent}% ({completed}/{total})"
+            }
+          },
+          {
+            "type": "section",
+            "fields": [
+              {
+                "type": "mrkdwn",
+                "text": "*Status:*\n{status}"
+              },
+              {
+                "type": "mrkdwn",
+                "text": "*ETA:*\n{eta}"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "buttons": {
+    "discord": {
+      "component_type": 1,
+      "button_style": {
+        "primary": 1,
+        "secondary": 2,
+        "success": 3,
+        "danger": 4
+      },
+      "examples": [
+        {
+          "type": 2,
+          "label": "✅ Approve",
+          "style": 3,
+          "custom_id": "action_approve"
+        },
+        {
+          "type": 2,
+          "label": "❌ Reject",
+          "style": 4,
+          "custom_id": "action_reject"
+        },
+        {
+          "type": 2,
+          "label": "View Details",
+          "style": 1,
+          "custom_id": "action_details"
+        }
+      ]
+    },
+    "telegram": {
+      "keyboard_type": "inline",
+      "examples": [
+        {
+          "text": "✅ Approve",
+          "callback_data": "action_approve"
+        },
+        {
+          "text": "❌ Reject",
+          "callback_data": "action_reject"
+        },
+        {
+          "text": "📋 Details",
+          "callback_data": "action_details"
+        }
+      ]
+    },
+    "slack": {
+      "block_type": "button",
+      "style": {
+        "primary": "primary",
+        "danger": "danger"
+      },
+      "examples": [
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "✅ Approve"
+          },
+          "value": "action_approve",
+          "style": "primary"
+        },
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "❌ Reject"
+          },
+          "value": "action_reject",
+          "style": "danger"
+        }
+      ]
+    }
+  },
+  "messages": {
+    "completion_notification": {
+      "discord": "✅ **{task_name}** completed successfully!\n⏱️ Duration: {duration}\n📊 Summary: {summary}",
+      "whatsapp": "✅ {task_name} COMPLETED\n\nTime: {duration}\nDetails: {summary}",
+      "telegram": "*✅ {task_name} completed*\n⏱️ Duration: {duration}\n📊 Summary: {summary}",
+      "slack": "*✅ {task_name}* completed successfully\nDuration: {duration}\nSummary: {summary}"
+    },
+    "error_notification": {
+      "discord": "❌ **{task_name}** failed\n📝 Error: {error}\n🔧 Action: {remediation}",
+      "whatsapp": "❌ {task_name} FAILED\n\nError: {error}\nFix: {remediation}",
+      "telegram": "*❌ {task_name} failed*\n📝 Error: `{error}`\n🔧 Action: {remediation}",
+      "slack": "*❌ {task_name}* failed\nError: {error}\nAction: {remediation}"
+    },
+    "warning_notification": {
+      "discord": "⚠️ **Warning**: {message}\n💡 Recommendation: {recommendation}",
+      "whatsapp": "⚠️ WARNING\n\nMessage: {message}\nRecommendation: {recommendation}",
+      "telegram": "*⚠️ Warning*: {message}\n💡 Recommendation: {recommendation}",
+      "slack": "*⚠️ Warning*: {message}\nRecommendation: {recommendation}"
+    }
+  },
+  "limits": {
+    "discord": {
+      "embed_title_max": 256,
+      "embed_description_max": 4096,
+      "embed_field_name_max": 256,
+      "embed_field_value_max": 1024,
+      "embed_footer_max": 2048,
+      "max_embeds_per_message": 10,
+      "button_label_max": 80,
+      "custom_id_max": 100
+    },
+    "whatsapp": {
+      "message_max": 4096,
+      "no_markdown": true,
+      "no_html": true
+    },
+    "telegram": {
+      "message_max": 4096,
+      "callback_data_max": 64,
+      "button_text_max": 64
+    },
+    "slack": {
+      "message_max": 40000,
+      "max_blocks": 50,
+      "block_text_max": 3000
+    }
+  },
+  "accessibility": {
+    "alt_text_required": true,
+    "descriptions": {
+      "progress_bar": "Progress bar showing {completed} of {total} items complete",
+      "status_icon": "Status indicator showing {status}",
+      "button": "Interactive button: {label} - Action: {action}"
+    }
+  },
+  "performance": {
+    "update_frequency": {
+      "progress": 30000,
+      "status": 60000,
+      "notification": 0
+    },
+    "rate_limits": {
+      "discord": 10,
+      "whatsapp": 5,
+      "telegram": 10,
+      "slack": 10
+    }
+  }
+}

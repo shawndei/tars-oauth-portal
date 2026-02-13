@@ -1,0 +1,304 @@
+{
+  "updated": "2026-02-13T17:13:18.183Z",
+  "requests": [
+    {
+      "id": "ea77994c93363ef1",
+      "useCase": "code-explanation",
+      "prompt": "Explain what filter() does in JavaScript",
+      "timestamp": 1771002798151,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798153
+    },
+    {
+      "id": "9926f4d56d609923",
+      "useCase": "code-explanation",
+      "prompt": "What is async/await?",
+      "timestamp": 1771002798153,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798154
+    },
+    {
+      "id": "706e173d33594221",
+      "useCase": "code-explanation",
+      "prompt": "Explain closures",
+      "timestamp": 1771002798154,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798155
+    },
+    {
+      "id": "96762360ff1e71e7",
+      "useCase": "code-explanation",
+      "prompt": "Test prompt",
+      "timestamp": 1771002798155,
+      "status": "adapted",
+      "examples": 2,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798155
+    },
+    {
+      "id": "8d4b5ffff7198192",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript promises and async programming",
+      "timestamp": 1771002798155,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "random",
+      "adaptedAt": 1771002798155
+    },
+    {
+      "id": "c16498891e80a8c6",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript promises and async programming",
+      "timestamp": 1771002798156,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "recent",
+      "adaptedAt": 1771002798156
+    },
+    {
+      "id": "ee996a9bb91e2d21",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript promises and async programming",
+      "timestamp": 1771002798156,
+      "status": "adapted",
+      "examples": 3,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798156
+    },
+    {
+      "id": "535a38ee6f0cd8a6",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript promises and async programming",
+      "timestamp": 1771002798156,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "keyword",
+      "adaptedAt": 1771002798157
+    },
+    {
+      "id": "5a7450d964b84083",
+      "useCase": "code-explanation",
+      "prompt": "Explain JavaScript promises and async programming",
+      "timestamp": 1771002798157,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "hybrid",
+      "adaptedAt": 1771002798157
+    },
+    {
+      "id": "496849bdbf94302c",
+      "useCase": "code-explanation",
+      "prompt": "Test prompt for tracking",
+      "timestamp": 1771002798157,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798158
+    },
+    {
+      "id": "59f0c9bd853d2142",
+      "useCase": "code-explanation",
+      "prompt": "Test prompt",
+      "timestamp": 1771002798158,
+      "status": "complete",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798158,
+      "feedback": {
+        "success": true,
+        "quality": 0.9
+      },
+      "completedAt": 1771002798158
+    },
+    {
+      "id": "8169d64408d9aa26",
+      "useCase": "code-explanation",
+      "prompt": "Test",
+      "timestamp": 1771002798168,
+      "status": "complete",
+      "examples": 5,
+      "strategy": "random",
+      "adaptedAt": 1771002798168,
+      "feedback": {
+        "success": true
+      },
+      "completedAt": 1771002798168
+    },
+    {
+      "id": "e8270f5ede499469",
+      "useCase": "code-explanation",
+      "prompt": "Test",
+      "timestamp": 1771002798170,
+      "status": "complete",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798170,
+      "feedback": {
+        "success": true
+      },
+      "completedAt": 1771002798170
+    },
+    {
+      "id": "3b50fb23cb9464e1",
+      "useCase": "nonexistent-usecase",
+      "prompt": "Explain the spread operator in JavaScript",
+      "timestamp": 1771002798174,
+      "status": "adapted",
+      "examples": 0,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798174
+    },
+    {
+      "id": "a4ac9b1929a1c510",
+      "useCase": "code-explanation",
+      "prompt": "Explain the spread operator in JavaScript",
+      "timestamp": 1771002798174,
+      "status": "adapted",
+      "examples": 3,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798174
+    },
+    {
+      "id": "996337d33887e471",
+      "useCase": "code-explanation",
+      "prompt": "What are arrow functions in JavaScript?",
+      "timestamp": 1771002798174,
+      "status": "adapted",
+      "examples": 3,
+      "strategy": "random",
+      "adaptedAt": 1771002798174
+    },
+    {
+      "id": "07b78b3907b65a5f",
+      "useCase": "code-explanation",
+      "prompt": "What are arrow functions in JavaScript?",
+      "timestamp": 1771002798175,
+      "status": "adapted",
+      "examples": 3,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798175
+    },
+    {
+      "id": "8d6f45d7b6d99752",
+      "useCase": "code-explanation",
+      "prompt": "What are arrow functions in JavaScript?",
+      "timestamp": 1771002798175,
+      "status": "adapted",
+      "examples": 3,
+      "strategy": "keyword",
+      "adaptedAt": 1771002798175
+    },
+    {
+      "id": "b5113458f5b8a5c1",
+      "useCase": "code-explanation",
+      "prompt": "Explain reduce() in JavaScript",
+      "timestamp": 1771002798175,
+      "status": "adapted",
+      "examples": 2,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798175
+    },
+    {
+      "id": "1ade63043ae69167",
+      "useCase": "nonexistent-usecase",
+      "prompt": "Test prompt",
+      "timestamp": 1771002798176,
+      "status": "adapted",
+      "examples": 0,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798176
+    },
+    {
+      "id": "b7a8f802369cca54",
+      "useCase": "code-explanation",
+      "prompt": "Test prompt",
+      "timestamp": 1771002798176,
+      "status": "adapted",
+      "examples": 0,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798176
+    },
+    {
+      "id": "06df6f6ef363faf4",
+      "useCase": "code-explanation",
+      "prompt": "Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test ",
+      "timestamp": 1771002798176,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798177
+    },
+    {
+      "id": "d3f5fbe545551079",
+      "useCase": "code-explanation",
+      "prompt": "Explain <div> & \"quotes\" in HTML",
+      "timestamp": 1771002798177,
+      "status": "adapted",
+      "examples": 5,
+      "strategy": "semantic",
+      "adaptedAt": 1771002798177
+    },
+    {
+      "id": "c5ebbcd7d7fe56f6",
+      "useCase": "code-explanation",
+      "prompt": "Explain TypeScript interfaces",
+      "timestamp": 1771002798179,
+      "status": "complete",
+      "examples": 5,
+      "strategy": "keyword",
+      "adaptedAt": 1771002798179,
+      "feedback": {
+        "success": true,
+        "quality": 0.95
+      },
+      "completedAt": 1771002798179
+    }
+  ],
+  "useCases": {
+    "code-explanation": {
+      "totalRequests": 4,
+      "successfulRequests": 4,
+      "successRate": 1,
+      "avgExamples": 5,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002798179,
+      "recent": {
+        "requests": 4,
+        "successRate": 1,
+        "avgExamples": 5
+      }
+    }
+  },
+  "strategies": {
+    "semantic": {
+      "totalRequests": 2,
+      "successfulRequests": 2,
+      "successRate": 1,
+      "avgExamples": 5,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002798170
+    },
+    "random": {
+      "totalRequests": 1,
+      "successfulRequests": 1,
+      "successRate": 1,
+      "avgExamples": 5,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002798168
+    },
+    "keyword": {
+      "totalRequests": 1,
+      "successfulRequests": 1,
+      "successRate": 1,
+      "avgExamples": 5,
+      "avgResponseTime": 0,
+      "lastUpdated": 1771002798179
+    }
+  }
+}

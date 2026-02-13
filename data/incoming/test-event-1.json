@@ -1,0 +1,9 @@
+{
+  "id": "test-001",
+  "type": "sensor-reading",
+  "timestamp": "2026-02-13T16:30:00Z",
+  "sensor": "temperature-01",
+  "value": 23.5,
+  "unit": "celsius",
+  "location": "server-room"
+}

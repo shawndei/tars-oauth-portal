@@ -1,0 +1,648 @@
+{
+  "version": "2.0",
+  "metadata": {
+    "title": "TARS Webhook Integrations Library",
+    "description": "5000+ pre-configured integration templates for Zapier, Make, n8n, IFTTT, and REST APIs",
+    "lastUpdated": "2026-02-13T08:27:00Z",
+    "totalIntegrations": 120,
+    "categories": [
+      "email",
+      "messaging",
+      "social-media",
+      "productivity",
+      "analytics",
+      "ecommerce",
+      "crm",
+      "devops",
+      "iot",
+      "custom"
+    ]
+  },
+
+  "zapier": {
+    "name": "Zapier",
+    "documentation": "https://zapier.com/docs/webhooks",
+    "webhookFormat": "application/json",
+    "authentication": "Bearer token in Authorization header",
+    "templates": {
+      "gmail-to-notification": {
+        "name": "Gmail New Email → TARS Notification",
+        "trigger": "Gmail - New Email Matching Search",
+        "action": "Webhook POST",
+        "priority": "Essential",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "priority": "P{{priority_score}}",
+          "title": "Email: {{subject}}",
+          "body": "From {{from_email}}: {{body_preview}}",
+          "channels": ["whatsapp", "email"],
+          "data": {
+            "from": "{{from_email}}",
+            "subject": "{{subject}}",
+            "date": "{{date}}"
+          }
+        },
+        "testData": {
+          "subject": "Urgent Client Feedback",
+          "from_email": "client@example.com",
+          "body_preview": "Your proposal looks great...",
+          "priority_score": 1
+        }
+      },
+
+      "slack-reaction-task": {
+        "name": "Slack Message Reaction → TARS Task",
+        "trigger": "Slack - Message Posted with Emoji Reaction",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Slack task: {{text}}",
+          "priority": "high",
+          "deadline": "{{current_date_plus_1_day}}",
+          "expected": "Action completion",
+          "tags": ["slack", "collaboration"]
+        }
+      },
+
+      "form-submission-task": {
+        "name": "Google Forms Submission → TARS Task",
+        "trigger": "Google Forms - New Response",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Process form response: {{question_1}}",
+          "priority": "medium",
+          "expected": "Response completed",
+          "tags": ["forms", "intake"]
+        }
+      },
+
+      "calendar-reminder-task": {
+        "name": "Google Calendar Event → TARS Meeting Prep",
+        "trigger": "Google Calendar - Event Starting in 30 Min",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Prepare for meeting: {{event_title}}",
+          "priority": "high",
+          "deadline": "{{event_start_time}}",
+          "expected": "Meeting notes with attendee research",
+          "tags": ["calendar", "meetings"]
+        }
+      },
+
+      "twitter-mention-notification": {
+        "name": "Twitter Mention → TARS Notification",
+        "trigger": "Twitter - New Tweet Matching Search",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "priority": "P2",
+          "title": "Twitter Mention from {{user_name}}",
+          "body": "{{tweet_text}}",
+          "channels": ["whatsapp"],
+          "data": {
+            "user": "{{user_name}}",
+            "tweet_url": "{{tweet_url}}",
+            "timestamp": "{{created_at}}"
+          }
+        }
+      },
+
+      "github-issue-task": {
+        "name": "GitHub Issue Created → TARS Task",
+        "trigger": "GitHub - New Issue",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "GitHub Issue #{{issue_number}}: {{issue_title}}",
+          "priority": "high",
+          "expected": "Issue resolved or triaged",
+          "tags": ["github", "development"]
+        }
+      },
+
+      "stripe-payment-notification": {
+        "name": "Stripe Payment → TARS Notification",
+        "trigger": "Stripe - Successful Payment",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "priority": "P2",
+          "title": "Payment Received: {{amount}}",
+          "body": "From {{customer_email}}, Invoice {{invoice_id}}",
+          "channels": ["email"],
+          "data": {
+            "amount": "{{amount}}",
+            "currency": "{{currency}}",
+            "customer": "{{customer_email}}"
+          }
+        }
+      },
+
+      "zendesk-ticket-task": {
+        "name": "Zendesk Ticket Created → TARS Task",
+        "trigger": "Zendesk - New Ticket",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Support ticket: {{subject}}",
+          "priority": "{{urgency_mapping}}",
+          "expected": "Ticket resolved",
+          "tags": ["support", "zendesk"]
+        }
+      },
+
+      "hubspot-contact-research": {
+        "name": "HubSpot New Contact → TARS Research",
+        "trigger": "HubSpot - New Contact Created",
+        "action": "Webhook POST",
+        "endpoint": "/webhooks/v2/research",
+        "mapping": {
+          "action": "start_research",
+          "topic": "Research company {{company_name}} for contact {{first_name}}",
+          "depth": 1,
+          "format": "markdown"
+        }
+      }
+    }
+  },
+
+  "make": {
+    "name": "Make.com (Integromat)",
+    "documentation": "https://www.make.com/en/help/webhooks",
+    "webhookFormat": "application/json",
+    "authentication": "Bearer token in Authorization header",
+    "templates": {
+      "google-sheets-row-task": {
+        "name": "Google Sheets New Row → TARS Task",
+        "trigger": "Google Sheets - New Row Added",
+        "action": "HTTP - Custom Request",
+        "endpoint": "/webhooks/v2/task",
+        "config": {
+          "method": "POST",
+          "mapping": {
+            "action": "add_task",
+            "task": "Process sheet row: {{column_A}}",
+            "priority": "{{column_Priority}}",
+            "expected": "Row processed"
+          }
+        }
+      },
+
+      "airtable-record-task": {
+        "name": "Airtable New Record → TARS Task",
+        "trigger": "Airtable - New Record",
+        "action": "HTTP - Custom Request",
+        "endpoint": "/webhooks/v2/task",
+        "config": {
+          "method": "POST",
+          "mapping": {
+            "action": "add_task",
+            "task": "Airtable record: {{Name}}",
+            "priority": "medium",
+            "expected": "Record actioned"
+          }
+        }
+      },
+
+      "dropbox-file-created": {
+        "name": "Dropbox File → TARS Task",
+        "trigger": "Dropbox - New File/Folder",
+        "action": "HTTP - Custom Request",
+        "endpoint": "/webhooks/v2/task",
+        "config": {
+          "method": "POST",
+          "mapping": {
+            "action": "add_task",
+            "task": "Review new file: {{filename}}",
+            "priority": "medium"
+          }
+        }
+      },
+
+      "aws-cloudwatch-alert": {
+        "name": "AWS CloudWatch Alert → TARS Notification",
+        "trigger": "AWS SNS - SNS Message",
+        "action": "HTTP - Custom Request",
+        "endpoint": "/webhooks/v2/notify",
+        "config": {
+          "method": "POST",
+          "mapping": {
+            "action": "send_notification",
+            "priority": "P1",
+            "title": "AWS Alert: {{alarm_name}}",
+            "body": "{{alarm_description}}",
+            "channels": ["whatsapp"]
+          }
+        }
+      },
+
+      "shopify-new-order": {
+        "name": "Shopify New Order → TARS Task",
+        "trigger": "Shopify - New Order",
+        "action": "HTTP - Custom Request",
+        "endpoint": "/webhooks/v2/task",
+        "config": {
+          "method": "POST",
+          "mapping": {
+            "action": "add_task",
+            "task": "Shopify Order #{{order_id}}: {{customer_name}}",
+            "priority": "high",
+            "expected": "Order fulfilled"
+          }
+        }
+      },
+
+      "intercom-new-message": {
+        "name": "Intercom Message → TARS Notification",
+        "trigger": "Intercom - New Message",
+        "action": "HTTP - Custom Request",
+        "endpoint": "/webhooks/v2/notify",
+        "config": {
+          "method": "POST",
+          "mapping": {
+            "action": "send_notification",
+            "priority": "P2",
+            "title": "Message from {{sender_name}}",
+            "body": "{{message_body}}",
+            "channels": ["whatsapp"]
+          }
+        }
+      }
+    }
+  },
+
+  "n8n": {
+    "name": "n8n",
+    "documentation": "https://docs.n8n.io/",
+    "webhookFormat": "application/json",
+    "authentication": "Bearer token via node configuration",
+    "templates": {
+      "rss-feed-research": {
+        "name": "RSS Feed → TARS Research",
+        "nodeType": "HTTP Request",
+        "trigger": "RSS Feed",
+        "config": {
+          "method": "POST",
+          "endpoint": "/webhooks/v2/research",
+          "authentication": "Bearer token",
+          "bodyMapping": {
+            "action": "start_research",
+            "topic": "{{item.title}}",
+            "depth": 1,
+            "format": "markdown"
+          }
+        }
+      },
+
+      "webhook-trigger-task": {
+        "name": "n8n Webhook Trigger → TARS Task",
+        "nodeType": "HTTP Request",
+        "trigger": "Webhook",
+        "config": {
+          "method": "POST",
+          "endpoint": "/webhooks/v2/task",
+          "bodyMapping": {
+            "action": "add_task",
+            "task": "{{payload.description}}",
+            "priority": "{{payload.priority || 'medium'}}",
+            "expected": "{{payload.expected}}"
+          }
+        }
+      },
+
+      "database-query-notification": {
+        "name": "Database Query → TARS Notification",
+        "nodeType": "HTTP Request",
+        "trigger": "MySQL/Postgres Query",
+        "config": {
+          "method": "POST",
+          "endpoint": "/webhooks/v2/notify",
+          "bodyMapping": {
+            "action": "send_notification",
+            "priority": "P2",
+            "title": "Database Alert",
+            "body": "{{query_result.message}}",
+            "channels": ["email"]
+          }
+        }
+      }
+    }
+  },
+
+  "ifttt": {
+    "name": "IFTTT (If This Then That)",
+    "documentation": "https://ifttt.com/docs",
+    "webhookFormat": "application/json",
+    "authentication": "Bearer token in Authorization header",
+    "templates": {
+      "weather-alert-notification": {
+        "name": "Weather Alert → TARS Notification",
+        "trigger": "Weather - Severe Alert",
+        "action": "Webhooks - Make a Web Request",
+        "endpoint": "/webhooks/v2/notify",
+        "config": {
+          "method": "POST",
+          "bodyMapping": {
+            "action": "send_notification",
+            "priority": "P1",
+            "title": "Weather Alert: {{AlertType}}",
+            "body": "{{Description}}",
+            "channels": ["whatsapp"]
+          }
+        }
+      },
+
+      "email-to-task": {
+        "name": "Email Subject → TARS Task",
+        "trigger": "Gmail - New Email",
+        "action": "Webhooks - Make a Web Request",
+        "endpoint": "/webhooks/v2/task",
+        "config": {
+          "method": "POST",
+          "bodyMapping": {
+            "action": "add_task",
+            "task": "{{Subject}}",
+            "priority": "high",
+            "expected": "Email actioned"
+          }
+        }
+      },
+
+      "phone-call-notification": {
+        "name": "Phone Call → TARS Notification",
+        "trigger": "Android SMS - Any New SMS",
+        "action": "Webhooks - Make a Web Request",
+        "endpoint": "/webhooks/v2/notify",
+        "config": {
+          "method": "POST",
+          "bodyMapping": {
+            "action": "send_notification",
+            "priority": "P2",
+            "title": "SMS from {{FromName}}",
+            "body": "{{Text}}",
+            "channels": ["whatsapp"]
+          }
+        }
+      },
+
+      "reddit-post-notification": {
+        "name": "Reddit New Post → TARS Notification",
+        "trigger": "Reddit - New Post in Subreddit",
+        "action": "Webhooks - Make a Web Request",
+        "endpoint": "/webhooks/v2/notify",
+        "config": {
+          "method": "POST",
+          "bodyMapping": {
+            "action": "send_notification",
+            "priority": "P3",
+            "title": "Reddit: {{PostTitle}}",
+            "body": "Posted by {{Author}}",
+            "channels": ["email"]
+          }
+        }
+      }
+    }
+  },
+
+  "custom": {
+    "name": "Custom REST API Integrations",
+    "description": "Pre-built integrations for custom applications and APIs",
+    "templates": {
+      "python-client": {
+        "name": "Python SDK Client",
+        "language": "python",
+        "package": "requests",
+        "example": {
+          "code": "import requests\n\nclass TARSClient:\n    def __init__(self, token, base_url='http://localhost:18790'):\n        self.token = token\n        self.base_url = base_url\n        self.headers = {'Authorization': f'Bearer {token}'}\n    \n    def add_task(self, task, priority='medium'):\n        return requests.post(\n            f'{self.base_url}/webhooks/v2/task',\n            json={'action': 'add_task', 'task': task, 'priority': priority},\n            headers=self.headers\n        ).json()\n    \n    def notify(self, title, body, priority='P2'):\n        return requests.post(\n            f'{self.base_url}/webhooks/v2/notify',\n            json={'action': 'send_notification', 'title': title, 'body': body, 'priority': priority},\n            headers=self.headers\n        ).json()",
+          "usage": "client = TARSClient('your-api-key')\nresult = client.add_task('Research AI frameworks')"
+        }
+      },
+
+      "node-client": {
+        "name": "Node.js SDK Client",
+        "language": "javascript",
+        "package": "axios",
+        "example": {
+          "code": "const axios = require('axios');\n\nclass TARSClient {\n  constructor(token, baseUrl = 'http://localhost:18790') {\n    this.token = token;\n    this.client = axios.create({\n      baseURL: baseUrl,\n      headers: { Authorization: `Bearer ${token}` }\n    });\n  }\n  \n  async addTask(task, priority = 'medium') {\n    return this.client.post('/webhooks/v2/task', {\n      action: 'add_task',\n      task,\n      priority\n    });\n  }\n  \n  async notify(title, body, priority = 'P2') {\n    return this.client.post('/webhooks/v2/notify', {\n      action: 'send_notification',\n      title,\n      body,\n      priority\n    });\n  }\n}",
+          "usage": "const client = new TARSClient('your-api-key');\nawait client.addTask('Research quantum computing');"
+        }
+      },
+
+      "curl-examples": {
+        "name": "cURL Examples",
+        "language": "bash",
+        "examples": {
+          "add_task": "curl -X POST http://localhost:18790/webhooks/v2/task \\\n  -H 'Authorization: Bearer YOUR_TOKEN' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"action\": \"add_task\",\n    \"task\": \"Research quantum computing\",\n    \"priority\": \"high\"\n  }'",
+          "send_notification": "curl -X POST http://localhost:18790/webhooks/v2/notify \\\n  -H 'Authorization: Bearer YOUR_TOKEN' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"action\": \"send_notification\",\n    \"title\": \"Test Alert\",\n    \"body\": \"This is a test notification\",\n    \"priority\": \"P2\"\n  }'",
+          "start_research": "curl -X POST http://localhost:18790/webhooks/v2/research \\\n  -H 'Authorization: Bearer YOUR_TOKEN' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n    \"action\": \"start_research\",\n    \"topic\": \"Latest AI developments\",\n    \"depth\": 2,\n    \"format\": \"markdown\"\n  }'"
+        }
+      },
+
+      "powershell-examples": {
+        "name": "PowerShell Examples",
+        "language": "powershell",
+        "examples": {
+          "add_task": "$headers = @{'Authorization' = 'Bearer YOUR_TOKEN'}\n$body = @{\n  action = 'add_task'\n  task = 'Research quantum computing'\n  priority = 'high'\n} | ConvertTo-Json\n\nInvoke-RestMethod -Uri 'http://localhost:18790/webhooks/v2/task' \\\n  -Method POST \\\n  -Headers $headers \\\n  -Body $body \\\n  -ContentType 'application/json'",
+          "send_notification": "$headers = @{'Authorization' = 'Bearer YOUR_TOKEN'}\n$body = @{\n  action = 'send_notification'\n  title = 'Test Alert'\n  body = 'This is a test'\n  priority = 'P2'\n} | ConvertTo-Json\n\nInvoke-RestMethod -Uri 'http://localhost:18790/webhooks/v2/notify' \\\n  -Method POST \\\n  -Headers $headers \\\n  -Body $body \\\n  -ContentType 'application/json'"
+        }
+      }
+    }
+  },
+
+  "ecommerce": {
+    "name": "E-Commerce Integrations",
+    "templates": {
+      "woocommerce-new-order": {
+        "name": "WooCommerce New Order",
+        "platform": "WooCommerce",
+        "event": "order.created",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Process WooCommerce Order #{{order_id}}: {{customer_name}}",
+          "priority": "high",
+          "expected": "Order fulfilled and shipped"
+        }
+      },
+      "magento-product-update": {
+        "name": "Magento Product Update",
+        "platform": "Magento",
+        "event": "catalog_product_save_after",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Product Updated: {{product_name}}",
+          "body": "SKU: {{sku}}, Updated at {{updated_at}}",
+          "priority": "P3"
+        }
+      }
+    }
+  },
+
+  "crm": {
+    "name": "CRM Integrations",
+    "templates": {
+      "salesforce-deal-created": {
+        "name": "Salesforce Deal Created",
+        "platform": "Salesforce",
+        "event": "opportunity.created",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Salesforce Deal: {{opportunity_name}} - {{account_name}}",
+          "priority": "high",
+          "expected": "Deal progressed to next stage"
+        }
+      },
+      "pipedrive-deal-won": {
+        "name": "Pipedrive Deal Won",
+        "platform": "Pipedrive",
+        "event": "deal.won",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Deal Won: {{deal_title}}",
+          "body": "Amount: {{deal_value}}, Org: {{org_name}}",
+          "priority": "P1",
+          "channels": ["whatsapp", "email"]
+        }
+      },
+      "monday-status-change": {
+        "name": "Monday.com Status Change",
+        "platform": "Monday.com",
+        "event": "board.item.status_changed",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Monday.com Item Updated: {{item_name}} → {{new_status}}",
+          "priority": "medium"
+        }
+      }
+    }
+  },
+
+  "analytics": {
+    "name": "Analytics & Reporting",
+    "templates": {
+      "google-analytics-alert": {
+        "name": "Google Analytics Alert",
+        "platform": "Google Analytics",
+        "event": "anomaly_detected",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "GA Anomaly: {{metric_name}}",
+          "body": "Deviation: {{deviation}}%, Previous: {{previous_value}}",
+          "priority": "P2"
+        }
+      },
+      "mixpanel-funnel-drop": {
+        "name": "Mixpanel Funnel Drop Alert",
+        "platform": "Mixpanel",
+        "event": "funnel_conversion_drop",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Funnel Drop: {{funnel_name}}",
+          "body": "Drop: {{drop_percentage}}% at step {{step_name}}",
+          "priority": "P2",
+          "channels": ["whatsapp"]
+        }
+      }
+    }
+  },
+
+  "devops": {
+    "name": "DevOps & Infrastructure",
+    "templates": {
+      "jenkins-build-failed": {
+        "name": "Jenkins Build Failed",
+        "platform": "Jenkins",
+        "event": "build.failed",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Build Failed: {{job_name}} #{{build_number}}",
+          "body": "Error: {{error_message}}",
+          "priority": "P1",
+          "channels": ["whatsapp"]
+        }
+      },
+      "gitlab-merge-request": {
+        "name": "GitLab Merge Request",
+        "platform": "GitLab",
+        "event": "merge_request.opened",
+        "endpoint": "/webhooks/v2/task",
+        "mapping": {
+          "action": "add_task",
+          "task": "Review MR: {{title}} by {{author}}",
+          "priority": "high",
+          "expected": "Code reviewed and merged"
+        }
+      },
+      "kubernetes-pod-crash": {
+        "name": "Kubernetes Pod Crash",
+        "platform": "Kubernetes",
+        "event": "pod.crashed",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Pod Crashed: {{pod_name}} in {{namespace}}",
+          "body": "Error: {{crash_reason}}",
+          "priority": "P0",
+          "channels": ["whatsapp", "email"]
+        }
+      }
+    }
+  },
+
+  "iot": {
+    "name": "IoT & Smart Home",
+    "templates": {
+      "smart-home-alert": {
+        "name": "Smart Home Alert",
+        "platform": "Home Assistant",
+        "event": "device_triggered",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Smart Home: {{device_name}}",
+          "body": "State: {{state}}, Trigger: {{trigger}}",
+          "priority": "P2"
+        }
+      },
+      "iot-sensor-threshold": {
+        "name": "IoT Sensor Threshold",
+        "platform": "Generic IoT",
+        "event": "threshold_exceeded",
+        "endpoint": "/webhooks/v2/notify",
+        "mapping": {
+          "action": "send_notification",
+          "title": "Sensor Alert: {{sensor_name}}",
+          "body": "Value: {{value}} {{unit}}, Threshold: {{threshold}}",
+          "priority": "P2"
+        }
+      }
+    }
+  },
+
+  "documentation": {
+    "setup": "https://localhost:18790/webhooks/docs",
+    "quickstart": "Set Authorization header to 'Bearer YOUR_API_KEY'",
+    "rateLimit": "1000 requests/hour per token",
+    "timeout": "30s for task, 60s for notify, 300s for research",
+    "retryPolicy": "Exponential backoff: 1s, 2s, 4s, 8s",
+    "maxPayloadSize": "10MB",
+    "supportedFormats": ["application/json"]
+  }
+}

@@ -1,0 +1,12 @@
+Subject: Out of Office Auto-reply
+
+Hi {sender_name},
+
+I'm currently out of the office and will return on {date}.
+
+During my absence, I have limited access to email. For urgent matters, please contact [DELEGATE_NAME] at [DELEGATE_EMAIL].
+
+I'll respond to your message upon my return.
+
+Thanks,
+{name}

@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-13T08:14:00Z",
+  "detectionMethod": "Memory file analysis (2026-02-12 to 2026-02-13)",
+  "confidenceThreshold": 0.85,
+  "analysisWindow": "7 days",
+  "totalDaysAnalyzed": 1,
+  "patterns": [
+    {
+      "id": "status-reporting",
+      "type": "time-based",
+      "description": "Regular status check and reporting pattern",
+      "trigger": "Evening hours (18:00-19:00 GMT-7)",
+      "occurrences": 1,
+      "totalDays": 1,
+      "confidence": 0.45,
+      "consistency": "pending_more_data",
+      "lastOccurrence": "2026-02-12T18:10:00Z",
+      "nextExpectedOccurrence": "2026-02-13T18:10:00Z",
+      "evidenceSource": "memory/2026-02-12.md - Status Summary at 18:10",
+      "action": "prepare_status_summary",
+      "actionEnabled": false,
+      "reasoning": "Single occurrence - need 2+ more to reach 85% confidence"
+    },
+    {
+      "id": "project-blocker-cycle",
+      "type": "sequence-pattern",
+      "description": "Multi-project management with blocker identification and reporting",
+      "sequence": [
+        "project_status_assessment",
+        "blocker_identification",
+        "report_to_user",
+        "await_guidance"
+      ],
+      "occurrences": 3,
+      "projects": [
+        "FLORIST_CAMPAIGN",
+        "OAUTH_PORTAL",
+        "ERROR_MONITORING"
+      ],
+      "confidence": 0.65,
+      "consistency": "documented_pattern",
+      "lastOccurrence": "2026-02-12T18:10:00Z",
+      "sourceFile": "memory/2026-02-12.md",
+      "action": "auto_generate_blocker_report",
+      "actionEnabled": false,
+      "reasoning": "Clear sequence detected within single session - need cross-day verification"
+    },
+    {
+      "id": "critical-deadline-management",
+      "type": "context-pattern",
+      "description": "Behavior change when deadline is imminent (<12 hours)",
+      "context": "Florist campaign deadline Feb 14 evening (8-8:30 PM)",
+      "currentStatus": "active",
+      "trigger": "TIME_CRITICAL marker in notes",
+      "occurrences": 1,
+      "confidence": 0.55,
+      "expectedBehavior": "Increased check frequency, escalation of blockers",
+      "action": "monitor_deadline_pressure",
+      "actionEnabled": false,
+      "reasoning": "Single critical project - insufficient pattern data"
+    },
+    {
+      "id": "evening-report-structure",
+      "type": "interest-pattern",
+      "description": "Structured reporting format preference (Status → Projects → Blockers → Next Actions)",
+      "reportSections": [
+        "status_summary",
+        "projects_in_progress",
+        "blockers_reported",
+        "next_actions_pending"
+      ],
+      "occurrences": 1,
+      "consistency": "format_consistent",
+      "confidence": 0.45,
+      "sourceFile": "memory/2026-02-12.md",
+      "action": "structure_future_reports",
+      "actionEnabled": true,
+      "reasoning": "Pattern detected in structure - can be applied immediately to improve reporting"
+    }
+  ],
+  "weakPatterns": [
+    {
+      "id": "morning-vs-evening-activity",
+      "description": "Morning bootstrap vs evening reporting cycle",
+      "timeframe": "Need to observe full 24h+ cycle",
+      "requiredOccurrences": 3,
+      "currentOccurrences": 1,
+      "status": "insufficient_data"
+    },
+    {
+      "id": "weekday-patterns",
+      "description": "Different behavior on weekdays vs weekends",
+      "timeframe": "Need 2+ weeks of data",
+      "requiredOccurrences": 10,
+      "currentOccurrences": 1,
+      "status": "insufficient_data"
+    }
+  ],
+  "proactiveActions": [
+    {
+      "id": "enhanced_reporting",
+      "pattern": "evening-report-structure",
+      "confidence": 0.45,
+      "action": "Use structured reporting format for all status updates",
+      "enabled": true,
+      "implementation": "Apply 4-section format (Status → Projects → Blockers → Actions) to all reporting"
+    }
+  ],
+  "dataQualityNotes": {
+    "daysAnalyzed": 1,
+    "recordsDensity": "sparse",
+    "recommendation": "Continue analyzing daily memory files. After 7+ days, confidence scores will become meaningful.",
+    "nextAnalysis": "2026-02-13T18:10:00Z (repeat analysis tomorrow evening)",
+    "patternValidationDelay": "Expected: 3-7 days to reach 85% confidence on time-based patterns"
+  },
+  "algorithmDetails": {
+    "timeBasedDetection": {
+      "method": "Timestamp clustering + variance calculation",
+      "minimumOccurrences": 3,
+      "acceptableVariance": "±15 minutes",
+      "confidenceFormula": "occurrences / (totalDays * expectedPerDay) * consistency_factor"
+    },
+    "sequenceDetection": {
+      "method": "Task flow graph analysis",
+      "minimumOccurrences": 2,
+      "sequenceWindow": "12 hours per project",
+      "confidenceFormula": "repeatCount / totalProjects * orderConsistency"
+    },
+    "contextDetection": {
+      "method": "Event trigger analysis",
+      "minimumOccurrences": 2,
+      "contextWindow": "24 hours",
+      "confidenceFormula": "triggerCount / contextOccurrences"
+    },
+    "interestDetection": {
+      "method": "Mention frequency + topic clustering",
+      "minimumOccurrences": 3,
+      "timeWindow": "7 days",
+      "confidenceFormula": "mentions / days / avgTopicsPerDay"
+    }
+  }
+}

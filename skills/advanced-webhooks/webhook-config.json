@@ -1,0 +1,95 @@
+{
+  "enabled": true,
+  "port": 18790,
+  "basePath": "/webhooks/v2",
+
+  "authentication": {
+    "method": "bearer",
+    "tokensFile": "../../data/webhook-tokens.json",
+    "apiKeyHeader": "Authorization",
+    "apiKeyFormat": "Bearer {token}",
+    "requireAuth": true
+  },
+
+  "rateLimits": {
+    "global": {
+      "perHour": 10000,
+      "perDay": 100000,
+      "algorithm": "sliding_window"
+    },
+    "perEndpoint": {
+      "task": 2000,
+      "notify": 5000,
+      "research": 1000
+    },
+    "perToken": {
+      "default": 1000,
+      "custom": {}
+    },
+    "burstAllowance": 1.5
+  },
+
+  "validation": {
+    "enabled": true,
+    "schemasFile": "../../data/webhook-schemas.json",
+    "strictMode": true,
+    "maxPayloadSize": 10485760
+  },
+
+  "errorHandling": {
+    "retryPolicy": {
+      "maxRetries": 3,
+      "backoffMultiplier": 2,
+      "initialDelayMs": 1000
+    },
+    "deadLetterQueue": "../../logs/dlq.jsonl"
+  },
+
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "logPath": "../../logs/webhooks.jsonl",
+    "auditPath": "../../logs/webhook-audit.jsonl",
+    "retention": 2592000
+  },
+
+  "endpoints": {
+    "task": {
+      "enabled": true,
+      "rateLimit": 2000,
+      "timeout": 30000
+    },
+    "notify": {
+      "enabled": true,
+      "rateLimit": 5000,
+      "timeout": 60000
+    },
+    "research": {
+      "enabled": true,
+      "rateLimit": 1000,
+      "timeout": 300000
+    },
+    "events": {
+      "enabled": true,
+      "type": "sse"
+    }
+  },
+
+  "security": {
+    "cors": {
+      "enabled": true,
+      "allowedOrigins": ["*"],
+      "allowedMethods": ["POST", "GET", "OPTIONS"],
+      "allowedHeaders": ["Content-Type", "Authorization"]
+    },
+    "https": {
+      "enabled": false,
+      "certPath": null,
+      "keyPath": null
+    },
+    "ipWhitelist": {
+      "enabled": false,
+      "ips": []
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{"timestamp":"2026-02-13T07:58:00Z","preference":"outputFormat","change":"structured -> tables_and_bullets","confidence_before":0.5,"confidence_after":0.85,"reason":"User consistently requests tables, bullet lists, and TL;DR format"}
+{"timestamp":"2026-02-13T07:58:01Z","preference":"responseLength","change":"adaptive -> concise","confidence_before":0.5,"confidence_after":0.92,"reason":"User values brevity, direct answers, minimal hedging"}
+{"timestamp":"2026-02-13T07:58:02Z","preference":"verificationRequired","change":"false -> true","confidence_before":0.5,"confidence_after":0.95,"reason":"User demands proof, evidence, execution logs - not claims"}

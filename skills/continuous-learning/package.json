@@ -1,0 +1,24 @@
+{
+  "name": "@openclaw/continuous-learning",
+  "version": "1.0.0",
+  "description": "Continuous feedback learning system for OpenClaw agents",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/run-all-tests.js",
+    "test:feedback": "node test/test-feedback-capture.js",
+    "test:patterns": "node test/test-pattern-analysis.js",
+    "test:integration": "node test/test-integration.js"
+  },
+  "keywords": [
+    "openclaw",
+    "learning",
+    "feedback",
+    "adaptation",
+    "ai"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

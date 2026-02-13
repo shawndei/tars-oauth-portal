@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-02-13T17:11:12.903Z",
+    "updated": "2026-02-13T17:11:12.927Z",
+    "totalExamples": 5
+  },
+  "examples": {
+    "code-explanation": [
+      {
+        "id": "e9c9ac215b644b5b",
+        "input": "Explain this code: const arr = [1,2,3].map(x => x * 2)",
+        "output": "This code creates an array [1,2,3] and uses the map() method to transform each element by multiplying it by 2, resulting in [2,4,6].",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "array",
+          "functional"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:11:12.906Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "81abc44caa80cb07",
+        "input": "What does async/await do?",
+        "output": "async/await is syntax for handling Promises in JavaScript. The async keyword marks a function as asynchronous, and await pauses execution until a Promise resolves, making async code look synchronous.",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "async",
+          "promises"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:11:12.908Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ],
+    "summarization": [
+      {
+        "id": "7c7839f33f7d6fe2",
+        "input": "Summarize: Climate change is affecting ecosystems worldwide. Rising temperatures are causing ice caps to melt and sea levels to rise.",
+        "output": "Climate change impacts: melting ice caps, rising seas, ecosystem disruption.",
+        "useCase": "summarization",
+        "tags": [
+          "summary",
+          "climate"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:11:12.909Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ],
+    "api-documentation": [
+      {
+        "id": "d8e0635859b699a0",
+        "input": "Document this function: getUserById(id)",
+        "output": "```\ngetUserById(id: string): Promise<User>\n\nFetches a user by their unique ID.\n\nParameters:\n- id: User unique identifier\n\nReturns: Promise resolving to User object\n\nThrows: UserNotFoundError if user doesn't exist\n```",
+        "useCase": "api-documentation",
+        "tags": [
+          "function",
+          "async",
+          "documentation"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:11:12.911Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "b538369accf87bef",
+        "input": "Document this API endpoint: POST /users",
+        "output": "```\nPOST /users\n\nCreates a new user account.\n\nRequest Body:\n- email: string (required)\n- name: string (required)\n- password: string (required, min 8 chars)\n\nResponse: 201 Created\n- userId: string\n- email: string\n- name: string\n\nErrors:\n- 400: Invalid input\n- 409: Email already exists\n```",
+        "useCase": "api-documentation",
+        "tags": [
+          "api",
+          "rest",
+          "documentation"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:11:12.912Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ]
+  }
+}

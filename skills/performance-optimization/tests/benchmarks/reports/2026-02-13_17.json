@@ -1,0 +1,697 @@
+{
+  "metadata": {
+    "timestamp": "2026-02-13T17:12:28.474Z",
+    "version": "1.0",
+    "mode": "quick",
+    "suite": "all"
+  },
+  "summary": {
+    "totalTests": 10,
+    "totalOperations": 42,
+    "criticalRegressions": 0,
+    "warningRegressions": 0,
+    "improvements": 4
+  },
+  "statistics": {
+    "simple_command": {
+      "count": 5,
+      "latency": {
+        "min": 15,
+        "max": 21,
+        "mean": 16.6,
+        "median": 16,
+        "p50": 16,
+        "p90": 21,
+        "p95": 21,
+        "p99": 21,
+        "stddev": 2.244994432064365
+      },
+      "throughput": {
+        "ops_per_sec": 80.64516129032258,
+        "requests_per_min": 4838.709677419354
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 9291.2,
+        "max_heap_used": 26240,
+        "min_heap_used": 2392
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "echo_command": {
+      "count": 5,
+      "latency": {
+        "min": 0,
+        "max": 16,
+        "mean": 12.4,
+        "median": 15,
+        "p50": 15,
+        "p90": 16,
+        "p95": 16,
+        "p99": 16,
+        "stddev": 6.216108107168021
+      },
+      "throughput": {
+        "ops_per_sec": 106.38297872340425,
+        "requests_per_min": 6382.978723404255
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": -92961.6,
+        "max_heap_used": 390776,
+        "min_heap_used": -631072
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "file_read": {
+      "count": 5,
+      "latency": {
+        "min": 15,
+        "max": 32,
+        "mean": 28,
+        "median": 31,
+        "p50": 31,
+        "p90": 32,
+        "p95": 32,
+        "p99": 32,
+        "stddev": 6.54217089351845
+      },
+      "throughput": {
+        "ops_per_sec": 45.87155963302752,
+        "requests_per_min": 2752.293577981651
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 4260.8,
+        "max_heap_used": 9104,
+        "min_heap_used": 2320
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "haiku_simple_query": {
+      "count": 3,
+      "latency": {
+        "min": 513,
+        "max": 775,
+        "mean": 667,
+        "median": 713,
+        "p50": 713,
+        "p90": 775,
+        "p95": 775,
+        "p99": 775,
+        "stddev": 111.79743586803173
+      },
+      "throughput": {
+        "ops_per_sec": 2.0161290322580645,
+        "requests_per_min": 120.96774193548387
+      },
+      "cost": {
+        "total": 0.0014512000000000001,
+        "mean": 0.0004837333333333334,
+        "cost_per_op": 0.0004837333333333334,
+        "min": 0.000448,
+        "max": 0.0005528
+      },
+      "tokens": {
+        "total": 1814,
+        "mean": 604.6666666666666,
+        "tokens_per_op": 604.6666666666666,
+        "min": 560,
+        "max": 691
+      },
+      "memory": {
+        "mean_heap_used": 4970.666666666667,
+        "max_heap_used": 9184,
+        "min_heap_used": 2792
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "haiku_moderate_query": {
+      "count": 3,
+      "latency": {
+        "min": 1088,
+        "max": 1288,
+        "mean": 1200.3333333333333,
+        "median": 1225,
+        "p50": 1225,
+        "p90": 1288,
+        "p95": 1288,
+        "p99": 1288,
+        "stddev": 83.49184923625114
+      },
+      "throughput": {
+        "ops_per_sec": 1.2970168612191957,
+        "requests_per_min": 77.82101167315174
+      },
+      "cost": {
+        "total": 0.0038824000000000003,
+        "mean": 0.0012941333333333334,
+        "cost_per_op": 0.0012941333333333334,
+        "min": 0.0012848,
+        "max": 0.0013048
+      },
+      "tokens": {
+        "total": 4853,
+        "mean": 1617.6666666666667,
+        "tokens_per_op": 1617.6666666666667,
+        "min": 1606,
+        "max": 1631
+      },
+      "memory": {
+        "mean_heap_used": 5725.333333333333,
+        "max_heap_used": 11448,
+        "min_heap_used": 2792
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "sonnet_simple_query": {
+      "count": 3,
+      "latency": {
+        "min": 1265,
+        "max": 1511,
+        "mean": 1353.6666666666667,
+        "median": 1285,
+        "p50": 1285,
+        "p90": 1511,
+        "p95": 1511,
+        "p99": 1511,
+        "stddev": 111.55068603803186
+      },
+      "throughput": {
+        "ops_per_sec": 1.072961373390558,
+        "requests_per_min": 64.37768240343348
+      },
+      "cost": {
+        "total": 0.019692,
+        "mean": 0.006564,
+        "cost_per_op": 0.006564,
+        "min": 0.00522,
+        "max": 0.008757000000000001
+      },
+      "tokens": {
+        "total": 2188,
+        "mean": 729.3333333333334,
+        "tokens_per_op": 729.3333333333334,
+        "min": 580,
+        "max": 973
+      },
+      "memory": {
+        "mean_heap_used": -229000,
+        "max_heap_used": 4408,
+        "min_heap_used": -688056
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "sonnet_complex_reasoning": {
+      "count": 3,
+      "latency": {
+        "min": 3706,
+        "max": 3900,
+        "mean": 3779.6666666666665,
+        "median": 3733,
+        "p50": 3733,
+        "p90": 3900,
+        "p95": 3900,
+        "p99": 3900,
+        "stddev": 85.79950789809669
+      },
+      "throughput": {
+        "ops_per_sec": 0.3930302633302764,
+        "requests_per_min": 23.581815799816585
+      },
+      "cost": {
+        "total": 0.117729,
+        "mean": 0.039243,
+        "cost_per_op": 0.039243,
+        "min": 0.037773,
+        "max": 0.042129
+      },
+      "tokens": {
+        "total": 13081,
+        "mean": 4360.333333333333,
+        "tokens_per_op": 4360.333333333333,
+        "min": 4197,
+        "max": 4681
+      },
+      "memory": {
+        "mean_heap_used": 6197.333333333333,
+        "max_heap_used": 11008,
+        "min_heap_used": 2984
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "memory_search": {
+      "count": 5,
+      "latency": {
+        "min": 47,
+        "max": 77,
+        "mean": 64.8,
+        "median": 62,
+        "p50": 62,
+        "p90": 77,
+        "p95": 77,
+        "p99": 77,
+        "stddev": 11.285388783732706
+      },
+      "throughput": {
+        "ops_per_sec": 18.939393939393938,
+        "requests_per_min": 1136.3636363636363
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 3414.4,
+        "max_heap_used": 7088,
+        "min_heap_used": 2424
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "memory_retrieval": {
+      "count": 5,
+      "latency": {
+        "min": 31,
+        "max": 77,
+        "mean": 49.6,
+        "median": 47,
+        "p50": 47,
+        "p90": 77,
+        "p95": 77,
+        "p99": 77,
+        "stddev": 14.987995196156154
+      },
+      "throughput": {
+        "ops_per_sec": 29.23976608187134,
+        "requests_per_min": 1754.3859649122805
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": -68515.2,
+        "max_heap_used": 8776,
+        "min_heap_used": -358552
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "memory_embedding": {
+      "count": 5,
+      "latency": {
+        "min": 119,
+        "max": 298,
+        "mean": 217,
+        "median": 235,
+        "p50": 235,
+        "p90": 298,
+        "p95": 298,
+        "p99": 298,
+        "stddev": 69.7165690492583
+      },
+      "throughput": {
+        "ops_per_sec": 6.353240152477763,
+        "requests_per_min": 381.1944091486658
+      },
+      "cost": {
+        "total": 0.00010329999999999999,
+        "mean": 0.00002066,
+        "cost_per_op": 0.00002066,
+        "min": 0.0000165,
+        "max": 0.0000249
+      },
+      "tokens": {
+        "total": 1033,
+        "mean": 206.6,
+        "tokens_per_op": 206.6,
+        "min": 165,
+        "max": 249
+      },
+      "memory": {
+        "mean_heap_used": 15598.4,
+        "max_heap_used": 18328,
+        "min_heap_used": 14800
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    }
+  },
+  "regressions": {
+    "timestamp": "2026-02-13T17:12:28.474Z",
+    "hasBaseline": true,
+    "summary": {
+      "totalRegressions": 13,
+      "criticalRegressions": 8,
+      "warningRegressions": 1,
+      "totalImprovements": 4
+    },
+    "regressions": [
+      {
+        "test": "simple_command",
+        "metric": "latency",
+        "severity": "ACCEPTABLE",
+        "change": "6.7%",
+        "changeValue": 0.06666666666666667,
+        "baseline": 15,
+        "current": 16,
+        "unit": "ms",
+        "message": "simple_command latency: 16.00ms vs baseline 15.00ms (6.7% increase)"
+      },
+      {
+        "test": "echo_command",
+        "metric": "memory",
+        "severity": "CRITICAL",
+        "change": "111.0%",
+        "changeValue": 1.1103846572954126,
+        "baseline": -44049.6,
+        "current": -92961.6,
+        "unit": "bytes",
+        "message": "echo_command memory: -92961.60bytes vs baseline -44049.60bytes (111.0% increase)"
+      },
+      {
+        "test": "haiku_simple_query",
+        "metric": "throughput",
+        "severity": "CRITICAL",
+        "change": "-10.2%",
+        "changeValue": -0.10215053763440862,
+        "baseline": 2.245508982035928,
+        "current": 2.0161290322580645,
+        "unit": "ops/sec",
+        "message": "haiku_simple_query throughput: 2.02ops/sec vs baseline 2.25ops/sec (-10.2% decrease)"
+      },
+      {
+        "test": "haiku_moderate_query",
+        "metric": "latency",
+        "severity": "ACCEPTABLE",
+        "change": "12.9%",
+        "changeValue": 0.12903225806451613,
+        "baseline": 1085,
+        "current": 1225,
+        "unit": "ms",
+        "message": "haiku_moderate_query latency: 1225.00ms vs baseline 1085.00ms (12.9% increase)"
+      },
+      {
+        "test": "haiku_moderate_query",
+        "metric": "throughput",
+        "severity": "CRITICAL",
+        "change": "-0.0%",
+        "changeValue": -0.0004323389537399518,
+        "baseline": 1.2975778546712804,
+        "current": 1.2970168612191957,
+        "unit": "ops/sec",
+        "message": "haiku_moderate_query throughput: 1.30ops/sec vs baseline 1.30ops/sec (-0.0% decrease)"
+      },
+      {
+        "test": "sonnet_simple_query",
+        "metric": "latency_p95",
+        "severity": "ACCEPTABLE",
+        "change": "13.4%",
+        "changeValue": 0.13438438438438438,
+        "baseline": 1332,
+        "current": 1511,
+        "unit": "ms",
+        "message": "sonnet_simple_query latency_p95: 1511.00ms vs baseline 1332.00ms (13.4% increase)"
+      },
+      {
+        "test": "sonnet_simple_query",
+        "metric": "throughput",
+        "severity": "CRITICAL",
+        "change": "-5.9%",
+        "changeValue": -0.058655221745350254,
+        "baseline": 1.1398176291793312,
+        "current": 1.072961373390558,
+        "unit": "ops/sec",
+        "message": "sonnet_simple_query throughput: 1.07ops/sec vs baseline 1.14ops/sec (-5.9% decrease)"
+      },
+      {
+        "test": "sonnet_complex_reasoning",
+        "metric": "throughput",
+        "severity": "CRITICAL",
+        "change": "-3.1%",
+        "changeValue": -0.030656360539761653,
+        "baseline": 0.4054601973239627,
+        "current": 0.3930302633302764,
+        "unit": "ops/sec",
+        "message": "sonnet_complex_reasoning throughput: 0.39ops/sec vs baseline 0.41ops/sec (-3.1% decrease)"
+      },
+      {
+        "test": "sonnet_complex_reasoning",
+        "metric": "cost",
+        "severity": "WARNING",
+        "change": "17.9%",
+        "changeValue": 0.17942475881345246,
+        "baseline": 0.033273,
+        "current": 0.039243,
+        "unit": "$",
+        "message": "sonnet_complex_reasoning cost: 0.04$ vs baseline 0.03$ (17.9% increase)"
+      },
+      {
+        "test": "sonnet_complex_reasoning",
+        "metric": "memory",
+        "severity": "CRITICAL",
+        "change": "263.7%",
+        "changeValue": 2.636932707355242,
+        "baseline": 1704,
+        "current": 6197.333333333333,
+        "unit": "bytes",
+        "message": "sonnet_complex_reasoning memory: 6197.33bytes vs baseline 1704.00bytes (263.7% increase)"
+      },
+      {
+        "test": "memory_search",
+        "metric": "throughput",
+        "severity": "CRITICAL",
+        "change": "-17.8%",
+        "changeValue": -0.17803030303030307,
+        "baseline": 23.04147465437788,
+        "current": 18.939393939393938,
+        "unit": "ops/sec",
+        "message": "memory_search throughput: 18.94ops/sec vs baseline 23.04ops/sec (-17.8% decrease)"
+      },
+      {
+        "test": "memory_embedding",
+        "metric": "latency_p95",
+        "severity": "ACCEPTABLE",
+        "change": "6.8%",
+        "changeValue": 0.06810035842293907,
+        "baseline": 279,
+        "current": 298,
+        "unit": "ms",
+        "message": "memory_embedding latency_p95: 298.00ms vs baseline 279.00ms (6.8% increase)"
+      },
+      {
+        "test": "memory_embedding",
+        "metric": "throughput",
+        "severity": "CRITICAL",
+        "change": "-3.8%",
+        "changeValue": -0.038119440914866645,
+        "baseline": 6.605019815059445,
+        "current": 6.353240152477763,
+        "unit": "ops/sec",
+        "message": "memory_embedding throughput: 6.35ops/sec vs baseline 6.61ops/sec (-3.8% decrease)"
+      }
+    ],
+    "improvements": [
+      {
+        "test": "haiku_simple_query",
+        "metric": "cost",
+        "improvement": "13.2%",
+        "baseline": 0.0005576,
+        "current": 0.0004837333333333334
+      },
+      {
+        "test": "haiku_moderate_query",
+        "metric": "cost",
+        "improvement": "28.8%",
+        "baseline": 0.0018173333333333333,
+        "current": 0.0012941333333333334
+      },
+      {
+        "test": "sonnet_simple_query",
+        "metric": "cost",
+        "improvement": "10.4%",
+        "baseline": 0.007329,
+        "current": 0.006564
+      },
+      {
+        "test": "memory_retrieval",
+        "metric": "latency",
+        "improvement": "24.2%",
+        "baseline": 62,
+        "current": 47
+      }
+    ],
+    "baselineDate": "2026-02-13T17:10:40.677Z"
+  },
+  "charts": {
+    "labels": [
+      "simple_command",
+      "echo_command",
+      "file_read",
+      "haiku_simple_query",
+      "haiku_moderate_query",
+      "sonnet_simple_query",
+      "sonnet_complex_reasoning",
+      "memory_search",
+      "memory_retrieval",
+      "memory_embedding"
+    ],
+    "latency": {
+      "p50": [
+        16,
+        15,
+        31,
+        713,
+        1225,
+        1285,
+        3733,
+        62,
+        47,
+        235
+      ],
+      "p95": [
+        21,
+        16,
+        32,
+        775,
+        1288,
+        1511,
+        3900,
+        77,
+        77,
+        298
+      ]
+    },
+    "throughput": [
+      80.64516129032258,
+      106.38297872340425,
+      45.87155963302752,
+      2.0161290322580645,
+      1.2970168612191957,
+      1.072961373390558,
+      0.3930302633302764,
+      18.939393939393938,
+      29.23976608187134,
+      6.353240152477763
+    ],
+    "cost": [
+      0,
+      0,
+      0,
+      0.0014512000000000001,
+      0.0038824000000000003,
+      0.019692,
+      0.117729,
+      0,
+      0,
+      0.00010329999999999999
+    ]
+  }
+}

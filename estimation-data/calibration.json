@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-02-13T20:27:53.280Z",
+  "factors": {
+    "configuration": {
+      "mean": 0.1,
+      "std": 0.05,
+      "count": 0,
+      "confidence": 0.6,
+      "samples": []
+    },
+    "research": {
+      "mean": 0.4,
+      "std": 0.08,
+      "count": 0,
+      "confidence": 0.6,
+      "samples": []
+    },
+    "implementation": {
+      "mean": 0.45,
+      "std": 0.1,
+      "count": 0,
+      "confidence": 0.6,
+      "samples": []
+    },
+    "debugging": {
+      "mean": 0.55,
+      "std": 0.15,
+      "count": 0,
+      "confidence": 0.6,
+      "samples": []
+    },
+    "documentation": {
+      "mean": 0.2,
+      "std": 0.05,
+      "count": 0,
+      "confidence": 0.6,
+      "samples": []
+    },
+    "mixed": {
+      "mean": 0.35,
+      "std": 0.12,
+      "count": 0,
+      "confidence": 0.6,
+      "samples": []
+    }
+  },
+  "accuracy": {
+    "mae": 0,
+    "mape": 0,
+    "target": 10
+  },
+  "samples_count": 0
+}

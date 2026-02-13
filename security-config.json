@@ -1,0 +1,499 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-02-13T08:23:00Z",
+  "environment": "production",
+  "security": {
+    "enabled": true,
+    "enforceMode": "strict"
+  },
+  "inputValidation": {
+    "enabled": true,
+    "strictMode": true,
+    "maxInputLength": 10000,
+    "maxJsonPayloadMb": 10,
+    "blocked_patterns": {
+      "commands": [
+        "rm -rf",
+        "mkfs",
+        ":(){:|:&};:",
+        "fork()",
+        "dd if=",
+        ">/dev/sda"
+      ],
+      "sqlInjection": [
+        "' OR '1'='1",
+        "UNION SELECT",
+        "DROP TABLE",
+        "DELETE FROM",
+        "INSERT INTO",
+        "--",
+        "/*",
+        "*/"
+      ],
+      "pathTraversal": [
+        "\\.\\.",
+        "~",
+        "etc/passwd",
+        "windows/system32",
+        "proc/"
+      ],
+      "xss": [
+        "<script>",
+        "javascript:",
+        "onerror=",
+        "onclick=",
+        "onload=",
+        "iframe"
+      ]
+    },
+    "allowed_safe_tags": [
+      "p", "br", "b", "i", "u", "em", "strong",
+      "h1", "h2", "h3", "h4", "h5", "h6",
+      "ul", "ol", "li", "code", "pre", "blockquote",
+      "a", "img"
+    ],
+    "disallowed_protocols": [
+      "javascript",
+      "data",
+      "vbscript",
+      "file"
+    ]
+  },
+  "commandInjection": {
+    "enabled": true,
+    "useShellExec": false,
+    "allowedCommands": [
+      "git",
+      "npm",
+      "node",
+      "python",
+      "docker",
+      "curl",
+      "wget",
+      "openssl",
+      "ssh",
+      "scp",
+      "rsync",
+      "tar",
+      "zip",
+      "unzip",
+      "cat",
+      "grep",
+      "find",
+      "ls",
+      "pwd"
+    ],
+    "blockedCommands": [
+      "rm",
+      "rmdir",
+      "mkfs",
+      "dd",
+      "fdisk",
+      "mount",
+      "umount",
+      "shutdown",
+      "reboot",
+      "halt",
+      "poweroff",
+      "sudo",
+      "su",
+      "chmod",
+      "chown",
+      "chmod",
+      "kill -9"
+    ],
+    "defaultTimeout": 30000,
+    "maxTimeout": 300000,
+    "sandboxing": {
+      "enabled": true,
+      "restrictFileAccess": true,
+      "restrictNetworkAccess": false,
+      "restrictProcessAccess": true,
+      "workdirBase": "/tmp/tars-sandbox"
+    },
+    "resourceLimits": {
+      "maxCpuPercent": 80,
+      "maxMemoryMb": 512,
+      "maxOpenFiles": 100,
+      "maxProcesses": 10
+    }
+  },
+  "rateLimiting": {
+    "enabled": true,
+    "store": "memory",
+    "tiers": {
+      "unauthenticated": {
+        "commands": 5,
+        "apiRequests": 100,
+        "loginAttempts": 5,
+        "window": 3600
+      },
+      "authenticated": {
+        "commands": 100,
+        "apiRequests": 10000,
+        "dataDump": 100,
+        "window": 3600
+      },
+      "elevated": {
+        "commands": 1000,
+        "apiRequests": 100000,
+        "dataDump": 1000,
+        "window": 3600
+      },
+      "admin": {
+        "commands": "unlimited",
+        "apiRequests": "unlimited",
+        "window": 3600
+      }
+    },
+    "escalation": {
+      "thresholdHits": 3,
+      "thresholdWindow": 3600,
+      "action": "requireApproval",
+      "suspensionDuration": 3600
+    }
+  },
+  "authentication": {
+    "enabled": true,
+    "sessionTimeout": 3600,
+    "sessionRotation": 900,
+    "mfaRequired": {
+      "elevatedMode": true,
+      "dataExport": true,
+      "adminActions": true
+    },
+    "mfaAttempts": {
+      "max": 5,
+      "lockoutDuration": 300
+    },
+    "passwordPolicy": {
+      "minLength": 12,
+      "requireUppercase": true,
+      "requireLowercase": true,
+      "requireNumbers": true,
+      "requireSpecialChars": true,
+      "maxAge": 7776000,
+      "reuseLimit": 10
+    },
+    "tokenManagement": {
+      "lifespan": 3600,
+      "rotationInterval": 900,
+      "storage": "secure_http_only_cookie",
+      "algorithm": "HS256"
+    }
+  },
+  "dataRedaction": {
+    "enabled": true,
+    "contexts": {
+      "logs": {
+        "enabled": true,
+        "redactionChar": "*",
+        "preservePattern": true,
+        "minLength": 4
+      },
+      "errors": {
+        "enabled": true,
+        "showGenericMessage": true,
+        "logFullError": true
+      },
+      "responses": {
+        "enabled": true,
+        "excludeSecrets": true,
+        "sanitizeMetadata": true
+      },
+      "auditLog": {
+        "enabled": true,
+        "fullDataStored": true,
+        "restrictedAccess": true
+      }
+    },
+    "redactionPatterns": {
+      "apiKeys": "api[_-]?key['\"]?\\s*[:=]+\\s*[a-zA-Z0-9_\\-]{32,}",
+      "tokens": "(bearer|token|jwt)['\"]?\\s*[:=]+\\s*[a-zA-Z0-9_\\-\\.]{20,}",
+      "passwords": "(password|passwd|pwd)['\"]?\\s*[:=]+\\s*[^'\"\\s]+",
+      "secrets": "(secret|private[_-]?key|signing[_-]?key)['\"]?\\s*[:=]+\\s*[^'\"\\s]+",
+      "dbConnStr": "(postgresql|mysql|mongodb|redis)[+\\w]*:\\/\\/[^\\s]+",
+      "awsKeys": "AKIA[0-9A-Z]{16}",
+      "creditCards": "\\b\\d{4}[\\s\\-]?\\d{4}[\\s\\-]?\\d{4}[\\s\\-]?\\d{4}\\b",
+      "emails": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+      "ipAddresses": "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
+      "sshKeys": "(-----BEGIN RSA PRIVATE KEY-----|-----BEGIN OPENSSH PRIVATE KEY-----)"
+    },
+    "alwaysRedact": [
+      "password", "passwd", "pwd", "secret", "api_key", "apiKey",
+      "token", "auth_token", "access_token", "refresh_token",
+      "private_key", "signing_key", "encryption_key",
+      "aws_access_key_id", "aws_secret_access_key",
+      "database_url", "db_connection_string", "db_password",
+      "stripe_key", "paypal_token", "twilio_auth_token",
+      "ssh_key", "gpg_key", "bearer_token", "session_secret",
+      "credit_card", "ssn", "social_security_number",
+      "oauth_secret", "client_secret", "client_id_secret"
+    ]
+  },
+  "auditLogging": {
+    "enabled": true,
+    "level": "detailed",
+    "storage": "file",
+    "path": "./logs/audit.jsonl",
+    "retention": {
+      "live": 7776000,
+      "archived": 63072000,
+      "format": "encrypted"
+    },
+    "immutability": {
+      "enabled": true,
+      "checksumAlgorithm": "sha256",
+      "verifyOnRead": true
+    },
+    "logEvents": [
+      "authentication.login",
+      "authentication.logout",
+      "authentication.failed",
+      "authentication.mfa",
+      "authorization.check",
+      "authorization.denied",
+      "authorization.elevated_request",
+      "commands.execute",
+      "commands.injection_attempt",
+      "commands.sandbox_violation",
+      "data.read",
+      "data.write",
+      "data.delete",
+      "data.export",
+      "data.dump_attempt",
+      "config.change",
+      "config.unauthorized_read",
+      "threat.injection_attempt",
+      "threat.malware_pattern",
+      "threat.dos_pattern",
+      "threat.privesc_attempt",
+      "threat.exfiltration_attempt",
+      "threat.social_engineering",
+      "system.error",
+      "system.crash",
+      "system.resource_limit",
+      "system.timeout",
+      "compliance.policy_violation",
+      "compliance.audit_access",
+      "compliance.retention_expired"
+    ],
+    "analysis": {
+      "realTimeDetection": true,
+      "anomalyDetection": true,
+      "patternMatching": true,
+      "updateInterval": 300
+    }
+  },
+  "threatDetection": {
+    "enabled": true,
+    "patterns": {
+      "socialEngineering": {
+        "enabled": true,
+        "credentialRequest": {
+          "enabled": true,
+          "action": "block",
+          "reason": "Potential credential harvesting"
+        },
+        "urgencyLanguage": {
+          "enabled": true,
+          "action": "alert",
+          "threshold": 3
+        },
+        "authorityImpersonation": {
+          "enabled": true,
+          "action": "alert",
+          "requiresManualReview": true
+        },
+        "suspiciousFileRequests": {
+          "enabled": true,
+          "action": "block",
+          "exceptions": []
+        },
+        "permissionEscalation": {
+          "enabled": true,
+          "action": "alert",
+          "requiresApproval": true
+        }
+      },
+      "privilegeEscalation": {
+        "enabled": true,
+        "sudoAbuse": {
+          "enabled": true,
+          "baseline": 0,
+          "alert": 1,
+          "block": 3
+        },
+        "setuidManipulation": {
+          "enabled": true,
+          "action": "alert",
+          "requiresApproval": true
+        },
+        "envVarInjection": {
+          "enabled": true,
+          "action": "alert"
+        },
+        "filePermissionModification": {
+          "enabled": true,
+          "action": "alert"
+        },
+        "capabilityEscalation": {
+          "enabled": true,
+          "action": "block"
+        }
+      },
+      "dataExfiltration": {
+        "enabled": true,
+        "largeDataDump": {
+          "enabled": true,
+          "thresholdMb": 100,
+          "thresholdSeconds": 60,
+          "action": "alert",
+          "threshold": 2
+        },
+        "databaseExport": {
+          "enabled": true,
+          "action": "requireApproval",
+          "audit": "detailed"
+        },
+        "externalTransmission": {
+          "enabled": true,
+          "validateDestination": true,
+          "whitelist": [],
+          "action": "alert"
+        },
+        "logConfigAccess": {
+          "enabled": true,
+          "action": "alert",
+          "requiresElevated": true
+        },
+        "multipleFileReads": {
+          "enabled": true,
+          "threshold": 50,
+          "window": 60,
+          "action": "alert"
+        },
+        "archiveCreation": {
+          "enabled": true,
+          "action": "requireApproval",
+          "audit": "detailed"
+        },
+        "sensitiveFileSearch": {
+          "enabled": true,
+          "action": "alert"
+        }
+      }
+    }
+  },
+  "elevatedMode": {
+    "enabled": true,
+    "requirementLevel": "strict",
+    "approval": {
+      "required": true,
+      "autoApproveAdmin": true
+    },
+    "duration": {
+      "default": 15,
+      "max": 60,
+      "unit": "minutes"
+    },
+    "actionsRequiring": [
+      "db.delete",
+      "db.truncate",
+      "db.update_bulk",
+      "user.delete",
+      "user.permission_change",
+      "system.config_change",
+      "security.policy_modify",
+      "data.export",
+      "audit.log_access",
+      "keys.rotate",
+      "credentials.reset_all"
+    ],
+    "auditLevel": "detailed",
+    "logging": {
+      "logRequest": true,
+      "logApproval": true,
+      "logUsage": true,
+      "logExpiration": true
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "realTimeAlerts": true,
+    "alertChannels": [
+      "slack",
+      "email",
+      "sms"
+    ],
+    "metrics": {
+      "failedAuthAttempts": {
+        "threshold": 3,
+        "window": 300,
+        "action": "alert"
+      },
+      "rateLimitExceeds": {
+        "threshold": 1,
+        "window": 60,
+        "action": "alert"
+      },
+      "injectionAttempts": {
+        "threshold": 1,
+        "action": "block"
+      },
+      "elevatedModeRequests": {
+        "threshold": 5,
+        "window": 3600,
+        "action": "alert"
+      },
+      "dataExportRequests": {
+        "threshold": 10,
+        "window": 3600,
+        "action": "alert"
+      }
+    }
+  },
+  "compliance": {
+    "frameworks": [
+      "SOC2",
+      "HIPAA",
+      "PCI_DSS",
+      "GDPR"
+    ],
+    "settings": {
+      "requireAuditLog": true,
+      "requireEncryption": true,
+      "requireAccessControl": true,
+      "requireIncidentResponse": true,
+      "requireDataRetention": true,
+      "requirePenetrationTesting": true
+    }
+  },
+  "encryption": {
+    "enabled": true,
+    "algorithm": "AES-256-GCM",
+    "keyRotationDays": 90,
+    "tlsMinVersion": "1.3",
+    "cipherSuites": [
+      "TLS_AES_256_GCM_SHA384",
+      "TLS_CHACHA20_POLY1305_SHA256",
+      "TLS_AES_128_GCM_SHA256"
+    ]
+  },
+  "testing": {
+    "enabled": true,
+    "simulatedAttacks": {
+      "sqlInjection": true,
+      "commandInjection": true,
+      "xss": true,
+      "pathTraversal": true,
+      "bruteForce": true,
+      "dosAttack": true,
+      "privescAttempt": true,
+      "exfiltrationAttempt": true,
+      "socialEngineering": true
+    },
+    "schedule": "weekly",
+    "reportPath": "./reports/security-tests"
+  }
+}

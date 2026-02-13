@@ -1,0 +1,10 @@
+Subject: Re: {subject}
+
+Hi {sender_name},
+
+Thanks for bringing this to my attention. Given the nature of this issue, I'm escalating it to the appropriate team who can provide you with the best support.
+
+You'll hear from them shortly.
+
+Best regards,
+{name}

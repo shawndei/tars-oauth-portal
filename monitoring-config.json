@@ -1,0 +1,800 @@
+{
+  "version": "1.0",
+  "description": "Comprehensive monitoring and alerting configuration for TARS system",
+  "lastUpdated": "2026-02-13T08:30:00Z",
+  "monitoring": {
+    "enabled": true,
+    "collectionInterval": 30,
+    "metricsRetention": 86400
+  },
+  "thresholds": {
+    "system": {
+      "cpu": {
+        "warning": 75,
+        "critical": 90,
+        "duration": 300
+      },
+      "memory": {
+        "warning": 80,
+        "critical": 90,
+        "duration": 300
+      },
+      "disk": {
+        "warning": 80,
+        "critical": 90,
+        "duration": 300
+      },
+      "networkLatency": {
+        "warning": 50,
+        "critical": 100,
+        "duration": 300
+      }
+    },
+    "performance": {
+      "responseTime": {
+        "p95": {
+          "warning": 1000,
+          "critical": 2000,
+          "duration": 600
+        },
+        "p99": {
+          "warning": 2000,
+          "critical": 5000,
+          "duration": 600
+        }
+      },
+      "throughput": {
+        "minimum": 50,
+        "duration": 900
+      }
+    },
+    "errors": {
+      "errorRate": {
+        "warning": 2,
+        "critical": 5,
+        "duration": 300
+      },
+      "timeoutErrors": {
+        "warning": 5,
+        "critical": 10,
+        "duration": 300
+      },
+      "authErrors": {
+        "warning": 3,
+        "critical": 8,
+        "duration": 300
+      }
+    },
+    "costs": {
+      "dailyBudget": 10.0,
+      "monthlyBudget": 200.0,
+      "dailyWarning": 80,
+      "dailyCritical": 95,
+      "trendIncrease": 20,
+      "trendWindow": 3600
+    }
+  },
+  "alertRules": {
+    "system": [
+      {
+        "id": "cpu-warning",
+        "name": "High CPU Usage (Warning)",
+        "description": "CPU utilization above 75% for 5 minutes",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.cpu.percent",
+        "condition": {
+          "gt": 75
+        },
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["system", "performance"]
+      },
+      {
+        "id": "cpu-critical",
+        "name": "Critical CPU Usage",
+        "description": "CPU utilization above 90% for 5 minutes",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.cpu.percent",
+        "condition": {
+          "gt": 90
+        },
+        "duration": 300,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "escalation": "auto-scale",
+        "tags": ["system", "critical"]
+      },
+      {
+        "id": "memory-warning",
+        "name": "High Memory Usage (Warning)",
+        "description": "Memory utilization above 80% for 5 minutes",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.memory.percent",
+        "condition": {
+          "gt": 80
+        },
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["system", "performance"]
+      },
+      {
+        "id": "memory-critical",
+        "name": "Critical Memory Pressure",
+        "description": "Memory utilization above 90% for 1 minute",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.memory.percent",
+        "condition": {
+          "gt": 90
+        },
+        "duration": 60,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "escalation": "gc-trigger",
+        "tags": ["system", "critical"]
+      },
+      {
+        "id": "disk-warning",
+        "name": "Low Disk Space (Warning)",
+        "description": "Disk utilization above 80%",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.disk.percent",
+        "condition": {
+          "gt": 80
+        },
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["system"]
+      },
+      {
+        "id": "disk-critical",
+        "name": "Critical Disk Space",
+        "description": "Disk utilization above 90%",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.disk.percent",
+        "condition": {
+          "gt": 90
+        },
+        "duration": 300,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "escalation": "cleanup-trigger",
+        "tags": ["system", "critical"]
+      },
+      {
+        "id": "network-latency",
+        "name": "High Network Latency",
+        "description": "Network latency above 100ms",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "system.network.latency",
+        "condition": {
+          "gt": 100
+        },
+        "duration": 600,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["system", "performance"]
+      }
+    ],
+    "performance": [
+      {
+        "id": "latency-p95-high",
+        "name": "High P95 Latency",
+        "description": "95th percentile response time above 1000ms",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "performance.p95ResponseTime",
+        "condition": {
+          "gt": 1000
+        },
+        "duration": 600,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["performance"]
+      },
+      {
+        "id": "latency-p99-critical",
+        "name": "Critical P99 Latency",
+        "description": "99th percentile response time above 5000ms",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "performance.p99ResponseTime",
+        "condition": {
+          "gt": 5000
+        },
+        "duration": 300,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["performance", "critical"]
+      },
+      {
+        "id": "latency-degradation",
+        "name": "Latency Trending Up",
+        "description": "Average response time increasing 15%+ over 1 hour",
+        "enabled": true,
+        "type": "trend",
+        "metric": "performance.avgResponseTime",
+        "window": 3600,
+        "percentageIncrease": 15,
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["performance", "trend"]
+      },
+      {
+        "id": "throughput-low",
+        "name": "Low Throughput",
+        "description": "Throughput below 50 requests/min",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "performance.throughput",
+        "condition": {
+          "lt": 50
+        },
+        "duration": 900,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["performance"]
+      }
+    ],
+    "errors": [
+      {
+        "id": "errors-high",
+        "name": "High Error Rate",
+        "description": "Error rate above 5% of requests",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "errors.errorRate",
+        "condition": {
+          "gt": 5
+        },
+        "duration": 300,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "escalation": "incident-create",
+        "tags": ["errors", "critical"]
+      },
+      {
+        "id": "errors-warning",
+        "name": "Elevated Error Rate",
+        "description": "Error rate above 2% of requests",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "errors.errorRate",
+        "condition": {
+          "gt": 2
+        },
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["errors"]
+      },
+      {
+        "id": "timeout-errors",
+        "name": "Timeout Errors Spike",
+        "description": "More than 10 timeout errors in 10 minutes",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "errors.byType.timeout",
+        "condition": {
+          "gt": 10
+        },
+        "duration": 600,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "tags": ["errors"]
+      },
+      {
+        "id": "auth-errors",
+        "name": "Authentication Errors",
+        "description": "More than 8 auth errors in 10 minutes",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "errors.byType.auth",
+        "condition": {
+          "gt": 8
+        },
+        "duration": 600,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "escalation": "security-review",
+        "tags": ["errors", "security", "critical"]
+      },
+      {
+        "id": "error-anomaly",
+        "name": "Error Rate Anomaly",
+        "description": "Error rate deviates >2σ from 7-day average",
+        "enabled": true,
+        "type": "anomaly",
+        "metric": "errors.errorRate",
+        "baseline": "7d_average",
+        "stdDevThreshold": 2,
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["errors", "anomaly"]
+      }
+    ],
+    "costs": [
+      {
+        "id": "cost-daily-warning",
+        "name": "Daily Cost at 80%",
+        "description": "Daily spending at 80% of daily budget",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "costs.dailyBudgetPercent",
+        "condition": {
+          "gte": 80
+        },
+        "duration": 60,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["costs", "budget"]
+      },
+      {
+        "id": "cost-daily-critical",
+        "name": "Daily Cost at 95%",
+        "description": "Daily spending at 95% of daily budget",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "costs.dailyBudgetPercent",
+        "condition": {
+          "gte": 95
+        },
+        "duration": 60,
+        "severity": "critical",
+        "channels": ["whatsapp", "email"],
+        "cooldown": 1800,
+        "action": "alert",
+        "escalation": "degrade-service",
+        "tags": ["costs", "budget", "critical"]
+      },
+      {
+        "id": "cost-trend-increasing",
+        "name": "Costs Increasing 20%+",
+        "description": "Daily costs increasing 20% over previous week",
+        "enabled": true,
+        "type": "trend",
+        "metric": "costs.daily",
+        "window": 604800,
+        "percentageIncrease": 20,
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 7200,
+        "action": "alert",
+        "tags": ["costs", "trend"]
+      },
+      {
+        "id": "cost-monthly-projected",
+        "name": "Monthly Projection Exceeds Budget",
+        "description": "Projected monthly cost exceeds budget",
+        "enabled": true,
+        "type": "threshold",
+        "metric": "costs.projectedMonthly",
+        "condition": {
+          "gt": 200
+        },
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["costs", "budget"]
+      },
+      {
+        "id": "cost-hourly-spike",
+        "name": "Hourly Cost Spike",
+        "description": "Hourly cost exceeds 2x average",
+        "enabled": true,
+        "type": "anomaly",
+        "metric": "costs.hourly",
+        "baseline": "7d_average",
+        "stdDevThreshold": 2,
+        "duration": 300,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["costs", "anomaly"]
+      }
+    ],
+    "usage": [
+      {
+        "id": "usage-anomaly-high",
+        "name": "Unusual API Activity (High)",
+        "description": "API calls exceed 2σ above 7-day average",
+        "enabled": true,
+        "type": "anomaly",
+        "metric": "usage.apiCalls",
+        "baseline": "7d_average",
+        "stdDevThreshold": 2,
+        "duration": 600,
+        "severity": "warning",
+        "channels": ["email"],
+        "cooldown": 3600,
+        "action": "alert",
+        "tags": ["usage", "anomaly"]
+      },
+      {
+        "id": "usage-anomaly-low",
+        "name": "Unusual API Activity (Low)",
+        "description": "API calls below 2σ below 7-day average",
+        "enabled": true,
+        "type": "anomaly",
+        "metric": "usage.apiCalls",
+        "baseline": "7d_average_low",
+        "stdDevThreshold": 2,
+        "duration": 900,
+        "severity": "info",
+        "channels": ["logging"],
+        "cooldown": 7200,
+        "action": "log",
+        "tags": ["usage", "anomaly"]
+      }
+    ]
+  },
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "phoneNumber": "+1234567890",
+      "apiUrl": "https://api.whatsapp.com",
+      "rateLimit": {
+        "messagesPerHour": 60,
+        "messagesPerMinute": 2
+      },
+      "format": "compact",
+      "templates": {
+        "critical": "🚨 CRITICAL: {alertName}\nMetric: {metric} = {value}\nThreshold: {threshold}\n⚠️ Immediate action required",
+        "warning": "⚠️ WARNING: {alertName}\nMetric: {metric} = {value}\nThreshold: {threshold}",
+        "info": "ℹ️ INFO: {alertName}\nMetric: {metric} = {value}"
+      },
+      "recipients": [
+        {
+          "name": "Shawn",
+          "phone": "+1-555-0100",
+          "severity": ["critical", "warning"]
+        }
+      ]
+    },
+    "email": {
+      "enabled": true,
+      "from": "alerts@tars.io",
+      "replyTo": "ops@tars.io",
+      "rateLimit": {
+        "emailsPerHour": 100
+      },
+      "digest": {
+        "enabled": true,
+        "frequency": "realtime",
+        "groupBy": "severity",
+        "minAlertCount": 1
+      },
+      "recipients": [
+        {
+          "email": "shawn@tars.io",
+          "name": "Shawn (Owner)",
+          "severity": ["critical", "warning"],
+          "digest": "realtime"
+        },
+        {
+          "email": "ops@tars.io",
+          "name": "Operations Team",
+          "severity": ["critical", "warning"],
+          "digest": "hourly"
+        }
+      ],
+      "templates": {
+        "subject": "[{severity}] {alertName}",
+        "htmlPath": "alert-templates/email.html",
+        "textPath": "alert-templates/email.txt"
+      }
+    },
+    "logging": {
+      "enabled": true,
+      "files": {
+        "alerts": "monitoring_logs/alerts.jsonl",
+        "health": "monitoring_logs/health.jsonl",
+        "anomalies": "monitoring_logs/anomalies.jsonl"
+      },
+      "format": "jsonl",
+      "retention": {
+        "days": 30,
+        "maxSize": 1073741824
+      },
+      "compression": {
+        "enabled": true,
+        "format": "gzip",
+        "archivePath": "monitoring_logs/archive"
+      }
+    }
+  },
+  "baselines": {
+    "enabled": true,
+    "updateFrequency": 86400,
+    "learningPeriod": 604800,
+    "metrics": {
+      "errors.errorRate": {
+        "type": "7d_rolling_average",
+        "excludeOutliers": true,
+        "method": "iqr"
+      },
+      "costs.daily": {
+        "type": "7d_rolling_average",
+        "dayOfWeek": true
+      },
+      "performance.avgResponseTime": {
+        "type": "7d_rolling_average",
+        "hourOfDay": true
+      },
+      "usage.apiCalls": {
+        "type": "7d_rolling_average",
+        "dayOfWeek": true,
+        "hourOfDay": true
+      }
+    }
+  },
+  "dashboard": {
+    "name": "TARS System Health Monitor",
+    "url": "https://monitoring.tars.io",
+    "refreshInterval": 30,
+    "sections": [
+      {
+        "title": "System Status",
+        "order": 1,
+        "widgets": [
+          {
+            "type": "gauge",
+            "title": "CPU Usage",
+            "metric": "system.cpu.percent",
+            "warning": 75,
+            "critical": 90,
+            "unit": "%"
+          },
+          {
+            "type": "gauge",
+            "title": "Memory Usage",
+            "metric": "system.memory.percent",
+            "warning": 80,
+            "critical": 90,
+            "unit": "%"
+          },
+          {
+            "type": "gauge",
+            "title": "Disk Usage",
+            "metric": "system.disk.percent",
+            "warning": 80,
+            "critical": 90,
+            "unit": "%"
+          },
+          {
+            "type": "stat",
+            "title": "Network Latency",
+            "metric": "system.network.latency",
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "title": "Performance",
+        "order": 2,
+        "widgets": [
+          {
+            "type": "line-chart",
+            "title": "Response Time (Avg)",
+            "metric": "performance.avgResponseTime",
+            "window": "1h",
+            "unit": "ms"
+          },
+          {
+            "type": "line-chart",
+            "title": "Throughput",
+            "metric": "performance.throughput",
+            "window": "1h",
+            "unit": "req/min"
+          },
+          {
+            "type": "stat",
+            "title": "Active Connections",
+            "metric": "performance.activeConnections"
+          },
+          {
+            "type": "number",
+            "title": "P95 Latency",
+            "metric": "performance.p95ResponseTime",
+            "unit": "ms"
+          }
+        ]
+      },
+      {
+        "title": "Errors",
+        "order": 3,
+        "widgets": [
+          {
+            "type": "number",
+            "title": "Error Rate",
+            "metric": "errors.errorRate",
+            "unit": "%"
+          },
+          {
+            "type": "bar-chart",
+            "title": "Errors by Type",
+            "metric": "errors.byType",
+            "window": "1h"
+          },
+          {
+            "type": "table",
+            "title": "Recent Errors",
+            "metric": "errors.recent",
+            "limit": 10
+          }
+        ]
+      },
+      {
+        "title": "Costs",
+        "order": 4,
+        "widgets": [
+          {
+            "type": "gauge",
+            "title": "Daily Budget Usage",
+            "metric": "costs.dailyBudgetPercent",
+            "warning": 80,
+            "critical": 95,
+            "unit": "%"
+          },
+          {
+            "type": "stat",
+            "title": "Daily Spend",
+            "metric": "costs.daily",
+            "unit": "$"
+          },
+          {
+            "type": "line-chart",
+            "title": "7-Day Cost Trend",
+            "metric": "costs.daily",
+            "window": "7d",
+            "unit": "$"
+          },
+          {
+            "type": "stat",
+            "title": "Projected Monthly",
+            "metric": "costs.projectedMonthly",
+            "unit": "$"
+          }
+        ]
+      },
+      {
+        "title": "Active Alerts",
+        "order": 5,
+        "widgets": [
+          {
+            "type": "alert-list",
+            "title": "Active Alerts",
+            "filter": "active",
+            "sortBy": "severity",
+            "limit": 50
+          }
+        ]
+      }
+    ]
+  },
+  "escalations": {
+    "auto-scale": {
+      "description": "Automatically scale resources",
+      "conditions": [
+        "severity: critical",
+        "cpu > 90 or memory > 90"
+      ],
+      "actions": [
+        "log: CPU/Memory critical, initiating auto-scale",
+        "scale: +25%"
+      ]
+    },
+    "gc-trigger": {
+      "description": "Force garbage collection",
+      "conditions": [
+        "memory > 90"
+      ],
+      "actions": [
+        "log: Memory critical, triggering GC",
+        "system: gc-force"
+      ]
+    },
+    "cleanup-trigger": {
+      "description": "Trigger cleanup procedures",
+      "conditions": [
+        "disk > 90"
+      ],
+      "actions": [
+        "log: Disk space critical, triggering cleanup",
+        "system: cleanup-old-logs",
+        "system: cleanup-temp-files"
+      ]
+    },
+    "incident-create": {
+      "description": "Create incident for high error rate",
+      "conditions": [
+        "severity: critical",
+        "errorRate > 5"
+      ],
+      "actions": [
+        "log: High error rate, creating incident",
+        "incident: create",
+        "notify: ops@tars.io"
+      ]
+    },
+    "security-review": {
+      "description": "Trigger security review for auth errors",
+      "conditions": [
+        "severity: critical",
+        "authErrors > 8"
+      ],
+      "actions": [
+        "log: Auth error spike detected",
+        "security: review-logs",
+        "notify: security@tars.io"
+      ]
+    },
+    "degrade-service": {
+      "description": "Degrade service to reduce costs",
+      "conditions": [
+        "dailyBudgetPercent >= 95"
+      ],
+      "actions": [
+        "log: Daily budget at 95%, degrading service",
+        "service: reduce-features",
+        "rate-limit: increase"
+      ]
+    }
+  },
+  "metadata": {
+    "createdAt": "2026-02-13T08:00:00Z",
+    "updatedAt": "2026-02-13T08:30:00Z",
+    "createdBy": "monitoring-system",
+    "environment": "production",
+    "status": "active"
+  }
+}

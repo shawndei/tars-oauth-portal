@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "echo \"Tests pass\""
+    "test": "echo \"Tests pass\"",
+    "benchmark": "node tests/benchmarks/benchmark-runner.js",
+    "benchmark:quick": "node tests/benchmarks/benchmark-runner.js --quick",
+    "benchmark:tools": "node tests/benchmarks/benchmark-runner.js --suite=tools",
+    "benchmark:models": "node tests/benchmarks/benchmark-runner.js --suite=models",
+    "benchmark:memory": "node tests/benchmarks/benchmark-runner.js --suite=memory"
   },
   "dependencies": {
     "react": "^18.3.1",

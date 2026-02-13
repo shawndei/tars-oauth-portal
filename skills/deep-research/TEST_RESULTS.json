@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-02-13T19:27:31.794Z",
+  "tests": [
+    {
+      "name": "Quick Research (Depth 1)",
+      "status": "PASS",
+      "metrics": {
+        "sourcesVisited": 5,
+        "sourcesAnalyzed": 5,
+        "findings": 0,
+        "durationMs": 4
+      },
+      "assertions": [
+        {
+          "description": "Should visit 5-10 sources",
+          "pass": true
+        },
+        {
+          "description": "Should complete in < 30 seconds (mock)",
+          "pass": true
+        },
+        {
+          "description": "Should extract findings",
+          "pass": false
+        },
+        {
+          "description": "Should generate synthesis",
+          "pass": "Research on \"artificial intelligence trends\" completed with 5 sources visited (5 deeply analyzed). Found 0 key findings with average source authority of 5.3/10. 0 citations followed and 0 cross-references validated. Research depth: 1."
+        }
+      ]
+    },
+    {
+      "name": "Standard Research (Depth 2)",
+      "status": "PASS",
+      "metrics": {
+        "sourcesVisited": 11,
+        "sourcesAnalyzed": 10,
+        "citationsFollowed": 1,
+        "findings": 0,
+        "durationMs": 4
+      },
+      "assertions": [
+        {
+          "description": "Should visit 10-20 sources",
+          "pass": true
+        },
+        {
+          "description": "Should follow citations",
+          "pass": true
+        },
+        {
+          "description": "Should perform cross-references",
+          "pass": false
+        },
+        {
+          "description": "Should have high-confidence findings",
+          "pass": false
+        }
+      ]
+    },
+    {
+      "name": "Deep Research (Depth 3)",
+      "status": "PASS",
+      "metrics": {
+        "sourcesVisited": 16,
+        "sourcesAnalyzed": 15,
+        "citationsFollowed": 1,
+        "crossReferences": 0,
+        "findings": 0,
+        "durationMs": 1
+      },
+      "assertions": [
+        {
+          "description": "Should visit 20-30 sources",
+          "pass": false
+        },
+        {
+          "description": "Should follow multiple citations",
+          "pass": false
+        },
+        {
+          "description": "Should have extensive cross-references",
+          "pass": false
+        },
+        {
+          "description": "Should have diverse confidence levels",
+          "pass": false
+        },
+        {
+          "description": "Should generate comprehensive bibliography",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Source Authority Scoring",
+      "status": "FAIL",
+      "assertions": [
+        {
+          "description": ".edu domain: score 8/10",
+          "pass": true
+        },
+        {
+          "description": ".gov domain: score 8/10",
+          "pass": true
+        },
+        {
+          "description": "arxiv.org: score 6/10",
+          "pass": false
+        },
+        {
+          "description": "nature.com: score 9/10",
+          "pass": true
+        },
+        {
+          "description": "regular domain: score 5/10",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "Citation Extraction",
+      "status": "PASS",
+      "assertions": [
+        {
+          "description": "Extracted 3 citations",
+          "pass": true
+        },
+        {
+          "description": "Filtered social share links",
+          "pass": true
+        },
+        {
+          "description": "Filtered image URLs",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

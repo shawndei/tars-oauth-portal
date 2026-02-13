@@ -1,0 +1,58 @@
+{
+  "name": "TARS Knowledge Base",
+  "version": "1.0.0",
+  "owner": "Shawn Dunn",
+  "timezone": "America/Mazatlan",
+  "description": "Structured knowledge repository for TARS system with semantic search, cross-referencing, and memory integration",
+  "categories": {
+    "systems": "AI systems, architectures, operational frameworks",
+    "financial": "Investment analysis, portfolio strategies, financial instruments",
+    "health": "Health optimization, supplements, fitness protocols",
+    "lifestyle": "Travel, dining, wine, leisure",
+    "technical": "Code snippets, tools, infrastructure, automation",
+    "psychology": "Decision-making, cognitive models, behavioral insights",
+    "trading": "Options, algo trading, market mechanics, hedging",
+    "shawn": "Shawn's preferences, routines, life design",
+    "rachael": "Rachael's preferences, health interests, lifestyle"
+  },
+  "config": {
+    "autolink_enabled": true,
+    "semantic_search": true,
+    "tag_autocomplete": true,
+    "cross_reference_depth": 3,
+    "archive_older_than_days": 730,
+    "max_search_results": 20,
+    "min_relevance_threshold": 0.3,
+    "semantic_similarity_threshold": 0.6
+  },
+  "metadata": {
+    "created": "2026-02-13T08:24:00Z",
+    "last_updated": "2026-02-13T08:24:00Z",
+    "total_entries": 0,
+    "last_index_generation": null,
+    "memory_sync_enabled": true,
+    "memory_last_sync": null
+  },
+  "integrations": {
+    "memory_system": {
+      "enabled": true,
+      "sync_interval_hours": 24,
+      "auto_extract_sections": true
+    },
+    "semantic_search": {
+      "provider": "openai",
+      "model": "text-embedding-3-small",
+      "cache_embeddings": true
+    },
+    "memory_system_integration": {
+      "MEMORY_md_topics": [
+        "Core Identity & Setup",
+        "Shawn Dunn Profile",
+        "Financial & Investment",
+        "Professional & Builder",
+        "Health & Optimization",
+        "Operating Framework"
+      ]
+    }
+  }
+}

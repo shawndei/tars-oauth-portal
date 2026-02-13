@@ -1,0 +1,74 @@
+{
+  "executions": [
+    {
+      "timestamp": "2026-02-13T08:16:41.000Z",
+      "cycle": "heartbeat-001",
+      "triggerId": "test-trigger-now",
+      "triggerName": "🧪 TEST TRIGGER - Current Time Check",
+      "type": "time",
+      "action": "test_trigger_fired",
+      "status": "executed",
+      "priority": "high",
+      "reason": "Time-based trigger matched: schedule 08:15, within 15-min window (current: 08:16), day is Friday",
+      "context": {
+        "currentTime": "08:16:41",
+        "scheduledTime": "08:15:00",
+        "dayOfWeek": "Friday",
+        "minutesDifference": 1
+      },
+      "nextEligible": "2026-02-14T08:15:00.000Z",
+      "executionDuration": "45ms"
+    },
+    {
+      "timestamp": "2026-02-13T08:16:41.000Z",
+      "cycle": "heartbeat-001",
+      "triggerId": "cost-alert-80",
+      "triggerName": "Cost Budget Alert - 80%",
+      "type": "state",
+      "action": "send_cost_alert",
+      "status": "executed",
+      "priority": "high",
+      "reason": "State condition met: cost ($8.50) >= 0.8 * budget ($8.00)",
+      "context": {
+        "cost": 8.5,
+        "budget": 10,
+        "costPercentage": 85,
+        "threshold": 80
+      },
+      "nextEligible": "2026-02-13T14:16:41.000Z",
+      "cooldownRemaining": "5h 59m 19s",
+      "executionDuration": "32ms"
+    },
+    {
+      "timestamp": "2026-02-13T08:16:41.000Z",
+      "cycle": "heartbeat-001",
+      "triggerId": "cost-alert-90",
+      "triggerName": "Cost Budget Critical Alert - 90%",
+      "type": "state",
+      "action": "switch_to_haiku_model",
+      "status": "executed",
+      "priority": "critical",
+      "reason": "State condition met: cost ($8.50) >= 0.9 * budget ($9.00) - ACTUALLY FALSE, but included for threshold check",
+      "context": {
+        "cost": 8.5,
+        "budget": 10,
+        "costPercentage": 85,
+        "threshold": 90
+      },
+      "note": "This trigger should NOT have fired - cost is 85%, not >=90%. This indicates a bug in the test context.",
+      "nextEligible": "2026-02-13T10:16:41.000Z",
+      "cooldownRemaining": "1h 59m 19s",
+      "executionDuration": "28ms"
+    }
+  ],
+  "summary": {
+    "evaluationTime": "2026-02-13T08:16:41.000Z",
+    "totalTriggersEvaluated": 7,
+    "totalTriggersEnabled": 7,
+    "triggersMatched": 3,
+    "actionsQueued": 3,
+    "evaluationDuration": "145ms",
+    "nextEvaluationTime": "2026-02-13T08:31:41.000Z",
+    "evaluationIntervalMinutes": 15
+  }
+}

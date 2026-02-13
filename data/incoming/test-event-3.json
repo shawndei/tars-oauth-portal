@@ -1,0 +1,9 @@
+{
+  "id": "test-003",
+  "type": "metric",
+  "timestamp": "2026-02-13T16:32:00Z",
+  "metric": "cpu-usage",
+  "value": 45.2,
+  "unit": "percent",
+  "host": "server-01"
+}

@@ -1,0 +1,102 @@
+{
+  "description": "WhatsApp Channel Routing Fix - notification-routing.json patches",
+  "patches": [
+    {
+      "path": "root",
+      "add": {
+        "channelAffinity": {
+          "enabled": true,
+          "enforceSourceChannel": true,
+          "sourceChannelPriority": 100,
+          "fallbackDelay": 2000,
+          "metrics": {
+            "enabled": true,
+            "trackAffinity": true,
+            "trackFallbacks": true,
+            "minAffinityTarget": 95.0,
+            "alertOnLowAffinity": true
+          }
+        }
+      },
+      "rationale": "Add channel affinity enforcement and metrics"
+    },
+    {
+      "path": "priorityRouting.P0",
+      "modify": {
+        "preserveSource": true,
+        "sourceChannelFirst": true,
+        "fallbackChain": ["source-channel", "whatsapp", "email"]
+      },
+      "rationale": "P0 alerts should preserve source channel first"
+    },
+    {
+      "path": "priorityRouting.P1",
+      "modify": {
+        "preserveSource": true,
+        "channels": ["source-channel"],
+        "fallback": ["whatsapp", "email"],
+        "fallbackDelay": 1000
+      },
+      "rationale": "P1 alerts should use source channel with whatsapp/email fallback"
+    },
+    {
+      "path": "priorityRouting.P2",
+      "modify": {
+        "preserveSource": true,
+        "channels": ["source-channel"],
+        "fallback": ["email"],
+        "fallbackDelay": 5000
+      },
+      "rationale": "P2 messages should use source channel with email fallback"
+    },
+    {
+      "path": "priorityRouting.P3",
+      "modify": {
+        "preserveSource": true,
+        "channels": ["source-channel"],
+        "fallback": ["email"]
+      },
+      "rationale": "P3 messages should use source channel with email fallback"
+    },
+    {
+      "path": "throttling",
+      "add": {
+        "description": "Keep existing throttling, add per-source-channel limits",
+        "sourceChannelThrottling": {
+          "enabled": true,
+          "trackByChannel": true
+        }
+      },
+      "rationale": "Track throttling per source channel for better metrics"
+    },
+    {
+      "path": "root",
+      "add": {
+        "connectionStatus": {
+          "trackingEnabled": true,
+          "updateInterval": 30000,
+          "channels": {
+            "whatsapp": {
+              "required": true,
+              "failoverAllowed": true,
+              "criticalForP0": true,
+              "criticalForP1": true
+            },
+            "email": {
+              "required": true,
+              "failoverAllowed": true
+            },
+            "webchat": {
+              "fallbackOnly": true
+            }
+          }
+        }
+      },
+      "rationale": "Add connection status tracking for failover logic"
+    }
+  ],
+  "appliedDate": "2026-02-13T13:10:00Z",
+  "appliedBy": "whatsapp-routing-fix-subagent",
+  "requiresRestart": true,
+  "backupRequired": true
+}

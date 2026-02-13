@@ -1,0 +1,280 @@
+{
+  "config": {
+    "enabled": true,
+    "confidence_threshold": 90,
+    "max_iterations": 2,
+    "critique_depth": "medium",
+    "learn_from_corrections": true,
+    "log_all_reflections": false,
+    "version": "1.0.0"
+  },
+  
+  "critique_prompts": {
+    "accuracy": {
+      "light": "Quick check: Are there any obvious factual errors or unsupported claims in this response?",
+      "medium": "Review this response for factual accuracy:\n- Are all claims supported by evidence or clearly marked as opinions?\n- Are there any hallucinations or invented information?\n- Are cited sources real and correctly referenced?\n\nResponse: {{response}}",
+      "comprehensive": "Comprehensive accuracy review:\n1. Fact-check every claim against known information\n2. Verify all numbers, dates, names, and locations\n3. Check citation accuracy and accessibility\n4. Identify any logical inconsistencies\n5. Flag anything that seems \"too convenient\" or suspiciously precise\n6. Cross-reference with web search if uncertain\n\nOriginal question: {{question}}\nResponse to validate: {{response}}\n\nProvide specific issues found with line numbers/quotes."
+    },
+    
+    "completeness": {
+      "light": "Did this response fully answer the user's question?",
+      "medium": "Review this response for completeness:\n- Did it address ALL parts of the user's question?\n- Are there unstated assumptions that should be clarified?\n- Are there important caveats or limitations missing?\n- Would a reasonable user need to ask follow-up questions?\n\nOriginal question: {{question}}\nResponse: {{response}}",
+      "comprehensive": "Thorough completeness analysis:\n1. Break down the original question into sub-questions\n2. Verify each sub-question is explicitly addressed\n3. Identify implicit questions the user likely has\n4. Check for missing context or background information\n5. Assess if technical terms are defined when needed\n6. Evaluate if examples would improve understanding\n7. Determine if next steps or follow-up actions are clear\n\nOriginal question: {{question}}\nResponse: {{response}}\n\nList what's missing or incomplete."
+    },
+    
+    "clarity": {
+      "light": "Is this response easy to understand?",
+      "medium": "Review this response for clarity:\n- Is the language simple and jargon-free (unless technical context warrants it)?\n- Is the structure logical and easy to follow?\n- Are examples concrete and helpful?\n- Is the tone appropriate for the channel?\n\nResponse: {{response}}\nChannel: {{channel}}",
+      "comprehensive": "Deep clarity assessment:\n1. Reading level analysis (aim for 8th grade unless technical)\n2. Sentence structure review (vary length, avoid run-ons)\n3. Jargon audit (define or remove unnecessary terms)\n4. Logical flow check (does each paragraph build on previous?)\n5. Example quality (concrete, relatable, diverse)\n6. Tone consistency (matches channel norms)\n7. Visual structure (proper use of lists, emphasis, spacing)\n8. Ambiguity detection (could any sentence be misinterpreted?)\n\nResponse: {{response}}\nChannel: {{channel}}\nUser expertise level: {{user_level}}\n\nSuggest specific improvements with examples."
+    },
+    
+    "formatting": {
+      "light": "Does this response follow {{platform}} formatting rules?",
+      "medium": "Platform formatting check for {{platform}}:\n\nWhatsApp rules:\n- No markdown tables (use bullets)\n- No headers (use **bold** for emphasis)\n- No complex formatting\n\nDiscord rules:\n- Wrap multiple links in <> to suppress embeds\n- Use code blocks with language tags\n- Leverage Discord markdown (spoilers, etc.)\n\nEmail rules:\n- Proper subject line\n- Greeting and signature\n- Professional structure\n\nResponse: {{response}}",
+      "comprehensive": "Comprehensive platform formatting audit:\n\n1. Platform-specific rules compliance\n2. Accessibility considerations (screen readers, mobile)\n3. Visual hierarchy (headings, emphasis, white space)\n4. Code block syntax validation\n5. Link formatting and preview behavior\n6. List formatting (bullets vs. numbers)\n7. Quote/callout box usage\n8. Image/media embedding appropriateness\n9. Character limits and truncation risks\n10. Emoji usage (appropriate for context?)\n\nPlatform: {{platform}}\nResponse: {{response}}\n\nProvide specific formatting fixes needed."
+    }
+  },
+  
+  "revision_strategies": {
+    "factual_correction": {
+      "description": "Fix hallucinated or incorrect information",
+      "steps": [
+        "Identify the specific incorrect claim",
+        "Remove or replace with 'I don't have confirmed information on...'",
+        "If verifiable via web search, perform search and cite source",
+        "Add disclaimer: 'Based on available information as of [date]...'",
+        "Flag for human review if critical domain (medical, legal, financial)"
+      ],
+      "example": {
+        "before": "The Eiffel Tower was built in 1889 and is 450 meters tall.",
+        "issue": "Height is incorrect (actually ~330m)",
+        "after": "The Eiffel Tower was built in 1889 and is approximately 330 meters tall (including antennas)."
+      }
+    },
+    
+    "completeness_enhancement": {
+      "description": "Address missing parts of the question",
+      "steps": [
+        "List all sub-questions from the original query",
+        "Mark which are answered and which are not",
+        "Add sections to address unanswered parts",
+        "Include relevant caveats or limitations",
+        "Offer to provide more detail on any aspect"
+      ],
+      "example": {
+        "before": "React is a JavaScript library for building UIs.",
+        "question": "What is React and why should I use it?",
+        "issue": "Didn't address 'why should I use it'",
+        "after": "React is a JavaScript library for building UIs. You should consider using it because:\n- Component-based architecture makes code reusable\n- Large ecosystem and community support\n- Virtual DOM provides good performance\n- Backed by Meta with regular updates\n\nHowever, it has a learning curve and may be overkill for simple websites. Would you like to know more about any of these points?"
+      }
+    },
+    
+    "clarity_improvement": {
+      "description": "Make response more understandable",
+      "steps": [
+        "Identify jargon and either define or replace with simpler terms",
+        "Break long paragraphs into shorter ones or bullet points",
+        "Add concrete examples for abstract concepts",
+        "Use analogies for complex ideas",
+        "Simplify sentence structure (aim for <20 words per sentence)",
+        "Add transitions between ideas"
+      ],
+      "example": {
+        "before": "The TCP three-way handshake utilizes SYN, SYN-ACK, and ACK packets to establish a connection between the client and server via the transport layer protocol.",
+        "issue": "Too technical, no concrete example",
+        "after": "When your computer connects to a website, it goes through a 'three-way handshake' (like a polite greeting):\n\n1. Your computer: 'Hello, can we talk?' (SYN)\n2. Server: 'Yes, hello to you too!' (SYN-ACK)\n3. Your computer: 'Great, let's start!' (ACK)\n\nThis ensures both sides are ready before sending data, similar to confirming someone can hear you before starting a conversation."
+      }
+    },
+    
+    "format_correction": {
+      "description": "Fix platform-inappropriate formatting",
+      "steps": [
+        "Identify current platform from context",
+        "Check against platform-specific rules",
+        "Convert tables to bullet lists for WhatsApp/Discord",
+        "Wrap links in <> for Discord multi-link suppression",
+        "Adjust tone (formal for email, casual for chat)",
+        "Fix code block syntax for proper highlighting",
+        "Remove headers for WhatsApp, use **bold** instead"
+      ],
+      "example": {
+        "platform": "WhatsApp",
+        "before": "# Installation Steps\n\n| Step | Command |\n|------|----------|\n| 1 | npm install |\n| 2 | npm start |",
+        "issue": "Markdown headers and tables not supported",
+        "after": "**Installation Steps**\n\n1. npm install\n2. npm start"
+      }
+    },
+    
+    "tone_adjustment": {
+      "description": "Match tone to channel and context",
+      "steps": [
+        "Assess current tone (formal, casual, technical, friendly)",
+        "Check against channel norms and user relationship",
+        "Adjust formality level (remove/add contractions, etc.)",
+        "Modify energy level (excited vs. calm)",
+        "Add or remove emoji based on context",
+        "Ensure empathy is present where appropriate"
+      ],
+      "example": {
+        "channel": "WhatsApp (friend)",
+        "before": "I must inform you that the aforementioned document has not yet been located within the system.",
+        "issue": "Too formal for casual chat",
+        "after": "Hey! I couldn't find that document yet. Want me to keep looking or check somewhere else?"
+      }
+    }
+  },
+  
+  "confidence_scoring": {
+    "description": "Algorithm for determining when to apply reflection",
+    "base_confidence": 50,
+    "boosters": [
+      {
+        "condition": "response includes citations or sources",
+        "boost": 20,
+        "reason": "Cited information is more trustworthy"
+      },
+      {
+        "condition": "response length < 200 chars and type is 'greeting'",
+        "boost": 30,
+        "reason": "Simple greetings rarely need reflection"
+      },
+      {
+        "condition": "similar past success (user accepted without correction)",
+        "boost": 15,
+        "reason": "Historical success suggests good pattern"
+      },
+      {
+        "condition": "response matches known facts from knowledge base",
+        "boost": 25,
+        "reason": "Verified against internal knowledge"
+      }
+    ],
+    "penalties": [
+      {
+        "condition": "response includes hedging language ('I think', 'probably', 'maybe')",
+        "penalty": 20,
+        "reason": "Agent is uncertain, needs validation"
+      },
+      {
+        "condition": "question type is 'complex_reasoning' or 'multi_step'",
+        "penalty": 15,
+        "reason": "Complex questions are error-prone"
+      },
+      {
+        "condition": "response includes 'unsure', 'not certain', 'might be'",
+        "penalty": 25,
+        "reason": "Explicit uncertainty flags"
+      },
+      {
+        "condition": "domain is high-stakes (medical, legal, financial)",
+        "penalty": 30,
+        "reason": "Errors in these domains have serious consequences"
+      },
+      {
+        "condition": "response contradicts recent user statement",
+        "penalty": 35,
+        "reason": "Likely misunderstanding or hallucination"
+      }
+    ],
+    "thresholds": {
+      "skip_reflection": 90,
+      "light_reflection": 70,
+      "medium_reflection": 50,
+      "comprehensive_reflection": 30
+    }
+  },
+  
+  "error_patterns": {
+    "common_hallucinations": [
+      {
+        "pattern": "specific dates without source",
+        "example": "This feature was released on March 15, 2023",
+        "action": "Verify date or remove specificity"
+      },
+      {
+        "pattern": "exact statistics without citation",
+        "example": "Studies show 87% of users prefer...",
+        "action": "Require citation or use approximation"
+      },
+      {
+        "pattern": "API/function signatures",
+        "example": "Use the getUser(id, options) method",
+        "action": "Verify against actual documentation"
+      },
+      {
+        "pattern": "historical events with precise details",
+        "example": "On June 4th, 1876, exactly 50 people attended...",
+        "action": "Check historical sources or generalize"
+      }
+    ],
+    
+    "incomplete_response_flags": [
+      "question has multiple parts but response addresses only one",
+      "user asked 'why' but response only explains 'what'",
+      "user asked 'how' but response only explains 'why'",
+      "user asked for examples but none provided",
+      "user asked for comparison but only one option discussed"
+    ],
+    
+    "clarity_issues": [
+      {
+        "pattern": "sentences longer than 30 words",
+        "action": "Break into shorter sentences"
+      },
+      {
+        "pattern": "three or more technical terms in one sentence",
+        "action": "Define terms or simplify"
+      },
+      {
+        "pattern": "abstract concept without concrete example",
+        "action": "Add relatable example"
+      },
+      {
+        "pattern": "vague pronouns ('it', 'this', 'that') without clear antecedent",
+        "action": "Replace with specific noun"
+      }
+    ]
+  },
+  
+  "learning_patterns": {
+    "enabled": true,
+    "description": "Automatically learn from user corrections to improve reflection",
+    "correction_log": "skills/reflection-validator/corrections.jsonl",
+    "update_frequency": "after_each_correction",
+    "patterns_to_extract": [
+      "Common error types per domain",
+      "User-specific preferences (tone, detail level, examples)",
+      "Channel-specific formatting expectations",
+      "Time-of-day tone variations",
+      "Domain expertise level indicators"
+    ],
+    "example_learning": {
+      "scenario": "User corrects: 'No, I meant the programming framework, not the bridge'",
+      "extracted_pattern": "When user mentions 'React' in a programming context, default to React.js, not the psychology concept",
+      "applied_to": "Future disambiguation decisions",
+      "confidence_boost": 15
+    }
+  },
+  
+  "meta_reflection": {
+    "enabled": false,
+    "description": "Reflect on the reflection itself (for critical responses)",
+    "trigger": "domain === 'critical' || user_flag === 'double_check'",
+    "prompt": "Review the revision process:\n1. Was the original critique accurate?\n2. Did the revision actually improve the response?\n3. Are there unintended side effects from the changes?\n4. Is this final version better than the original?\n\nOriginal: {{original}}\nRevised: {{revised}}\nCritique: {{critique}}",
+    "max_meta_iterations": 1
+  },
+  
+  "fail_safes": {
+    "max_total_iterations": 2,
+    "timeout_seconds": 30,
+    "fallback_on_timeout": "deliver_best_available_response",
+    "escalate_to_human_after_n_failures": 3,
+    "log_failures": true,
+    "failure_patterns_to_track": [
+      "Repeated failure to fix same issue",
+      "Oscillation between two versions",
+      "Timeout on specific message types",
+      "Confidence scoring errors (too high/low)"
+    ]
+  }
+}

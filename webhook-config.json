@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "secret": "wh_7K9mP3nQ2rX8vL4jB6hY5tF1cN0gZ9sA",
+  "port": 18789,
+  "basePath": "/webhooks",
+  "rateLimits": {
+    "perHour": 100,
+    "perDay": 1000
+  },
+  "endpoints": {
+    "task": true,
+    "notify": true,
+    "research": true,
+    "execute": false
+  },
+  "logging": {
+    "enabled": true,
+    "logPath": "logs/webhooks.jsonl"
+  },
+  "security": {
+    "requireAuth": true,
+    "allowedIPs": [],
+    "blockUnknownIPs": false
+  }
+}

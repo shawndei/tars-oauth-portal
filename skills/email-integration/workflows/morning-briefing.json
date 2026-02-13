@@ -1,0 +1,86 @@
+{
+  "name": "morning-briefing",
+  "description": "Daily morning email briefing for inbox summary and action items",
+  "version": "1.0",
+  "trigger": "briefing:morning",
+  "timing": {
+    "time": "09:00",
+    "timezone": "America/Denver",
+    "days": ["monday", "tuesday", "wednesday", "thursday", "friday"]
+  },
+  "steps": [
+    {
+      "id": "fetch_unread",
+      "action": "fetch_unread_emails",
+      "params": {
+        "account": "primary",
+        "limit": 20,
+        "since_hours": 12
+      },
+      "timeout": 30
+    },
+    {
+      "id": "categorize",
+      "action": "categorize_emails",
+      "params": {
+        "emails": "${fetch_unread.result}",
+        "auto_learn": true
+      }
+    },
+    {
+      "id": "detect_priority",
+      "action": "detect_priority",
+      "params": {
+        "emails": "${categorize.result}"
+      }
+    },
+    {
+      "id": "summarize",
+      "action": "summarize_inbox",
+      "params": {
+        "account": "primary",
+        "max_emails": 20,
+        "detail_level": "brief",
+        "emails": "${detect_priority.result}"
+      }
+    },
+    {
+      "id": "extract_actions",
+      "action": "extract_action_items",
+      "params": {
+        "emails": "${detect_priority.result}"
+      }
+    },
+    {
+      "id": "format_briefing",
+      "action": "format_briefing_output",
+      "params": {
+        "summary": "${summarize.result}",
+        "action_items": "${extract_actions.result}",
+        "unread_count": "${fetch_unread.result.count}",
+        "priority_count": "${detect_priority.result.priority_count}"
+      }
+    }
+  ],
+  "output": {
+    "format": "markdown",
+    "destination": "briefing_output",
+    "include_sections": [
+      "unread_summary",
+      "priority_emails",
+      "action_items",
+      "estimated_read_time"
+    ]
+  },
+  "error_handling": {
+    "on_auth_failure": "skip_briefing",
+    "on_network_error": "retry_with_backoff",
+    "max_retries": 3
+  },
+  "conditions": {
+    "skip_if": [
+      "account_disabled",
+      "no_unread_emails"
+    ]
+  }
+}

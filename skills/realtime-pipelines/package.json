@@ -1,0 +1,32 @@
+{
+  "name": "@tars/realtime-pipelines",
+  "version": "1.0.0",
+  "description": "Real-time data pipelines system for continuous monitoring and processing",
+  "main": "realtime-pipelines.js",
+  "scripts": {
+    "test": "node realtime-pipelines.js",
+    "poll": "node realtime-pipelines.js",
+    "health": "node -e \"const Engine = require('./realtime-pipelines.js'); new Engine(process.env.WORKSPACE || './').checkPipelineHealth()\"",
+    "start": "node realtime-pipelines.js"
+  },
+  "keywords": [
+    "pipeline",
+    "data-streaming",
+    "rss",
+    "api-polling",
+    "web-scraping",
+    "realtime",
+    "monitoring"
+  ],
+  "author": "TARS",
+  "license": "MIT",
+  "dependencies": {
+    "rss-parser": "^3.13.0",
+    "axios": "^1.6.0",
+    "jsdom": "^23.0.0",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

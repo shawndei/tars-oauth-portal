@@ -1,0 +1,321 @@
+{
+  "skill_name": "dynamic-tools",
+  "description": "Autonomous tool/skill creation system with capability gap detection and hot-reload integration",
+  "version": "1.0",
+  "created_at": "2026-02-13T08:22:00Z",
+  "author": "TARS Dynamic Tool Creation System",
+  "status": "production",
+  "tags": [
+    "tool-generation",
+    "capability-gap-detection",
+    "skill-creation",
+    "hot-reload",
+    "automation"
+  ],
+  "system_requirements": {
+    "python_version": "3.8+",
+    "openclaw_features": [
+      "skills-watch",
+      "hot-reload",
+      "file-io"
+    ],
+    "dependencies": []
+  },
+  "capabilities": {
+    "capability_gap_detection": {
+      "description": "Detect when user requests exceed current tool capabilities",
+      "types": [
+        "domain-gap",
+        "integration-gap",
+        "complexity-gap",
+        "format-gap",
+        "workflow-gap"
+      ],
+      "confidence_threshold": 0.5
+    },
+    "tool_generation": {
+      "description": "Automatically generate complete SKILL.md packages",
+      "generates": [
+        "SKILL.md",
+        "metadata.json",
+        "tests.py",
+        "README.md"
+      ],
+      "template_quality": "production-ready"
+    },
+    "validation_pipeline": {
+      "description": "Comprehensive validation before deployment",
+      "checks": [
+        "structure",
+        "documentation",
+        "syntax",
+        "tests",
+        "integration",
+        "real-world"
+      ],
+      "required_pass_rate": 0.95
+    },
+    "hot_reload_integration": {
+      "description": "Automatic tool loading via skills watch",
+      "auto_detect": true,
+      "reload_time_seconds": 2,
+      "retry_attempts": 5
+    },
+    "logging_system": {
+      "description": "Complete audit trail of tool creation",
+      "tracks": [
+        "creation_events",
+        "gap_analysis",
+        "validation_results",
+        "statistics",
+        "performance_metrics"
+      ],
+      "log_file": "tool-creation-log.json"
+    }
+  },
+  "performance": {
+    "gap_detection_time_ms": 500,
+    "tool_generation_time_ms": 10000,
+    "validation_time_ms": 5000,
+    "hot_reload_time_ms": 1500,
+    "total_workflow_time_ms": 17000,
+    "target_end_to_end_time_ms": 30000,
+    "success_rate_target": 0.95,
+    "validation_pass_rate_target": 0.90
+  },
+  "integration_points": [
+    "openclaw-skills-watch",
+    "tars-main-handler",
+    "tool-validation-framework",
+    "logging-system"
+  ],
+  "files": {
+    "SKILL.md": {
+      "size_bytes": 25292,
+      "type": "documentation",
+      "sections": [
+        "Overview",
+        "Architecture",
+        "Capability Gap Detection",
+        "Tool Generation",
+        "Validation & Testing",
+        "Hot-Reload Integration",
+        "Logging System",
+        "Usage Workflow",
+        "Examples"
+      ]
+    },
+    "README.md": {
+      "size_bytes": 11965,
+      "type": "documentation",
+      "purpose": "Quick reference and getting started guide"
+    },
+    "INTEGRATION_GUIDE.md": {
+      "size_bytes": 16773,
+      "type": "documentation",
+      "purpose": "Integration with TARS and OpenClaw"
+    },
+    "capability-gap-detector.py": {
+      "size_bytes": 14636,
+      "type": "implementation",
+      "purpose": "Capability gap detection engine"
+    },
+    "tool-generator.py": {
+      "size_bytes": 17912,
+      "type": "implementation",
+      "purpose": "Tool/skill generation engine"
+    },
+    "tool-creation-log.json": {
+      "size_bytes": 437,
+      "type": "data",
+      "purpose": "Audit trail and tracking"
+    }
+  },
+  "examples": [
+    {
+      "name": "PDF Processing Tool Creation",
+      "description": "Create a tool to read and extract text from PDF files",
+      "user_request": "Can you read and extract text from PDF files?",
+      "expected_gap_type": "domain-gap",
+      "expected_complexity": 6.5,
+      "expected_tool_name": "pdf-processor",
+      "files_generated": 4,
+      "validation_time_seconds": 10
+    },
+    {
+      "name": "Email Search Orchestrator",
+      "description": "Create tool to email search results daily",
+      "user_request": "Email me the top 5 search results for 'AI news' every Monday",
+      "expected_gap_type": "integration-gap",
+      "expected_complexity": 4.0,
+      "expected_tool_name": "search-email-orchestrator",
+      "files_generated": 4,
+      "validation_time_seconds": 8
+    },
+    {
+      "name": "Advanced CSV Transformer",
+      "description": "Create tool for advanced CSV processing",
+      "user_request": "Transform CSV files with custom filtering and calculations",
+      "expected_gap_type": "complexity-gap",
+      "expected_complexity": 7.5,
+      "expected_tool_name": "advanced-csv-transformer",
+      "files_generated": 4,
+      "validation_time_seconds": 12
+    }
+  ],
+  "testing": {
+    "test_files": [
+      "tests/test_capability_gap_detection.py",
+      "tests/test_tool_generation.py",
+      "tests/test_end_to_end_workflow.py"
+    ],
+    "unit_tests": 0,
+    "integration_tests": 0,
+    "system_tests": 3,
+    "coverage_target": 0.85
+  },
+  "configuration_defaults": {
+    "gap_detection": {
+      "confidence_threshold": 0.5,
+      "min_match_score": 0.3
+    },
+    "tool_generation": {
+      "max_complexity_score": 10.0,
+      "auto_create_if_below": 8.0,
+      "include_tests": true,
+      "include_readme": true
+    },
+    "validation": {
+      "run_tests": true,
+      "test_timeout_seconds": 30,
+      "require_all_pass": true,
+      "min_pass_rate": 0.95
+    },
+    "hot_reload": {
+      "enabled": true,
+      "retry_attempts": 5,
+      "retry_delay_seconds": 1
+    },
+    "logging": {
+      "enabled": true,
+      "track_statistics": true,
+      "compression": false
+    }
+  },
+  "api": {
+    "public_functions": [
+      {
+        "name": "detect_gap",
+        "signature": "detect_gap(user_request: str, threshold: float = 0.5) -> Dict",
+        "description": "Detect capability gap from user request",
+        "returns": {
+          "gap_detected": "bool",
+          "intent": "str",
+          "gap_type": "str",
+          "complexity_score": "float",
+          "suggested_skill_name": "str"
+        }
+      },
+      {
+        "name": "generate_tool",
+        "signature": "generate_tool(gap_analysis: Dict) -> Dict",
+        "description": "Generate complete tool package from gap analysis",
+        "returns": {
+          "tool_name": "str",
+          "tool_path": "str",
+          "files_created": "List[str]",
+          "status": "str"
+        }
+      },
+      {
+        "name": "validate_new_tool",
+        "signature": "validate_new_tool(skill_name: str, skill_path: str) -> Dict",
+        "description": "Run comprehensive validation on new tool",
+        "returns": {
+          "all_passed": "bool",
+          "validations": "Dict[str, Dict]"
+        }
+      },
+      {
+        "name": "create_tool_on_demand",
+        "signature": "create_tool_on_demand(user_request: str) -> bool",
+        "description": "Complete workflow: detect -> generate -> validate -> load",
+        "returns": "bool (success)"
+      }
+    ]
+  },
+  "troubleshooting": {
+    "common_issues": [
+      {
+        "issue": "Tool not loading after creation",
+        "cause": "Skills watch not detecting changes",
+        "solution": "Check skills directory permissions, restart gateway"
+      },
+      {
+        "issue": "Validation failures",
+        "cause": "Generated SKILL.md missing required sections",
+        "solution": "Review SKILL.md template, check test results"
+      },
+      {
+        "issue": "Gap detection not working",
+        "cause": "Confidence threshold too high",
+        "solution": "Lower threshold in configuration"
+      }
+    ]
+  },
+  "monitoring": {
+    "metrics_tracked": [
+      "total_tools_created",
+      "gap_detection_accuracy",
+      "validation_pass_rate",
+      "hotreload_success_rate",
+      "average_complexity",
+      "creation_time_distribution"
+    ],
+    "alert_conditions": [
+      "validation_pass_rate < 0.80",
+      "hotreload_failure_rate > 0.05",
+      "creation_time > 60_000"
+    ]
+  },
+  "compatibility": {
+    "openclaw_version": ">=1.0",
+    "tars_version": "*",
+    "python": ">=3.8",
+    "platform": [
+      "linux",
+      "macos",
+      "windows"
+    ]
+  },
+  "roadmap": {
+    "v1.0": {
+      "status": "released",
+      "features": [
+        "Gap detection",
+        "Tool generation",
+        "Validation pipeline",
+        "Hot-reload integration",
+        "Logging system"
+      ]
+    },
+    "v1.1": {
+      "status": "planned",
+      "features": [
+        "Tool versioning",
+        "Dependency management",
+        "Performance profiling"
+      ]
+    },
+    "v2.0": {
+      "status": "planned",
+      "features": [
+        "AI-powered code generation",
+        "Community tool marketplace",
+        "Advanced orchestration"
+      ]
+    }
+  },
+  "last_updated": "2026-02-13T08:22:00Z",
+  "maintained_by": "Shawn's TARS System"
+}

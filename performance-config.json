@@ -1,0 +1,367 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-13T08:22:00Z",
+  "enabled": true,
+  "targetCostReduction": {
+    "percentage": "30-40%",
+    "currentMonthlyCost": 258,
+    "targetMonthlyCost": "155-181",
+    "monthlySavingsTarget": "77-103"
+  },
+  "optimization": {
+    "responseCache": {
+      "enabled": true,
+      "maxSize": 10000,
+      "defaultTTL": 3600,
+      "byQueryType": {
+        "research": {
+          "ttl": 3600,
+          "priority": "high",
+          "expectedHitRate": 0.25,
+          "expectedSavings": "12%"
+        },
+        "factLookup": {
+          "ttl": 7200,
+          "priority": "high",
+          "expectedHitRate": 0.40,
+          "expectedSavings": "16%"
+        },
+        "codePattern": {
+          "ttl": 86400,
+          "priority": "medium",
+          "expectedHitRate": 0.35,
+          "expectedSavings": "14%"
+        },
+        "commonTemplate": {
+          "ttl": 86400,
+          "priority": "high",
+          "expectedHitRate": 0.50,
+          "expectedSavings": "20%"
+        },
+        "general": {
+          "ttl": 1800,
+          "priority": "low",
+          "expectedHitRate": 0.15,
+          "expectedSavings": "6%"
+        }
+      },
+      "evictionPolicy": "lru",
+      "weightedAverageHitRate": 0.32,
+      "projectedDailySavings": 0.45,
+      "projectedMonthlySavings": 13.5
+    },
+    "contextPruning": {
+      "enabled": true,
+      "aggressiveness": "medium",
+      "levels": {
+        "light": {
+          "description": "Keep last 20 messages",
+          "tokenReduction": 0.10,
+          "useCase": "Interactive sessions",
+          "quality": "Maintained"
+        },
+        "medium": {
+          "description": "Keep last 10 messages + summary",
+          "tokenReduction": 0.25,
+          "useCase": "Long-running tasks",
+          "quality": "Maintained"
+        },
+        "aggressive": {
+          "description": "Summary + last 3 messages",
+          "tokenReduction": 0.40,
+          "useCase": "Batch processing",
+          "quality": "Slight reduction"
+        }
+      },
+      "defaultLevel": "medium",
+      "maxContextTokens": 4000,
+      "summaryMethod": "smart_extract",
+      "preserveKeyDecisions": true,
+      "removeRedundancy": true,
+      "expectedTokenReduction": 0.25,
+      "projectedDailySavings": 0.36,
+      "projectedMonthlySavings": 10.8
+    },
+    "modelRouting": {
+      "enabled": true,
+      "defaultModel": "claude-sonnet-4-5",
+      "routing": {
+        "simple": {
+          "complexityRange": [0, 25],
+          "model": "claude-haiku-4-5",
+          "costPerMToken": 0.80,
+          "description": "Simple factual queries",
+          "expectedTaskPercentage": 0.20
+        },
+        "straightforward": {
+          "complexityRange": [25, 50],
+          "model": "claude-haiku-4-5",
+          "costPerMToken": 0.80,
+          "description": "Straightforward tasks",
+          "expectedTaskPercentage": 0.25
+        },
+        "complex": {
+          "complexityRange": [50, 75],
+          "model": "claude-sonnet-4-5",
+          "costPerMToken": 9.00,
+          "description": "Complex reasoning",
+          "expectedTaskPercentage": 0.35
+        },
+        "veryComplex": {
+          "complexityRange": [75, 100],
+          "model": "claude-sonnet-4-5",
+          "costPerMToken": 9.00,
+          "description": "Highly complex tasks",
+          "expectedTaskPercentage": 0.20
+        }
+      },
+      "haikuPercentage": 0.45,
+      "sonnetPercentage": 0.55,
+      "costReductionFactor": 11.25,
+      "expectedHaikuTaskCount": 105,
+      "expectedSonnetTaskCount": 129,
+      "projectedDailySavings": 1.62,
+      "projectedMonthlySavings": 48.6,
+      "classificationConfidence": 0.92,
+      "fallbackModel": "claude-sonnet-4-5"
+    },
+    "batchProcessing": {
+      "enabled": true,
+      "batchSize": 5,
+      "batchTimeout": 30000,
+      "byCategory": {
+        "dataExtraction": {
+          "batchSize": 5,
+          "expectedHitRate": 0.40,
+          "expectedTaskPercentage": 0.08,
+          "tokenReductionPercent": 0.51
+        },
+        "codeReview": {
+          "batchSize": 3,
+          "expectedHitRate": 0.35,
+          "expectedTaskPercentage": 0.05,
+          "tokenReductionPercent": 0.43
+        },
+        "factLookup": {
+          "batchSize": 10,
+          "expectedHitRate": 0.60,
+          "expectedTaskPercentage": 0.07,
+          "tokenReductionPercent": 0.40
+        },
+        "reportGeneration": {
+          "batchSize": 4,
+          "expectedHitRate": 0.45,
+          "expectedTaskPercentage": 0.04,
+          "tokenReductionPercent": 0.38
+        }
+      },
+      "overheadReduction": 0.15,
+      "expectedBatchableTaskPercentage": 0.15,
+      "maxQueueLength": 100,
+      "shareContextBetweenTasks": true,
+      "projectedDailySavings": 0.34,
+      "projectedMonthlySavings": 10.2
+    },
+    "lazyLoading": {
+      "enabled": true,
+      "offPeakHours": {
+        "start": "00:00",
+        "end": "06:00",
+        "timezone": "UTC"
+      },
+      "taskPriorities": {
+        "critical": {
+          "immediate": true,
+          "deferrable": false
+        },
+        "high": {
+          "immediate": true,
+          "deferrable": false
+        },
+        "normal": {
+          "immediate": true,
+          "deferrable": true
+        },
+        "low": {
+          "immediate": false,
+          "deferrable": true
+        }
+      },
+      "maxQueueLength": 100,
+      "minWaitTime": 300000,
+      "maxWaitTime": 3600000,
+      "expectedDeferableTaskPercentage": 0.07,
+      "expectedBatchEfficiency": 0.40,
+      "projectedDailySavings": 0.26,
+      "projectedMonthlySavings": 7.8
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "metricsToTrack": [
+      "responseTime",
+      "tokenUsage",
+      "costPerTask",
+      "cacheHitRate",
+      "batchEfficiency",
+      "modelDistribution"
+    ],
+    "logLevel": "info",
+    "metricsInterval": 3600,
+    "retentionDays": 90,
+    "performanceThresholds": {
+      "maxResponseTime": 5000,
+      "maxCostPerTask": 0.05,
+      "minCacheHitRate": 0.15,
+      "targetCostReduction": 0.35
+    }
+  },
+  "benchmarking": {
+    "enabled": true,
+    "baselineDate": "2026-02-13",
+    "baseline": {
+      "dailyCost": 8.50,
+      "monthlyCost": 258,
+      "dailyTokens": 850000,
+      "dailyApiCalls": 234,
+      "averageResponseTime": 2.3,
+      "modelDistribution": {
+        "sonnet": 1.0,
+        "haiku": 0.0
+      },
+      "cacheHitRate": 0.0
+    },
+    "targets": {
+      "moderate": {
+        "dayCost": 5.95,
+        "monthlyCost": 178.5,
+        "reduction": 0.30,
+        "description": "30% cost reduction"
+      },
+      "aggressive": {
+        "dayCost": 5.10,
+        "monthlyCost": 153,
+        "reduction": 0.40,
+        "description": "40% cost reduction"
+      }
+    },
+    "reportingMetrics": {
+      "totalTokensProcessed": true,
+      "totalCostSaved": true,
+      "percentageReduction": true,
+      "responseTimeImprovement": true,
+      "cacheHitRateAchieved": true,
+      "batchEfficiencyGained": true,
+      "modelDistributionChange": true
+    }
+  },
+  "costModel": {
+    "claude-sonnet-4-5": {
+      "inputTokenCost": 3.0,
+      "outputTokenCost": 15.0,
+      "averageCost": 9.0,
+      "costPerMToken": 9.0,
+      "complexity": "high",
+      "useForComplexTasks": true
+    },
+    "claude-haiku-4-5": {
+      "inputTokenCost": 0.80,
+      "outputTokenCost": 4.0,
+      "averageCost": 1.0,
+      "costPerMToken": 0.80,
+      "complexity": "low",
+      "useForSimpleTasks": true
+    },
+    "estimatedReductionFromRouting": 0.89,
+    "priceComparison": {
+      "haikuVsSonnet": "11.25x cheaper",
+      "targetHaikuUsage": "45%",
+      "expectedCostSavingsOnModels": "48.6/month"
+    }
+  },
+  "integrationPoints": {
+    "heartbeat": {
+      "enabled": true,
+      "checkFrequency": "every_heartbeat",
+      "actions": [
+        "check_cache_hit_rate",
+        "verify_model_routing",
+        "process_deferred_lazy_tasks",
+        "log_performance_metrics",
+        "alert_if_targets_not_met"
+      ]
+    },
+    "costTracking": {
+      "enabled": true,
+      "trackingFile": "costs.json",
+      "metricsToTrack": [
+        "caching_savings",
+        "pruning_savings",
+        "model_routing_savings",
+        "batch_processing_savings",
+        "lazy_loading_savings"
+      ]
+    },
+    "rateLimiting": {
+      "enabled": true,
+      "coordinator": "skills/rate-limiting/SKILL.md",
+      "coordination": "optimization runs within rate limit constraints"
+    }
+  },
+  "phaseRollout": {
+    "phase1": {
+      "name": "Quick Wins (Week 1)",
+      "targetReduction": 0.24,
+      "strategies": ["model_routing", "response_caching"],
+      "expectedDailySavings": 2.07,
+      "expectedMonthlySavings": 62.1
+    },
+    "phase2": {
+      "name": "Context Optimization (Week 2)",
+      "targetReduction": 0.33,
+      "strategies": ["context_pruning", "batch_processing"],
+      "expectedDailySavings": 0.70,
+      "expectedMonthlySavings": 21.0,
+      "cumulativeDailySavings": 2.77,
+      "cumulativeMonthlySavings": 83.1
+    },
+    "phase3": {
+      "name": "Advanced Optimization (Week 3-4)",
+      "targetReduction": 0.41,
+      "strategies": ["lazy_loading", "fine_tuning"],
+      "expectedDailySavings": 0.76,
+      "expectedMonthlySavings": 22.8,
+      "cumulativeDailySavings": 3.53,
+      "cumulativeMonthlySavings": 105.9
+    }
+  },
+  "alerts": {
+    "enabled": true,
+    "thresholds": {
+      "costReductionMissed": 0.20,
+      "cacheHitRateLow": 0.10,
+      "responseTimeSlow": 3000,
+      "batchEfficiencyLow": 0.30
+    },
+    "notificationMethods": [
+      "log",
+      "alert",
+      "email"
+    ]
+  },
+  "rollbackPlan": {
+    "enabled": true,
+    "triggers": [
+      "Quality degradation detected",
+      "Response time >50% increase",
+      "Cost reduction <10%",
+      "Critical error rate >5%"
+    ],
+    "actions": [
+      "Disable problematic optimization",
+      "Revert to previous model distribution",
+      "Alert user",
+      "Log incident"
+    ]
+  }
+}

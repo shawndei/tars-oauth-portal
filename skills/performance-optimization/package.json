@@ -1,0 +1,42 @@
+{
+  "name": "@openclaw/performance-benchmarking",
+  "version": "1.0.0",
+  "description": "Performance benchmarking framework for OpenClaw with automated regression detection",
+  "main": "tests/benchmarks/benchmark-runner.js",
+  "scripts": {
+    "benchmark": "node tests/benchmarks/benchmark-runner.js",
+    "benchmark:quick": "node tests/benchmarks/benchmark-runner.js --quick",
+    "benchmark:compare": "node tests/benchmarks/benchmark-runner.js --compare",
+    "benchmark:baseline": "node tests/benchmarks/benchmark-runner.js --create-baseline",
+    "benchmark:update": "node tests/benchmarks/benchmark-runner.js --update-baseline",
+    "benchmark:tools": "node tests/benchmarks/benchmark-runner.js --suite=tools",
+    "benchmark:models": "node tests/benchmarks/benchmark-runner.js --suite=models",
+    "benchmark:memory": "node tests/benchmarks/benchmark-runner.js --suite=memory",
+    "test": "node tests/test-framework.js",
+    "test:watch": "nodemon --watch tests tests/test-framework.js"
+  },
+  "keywords": [
+    "benchmarking",
+    "performance",
+    "regression-detection",
+    "metrics",
+    "openclaw"
+  ],
+  "author": "OpenClaw System",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openclaw/openclaw"
+  },
+  "bugs": {
+    "url": "https://github.com/openclaw/openclaw/issues"
+  },
+  "homepage": "https://github.com/openclaw/openclaw#readme"
+}

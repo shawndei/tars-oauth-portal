@@ -1,0 +1,437 @@
+{
+  "version": "1.0",
+  "created": "2026-02-13T17:10:40.677Z",
+  "last_updated": "2026-02-13T17:10:40.677Z",
+  "benchmarks": {
+    "simple_command": {
+      "count": 5,
+      "latency": {
+        "min": 13,
+        "max": 32,
+        "mean": 18,
+        "median": 15,
+        "p50": 15,
+        "p90": 32,
+        "p95": 32,
+        "p99": 32,
+        "stddev": 7.042726744663604
+      },
+      "throughput": {
+        "ops_per_sec": 64.93506493506493,
+        "requests_per_min": 3896.1038961038957
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 9276.8,
+        "max_heap_used": 26168,
+        "min_heap_used": 2392
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "echo_command": {
+      "count": 5,
+      "latency": {
+        "min": 15,
+        "max": 16,
+        "mean": 15.4,
+        "median": 15,
+        "p50": 15,
+        "p90": 16,
+        "p95": 16,
+        "p99": 16,
+        "stddev": 0.48989794855663565
+      },
+      "throughput": {
+        "ops_per_sec": 80.64516129032258,
+        "requests_per_min": 4838.709677419354
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": -44049.6,
+        "max_heap_used": 647384,
+        "min_heap_used": -637744
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "file_read": {
+      "count": 5,
+      "latency": {
+        "min": 15,
+        "max": 32,
+        "mean": 28,
+        "median": 31,
+        "p50": 31,
+        "p90": 32,
+        "p95": 32,
+        "p99": 32,
+        "stddev": 6.511528238439882
+      },
+      "throughput": {
+        "ops_per_sec": 45.87155963302752,
+        "requests_per_min": 2752.293577981651
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 4260.8,
+        "max_heap_used": 9104,
+        "min_heap_used": 2320
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "haiku_simple_query": {
+      "count": 3,
+      "latency": {
+        "min": 494,
+        "max": 841,
+        "mean": 708.3333333333334,
+        "median": 790,
+        "p50": 790,
+        "p90": 841,
+        "p95": 841,
+        "p99": 841,
+        "stddev": 152.98002774509126
+      },
+      "throughput": {
+        "ops_per_sec": 2.245508982035928,
+        "requests_per_min": 134.7305389221557
+      },
+      "cost": {
+        "total": 0.0016728,
+        "mean": 0.0005576,
+        "cost_per_op": 0.0005576,
+        "min": 0.000428,
+        "max": 0.0007664
+      },
+      "tokens": {
+        "total": 2091,
+        "mean": 697,
+        "tokens_per_op": 697,
+        "min": 535,
+        "max": 958
+      },
+      "memory": {
+        "mean_heap_used": 4970.666666666667,
+        "max_heap_used": 9184,
+        "min_heap_used": 2792
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "haiku_moderate_query": {
+      "count": 3,
+      "latency": {
+        "min": 904,
+        "max": 1227,
+        "mean": 1072,
+        "median": 1085,
+        "p50": 1085,
+        "p90": 1227,
+        "p95": 1227,
+        "p99": 1227,
+        "stddev": 132.1842148921976
+      },
+      "throughput": {
+        "ops_per_sec": 1.2975778546712804,
+        "requests_per_min": 77.85467128027682
+      },
+      "cost": {
+        "total": 0.005452,
+        "mean": 0.0018173333333333333,
+        "cost_per_op": 0.0018173333333333333,
+        "min": 0.0017856,
+        "max": 0.0018696000000000001
+      },
+      "tokens": {
+        "total": 6815,
+        "mean": 2271.6666666666665,
+        "tokens_per_op": 2271.6666666666665,
+        "min": 2232,
+        "max": 2337
+      },
+      "memory": {
+        "mean_heap_used": 5725.333333333333,
+        "max_heap_used": 11448,
+        "min_heap_used": 2792
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "sonnet_simple_query": {
+      "count": 3,
+      "latency": {
+        "min": 1130,
+        "max": 1332,
+        "mean": 1254,
+        "median": 1300,
+        "p50": 1300,
+        "p90": 1332,
+        "p95": 1332,
+        "p99": 1332,
+        "stddev": 88.649121071033
+      },
+      "throughput": {
+        "ops_per_sec": 1.1398176291793312,
+        "requests_per_min": 68.38905775075987
+      },
+      "cost": {
+        "total": 0.021987,
+        "mean": 0.007329,
+        "cost_per_op": 0.007329,
+        "min": 0.006021,
+        "max": 0.008846999999999999
+      },
+      "tokens": {
+        "total": 2443,
+        "mean": 814.3333333333334,
+        "tokens_per_op": 814.3333333333334,
+        "min": 669,
+        "max": 983
+      },
+      "memory": {
+        "mean_heap_used": -222525.33333333334,
+        "max_heap_used": 4408,
+        "min_heap_used": -674760
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "sonnet_complex_reasoning": {
+      "count": 3,
+      "latency": {
+        "min": 3580,
+        "max": 3734,
+        "mean": 3659.6666666666665,
+        "median": 3665,
+        "p50": 3665,
+        "p90": 3734,
+        "p95": 3734,
+        "p99": 3734,
+        "stddev": 62.98324292134289
+      },
+      "throughput": {
+        "ops_per_sec": 0.4054601973239627,
+        "requests_per_min": 24.32761183943776
+      },
+      "cost": {
+        "total": 0.09981899999999999,
+        "mean": 0.033273,
+        "cost_per_op": 0.033273,
+        "min": 0.029376,
+        "max": 0.038727000000000004
+      },
+      "tokens": {
+        "total": 11091,
+        "mean": 3697,
+        "tokens_per_op": 3697,
+        "min": 3264,
+        "max": 4303
+      },
+      "memory": {
+        "mean_heap_used": 1704,
+        "max_heap_used": 11008,
+        "min_heap_used": -10496
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 3,
+        "error_count": 0
+      }
+    },
+    "memory_search": {
+      "count": 5,
+      "latency": {
+        "min": 46,
+        "max": 91,
+        "mean": 61.6,
+        "median": 61,
+        "p50": 61,
+        "p90": 91,
+        "p95": 91,
+        "p99": 91,
+        "stddev": 16.0822883943797
+      },
+      "throughput": {
+        "ops_per_sec": 23.04147465437788,
+        "requests_per_min": 1382.4884792626726
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 3457.6,
+        "max_heap_used": 7304,
+        "min_heap_used": 2424
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "memory_retrieval": {
+      "count": 5,
+      "latency": {
+        "min": 31,
+        "max": 78,
+        "mean": 56.4,
+        "median": 62,
+        "p50": 62,
+        "p90": 78,
+        "p95": 78,
+        "p99": 78,
+        "stddev": 15.856859714331838
+      },
+      "throughput": {
+        "ops_per_sec": 22.727272727272727,
+        "requests_per_min": 1363.6363636363635
+      },
+      "cost": {
+        "total": 0,
+        "mean": 0,
+        "cost_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "tokens": {
+        "total": 0,
+        "mean": 0,
+        "tokens_per_op": 0,
+        "min": 0,
+        "max": 0
+      },
+      "memory": {
+        "mean_heap_used": 4396.8,
+        "max_heap_used": 12128,
+        "min_heap_used": 2352
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    },
+    "memory_embedding": {
+      "count": 5,
+      "latency": {
+        "min": 106,
+        "max": 279,
+        "mean": 201.2,
+        "median": 248,
+        "p50": 248,
+        "p90": 279,
+        "p95": 279,
+        "p99": 279,
+        "stddev": 71.83703780084477
+      },
+      "throughput": {
+        "ops_per_sec": 6.605019815059445,
+        "requests_per_min": 396.3011889035667
+      },
+      "cost": {
+        "total": 0.0001008,
+        "mean": 0.00002016,
+        "cost_per_op": 0.00002016,
+        "min": 0.000015100000000000001,
+        "max": 0.0000244
+      },
+      "tokens": {
+        "total": 1008,
+        "mean": 201.6,
+        "tokens_per_op": 201.6,
+        "min": 151,
+        "max": 244
+      },
+      "memory": {
+        "mean_heap_used": 15598.4,
+        "max_heap_used": 18328,
+        "min_heap_used": 14800
+      },
+      "accuracy": {
+        "success_rate": 1,
+        "error_rate": 0,
+        "success_count": 5,
+        "error_count": 0
+      }
+    }
+  }
+}

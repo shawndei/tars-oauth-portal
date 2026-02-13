@@ -1,0 +1,231 @@
+{
+  "schemas": {
+    "task": {
+      "type": "object",
+      "required": ["action"],
+      "additionalProperties": true,
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["add_task"],
+          "description": "Action type"
+        },
+        "task": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 500,
+          "description": "Task description"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "default": "medium",
+          "description": "Task priority level"
+        },
+        "deadline": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Task deadline (ISO 8601)"
+        },
+        "expected": {
+          "type": "string",
+          "description": "Expected outcome"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Task tags for categorization"
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "description": "Idempotency key for deduplication"
+        }
+      }
+    },
+
+    "notify": {
+      "type": "object",
+      "required": ["action", "title", "body"],
+      "additionalProperties": true,
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["send_notification"],
+          "description": "Action type"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200,
+          "description": "Notification title"
+        },
+        "body": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 2000,
+          "description": "Notification body text"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["P0", "P1", "P2", "P3"],
+          "default": "P2",
+          "description": "Notification priority"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["whatsapp", "email", "slack", "sms", "push"]
+          },
+          "description": "Delivery channels"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Additional notification context data"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Notification tags"
+        }
+      }
+    },
+
+    "research": {
+      "type": "object",
+      "required": ["action", "topic"],
+      "additionalProperties": true,
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["start_research"],
+          "description": "Action type"
+        },
+        "topic": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 500,
+          "description": "Research topic"
+        },
+        "depth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "default": 2,
+          "description": "Research depth (1=brief, 2=standard, 3=deep)"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["markdown", "json", "text"],
+          "default": "markdown",
+          "description": "Output format"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["web", "academic", "news", "patent"]
+          },
+          "default": ["web"],
+          "description": "Research sources"
+        },
+        "maxAge": {
+          "type": "integer",
+          "description": "Maximum age of sources in seconds (default: 30 days)"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Research tags"
+        }
+      }
+    },
+
+    "event_subscription": {
+      "type": "object",
+      "required": ["url", "events"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Webhook subscription URL"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "task.created",
+              "task.started",
+              "task.completed",
+              "task.failed",
+              "notify.sent",
+              "notify.failed",
+              "research.started",
+              "research.completed",
+              "research.failed"
+            ]
+          },
+          "minItems": 1,
+          "description": "Events to subscribe to"
+        },
+        "secret": {
+          "type": "string",
+          "description": "HMAC secret for signing webhooks"
+        },
+        "active": {
+          "type": "boolean",
+          "default": true,
+          "description": "Subscription active status"
+        }
+      }
+    }
+  },
+
+  "validationRules": {
+    "global": {
+      "maxPayloadSize": 10485760,
+      "maxPayloadSizeUnit": "bytes",
+      "allowedContentTypes": ["application/json"],
+      "requireContentType": true
+    },
+    "task": {
+      "minTaskLength": 5,
+      "maxTaskLength": 500,
+      "allowFutureDeadlines": true,
+      "allowedPriorities": ["low", "medium", "high"]
+    },
+    "notify": {
+      "minTitleLength": 3,
+      "maxTitleLength": 200,
+      "minBodyLength": 5,
+      "maxBodyLength": 2000,
+      "allowedChannels": ["whatsapp", "email", "slack", "sms", "push"],
+      "requireChannels": false,
+      "allowedPriorities": ["P0", "P1", "P2", "P3"]
+    },
+    "research": {
+      "minTopicLength": 3,
+      "maxTopicLength": 500,
+      "allowedDepths": [1, 2, 3],
+      "allowedFormats": ["markdown", "json", "text"],
+      "allowedSources": ["web", "academic", "news", "patent"],
+      "defaultDepth": 2,
+      "defaultFormat": "markdown"
+    }
+  },
+
+  "errorMessages": {
+    "SCHEMA_VALIDATION_FAILED": "Payload does not match required schema",
+    "MISSING_REQUIRED_FIELD": "Missing required field: {field}",
+    "INVALID_FIELD_TYPE": "Invalid type for field {field}: expected {expected}, got {actual}",
+    "VALUE_TOO_SHORT": "Field {field} is too short: minimum {min} characters required",
+    "VALUE_TOO_LONG": "Field {field} is too long: maximum {max} characters allowed",
+    "INVALID_ENUM_VALUE": "Invalid value for field {field}: must be one of {values}",
+    "INVALID_FORMAT": "Invalid format for field {field}: expected {format}",
+    "PAYLOAD_TOO_LARGE": "Payload exceeds maximum size of {maxSize} bytes",
+    "INVALID_CONTENT_TYPE": "Invalid Content-Type: expected application/json",
+    "INVALID_DATE_FORMAT": "Invalid date format for field {field}: expected ISO 8601"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "memory_links": [
+    {
+      "memory_ref": "MEMORY.md#Core Identity & Setup",
+      "kb_topics": [
+        "systems/tars-architecture",
+        "systems/optimization-framework"
+      ],
+      "bidirectional": true,
+      "sync_status": "pending",
+      "last_synced": null
+    },
+    {
+      "memory_ref": "MEMORY.md#Shawn Dunn Profile",
+      "kb_topics": [
+        "shawn/investment-philosophy",
+        "shawn/communication-style",
+        "shawn/decision-making-model",
+        "shawn/lifestyle-preferences"
+      ],
+      "bidirectional": true,
+      "sync_status": "pending",
+      "last_synced": null
+    },
+    {
+      "memory_ref": "MEMORY.md#Financial & Investment",
+      "kb_topics": [
+        "financial/portfolio-positioning",
+        "financial/options-strategies",
+        "financial/risk-hedging"
+      ],
+      "bidirectional": true,
+      "sync_status": "pending",
+      "last_synced": null
+    },
+    {
+      "memory_ref": "MEMORY.md#Health & Optimization",
+      "kb_topics": [
+        "health/supplement-protocols",
+        "health/workout-science",
+        "health/sleep-optimization",
+        "rachael/fertility-protocols"
+      ],
+      "bidirectional": true,
+      "sync_status": "pending",
+      "last_synced": null
+    },
+    {
+      "memory_ref": "MEMORY.md#Professional & Builder",
+      "kb_topics": [
+        "systems/autonomous-execution",
+        "technical/microSaaS-architecture"
+      ],
+      "bidirectional": true,
+      "sync_status": "pending",
+      "last_synced": null
+    },
+    {
+      "memory_ref": "MEMORY.md#Psychological Profile",
+      "kb_topics": [
+        "psychology/decision-making",
+        "psychology/probabilistic-thinking",
+        "psychology/stoic-orientation"
+      ],
+      "bidirectional": false,
+      "sync_status": "pending",
+      "last_synced": null
+    }
+  ],
+  "memory_to_kb_sync": {
+    "last_sync": null,
+    "auto_extract": true,
+    "sync_interval_hours": 24,
+    "topics_extracted": 0,
+    "next_scheduled_sync": null
+  },
+  "metadata": {
+    "created": "2026-02-13T08:24:00Z",
+    "memory_version": "2026-02-13 00:20 GMT-7",
+    "total_links": 6,
+    "total_kb_topics": 18
+  }
+}

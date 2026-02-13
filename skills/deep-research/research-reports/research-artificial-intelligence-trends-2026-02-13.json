@@ -1,0 +1,793 @@
+{
+  "topic": "artificial intelligence trends",
+  "depth": 1,
+  "maxSources": 50,
+  "startTime": "2026-02-13T19:27:31.795Z",
+  "sources": [
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-1",
+      "title": "artificial intelligence trends research study - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends research study",
+      "searchQuery": "artificial intelligence trends research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-2",
+      "title": "artificial intelligence trends research study - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends research study",
+      "searchQuery": "artificial intelligence trends research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-3",
+      "title": "artificial intelligence trends research study - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends research study",
+      "searchQuery": "artificial intelligence trends research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-4",
+      "title": "artificial intelligence trends research study - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends research study",
+      "searchQuery": "artificial intelligence trends research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-5",
+      "title": "artificial intelligence trends research study - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends research study",
+      "searchQuery": "artificial intelligence trends research study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-case-study-1",
+      "title": "artificial intelligence trends case study - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends case study",
+      "searchQuery": "artificial intelligence trends case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-case-study-2",
+      "title": "artificial intelligence trends case study - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends case study",
+      "searchQuery": "artificial intelligence trends case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-case-study-3",
+      "title": "artificial intelligence trends case study - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends case study",
+      "searchQuery": "artificial intelligence trends case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-case-study-4",
+      "title": "artificial intelligence trends case study - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends case study",
+      "searchQuery": "artificial intelligence trends case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-case-study-5",
+      "title": "artificial intelligence trends case study - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends case study",
+      "searchQuery": "artificial intelligence trends case study",
+      "authorityScore": 6,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-1",
+      "title": "artificial intelligence trends - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends",
+      "searchQuery": "artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-2",
+      "title": "artificial intelligence trends - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends",
+      "searchQuery": "artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-3",
+      "title": "artificial intelligence trends - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends",
+      "searchQuery": "artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-4",
+      "title": "artificial intelligence trends - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends",
+      "searchQuery": "artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-5",
+      "title": "artificial intelligence trends - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends",
+      "searchQuery": "artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-1",
+      "title": "artificial intelligence trends comprehensive guide - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends comprehensive guide",
+      "searchQuery": "artificial intelligence trends comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-2",
+      "title": "artificial intelligence trends comprehensive guide - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends comprehensive guide",
+      "searchQuery": "artificial intelligence trends comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-3",
+      "title": "artificial intelligence trends comprehensive guide - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends comprehensive guide",
+      "searchQuery": "artificial intelligence trends comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-4",
+      "title": "artificial intelligence trends comprehensive guide - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends comprehensive guide",
+      "searchQuery": "artificial intelligence trends comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-5",
+      "title": "artificial intelligence trends comprehensive guide - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends comprehensive guide",
+      "searchQuery": "artificial intelligence trends comprehensive guide",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-1",
+      "title": "artificial intelligence trends comparison analysis - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends comparison analysis",
+      "searchQuery": "artificial intelligence trends comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-2",
+      "title": "artificial intelligence trends comparison analysis - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends comparison analysis",
+      "searchQuery": "artificial intelligence trends comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-3",
+      "title": "artificial intelligence trends comparison analysis - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends comparison analysis",
+      "searchQuery": "artificial intelligence trends comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-4",
+      "title": "artificial intelligence trends comparison analysis - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends comparison analysis",
+      "searchQuery": "artificial intelligence trends comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-5",
+      "title": "artificial intelligence trends comparison analysis - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends comparison analysis",
+      "searchQuery": "artificial intelligence trends comparison analysis",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-artificial-intelligence-trends-1",
+      "title": "best artificial intelligence trends - Result 1",
+      "description": "Mock description for result 1 about best artificial intelligence trends",
+      "searchQuery": "best artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-artificial-intelligence-trends-2",
+      "title": "best artificial intelligence trends - Result 2",
+      "description": "Mock description for result 2 about best artificial intelligence trends",
+      "searchQuery": "best artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-artificial-intelligence-trends-3",
+      "title": "best artificial intelligence trends - Result 3",
+      "description": "Mock description for result 3 about best artificial intelligence trends",
+      "searchQuery": "best artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-artificial-intelligence-trends-4",
+      "title": "best artificial intelligence trends - Result 4",
+      "description": "Mock description for result 4 about best artificial intelligence trends",
+      "searchQuery": "best artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/best-artificial-intelligence-trends-5",
+      "title": "best artificial intelligence trends - Result 5",
+      "description": "Mock description for result 5 about best artificial intelligence trends",
+      "searchQuery": "best artificial intelligence trends",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-1",
+      "title": "artificial intelligence trends pros and cons - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends pros and cons",
+      "searchQuery": "artificial intelligence trends pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-2",
+      "title": "artificial intelligence trends pros and cons - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends pros and cons",
+      "searchQuery": "artificial intelligence trends pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-3",
+      "title": "artificial intelligence trends pros and cons - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends pros and cons",
+      "searchQuery": "artificial intelligence trends pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-4",
+      "title": "artificial intelligence trends pros and cons - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends pros and cons",
+      "searchQuery": "artificial intelligence trends pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-5",
+      "title": "artificial intelligence trends pros and cons - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends pros and cons",
+      "searchQuery": "artificial intelligence trends pros and cons",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-expert-review-1",
+      "title": "artificial intelligence trends expert review - Result 1",
+      "description": "Mock description for result 1 about artificial intelligence trends expert review",
+      "searchQuery": "artificial intelligence trends expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-expert-review-2",
+      "title": "artificial intelligence trends expert review - Result 2",
+      "description": "Mock description for result 2 about artificial intelligence trends expert review",
+      "searchQuery": "artificial intelligence trends expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-expert-review-3",
+      "title": "artificial intelligence trends expert review - Result 3",
+      "description": "Mock description for result 3 about artificial intelligence trends expert review",
+      "searchQuery": "artificial intelligence trends expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-expert-review-4",
+      "title": "artificial intelligence trends expert review - Result 4",
+      "description": "Mock description for result 4 about artificial intelligence trends expert review",
+      "searchQuery": "artificial intelligence trends expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-expert-review-5",
+      "title": "artificial intelligence trends expert review - Result 5",
+      "description": "Mock description for result 5 about artificial intelligence trends expert review",
+      "searchQuery": "artificial intelligence trends expert review",
+      "authorityScore": 5,
+      "sourceType": "website",
+      "discoveredAt": "Phase 2 - Initial Search"
+    }
+  ],
+  "findings": [],
+  "citations": [
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-1",
+      "discoveredBy": [
+        "https://example.com/artificial-intelligence-trends-research-study-1"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/related).",
+      "discoveredBy": [
+        "https://example.com/artificial-intelligence-trends-research-study-1",
+        "https://example.com/artificial-intelligence-trends-research-study-2",
+        "https://example.com/artificial-intelligence-trends-research-study-3",
+        "https://example.com/artificial-intelligence-trends-research-study-4",
+        "https://example.com/artificial-intelligence-trends-research-study-5"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-2",
+      "discoveredBy": [
+        "https://example.com/artificial-intelligence-trends-research-study-2"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-3",
+      "discoveredBy": [
+        "https://example.com/artificial-intelligence-trends-research-study-3"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-4",
+      "discoveredBy": [
+        "https://example.com/artificial-intelligence-trends-research-study-4"
+      ],
+      "depth": 1
+    },
+    {
+      "url": "https://example.com/artificial-intelligence-trends-research-study-5",
+      "discoveredBy": [
+        "https://example.com/artificial-intelligence-trends-research-study-5"
+      ],
+      "depth": 1
+    }
+  ],
+  "metadata": {
+    "searchQueries": [
+      "artificial intelligence trends",
+      "artificial intelligence trends comprehensive guide",
+      "artificial intelligence trends research study",
+      "artificial intelligence trends comparison analysis",
+      "best artificial intelligence trends",
+      "artificial intelligence trends pros and cons",
+      "artificial intelligence trends expert review",
+      "artificial intelligence trends case study"
+    ],
+    "sourcesVisited": 5,
+    "sourcesAnalyzed": 5,
+    "citationsFollowed": 0,
+    "crossReferences": 0,
+    "failedFetches": 0
+  },
+  "synthesis": {
+    "executiveSummary": "Research on \"artificial intelligence trends\" completed with 5 sources visited (5 deeply analyzed). Found 0 key findings with average source authority of 5.3/10. 0 citations followed and 0 cross-references validated. Research depth: 1.",
+    "keyFindings": [],
+    "detailedAnalysis": {
+      "totalFindings": 0,
+      "highConfidenceFindings": 0,
+      "mediumConfidenceFindings": 0,
+      "lowConfidenceFindings": 0
+    },
+    "sourceBibliography": [
+      {
+        "rank": 1,
+        "title": "artificial intelligence trends research study - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-research-study-1",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 2,
+        "title": "artificial intelligence trends research study - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-research-study-2",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 3,
+        "title": "artificial intelligence trends research study - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-research-study-3",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 4,
+        "title": "artificial intelligence trends research study - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-research-study-4",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 5,
+        "title": "artificial intelligence trends research study - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-research-study-5",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 6,
+        "title": "artificial intelligence trends case study - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-case-study-1",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 7,
+        "title": "artificial intelligence trends case study - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-case-study-2",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 8,
+        "title": "artificial intelligence trends case study - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-case-study-3",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 9,
+        "title": "artificial intelligence trends case study - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-case-study-4",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 10,
+        "title": "artificial intelligence trends case study - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-case-study-5",
+        "authorityScore": "6/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 11,
+        "title": "artificial intelligence trends - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 12,
+        "title": "artificial intelligence trends - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 13,
+        "title": "artificial intelligence trends - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 14,
+        "title": "artificial intelligence trends - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 15,
+        "title": "artificial intelligence trends - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 16,
+        "title": "artificial intelligence trends comprehensive guide - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 17,
+        "title": "artificial intelligence trends comprehensive guide - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 18,
+        "title": "artificial intelligence trends comprehensive guide - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 19,
+        "title": "artificial intelligence trends comprehensive guide - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 20,
+        "title": "artificial intelligence trends comprehensive guide - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-comprehensive-guide-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 21,
+        "title": "artificial intelligence trends comparison analysis - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 22,
+        "title": "artificial intelligence trends comparison analysis - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 23,
+        "title": "artificial intelligence trends comparison analysis - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 24,
+        "title": "artificial intelligence trends comparison analysis - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 25,
+        "title": "artificial intelligence trends comparison analysis - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-comparison-analysis-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 26,
+        "title": "best artificial intelligence trends - Result 1",
+        "url": "https://example.com/best-artificial-intelligence-trends-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 27,
+        "title": "best artificial intelligence trends - Result 2",
+        "url": "https://example.com/best-artificial-intelligence-trends-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 28,
+        "title": "best artificial intelligence trends - Result 3",
+        "url": "https://example.com/best-artificial-intelligence-trends-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 29,
+        "title": "best artificial intelligence trends - Result 4",
+        "url": "https://example.com/best-artificial-intelligence-trends-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 30,
+        "title": "best artificial intelligence trends - Result 5",
+        "url": "https://example.com/best-artificial-intelligence-trends-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 31,
+        "title": "artificial intelligence trends pros and cons - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 32,
+        "title": "artificial intelligence trends pros and cons - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 33,
+        "title": "artificial intelligence trends pros and cons - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 34,
+        "title": "artificial intelligence trends pros and cons - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 35,
+        "title": "artificial intelligence trends pros and cons - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-pros-and-cons-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 36,
+        "title": "artificial intelligence trends expert review - Result 1",
+        "url": "https://example.com/artificial-intelligence-trends-expert-review-1",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 37,
+        "title": "artificial intelligence trends expert review - Result 2",
+        "url": "https://example.com/artificial-intelligence-trends-expert-review-2",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 38,
+        "title": "artificial intelligence trends expert review - Result 3",
+        "url": "https://example.com/artificial-intelligence-trends-expert-review-3",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 39,
+        "title": "artificial intelligence trends expert review - Result 4",
+        "url": "https://example.com/artificial-intelligence-trends-expert-review-4",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      },
+      {
+        "rank": 40,
+        "title": "artificial intelligence trends expert review - Result 5",
+        "url": "https://example.com/artificial-intelligence-trends-expert-review-5",
+        "authorityScore": "5/10",
+        "sourceType": "website",
+        "discoveredAt": "Phase 2 - Initial Search"
+      }
+    ],
+    "confidenceBreakdown": {
+      "high": [],
+      "medium": [],
+      "low": []
+    },
+    "methodology": {
+      "searchQueries": [
+        "artificial intelligence trends",
+        "artificial intelligence trends comprehensive guide",
+        "artificial intelligence trends research study",
+        "artificial intelligence trends comparison analysis",
+        "best artificial intelligence trends",
+        "artificial intelligence trends pros and cons",
+        "artificial intelligence trends expert review",
+        "artificial intelligence trends case study"
+      ],
+      "sourcesVisited": 5,
+      "sourcesAnalyzed": 5,
+      "citationsFollowed": 0,
+      "crossReferences": 0,
+      "failedFetches": 0,
+      "depth": 1
+    }
+  },
+  "endTime": "2026-02-13T19:27:31.799Z",
+  "durationMs": 4,
+  "durationMinutes": 0,
+  "status": "completed"
+}

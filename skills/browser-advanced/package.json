@@ -1,0 +1,30 @@
+{
+  "name": "openclaw-browser-advanced",
+  "version": "1.0.0",
+  "description": "Advanced browser automation for OpenClaw with CAPTCHA solving, OAuth, 2FA, form filling, and visual verification",
+  "main": "browser-advanced.js",
+  "scripts": {
+    "test": "node test-browser-advanced.js",
+    "install-deps": "npm install"
+  },
+  "keywords": [
+    "browser-automation",
+    "captcha",
+    "oauth",
+    "2fa",
+    "form-filling",
+    "playwright",
+    "openclaw"
+  ],
+  "author": "OpenClaw",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "axios": "^1.6.0",
+    "speakeasy": "^2.0.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

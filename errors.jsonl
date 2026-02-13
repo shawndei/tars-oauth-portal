@@ -1,0 +1,8 @@
+{"timestamp":"2026-02-13T17:27:42.637Z","attempt":1,"toolName":"test_tool","error":"Test error for logging","pattern":"UNKNOWN","strategy":"fails","context":{"testId":"test-5"},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.698Z","attempt":2,"toolName":"test_tool","error":"Test error for logging","pattern":"UNKNOWN","strategy":"fails","context":{"testId":"test-5"},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.807Z","attempt":1,"toolName":"browser","error":"ECONNREFUSED","pattern":"CONN_REFUSED","strategy":"default","context":{},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.808Z","attempt":1,"toolName":"browser","error":"ECONNREFUSED","pattern":"CONN_REFUSED","strategy":"default","context":{},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.809Z","attempt":1,"toolName":"web_search","error":"429 Rate limit","pattern":"RATE_LIMIT","strategy":"default","context":{},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.809Z","attempt":1,"toolName":"web_fetch","error":"TIMEOUT","pattern":"UNKNOWN","strategy":"default","context":{},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.810Z","attempt":1,"toolName":"exec","error":"command not found","pattern":"CMD_NOT_FOUND","strategy":"default","context":{},"recovered":false,"nextStrategy":null}
+{"timestamp":"2026-02-13T17:27:42.916Z","attempt":1,"toolName":"api_call","error":"Connection timeout - service temporarily unavailable","pattern":"UNKNOWN","strategy":"flaky-api","context":{},"recovered":false,"nextStrategy":null}

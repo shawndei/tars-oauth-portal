@@ -1,0 +1,77 @@
+{
+  "enabled": true,
+  "defaultChain": [
+    "whatsapp",
+    "email"
+  ],
+  "priorityRouting": {
+    "P0": {
+      "channels": [
+        "whatsapp",
+        "email"
+      ],
+      "batch": false,
+      "retry": true,
+      "description": "Critical alerts - all channels immediately"
+    },
+    "P1": {
+      "channels": [
+        "whatsapp"
+      ],
+      "fallback": [
+        "email"
+      ],
+      "batch": false,
+      "retry": true,
+      "description": "High priority - WhatsApp with email fallback"
+    },
+    "P2": {
+      "channels": [
+        "email"
+      ],
+      "batch": true,
+      "batchInterval": "4h",
+      "description": "Medium priority - batched every 4 hours"
+    },
+    "P3": {
+      "channels": [
+        "email"
+      ],
+      "batch": true,
+      "batchInterval": "24h",
+      "description": "Low priority - daily digest"
+    }
+  },
+  "throttling": {
+    "whatsapp": {
+      "perHour": 10,
+      "perDay": 100
+    },
+    "email": {
+      "perDay": 50
+    },
+    "sms": {
+      "perDay": 5
+    }
+  },
+  "formatting": {
+    "whatsapp": {
+      "maxLength": 4096,
+      "useEmoji": true,
+      "useMarkdown": false
+    },
+    "email": {
+      "format": "html",
+      "includeHeader": true,
+      "includeFooter": true
+    },
+    "discord": {
+      "useEmbed": true,
+      "maxLength": 2000
+    },
+    "telegram": {
+      "useMarkdown": true,
+      "maxLength": 4096
+    }
+  }
+}

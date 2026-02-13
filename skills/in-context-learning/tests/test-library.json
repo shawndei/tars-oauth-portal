@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-02-13T17:13:18.115Z",
+    "updated": "2026-02-13T17:13:18.181Z",
+    "totalExamples": 11
+  },
+  "examples": {
+    "code-explanation": [
+      {
+        "id": "e9c9ac215b644b5b",
+        "input": "Explain this code: const arr = [1,2,3].map(x => x * 2)",
+        "output": "This code creates an array [1,2,3] and uses the map() method to transform each element by multiplying it by 2, resulting in [2,4,6].",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "array",
+          "functional"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.117Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "81abc44caa80cb07",
+        "input": "What does async/await do?",
+        "output": "async/await is syntax for handling Promises in JavaScript. The async keyword marks a function as asynchronous, and await pauses execution until a Promise resolves, making async code look synchronous.",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "async",
+          "promises"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.122Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "4c64117d383e57d2",
+        "input": "Explain what map() does in JavaScript",
+        "output": "The map() method creates a new array by calling a function on every element in the original array. It transforms each element and returns a new array with the transformed values.",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "arrays",
+          "functional"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.130Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "394cb71241bc2599",
+        "input": "What is a promise in JavaScript?",
+        "output": "A Promise is an object representing the eventual completion or failure of an asynchronous operation. It has three states: pending, fulfilled, or rejected.",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "async",
+          "promises"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.132Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "c21e296f9db33ca2",
+        "input": "How does array destructuring work?",
+        "output": "Array destructuring allows you to unpack values from arrays into distinct variables. Example: const [a, b] = [1, 2] assigns a=1 and b=2.",
+        "useCase": "code-explanation",
+        "tags": [
+          "javascript",
+          "es6",
+          "syntax"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.133Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "944ce0229d97f54f",
+        "input": "What is TypeScript?",
+        "output": "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+        "useCase": "code-explanation",
+        "tags": [
+          "typescript",
+          "javascript"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.177Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ],
+    "summarization": [
+      {
+        "id": "7c7839f33f7d6fe2",
+        "input": "Summarize: Climate change is affecting ecosystems worldwide. Rising temperatures are causing ice caps to melt and sea levels to rise.",
+        "output": "Climate change impacts: melting ice caps, rising seas, ecosystem disruption.",
+        "useCase": "summarization",
+        "tags": [
+          "summary",
+          "climate"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.128Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "6916d336a983b67c",
+        "input": "Summarize: The rapid advancement of artificial intelligence has transformed industries worldwide. Machine learning algorithms now power everything from recommendation systems to autonomous vehicles.",
+        "output": "AI advances drive transformation across industries, powering recommendations and self-driving cars.",
+        "useCase": "summarization",
+        "tags": [
+          "summary",
+          "technology",
+          "ai"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.135Z",
+        "usageCount": 0,
+        "successRate": 0
+      },
+      {
+        "id": "fe374418693ea5af",
+        "input": "Summarize: Climate change is causing global temperatures to rise, leading to melting ice caps, rising sea levels, and more extreme weather events.",
+        "output": "Climate change: rising temps, melting ice, higher seas, extreme weather.",
+        "useCase": "summarization",
+        "tags": [
+          "summary",
+          "climate",
+          "environment"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.139Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ],
+    "math-explanation": [
+      {
+        "id": "ba33ab0678b8fd4c",
+        "input": "Explain the Pythagorean theorem",
+        "output": "The Pythagorean theorem states that in a right triangle, a² + b² = c², where c is the hypotenuse and a and b are the other two sides.",
+        "useCase": "math-explanation",
+        "tags": [
+          "math",
+          "geometry",
+          "theorem"
+        ],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.141Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ],
+    "test": [
+      {
+        "id": "ae8c949d0f4c428f",
+        "input": "Test input",
+        "output": "Test output",
+        "useCase": "test",
+        "tags": [],
+        "metadata": {},
+        "created": "2026-02-13T17:13:18.148Z",
+        "usageCount": 0,
+        "successRate": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,316 @@
+name: Agent Testing Framework
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      testType:
+        description: 'Type of test to run'
+        required: false
+        default: 'all'
+
+env:
+  NODE_VERSION: '18'
+  AGENT_TIMEOUT: '60000'
+  CI: true
+
+jobs:
+  unit-tests:
+    name: Unit Tests - Agent Behavior
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: node tests/test-runner.js
+        timeout-minutes: 25
+        env:
+          AGENT_TIMEOUT: ${{ env.AGENT_TIMEOUT }}
+
+      - name: Upload unit test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-test-results
+          path: tests/results/
+          retention-days: 30
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const resultsPath = 'tests/results';
+            if (fs.existsSync(resultsPath)) {
+              const results = fs.readdirSync(resultsPath)
+                .filter(f => f.endsWith('.json'))
+                .map(f => JSON.parse(fs.readFileSync(`${resultsPath}/${f}`)))
+                .sort((a, b) => b.startTime - a.startTime)[0];
+              
+              if (results) {
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: `## 📊 Agent Test Results\n\n**Unit Tests**: ${results.passed}/${results.totalTests} passed\n**Success Rate**: ${(results.successRate * 100).toFixed(1)}%`
+                });
+              }
+            }
+
+  integration-tests:
+    name: Integration Tests - Multi-Agent Workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    needs: unit-tests
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run integration tests
+        run: node tests/test-runner.js --integration
+        timeout-minutes: 40
+        env:
+          AGENT_TIMEOUT: ${{ env.AGENT_TIMEOUT }}
+
+      - name: Upload integration test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: integration-test-results
+          path: tests/results/
+          retention-days: 30
+
+      - name: Generate quality report
+        if: always()
+        run: node -e "
+          const results = require('fs')
+            .readdirSync('tests/results')
+            .filter(f => f.endsWith('.json'))
+            .map(f => JSON.parse(require('fs').readFileSync('tests/results/' + f)))
+            .sort((a, b) => b.startTime - a.startTime)[0];
+          
+          if (results) {
+            console.log('Quality Metrics:');
+            console.log('- Accuracy:', (results.metrics?.accuracy * 100).toFixed(1) + '%');
+            console.log('- Latency:', results.metrics?.latency.toFixed(0) + 'ms');
+            console.log('- Cost:', '$' + results.metrics?.estimatedCost?.toFixed(4));
+            console.log('- Coherence:', (results.metrics?.coherenceScore * 100).toFixed(1) + '%');
+          }
+        "
+
+  regression-tests:
+    name: Regression Tests - Breaking Changes Detection
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    needs: integration-tests
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch baselines
+        uses: actions/download-artifact@v3
+        with:
+          name: regression-baselines
+          path: tests/baselines
+        continue-on-error: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run regression tests
+        run: node tests/test-runner.js --regression
+        timeout-minutes: 55
+        env:
+          AGENT_TIMEOUT: ${{ env.AGENT_TIMEOUT }}
+
+      - name: Check for regressions
+        if: always()
+        run: node -e "
+          const fs = require('fs');
+          const results = fs.readdirSync('tests/regression-results')
+            .filter(f => f.endsWith('.json'))
+            .map(f => JSON.parse(fs.readFileSync('tests/regression-results/' + f)))
+            .sort((a, b) => b.startTime - a.startTime)[0];
+          
+          if (results && results.regressions > 0) {
+            console.error('❌ Regressions detected:', results.regressions);
+            process.exit(1);
+          } else {
+            console.log('✅ No regressions detected');
+          }
+        "
+
+      - name: Upload regression results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: regression-test-results
+          path: tests/regression-results/
+          retention-days: 30
+
+      - name: Save new baselines
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: regression-baselines
+          path: tests/baselines/
+          retention-days: 90
+
+  quality-check:
+    name: Quality Metrics Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [unit-tests, integration-tests]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate quality metrics
+        run: node -e "
+          const { QualityMetrics } = require('./tests/quality-metrics');
+          const metrics = new QualityMetrics();
+          const report = metrics.generateReport();
+          
+          console.log('Quality Metrics Report:');
+          console.log('========================');
+          console.log('Overall Health:', report.overallHealth);
+          console.log('');
+          
+          if (report.metrics.accuracy) {
+            console.log('Accuracy:', report.metrics.accuracy.status);
+          }
+          if (report.metrics.latency) {
+            console.log('Latency:', report.metrics.latency.status);
+          }
+          if (report.metrics.cost) {
+            console.log('Cost:', report.metrics.cost.status);
+          }
+          if (report.metrics.coherence) {
+            console.log('Coherence:', report.metrics.coherence.status);
+          }
+          
+          console.log('');
+          console.log('Recommendations:');
+          report.recommendations.forEach(rec => console.log('-', rec));
+        "
+
+      - name: Fail if critical metrics
+        run: node -e "
+          const { QualityMetrics } = require('./tests/quality-metrics');
+          const metrics = new QualityMetrics();
+          const report = metrics.generateReport();
+          
+          const criticalStatuses = ['critical'];
+          const hasCritical = Object.values(report.metrics)
+            .some(m => m && criticalStatuses.includes(m.status));
+          
+          if (hasCritical) {
+            console.error('❌ Critical quality metrics detected');
+            process.exit(1);
+          }
+        "
+
+  report:
+    name: Generate Test Report
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [unit-tests, integration-tests, regression-tests, quality-check]
+    if: always()
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: test-artifacts
+
+      - name: Generate summary report
+        run: |
+          echo "# Agent Testing Framework Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Unit Tests**: ${{ needs.unit-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Integration Tests**: ${{ needs.integration-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Regression Tests**: ${{ needs.regression-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Quality Check**: ${{ needs.quality-check.result }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload final report
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report-final
+          path: test-artifacts/
+          retention-days: 60
+
+  notify-on-failure:
+    name: Notify on Failure
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [unit-tests, integration-tests, regression-tests, quality-check]
+    if: failure()
+
+    steps:
+      - name: Create issue for failed tests
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Agent Testing Framework Failed',
+              body: 'The agent testing framework detected failures. See the workflow run for details.',
+              labels: ['test-failure', 'urgent']
+            });
+
+      - name: Post failure notification
+        run: |
+          echo "❌ Agent Testing Framework Failed"
+          echo "Check the workflow for detailed results"

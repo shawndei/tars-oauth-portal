@@ -1,0 +1,319 @@
+{
+  "version": "1.0.0",
+  "project": "TARS - Task Automation and Response System",
+  "description": "Comprehensive documentation and training system for TARS capabilities",
+  "author": "Shawn",
+  "created": "2026-02-13",
+  "lastUpdated": "2026-02-13",
+  "documentation": {
+    "skillsDirectory": "./skills",
+    "outputDirectory": "./docs",
+    "templatesDirectory": "./docs/templates",
+    "assetsDirectory": "./docs/assets"
+  },
+  "documentationTypes": {
+    "userGuides": {
+      "enabled": true,
+      "outputPath": "./docs/user-guide",
+      "template": "user-guide.md",
+      "includeExamples": true,
+      "includeTroubleshooting": true
+    },
+    "developerGuides": {
+      "enabled": true,
+      "outputPath": "./docs/developer-guide",
+      "template": "dev-guide.md",
+      "includeArchitecture": true,
+      "includeCodeExamples": true,
+      "includeBestPractices": true
+    },
+    "apiReference": {
+      "enabled": true,
+      "outputPath": "./docs/api-reference",
+      "template": "api-reference.md",
+      "includeParameters": true,
+      "includeReturnValues": true,
+      "includeExamples": true,
+      "includeErrorCodes": true
+    },
+    "troubleshootingGuides": {
+      "enabled": true,
+      "outputPath": "./docs/troubleshooting",
+      "template": "troubleshooting.md",
+      "includeCommonIssues": true,
+      "includeSolutions": true,
+      "includeRecoveryProcedures": true
+    },
+    "quickStartGuides": {
+      "enabled": true,
+      "outputPath": "./docs/quick-start",
+      "template": "quickstart.md",
+      "includePrerequisites": true,
+      "includeStepByStep": true,
+      "estimatedTime": "10-15 minutes"
+    },
+    "trainingMaterials": {
+      "enabled": true,
+      "outputPath": "./docs/training",
+      "types": [
+        {
+          "type": "videoScripts",
+          "outputPath": "./docs/training/video-scripts",
+          "duration": "5-15 minutes per video",
+          "template": "video-script.md"
+        },
+        {
+          "type": "interactiveTutorials",
+          "outputPath": "./docs/training/tutorials",
+          "duration": "15-30 minutes",
+          "template": "tutorial.md"
+        },
+        {
+          "type": "useCases",
+          "outputPath": "./docs/training/use-cases",
+          "template": "use-case.md",
+          "difficultyLevels": ["beginner", "intermediate", "advanced"]
+        },
+        {
+          "type": "bestPractices",
+          "outputPath": "./docs/training/best-practices",
+          "template": "best-practices.md",
+          "categories": ["performance", "security", "maintainability"]
+        }
+      ]
+    }
+  },
+  "autoGeneration": {
+    "enabled": true,
+    "frequency": "on-change",
+    "watchSkillsDirectory": true,
+    "triggerEvents": ["skill-added", "skill-updated", "skill-removed"],
+    "validateOnGeneration": true,
+    "backupBeforeGeneration": true,
+    "parallelGeneration": true,
+    "maxWorkers": 4
+  },
+  "output": {
+    "formats": ["markdown", "html"],
+    "markdown": {
+      "enabled": true,
+      "includeTableOfContents": true,
+      "includeLinks": true,
+      "codeHighlighting": true
+    },
+    "html": {
+      "enabled": false,
+      "theme": "default",
+      "responsive": true,
+      "darkMode": true,
+      "searchable": true
+    },
+    "general": {
+      "includeExamples": true,
+      "includeImages": true,
+      "includeVideos": true,
+      "createSearchIndex": true,
+      "createSitemap": true
+    }
+  },
+  "quality": {
+    "validateLinks": true,
+    "checkSpelling": false,
+    "enforceStructure": true,
+    "validateCodeExamples": false,
+    "minimumDocumentationCoverage": 80,
+    "minimumExampleCoverage": 70
+  },
+  "skillMetadata": {
+    "requiredFields": [
+      "name",
+      "version",
+      "status",
+      "description",
+      "overview",
+      "capabilities",
+      "usage",
+      "examples"
+    ],
+    "optionalFields": [
+      "dependencies",
+      "relatedSkills",
+      "performance",
+      "limitations",
+      "roadmap"
+    ]
+  },
+  "skills": [
+    {
+      "name": "context-triggers",
+      "category": "automation",
+      "description": "Trigger actions based on context changes"
+    },
+    {
+      "name": "continuous-learning",
+      "category": "intelligence",
+      "description": "Continuously improve TARS capabilities"
+    },
+    {
+      "name": "deep-research",
+      "category": "research",
+      "description": "Conduct deep research on topics"
+    },
+    {
+      "name": "deep-researcher",
+      "category": "research",
+      "description": "Advanced research capabilities"
+    },
+    {
+      "name": "error-recovery",
+      "category": "reliability",
+      "description": "Recover from errors automatically"
+    },
+    {
+      "name": "load-testing",
+      "category": "testing",
+      "description": "Performance and load testing"
+    },
+    {
+      "name": "multi-agent-orchestration",
+      "category": "orchestration",
+      "description": "Coordinate multiple agents"
+    },
+    {
+      "name": "multi-agent-orchestrator",
+      "category": "orchestration",
+      "description": "Advanced agent orchestration"
+    },
+    {
+      "name": "multi-channel-notifications",
+      "category": "communication",
+      "description": "Send notifications across channels"
+    },
+    {
+      "name": "notification-router",
+      "category": "communication",
+      "description": "Route notifications intelligently"
+    },
+    {
+      "name": "predictive-scheduler",
+      "category": "scheduling",
+      "description": "Schedule tasks predictively"
+    },
+    {
+      "name": "predictive-scheduling",
+      "category": "scheduling",
+      "description": "Advanced predictive scheduling"
+    },
+    {
+      "name": "proactive-intelligence",
+      "category": "intelligence",
+      "description": "Proactive problem detection"
+    },
+    {
+      "name": "rate-limiter",
+      "category": "optimization",
+      "description": "Rate limit requests"
+    },
+    {
+      "name": "rate-limiting",
+      "category": "optimization",
+      "description": "Advanced rate limiting"
+    },
+    {
+      "name": "self-healing",
+      "category": "reliability",
+      "description": "Self-healing recovery"
+    },
+    {
+      "name": "self-healing-recovery",
+      "category": "reliability",
+      "description": "Advanced self-healing"
+    },
+    {
+      "name": "task-decomposer",
+      "category": "task-management",
+      "description": "Decompose complex tasks"
+    },
+    {
+      "name": "webhook-automation",
+      "category": "automation",
+      "description": "Automate via webhooks"
+    },
+    {
+      "name": "documentation-system",
+      "category": "documentation",
+      "description": "Documentation and training system"
+    }
+  ],
+  "sectionHeaders": {
+    "overview": "Overview",
+    "capabilities": "Capabilities",
+    "features": "Features",
+    "usage": "Usage",
+    "examples": "Examples",
+    "apiReference": "API Reference",
+    "parameters": "Parameters",
+    "returnValues": "Return Values",
+    "errors": "Error Handling",
+    "troubleshooting": "Troubleshooting",
+    "relatedSkills": "Related Skills",
+    "bestPractices": "Best Practices",
+    "quickStart": "Quick Start",
+    "architecture": "Architecture"
+  },
+  "templates": {
+    "skillIndex": "skill-index.md",
+    "userGuide": "user-guide.md",
+    "developerGuide": "dev-guide.md",
+    "apiReference": "api-reference.md",
+    "troubleshooting": "troubleshooting.md",
+    "quickStart": "quickstart.md",
+    "videoScript": "video-script.md",
+    "tutorial": "tutorial.md",
+    "useCase": "use-case.md",
+    "bestPractices": "best-practices.md"
+  },
+  "searchIndex": {
+    "enabled": true,
+    "format": "json",
+    "includeHeadings": true,
+    "includeContent": true,
+    "updateFrequency": "on-change"
+  },
+  "performance": {
+    "parallelGeneration": true,
+    "maxWorkers": 4,
+    "cacheGeneratedDocs": true,
+    "incrementalGeneration": true,
+    "timeoutSeconds": 300
+  },
+  "validation": {
+    "validateMarkdown": true,
+    "validateLinks": true,
+    "validateCodeSyntax": false,
+    "strictMode": false,
+    "warningsAsErrors": false
+  },
+  "publishing": {
+    "enabled": false,
+    "targets": [
+      {
+        "name": "local",
+        "type": "filesystem",
+        "path": "./docs"
+      }
+    ],
+    "formats": ["markdown", "html"]
+  },
+  "logging": {
+    "level": "info",
+    "file": "./logs/documentation.log",
+    "console": true,
+    "timestamps": true
+  },
+  "metadata": {
+    "generated": "2026-02-13T08:23:00Z",
+    "schema": "1.0.0",
+    "type": "documentation-configuration"
+  }
+}

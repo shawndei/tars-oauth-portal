@@ -1,0 +1,12 @@
+Subject: Re: {subject}
+
+Hi {sender_name},
+
+Thanks for reaching out. Here's what I found regarding your question:
+
+{context}
+
+Please let me know if you need any clarification or have follow-up questions.
+
+Best regards,
+{name}

@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-02-13T08:24:00Z",
+  "total_entries": 0,
+  "entries": [],
+  "search_index": {
+    "by_category": {},
+    "by_tag": {},
+    "full_text": {}
+  },
+  "statistics": {
+    "total_entries": 0,
+    "categories": [],
+    "num_tags": 0,
+    "top_tags": [],
+    "total_relationships": 0,
+    "orphaned_count": 0,
+    "broken_links_count": 0
+  },
+  "metadata": {
+    "last_generated": "2026-02-13T08:24:00Z",
+    "indexed_files": [],
+    "generation_time_ms": 0
+  }
+}

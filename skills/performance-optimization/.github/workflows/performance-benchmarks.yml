@@ -1,0 +1,135 @@
+name: Performance Benchmarks
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight UTC
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  benchmark:
+    name: Run Performance Benchmarks
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Full history for trend analysis
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run benchmark tests (validation)
+        run: node skills/performance-optimization/tests/test-framework.js
+
+      - name: Run performance benchmarks
+        run: node skills/performance-optimization/tests/benchmarks/benchmark-runner.js --compare
+        continue-on-error: true
+        id: benchmark
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v3
+        with:
+          name: benchmark-reports-${{ github.run_number }}
+          path: skills/performance-optimization/tests/benchmarks/reports/
+          retention-days: 90
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const reportPath = 'skills/performance-optimization/tests/benchmarks/reports/latest.json';
+            
+            if (fs.existsSync(reportPath)) {
+              const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+              
+              let comment = '## 🚀 Performance Benchmark Results\n\n';
+              comment += `**Total Tests:** ${report.summary.totalTests}\n`;
+              comment += `**Total Operations:** ${report.summary.totalOperations}\n`;
+              
+              if (report.regressions.hasRegressions) {
+                comment += `\n### ⚠️ Regressions Detected\n`;
+                comment += `- 🔴 Critical: ${report.summary.criticalRegressions}\n`;
+                comment += `- 🟡 Warning: ${report.summary.warningRegressions}\n`;
+                
+                if (report.summary.criticalRegressions > 0) {
+                  comment += `\n**Critical Regressions:**\n`;
+                  report.regressions.regressions
+                    .filter(r => r.severity === 'CRITICAL')
+                    .slice(0, 5)
+                    .forEach(r => {
+                      comment += `- ${r.test} (${r.metric}): ${r.change}\n`;
+                    });
+                }
+              } else {
+                comment += `\n### ✅ No Regressions Detected\n`;
+              }
+              
+              if (report.summary.improvements > 0) {
+                comment += `\n### 📈 Improvements: ${report.summary.improvements}\n`;
+              }
+              
+              comment += `\n[View Full Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\n`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }
+
+      - name: Check for critical regressions
+        if: steps.benchmark.outcome == 'failure'
+        run: |
+          echo "::error::Critical performance regressions detected!"
+          exit 1
+
+      - name: Update baseline on improvement
+        if: github.ref == 'refs/heads/main' && steps.benchmark.outcome == 'success'
+        run: |
+          node skills/performance-optimization/tests/benchmarks/benchmark-runner.js --update-baseline
+          
+          # Commit updated baseline if changed
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add skills/performance-optimization/tests/benchmarks/baselines/
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update performance baseline [skip ci]"
+          git push
+
+  trend-analysis:
+    name: Performance Trend Analysis
+    needs: benchmark
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download historical reports
+        uses: actions/download-artifact@v3
+        with:
+          path: historical-reports/
+
+      - name: Analyze trends
+        run: |
+          echo "Analyzing performance trends over time..."
+          # Add trend analysis script here if needed
+
+      - name: Generate trend report
+        run: |
+          echo "Generating weekly performance trend report..."
+          # Add report generation logic

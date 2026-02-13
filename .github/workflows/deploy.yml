@@ -1,47 +1,57 @@
-name: Deploy to Vercel
+name: Deploy to Production
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  build:
+  test-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Run tests
-        run: npm test
-      
-      - name: Build
-        run: npm run build
+          node-version: '20'
+      - run: cd backend && npm ci
+      - run: cd backend && npm run build
+      - run: cd backend && npm test --if-present
 
-  deploy:
-    needs: build
+  test-frontend:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v20
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: cd frontend && npm ci
+      - run: cd frontend && npm run build
+      - run: cd frontend && npm test --if-present
+
+  deploy-frontend:
+    needs: test-frontend
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: vercel/action@main
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          production: true
-          env: |
-            NEXT_PUBLIC_BACKEND_URL=https://tars-oauth-api.railway.app
+          working-directory: frontend
+
+  deploy-backend:
+    needs: test-backend
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          npm install -g railway
+          cd backend
+          railway up

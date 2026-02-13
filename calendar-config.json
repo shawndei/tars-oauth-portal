@@ -1,0 +1,37 @@
+{
+  "oauth": {
+    "tokenEndpoint": "https://tars-oauth-api.railway.app/tokens/google",
+    "refreshEndpoint": "https://tars-oauth-api.railway.app/auth/google/refresh"
+  },
+  "defaults": {
+    "calendarId": "primary",
+    "timeZone": "America/Mazatlan",
+    "maxResults": 100
+  },
+  "meeting_prep": {
+    "enabled": true,
+    "lead_time_minutes": 30,
+    "include_attendee_research": true,
+    "include_context_documents": false
+  },
+  "morning_briefing": {
+    "enabled": true,
+    "days_ahead": 1,
+    "categories": ["meeting", "deadline", "appointment", "call"]
+  },
+  "working_hours": {
+    "start": 9,
+    "end": 17,
+    "days": ["mon", "tue", "wed", "thu", "fri"]
+  },
+  "scheduling": {
+    "default_duration": 60,
+    "buffer_before": 15,
+    "buffer_after": 15,
+    "preferred_days": ["mon", "tue", "wed", "thu"],
+    "preferred_hours": {
+      "start": 10,
+      "end": 16
+    }
+  }
+}

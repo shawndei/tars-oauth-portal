@@ -1,0 +1,127 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-02-13T08:14:00Z",
+  "analysisWindow": 30,
+  "timezone": "America/Mazatlan",
+  "predictions": [
+    {
+      "id": "pred-weekly-market",
+      "pattern": "weekly-market-update",
+      "type": "frequency-based",
+      "description": "User requests market/stock information every Friday afternoon",
+      "occurrences": 4,
+      "confidence": 0.78,
+      "schedule": {
+        "cronExpression": "0 16 * * 5",
+        "readable": "4:00 PM on Fridays",
+        "timezone": "America/Mazatlan"
+      },
+      "action": "Fetch latest market trends, portfolio updates, analyze market positioning",
+      "autoSchedule": false,
+      "requiresConfirmation": true,
+      "metadata": {
+        "avgTime": "16:00",
+        "dayPattern": "Friday only",
+        "timeVariance": "±45 minutes",
+        "lastOccurrence": "2026-02-13T16:15:00Z",
+        "learnedFrom": "memory analysis",
+        "confidenceFactors": {
+          "frequency": 0.4,
+          "consistency": 0.25,
+          "recency": 0.13
+        }
+      }
+    },
+    {
+      "id": "pred-meeting-prep",
+      "pattern": "pre-meeting-preparation",
+      "type": "event-based",
+      "description": "User reviews meeting context 30-45 minutes before calendar events",
+      "occurrences": 15,
+      "confidence": 0.88,
+      "schedule": {
+        "cronExpression": "calendar-trigger",
+        "readable": "35 minutes before calendar event",
+        "offset": -35,
+        "offsetUnit": "minutes",
+        "timezone": "America/Mazatlan"
+      },
+      "action": "Pull meeting notes, prepare briefing document, display event agenda and participants",
+      "autoSchedule": true,
+      "requiresConfirmation": false,
+      "metadata": {
+        "avgOffset": "-35 minutes",
+        "consistency": "±10 minutes",
+        "dayPattern": "all days",
+        "lastOccurrence": "2026-02-13T09:35:00Z",
+        "learnedFrom": "memory analysis + calendar events",
+        "confidenceFactors": {
+          "frequency": 0.4,
+          "consistency": 0.35,
+          "recency": 0.13
+        }
+      }
+    },
+    {
+      "id": "pred-daily-review",
+      "pattern": "end-of-day-summary",
+      "type": "time-based",
+      "description": "User reviews daily accomplishments and pending tasks around 6 PM weekdays",
+      "occurrences": 18,
+      "confidence": 0.85,
+      "schedule": {
+        "cronExpression": "0 18 * * 1-5",
+        "readable": "6:00 PM Monday-Friday",
+        "timezone": "America/Mazatlan"
+      },
+      "action": "Generate daily accomplishment summary, list pending tasks for tomorrow, suggest time blocks",
+      "autoSchedule": true,
+      "requiresConfirmation": false,
+      "metadata": {
+        "avgTime": "18:00",
+        "dayPattern": "weekdays only",
+        "timeVariance": "±30 minutes",
+        "lastOccurrence": "2026-02-12T18:15:00Z",
+        "learnedFrom": "memory analysis + TASKS.md history",
+        "confidenceFactors": {
+          "frequency": 0.4,
+          "consistency": 0.3,
+          "recency": 0.15
+        }
+      }
+    }
+  ],
+  "scheduledTasks": [
+    {
+      "id": "task-test-5min",
+      "name": "Test: Log timestamp every 5 minutes",
+      "description": "Test scheduled task execution - logs current time to verify scheduler works",
+      "pattern": "test-5-minute-interval",
+      "schedule": {
+        "cronExpression": "*/5 * * * *",
+        "readable": "Every 5 minutes",
+        "timezone": "America/Mazatlan"
+      },
+      "action": "Log current timestamp to memory/scheduled-test.log",
+      "createdAt": "2026-02-13T08:14:00Z",
+      "enabled": true,
+      "confidence": 1.0,
+      "metadata": {
+        "testId": "SCHEDULE-TEST-001",
+        "purpose": "Verify predictive scheduling system execution",
+        "expectedRunsPerDay": 288,
+        "logLocation": "memory/scheduled-test.log"
+      }
+    }
+  ],
+  "summary": {
+    "totalPredictions": 3,
+    "highConfidence": 2,
+    "mediumConfidence": 1,
+    "autoSchedulable": 2,
+    "requiresApproval": 1,
+    "activeTasks": 1,
+    "lastAnalyzed": "2026-02-13T08:14:00Z",
+    "nextAnalysis": "2026-02-20T08:14:00Z"
+  }
+}

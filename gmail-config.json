@@ -1,0 +1,26 @@
+{
+  "oauth": {
+    "tokenEndpoint": "https://tars-oauth-api.railway.app/tokens/google",
+    "refreshEndpoint": "https://tars-oauth-api.railway.app/auth/google/refresh"
+  },
+  "defaults": {
+    "maxResults": 50,
+    "pageSize": 100,
+    "labelIds": ["INBOX", "UNREAD"]
+  },
+  "morning_briefing": {
+    "enabled": true,
+    "hours_lookback": 12,
+    "max_emails": 20,
+    "categories": ["work", "personal", "finance", "notifications", "newsletters"]
+  },
+  "filters": {
+    "work": ["project", "meeting", "deadline", "review", "approval", "sprint", "task", "team"],
+    "finance": ["invoice", "payment", "bill", "receipt", "bank", "transaction", "refund"],
+    "notifications": ["notification", "alert", "confirm", "subscription", "reminder"]
+  },
+  "vips": [
+    "boss@company.com",
+    "important@client.com"
+  ]
+}

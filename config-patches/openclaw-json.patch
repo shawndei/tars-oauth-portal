@@ -1,0 +1,75 @@
+{
+  "description": "WhatsApp Channel Routing Fix - openclaw.json patches",
+  "patches": [
+    {
+      "path": "agents.defaults.subagents",
+      "add": {
+        "contextPreservation": {
+          "preserveSourceChannel": true,
+          "preserveChannelMetadata": true,
+          "failoverStrategy": "source-first",
+          "preservationChecks": {
+            "onSpawn": true,
+            "onResponse": true,
+            "onFork": true
+          }
+        }
+      },
+      "rationale": "Preserve channel context when spawning sub-agents"
+    },
+    {
+      "path": "channels.whatsapp",
+      "add": {
+        "sourceChannelAffinity": {
+          "enabled": true,
+          "priority": 100,
+          "replyToSourceFirst": true
+        },
+        "healthCheck": {
+          "enabled": true,
+          "intervalSeconds": 30,
+          "timeoutSeconds": 5,
+          "retryOnFailure": true,
+          "maxFailuresBeforeDown": 3,
+          "autoReconnect": true,
+          "reconnectDelayMs": 5000
+        },
+        "connectionMonitoring": {
+          "enabled": true,
+          "logStatus": true,
+          "alertOnDown": true
+        }
+      },
+      "rationale": "Add health monitoring and channel affinity for WhatsApp"
+    },
+    {
+      "path": "tools.elevated.allowFrom",
+      "keep": true,
+      "rationale": "Preserve existing elevated access config"
+    },
+    {
+      "path": "messages",
+      "add": {
+        "channelAffinity": {
+          "enabled": true,
+          "sourceChannelPriority": 100,
+          "preferSourceOverDefault": true,
+          "auditLogging": {
+            "enabled": true,
+            "logFile": "logs/channel-routing.jsonl",
+            "trackSource": true,
+            "trackDestination": true,
+            "trackDecisionLogic": true,
+            "trackConnectionStatus": true,
+            "trackExecutionTime": true
+          }
+        }
+      },
+      "rationale": "Add channel affinity and audit logging config for message tool"
+    }
+  ],
+  "appliedDate": "2026-02-13T13:10:00Z",
+  "appliedBy": "whatsapp-routing-fix-subagent",
+  "requiresRestart": true,
+  "backupRequired": true
+}

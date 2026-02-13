@@ -1,0 +1,344 @@
+{
+  "version": "1.0",
+  "created": "2026-02-13T08:23:00Z",
+  "description": "Load Test Scenarios for TARS Multi-Agent System",
+  "scenarios": {
+    "baseline-single-request": {
+      "name": "Baseline: Single Request",
+      "description": "Single sequential request to establish baseline metrics",
+      "type": "sequential",
+      "concurrency": 1,
+      "duration": 5000,
+      "rampUp": false,
+      "metrics": ["response_time", "memory", "success_rate"],
+      "expectedResults": {
+        "avgResponseTime": "2-3 seconds",
+        "throughput": "0.3-0.5 req/sec",
+        "successRate": "99.9%",
+        "memoryUsage": "~150 MB"
+      }
+    },
+    "http-concurrent-10": {
+      "name": "Concurrent Requests: 10",
+      "description": "10 concurrent HTTP requests with single agent",
+      "type": "concurrent",
+      "concurrency": 10,
+      "duration": 10000,
+      "rampUp": false,
+      "metrics": ["response_time", "throughput", "memory", "error_rate"],
+      "expectedResults": {
+        "avgResponseTime": "2-3 seconds",
+        "throughput": "3-5 req/sec",
+        "successRate": "98%",
+        "memoryUsage": "~200 MB"
+      }
+    },
+    "http-concurrent-25": {
+      "name": "Concurrent Requests: 25",
+      "description": "25 concurrent HTTP requests with single agent",
+      "type": "concurrent",
+      "concurrency": 25,
+      "duration": 10000,
+      "rampUp": false,
+      "metrics": ["response_time", "throughput", "memory", "error_rate", "p95", "p99"],
+      "expectedResults": {
+        "avgResponseTime": "2-3 seconds",
+        "throughput": "8-12 req/sec",
+        "successRate": "97%",
+        "memoryUsage": "~300 MB",
+        "p99": "~8 seconds"
+      }
+    },
+    "http-concurrent-50": {
+      "name": "Concurrent Requests: 50",
+      "description": "50 concurrent HTTP requests testing single agent limits",
+      "type": "concurrent",
+      "concurrency": 50,
+      "duration": 15000,
+      "rampUp": false,
+      "metrics": ["response_time", "throughput", "memory", "error_rate", "p95", "p99"],
+      "expectedResults": {
+        "avgResponseTime": "2-4 seconds",
+        "throughput": "10-20 req/sec",
+        "successRate": "96%",
+        "memoryUsage": "~400 MB",
+        "p99": "~12 seconds"
+      }
+    },
+    "http-concurrent-100": {
+      "name": "Concurrent Requests: 100",
+      "description": "100 concurrent HTTP requests (stress test)",
+      "type": "concurrent",
+      "concurrency": 100,
+      "duration": 20000,
+      "rampUp": false,
+      "metrics": ["response_time", "throughput", "memory", "error_rate", "p95", "p99"],
+      "expectedResults": {
+        "avgResponseTime": "3-5 seconds",
+        "throughput": "15-30 req/sec",
+        "successRate": "93-95%",
+        "memoryUsage": "~500-600 MB",
+        "p99": "~15 seconds"
+      }
+    },
+    "ramp-up-test": {
+      "name": "Ramp-up Load Test",
+      "description": "Gradually increase load from 1 to 100 concurrent requests",
+      "type": "ramp-up",
+      "concurrency": {
+        "start": 1,
+        "end": 100,
+        "step": 10,
+        "stepDuration": 5000
+      },
+      "duration": 50000,
+      "metrics": ["response_time", "throughput", "memory", "degradation_point"],
+      "expectedResults": {
+        "degradationPoint": "50-75 concurrent",
+        "linearScaling": true,
+        "memoryTrajectory": "linear growth"
+      }
+    },
+    "multi-agent-5": {
+      "name": "Multi-Agent: 5 Agents",
+      "description": "5 sub-agents processing 50 concurrent tasks",
+      "type": "multi-agent",
+      "agents": 5,
+      "tasksPerAgent": 10,
+      "concurrency": 50,
+      "duration": 15000,
+      "metrics": ["agent_throughput", "memory_per_agent", "task_completion_rate", "inter_agent_latency"],
+      "expectedResults": {
+        "totalTasks": 50,
+        "completionRate": "98%",
+        "avgThroughput": "3-4 tasks/agent/sec",
+        "totalMemory": "~400 MB"
+      }
+    },
+    "multi-agent-10": {
+      "name": "Multi-Agent: 10 Agents",
+      "description": "10 sub-agents processing 100 concurrent tasks",
+      "type": "multi-agent",
+      "agents": 10,
+      "tasksPerAgent": 10,
+      "concurrency": 100,
+      "duration": 20000,
+      "metrics": ["agent_throughput", "memory_per_agent", "task_completion_rate", "scaling_efficiency"],
+      "expectedResults": {
+        "totalTasks": 100,
+        "completionRate": "97%",
+        "avgThroughput": "5-6 tasks/agent/sec",
+        "scalingEfficiency": "0.95",
+        "totalMemory": "~600 MB"
+      }
+    },
+    "memory-profile-short": {
+      "name": "Memory Profile: Short Run",
+      "description": "Profile memory usage over 30 seconds with 20 concurrent requests",
+      "type": "memory-profile",
+      "concurrency": 20,
+      "duration": 30000,
+      "samplingInterval": 100,
+      "metrics": ["heap_used", "heap_total", "external", "rss", "growth_rate", "gc_events"],
+      "expectedResults": {
+        "peakHeap": "~300 MB",
+        "averageHeap": "~200 MB",
+        "growthRate": "<10 MB/sec",
+        "leakIndication": false
+      }
+    },
+    "memory-profile-long": {
+      "name": "Memory Profile: Long Run",
+      "description": "Profile memory usage over 5 minutes with sustained load",
+      "type": "memory-profile",
+      "concurrency": 30,
+      "duration": 300000,
+      "samplingInterval": 500,
+      "metrics": ["heap_used", "heap_total", "external", "rss", "growth_rate", "gc_events", "leak_detection"],
+      "expectedResults": {
+        "peakHeap": "~400 MB",
+        "averageHeap": "~300 MB",
+        "growthRate": "<5 MB/sec sustained",
+        "leakIndication": false,
+        "gcFrequency": "every 30-60 seconds"
+      }
+    },
+    "response-degradation": {
+      "name": "Response Time Degradation",
+      "description": "Measure how response times degrade as concurrency increases",
+      "type": "degradation-analysis",
+      "concurrencies": [1, 5, 10, 25, 50, 75, 100],
+      "duration": 10000,
+      "metrics": ["avg_response", "p50", "p95", "p99", "throughput"],
+      "expectedResults": {
+        "linearGrowth": true,
+        "maxDegradation": "150%",
+        "bottleneckConcurrency": "50-75"
+      }
+    },
+    "error-rate-analysis": {
+      "name": "Error Rate Analysis",
+      "description": "Identify at what load errors start occurring",
+      "type": "error-analysis",
+      "concurrencies": [10, 25, 50, 75, 100, 125, 150],
+      "duration": 10000,
+      "metrics": ["error_rate", "error_types", "timeout_rate", "failure_point"],
+      "expectedResults": {
+        "acceptableUpTo": "75-100 concurrent",
+        "errorThreshold": "5%",
+        "criticalConcurrency": "150+"
+      }
+    },
+    "api-rate-limiting": {
+      "name": "API Rate Limit Test",
+      "description": "Test behavior under API rate limiting conditions",
+      "type": "rate-limit-test",
+      "concurrency": 50,
+      "duration": 30000,
+      "apiRateLimit": 1000,
+      "metrics": ["backoff_effectiveness", "queue_depth", "retry_success_rate", "queueing_delay"],
+      "expectedResults": {
+        "retrySuccessRate": "98%+",
+        "backoffEffectiveness": "95%+",
+        "avgQueueDelay": "<5 seconds"
+      }
+    },
+    "graceful-degradation": {
+      "name": "Graceful Degradation Test",
+      "description": "Test system behavior during overload with degradation",
+      "type": "degradation-test",
+      "concurrency": 150,
+      "duration": 30000,
+      "degradationMode": true,
+      "metrics": ["mode_switch_point", "latency_trade_off", "quality_score", "throughput_improvement"],
+      "expectedResults": {
+        "modeSwitchAt": "80 concurrent",
+        "throughputImprovement": "20-30%",
+        "qualityDegradation": "acceptable",
+        "successRate": "95%+"
+      }
+    },
+    "concurrent-agents-spawn": {
+      "name": "Concurrent Agent Spawning",
+      "description": "Test rapid spawning and destruction of sub-agents",
+      "type": "agent-lifecycle",
+      "spawnRate": 5,
+      "maxAgents": 20,
+      "duration": 30000,
+      "metrics": ["spawn_latency", "warmup_time", "memory_per_agent", "spawn_success_rate"],
+      "expectedResults": {
+        "avgSpawnLatency": "<500ms",
+        "warmupTime": "1-2 seconds",
+        "spawnSuccessRate": "99%+",
+        "memoryPerAgent": "~50 MB"
+      }
+    },
+    "queue-overflow": {
+      "name": "Queue Overflow Test",
+      "description": "Test system behavior when task queue exceeds capacity",
+      "type": "queue-test",
+      "concurrency": 200,
+      "maxQueueDepth": 100,
+      "duration": 20000,
+      "metrics": ["overflow_handling", "rejection_rate", "backpressure_effectiveness"],
+      "expectedResults": {
+        "gracefulRejection": true,
+        "rejectionRate": "reasonable",
+        "backpressureSignal": "clear"
+      }
+    },
+    "cache-efficiency": {
+      "name": "Cache Efficiency Test",
+      "description": "Measure impact of caching on repeated requests",
+      "type": "cache-test",
+      "concurrency": 50,
+      "duration": 20000,
+      "cacheEnabled": true,
+      "metrics": ["cache_hit_rate", "response_time_improvement", "memory_overhead"],
+      "expectedResults": {
+        "cacheHitRate": "60-80%",
+        "responseImprovement": "40-50%",
+        "memoryOverhead": "10-20 MB"
+      }
+    },
+    "stress-test-120-seconds": {
+      "name": "Stress Test: 120 Seconds",
+      "description": "Extended stress test with 75 concurrent requests",
+      "type": "stress-test",
+      "concurrency": 75,
+      "duration": 120000,
+      "metrics": ["stability", "memory_stability", "throughput_variance", "error_accumulation"],
+      "expectedResults": {
+        "stableThroughput": true,
+        "memoryStable": "within 10% of baseline",
+        "cumulativeErrorRate": "<2%"
+      }
+    }
+  },
+  "testEnvironment": {
+    "system": "TARS Multi-Agent System",
+    "timestamp": "2026-02-13T08:23:00Z",
+    "agentConfiguration": {
+      "mainAgents": 1,
+      "subAgents": 5,
+      "totalCapacity": "6 agents"
+    },
+    "apiConfiguration": {
+      "openai": "enabled",
+      "braveSearch": "enabled",
+      "browserAutomation": "enabled",
+      "rateLimit": "10k req/hour"
+    }
+  },
+  "performanceTargets": {
+    "throughput": {
+      "minimum": 5,
+      "target": 15,
+      "optimal": 30,
+      "unit": "requests/second"
+    },
+    "latency": {
+      "p50": "<2 seconds",
+      "p95": "<5 seconds",
+      "p99": "<10 seconds",
+      "unit": "seconds"
+    },
+    "reliability": {
+      "errorRate": "<2%",
+      "availability": "99%+",
+      "scaling": "linear"
+    },
+    "resources": {
+      "memoryPeak": "<1 GB",
+      "memoryAvg": "<400 MB",
+      "cpuUtilization": "balanced"
+    }
+  },
+  "scalingBenchmarks": {
+    "concurrency_1": {
+      "agents": 1,
+      "expectedThroughput": "0.5 req/sec",
+      "expectedLatency": "2 seconds avg"
+    },
+    "concurrency_10": {
+      "agents": 1,
+      "expectedThroughput": "5 req/sec",
+      "expectedLatency": "2 seconds avg"
+    },
+    "concurrency_50": {
+      "agents": 5,
+      "expectedThroughput": "20 req/sec",
+      "expectedLatency": "2-3 seconds avg"
+    },
+    "concurrency_100": {
+      "agents": 10,
+      "expectedThroughput": "40 req/sec",
+      "expectedLatency": "2-3 seconds avg"
+    },
+    "concurrency_150": {
+      "agents": 15,
+      "expectedThroughput": "50 req/sec",
+      "expectedLatency": "3-4 seconds avg"
+    }
+  }
+}

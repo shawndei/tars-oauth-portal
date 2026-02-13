@@ -1,0 +1,30 @@
+{
+  "name": "knowledge-graph-builder",
+  "version": "1.0.0",
+  "description": "Advanced knowledge graph construction, querying, and reasoning system",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "build": "node index.js build",
+    "query": "node index.js query",
+    "visualize": "node index.js visualize"
+  },
+  "keywords": [
+    "knowledge-graph",
+    "entity-extraction",
+    "relationship-detection",
+    "graph-database",
+    "semantic-reasoning",
+    "NLP"
+  ],
+  "author": "TARS",
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^4.20.0",
+    "neo4j-driver": "^5.15.0",
+    "compromise": "^14.10.0",
+    "natural": "^6.10.0",
+    "d3": "^7.8.5",
+    "jsdom": "^23.0.0"
+  }
+}

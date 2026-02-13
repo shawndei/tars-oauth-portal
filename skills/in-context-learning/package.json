@@ -1,0 +1,28 @@
+{
+  "name": "in-context-learning-skill",
+  "version": "1.0.0",
+  "description": "Few-shot learning system with intelligent example selection and performance tracking",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/test-suite.js"
+  },
+  "keywords": [
+    "few-shot",
+    "in-context-learning",
+    "prompt-engineering",
+    "llm",
+    "ai",
+    "machine-learning",
+    "examples",
+    "agent-skills"
+  ],
+  "author": "OpenClaw Agent System",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "openclaw/skills/in-context-learning"
+  }
+}

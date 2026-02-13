@@ -1,0 +1,10 @@
+Subject: Re: {subject}
+
+Hi {sender_name},
+
+Thank you for your email. I've received your message and wanted to confirm that I'm looking into it.
+
+I'll get back to you with a full response shortly.
+
+Best regards,
+{name}

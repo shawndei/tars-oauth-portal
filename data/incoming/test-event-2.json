@@ -1,0 +1,8 @@
+{
+  "id": "test-002",
+  "type": "log-entry",
+  "timestamp": "2026-02-13T16:31:00Z",
+  "level": "INFO",
+  "message": "Application started successfully",
+  "service": "web-api"
+}

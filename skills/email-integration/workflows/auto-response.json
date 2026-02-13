@@ -1,0 +1,99 @@
+{
+  "name": "auto-response",
+  "description": "Automated email response workflow with approval gate",
+  "version": "1.0",
+  "trigger": "manual_or_scheduled",
+  "steps": [
+    {
+      "id": "receive_request",
+      "action": "receive_email_request",
+      "params": {
+        "source": "user_or_api"
+      }
+    },
+    {
+      "id": "find_email",
+      "action": "find_email",
+      "params": {
+        "email_id": "${receive_request.email_id}",
+        "account": "primary"
+      }
+    },
+    {
+      "id": "classify_response",
+      "action": "classify_response_type",
+      "params": {
+        "email": "${find_email.result}",
+        "suggested_types": ["acknowledge", "answer", "escalate", "fyi", "follow_up"]
+      }
+    },
+    {
+      "id": "draft_response",
+      "action": "draft_response",
+      "params": {
+        "email_id": "${find_email.result.id}",
+        "response_type": "${receive_request.type || classify_response.result.recommended}",
+        "tone": "${receive_request.tone || 'professional'}",
+        "use_template": true
+      }
+    },
+    {
+      "id": "present_draft",
+      "action": "present_to_user",
+      "params": {
+        "draft": "${draft_response.result}",
+        "original_email": "${find_email.result}",
+        "request_approval": true
+      },
+      "timeout": 300
+    },
+    {
+      "id": "approval_gate",
+      "action": "wait_for_approval",
+      "params": {
+        "approval_timeout": 600,
+        "escalate_on_timeout": "save_as_draft"
+      }
+    },
+    {
+      "id": "send_email",
+      "action": "send_email",
+      "condition": "${approval_gate.result.approved}",
+      "params": {
+        "recipient": "${find_email.result.from}",
+        "subject": "${draft_response.result.subject}",
+        "body": "${draft_response.result.body}",
+        "reply_to_id": "${find_email.result.id}",
+        "approval_token": "${approval_gate.result.token}"
+      }
+    },
+    {
+      "id": "log_action",
+      "action": "log_email_action",
+      "params": {
+        "action": "sent_reply",
+        "email_id": "${find_email.result.id}",
+        "recipient": "${find_email.result.from}",
+        "timestamp": "${send_email.result.sent_at}"
+      }
+    }
+  ],
+  "on_rejection": {
+    "id": "save_draft",
+    "action": "save_as_draft",
+    "params": {
+      "email_id": "${find_email.result.id}",
+      "draft_content": "${draft_response.result}"
+    }
+  },
+  "notifications": {
+    "on_send": {
+      "type": "confirmation",
+      "message": "Email sent to {recipient}"
+    },
+    "on_rejection": {
+      "type": "info",
+      "message": "Draft saved for later"
+    }
+  }
+}

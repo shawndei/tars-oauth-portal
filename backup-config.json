@@ -1,0 +1,287 @@
+{
+  "version": "1.0",
+  "system": {
+    "name": "Shawn's TARS",
+    "workspace": "C:\\Users\\DEI\\.openclaw\\workspace",
+    "timezone": "America/Mazatlan"
+  },
+  "backups": {
+    "enabled": true,
+    "backupDir": "backups",
+    "logsDir": "backups/logs",
+    "retention": {
+      "daily": 7,
+      "weekly": 4,
+      "monthly": 12,
+      "onDemand": -1
+    },
+    "schedule": {
+      "frequency": "daily",
+      "time": "02:00",
+      "timezone": "America/Mazatlan"
+    },
+    "incremental": {
+      "enabled": true,
+      "maxDeltasPerFull": 20,
+      "compressionLevel": 6
+    },
+    "compression": {
+      "enabled": true,
+      "format": "zip",
+      "compressionLevel": 6
+    },
+    "verification": {
+      "enabled": true,
+      "algorithm": "sha256",
+      "verifyOnCreation": true,
+      "verifyOnRestore": true
+    }
+  },
+  "versionControl": {
+    "enabled": true,
+    "versionHistoryDir": "version-history",
+    "maxVersionsPerFile": 50,
+    "trackFiles": [
+      "MEMORY.md",
+      "AGENTS.md",
+      "SOUL.md",
+      "USER.md",
+      "TOOLS.md",
+      "HEARTBEAT.md",
+      "memory/**/*.md",
+      "backup-config.json",
+      "**/SKILL.md",
+      "**/*-config.json",
+      "skills/**/*.ps1"
+    ],
+    "excludePatterns": [
+      "**/*.tmp",
+      "**/*.log",
+      "**/node_modules/**",
+      "**/.git/**"
+    ],
+    "diffGeneration": {
+      "enabled": true,
+      "format": "unified",
+      "contextLines": 3
+    },
+    "autoTrack": {
+      "enabled": true,
+      "trackInterval": 3600,
+      "minChangeSize": 10
+    }
+  },
+  "destinations": {
+    "local": {
+      "enabled": true,
+      "path": "backups",
+      "redundancy": "single",
+      "verification": "sha256"
+    },
+    "cloud": {
+      "enabled": false,
+      "providers": [
+        {
+          "name": "aws-s3",
+          "enabled": false,
+          "bucket": "openclaw-backups-prod",
+          "region": "us-east-1",
+          "storageClass": "STANDARD_IA",
+          "encryption": "AES256",
+          "credentialsSource": "environment"
+        },
+        {
+          "name": "azure-blob",
+          "enabled": false,
+          "container": "openclaw-backups",
+          "storageAccount": "tarsbackups",
+          "tier": "Cool",
+          "encryption": "default"
+        },
+        {
+          "name": "google-cloud",
+          "enabled": false,
+          "bucket": "openclaw-backups-gcp",
+          "region": "us-central1",
+          "storageClass": "NEARLINE",
+          "encryption": "default"
+        }
+      ]
+    }
+  },
+  "exclusions": {
+    "directories": [
+      "node_modules",
+      ".git",
+      ".github/workflows",
+      "backups",
+      "version-history",
+      ".openclaw/cache",
+      "logs",
+      "monitoring_logs",
+      "load-test-results",
+      ".vscode",
+      ".idea",
+      "**/.pytest_cache",
+      "**/venv",
+      "**/env"
+    ],
+    "files": [
+      ".env",
+      ".env.*",
+      "*.tmp",
+      "*.log",
+      "*.pid",
+      ".DS_Store",
+      "Thumbs.db",
+      "*.lock",
+      "package-lock.json"
+    ],
+    "patterns": [
+      "**/*-backup*",
+      "**/*-restore*",
+      "**/*.swp",
+      "**/*~"
+    ]
+  },
+  "features": {
+    "encryption": {
+      "enabled": false,
+      "algorithm": "AES-256",
+      "keyManagement": "environment"
+    },
+    "deduplication": {
+      "enabled": true,
+      "algorithm": "content-hash"
+    },
+    "bandwidth": {
+      "throttling": {
+        "enabled": false,
+        "maxMbps": 50
+      }
+    },
+    "notifications": {
+      "enabled": true,
+      "notifyOnSuccess": true,
+      "notifyOnFailure": true,
+      "notifyOnCompletion": true
+    }
+  },
+  "logging": {
+    "enabled": true,
+    "logDir": "backups/logs",
+    "level": "info",
+    "retention": {
+      "days": 30,
+      "maxFiles": 100
+    },
+    "format": "json",
+    "includeMetrics": true,
+    "auditTrail": {
+      "enabled": true,
+      "logAllOperations": true,
+      "logRestores": true,
+      "logDeletions": true
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "metricsDir": "backups/metrics",
+    "trackMetrics": [
+      "backup_duration_ms",
+      "backup_size_bytes",
+      "files_changed",
+      "compression_ratio",
+      "verification_status",
+      "restore_success_rate"
+    ],
+    "alerts": {
+      "backupFailure": {
+        "enabled": true,
+        "action": "notify"
+      },
+      "diskSpaceLow": {
+        "enabled": true,
+        "threshold": "10%",
+        "action": "cleanup-old"
+      },
+      "verificationFailed": {
+        "enabled": true,
+        "action": "notify"
+      }
+    }
+  },
+  "recovery": {
+    "autoRestore": {
+      "enabled": false,
+      "onCorruptionDetected": true,
+      "confirmBefore": true
+    },
+    "pointInTime": {
+      "enabled": true,
+      "retentionDays": 30
+    },
+    "selectiveRestore": {
+      "enabled": true,
+      "supportedGranularity": ["file", "directory", "patterns"]
+    }
+  },
+  "scheduling": {
+    "windows": {
+      "taskName": "OpenClaw-Daily-Backup",
+      "taskCategory": "OpenClaw",
+      "triggerType": "daily",
+      "triggerTime": "02:00",
+      "runWithHighestPrivileges": false,
+      "enabled": true
+    },
+    "cron": {
+      "schedule": "0 2 * * *",
+      "timezone": "America/Mazatlan",
+      "enabled": false
+    }
+  },
+  "performance": {
+    "parallelism": {
+      "enabled": true,
+      "maxThreads": 4,
+      "chunkSize": "100MB"
+    },
+    "caching": {
+      "enabled": true,
+      "strategy": "file-hash"
+    },
+    "optimization": {
+      "skipUnchangedFiles": true,
+      "fastIncremental": true,
+      "deduplicateContent": true
+    }
+  },
+  "metadata": {
+    "trackFileSize": true,
+    "trackFileHash": true,
+    "trackPermissions": true,
+    "trackModificationTime": true,
+    "includeDescription": true,
+    "tagBackups": true
+  },
+  "integrations": {
+    "heartbeat": {
+      "enabled": true,
+      "checkInterval": 86400,
+      "reportStatus": true
+    },
+    "cron": {
+      "enabled": true,
+      "jobName": "backup-version-control-daily"
+    },
+    "slack": {
+      "enabled": false,
+      "webhookUrl": "env:SLACK_BACKUP_WEBHOOK"
+    },
+    "email": {
+      "enabled": false,
+      "recipients": ["admin@example.com"]
+    }
+  }
+}

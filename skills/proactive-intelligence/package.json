@@ -1,0 +1,25 @@
+{
+  "name": "@openclaw/proactive-intelligence",
+  "version": "1.0.0",
+  "description": "Proactive Intelligence system for OpenClaw - detects patterns and anticipates user needs",
+  "main": "proactive-intelligence.js",
+  "scripts": {
+    "test": "node test/test-proactive-intelligence.js",
+    "heartbeat": "node proactive-intelligence.js heartbeat",
+    "status": "node proactive-intelligence.js status"
+  },
+  "keywords": [
+    "openclaw",
+    "proactive",
+    "intelligence",
+    "pattern-detection",
+    "ai-assistant"
+  ],
+  "author": "OpenClaw",
+  "license": "INTERNAL",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

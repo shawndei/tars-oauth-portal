@@ -1,0 +1,10 @@
+{
+  "agents": {
+    "researcher": {
+      "active": 1,
+      "capacity": 3,
+      "utilization": "33.3%",
+      "updatedAt": 1771003637253
+    }
+  }
+}

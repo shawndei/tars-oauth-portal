@@ -1,0 +1,9 @@
+Subject: Re: {subject}
+
+Hi {sender_name},
+
+Got it—thanks for the heads up. I've noted this for future reference.
+
+{context}
+
+{name}

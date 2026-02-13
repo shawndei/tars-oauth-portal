@@ -1,0 +1,59 @@
+{
+  "enabled": true,
+  "limits": {
+    "tokens": {
+      "perSession": 100000,
+      "perDay": 1000000
+    },
+    "cost": {
+      "perSession": 1.00,
+      "perDay": 30.00,
+      "perMonth": 900.00
+    },
+    "apiCalls": {
+      "perMinute": 4000,
+      "perHour": 240000,
+      "anthropic": {
+        "tier": 4,
+        "rpm": 4000,
+        "sonnet": {
+          "itpm": 2000000,
+          "otpm": 400000
+        },
+        "haiku": {
+          "itpm": 4000000,
+          "otpm": 800000
+        },
+        "opus": {
+          "itpm": 2000000,
+          "otpm": 400000
+        }
+      }
+    }
+  },
+  "thresholds": {
+    "warning": 0.8,
+    "degradation": 0.9,
+    "critical": 0.95,
+    "block": 1.0
+  },
+  "actions": {
+    "warning": [
+      "alert_user",
+      "log"
+    ],
+    "degradation": [
+      "switch_to_haiku",
+      "alert_user"
+    ],
+    "critical": [
+      "queue_non_urgent",
+      "alert_user"
+    ],
+    "block": [
+      "block_requests",
+      "alert_user",
+      "notify_admin"
+    ]
+  }
+}

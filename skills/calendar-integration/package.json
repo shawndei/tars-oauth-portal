@@ -1,0 +1,32 @@
+{
+  "name": "calendar-integration",
+  "version": "1.0.0",
+  "description": "Calendar Integration & Meeting Automation System for TARS",
+  "main": "calendar-integration.js",
+  "scripts": {
+    "test": "node test/test-calendar.js",
+    "start": "node -e \"const cal = require('./calendar-integration'); cal.getInstance().then(() => console.log('Calendar ready'))\""
+  },
+  "keywords": [
+    "calendar",
+    "meeting",
+    "scheduling",
+    "automation",
+    "tars",
+    "google-calendar",
+    "outlook"
+  ],
+  "author": "Shawn Dunn",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^118.0.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "dotenv-cli": "^7.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

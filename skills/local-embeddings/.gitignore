@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Model cache
+.cache/
+models/
+
+# Test outputs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

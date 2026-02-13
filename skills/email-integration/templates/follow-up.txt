@@ -1,0 +1,12 @@
+Subject: Follow-up: {subject}
+
+Hi {sender_name},
+
+Just checking in on the {action} we discussed. How are things progressing?
+
+{context}
+
+Let me know if you need anything from my end.
+
+Best regards,
+{name}
