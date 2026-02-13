@@ -5,6 +5,37 @@ Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not i
 
 ---
 
+## 🚀 ACTIVE: Heartbeat Throttle (v1.0 - 2026-02-13)
+
+**Status:** ✅ DEPLOYED AND ACTIVE
+
+**What it does:**
+- Limits heartbeats to **maximum once per 15 minutes**
+- Ignores all background sub-agent activity
+- Stores `last_heartbeat_timestamp` in `heartbeat_state.json`
+- Automatically skips if <15 minutes since last heartbeat
+
+**Key files:**
+- `heartbeat-throttle.js` - Core throttle logic
+- `heartbeat-wrapper.js` - Integration wrapper
+- `heartbeat_state.json` - Timestamp storage
+
+**Implementation:** Heartbeat requests go through throttle check before execution. If throttled, returns `HEARTBEAT_SKIP` status without executing logic.
+
+**To check status:**
+```javascript
+const throttle = require('./heartbeat-throttle');
+console.log(throttle.getStatus());
+```
+
+**To force reset (testing only):**
+```javascript
+const throttle = require('./heartbeat-throttle');
+throttle.resetThrottle();
+```
+
+---
+
 ## Proactive Intelligence Patterns
 
 ### 1. Check Autonomous Task Queue with Decomposition
@@ -67,16 +98,36 @@ $staleLocks = Get-ChildItem -Path $lockPath -Filter "*.lock" -ErrorAction Silent
 
 ### 4. Cost Monitoring & Rate Limiting (Every heartbeat)
 
-**Function:** `checkBudgetAndEnforce()`
+**Function:** `checkBudgetAndEnforce()` - NOW WITH LIVE DATA
+
+**CRITICAL CHANGE (2026-02-13T13:34):**
+Cost tracking is now LIVE! The system:
+- ✅ Tracks every session completion in real-time
+- ✅ Records to costs.json with fresh timestamps (within seconds)
+- ✅ Updates analytics/costs.json for this heartbeat to read
+- ✅ No stale data - timestamp always current
+
+**Heartbeat reads LIVE costs using:**
+```javascript
+// Method 1: Read fresh costs.json (RECOMMENDED)
+const costs = read('costs.json');
+const today = getTodayString(); // "2026-02-13"
+const dailyCost = costs[today]?.daily?.cost || 0;
+const timestamp = costs[today]?.daily?.timestamp; // VERIFY FRESHNESS
+
+// IMPORTANT: Check timestamp is fresh (within last 5 minutes)
+const costAge = (new Date() - new Date(timestamp)) / 1000 / 60; // minutes
+if (costAge > 5) {
+  log(`⚠️ WARNING: Cost data is ${costAge.toFixed(1)}m old. May be stale.`);
+}
+
+// Method 2: Force sync for critical checks
+const { syncedpath } = await forceSyncCosts(); // Re-verifies costs.json
+```
 
 **Logic:**
 ```javascript
-const costs = read('costs.json');
 const limits = read('rate-limits.json');
-const today = getTodayString(); // "2026-02-13"
-
-// Get today's daily cost
-const dailyCost = costs[today]?.daily?.cost || 0;
 const dailyLimit = limits.limits.cost.perDay; // $10.00
 const percentage = (dailyCost / dailyLimit) * 100;
 
