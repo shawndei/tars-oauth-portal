@@ -1,0 +1,26 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.com.tars.companion",
+        "paths": [
+          "/install",
+          "/setup",
+          "/open",
+          "/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.com.tars.companion"
+    ]
+  },
+  "appclips": {
+    "apps": [
+      "TEAMID.com.tars.companion.Clip"
+    ]
+  }
+}

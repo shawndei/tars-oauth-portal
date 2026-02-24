@@ -1,0 +1,48 @@
+{
+  "WFWorkflowName": "Install TARS Companion",
+  "WFWorkflowMinimumClientVersion": 900,
+  "WFWorkflowMinimumClientVersionString": "900",
+  "WFWorkflowIcon": {
+    "WFWorkflowIconStartColor": 463140863,
+    "WFWorkflowIconGlyphNumber": 61528
+  },
+  "WFWorkflowInputContentItemClasses": [
+    "WFURLContentItem"
+  ],
+  "WFWorkflowActions": [
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+      "WFWorkflowActionParameters": {
+        "Text": "🤖 TARS Companion Setup\n\nThis shortcut will help you install TARS Companion on your iPhone.\n\nTap Continue to begin."
+      }
+    },
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.openurl",
+      "WFWorkflowActionParameters": {
+        "WFInput": {
+          "WFValue": {
+            "string": "https://php-tamil-mercury-integration.trycloudflare.com?action=setup",
+            "attachmentsByRange": {}
+          },
+          "WFSerializationType": "WFTextTokenString"
+        }
+      }
+    },
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+      "WFWorkflowActionParameters": {
+        "Text": "📱 Add to Home Screen\n\n1. Tap the Share button (📤) at the bottom\n2. Scroll down and tap 'Add to Home Screen'\n3. Name it 'TARS' and tap Add\n\nOnce installed, open TARS from your home screen to complete setup."
+      }
+    },
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.waittoreturn",
+      "WFWorkflowActionParameters": {}
+    },
+    {
+      "WFWorkflowActionIdentifier": "is.workflow.actions.showresult",
+      "WFWorkflowActionParameters": {
+        "Text": "✅ Setup Complete!\n\nTARS Companion is now installed. Open it from your home screen to start syncing your data.\n\nEnjoy! 🎉"
+      }
+    }
+  ]
+}

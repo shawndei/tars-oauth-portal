@@ -1,0 +1,15 @@
+{
+  "name": "tars-ios-companion",
+  "version": "1.0.0",
+  "description": "TARS Companion PWA for iOS",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "node generate-icons.js && echo Build complete",
+    "deploy:pages": "npx wrangler pages deploy . --project-name=tars-companion",
+    "deploy:netlify": "npx netlify deploy --prod --dir=.",
+    "deploy:surge": "npx surge . tars-companion.surge.sh"
+  },
+  "keywords": ["pwa", "tars", "ios", "companion"],
+  "author": "TARS",
+  "license": "MIT"
+}

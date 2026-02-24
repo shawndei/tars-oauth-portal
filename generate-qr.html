@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARS Companion QR Code Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            background: linear-gradient(90deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        #qrcode {
+            display: inline-block;
+        }
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #1a1a2e;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #00d4ff, #7c3aed);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .info {
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        code {
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+    </style>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>🤖 TARS QR Code Generator</h1>
+    <p>Generate a QR code for easy TARS Companion installation.</p>
+    
+    <input type="text" id="urlInput" placeholder="Enter install URL" value="https://php-tamil-mercury-integration.trycloudflare.com/install">
+    
+    <button onclick="generateQR()">Generate QR Code</button>
+    
+    <div class="qr-container">
+        <div id="qrcode"></div>
+    </div>
+    
+    <button class="download-btn" onclick="downloadQR()">📥 Download QR Code</button>
+    
+    <div class="info">
+        <h3>📋 How to Use</h3>
+        <p>1. Generate the QR code with your install URL</p>
+        <p>2. Download and share with users</p>
+        <p>3. Users scan with iPhone camera → opens install page</p>
+        
+        <h3 style="margin-top: 20px;">🔗 Recommended URLs</h3>
+        <p><code>https://your-domain.com/install</code> - Install landing page</p>
+        <p><code>https://your-domain.com?action=setup</code> - Direct to setup wizard</p>
+    </div>
+    
+    <script>
+        let qrcode = null;
+        
+        function generateQR() {
+            const url = document.getElementById('urlInput').value;
+            const container = document.getElementById('qrcode');
+            
+            // Clear previous
+            container.innerHTML = '';
+            
+            // Generate new
+            qrcode = new QRCode(container, {
+                text: url,
+                width: 256,
+                height: 256,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+        
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (canvas) {
+                const link = document.createElement('a');
+                link.download = 'tars-companion-qr.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }
+        }
+        
+        // Generate on load
+        window.onload = generateQR;
+    </script>
+</body>
+</html>
